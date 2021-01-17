@@ -2,18 +2,21 @@ import ComboBox from "./ComboBox";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
   const ref = useRef();
 
-  const onLoad = () => {
-    setLoaded(true);
+  const onLoad = (val) => {
+    setLoaded(val);
   };
 
   useEffect(() => {
     if (ref.current && ref.current.complete) {
-      onLoad();
+      onLoad(true);
+    } else {
+      onLoad(false);
     }
   });
 
@@ -84,20 +87,23 @@ const IccPlayerComparison = () => {
               height: "85%",
             }}
           >
-            {firstPlayer.avatar_url ? (
-              <img
-                ref={firstRef}
-                onLoad={firstOnLoad}
-                src={firstPlayer.avatar_url}
-                alt=""
-                style={{ flexShrink: 0, minWidth: "100%", maxWidth: "100%" }}
-              />
-            ) : (
-              <img
-                src="\default-user.jpg"
-                style={{ flexShrink: 0, minWidth: "100%", maxWidth: "100%" }}
-              />
-            )}
+            <img
+              ref={firstRef}
+              onLoad={firstOnLoad}
+              src={
+                firstPlayer.avatar_url
+                  ? firstPlayer.avatar_url
+                  : "/default-user.jpg"
+              }
+              alt=""
+              style={{
+                flexShrink: 0,
+                minWidth: "100%",
+                maxWidth: "100%",
+                display: firstLoaded ? "block" : "none",
+              }}
+            />
+            {!firstLoaded ? <CircularProgress /> : null}
           </div>
         </Grid>
         <Grid item xs={6}>
@@ -112,20 +118,23 @@ const IccPlayerComparison = () => {
               height: "85%",
             }}
           >
-            {secondPlayer.avatar_url ? (
-              <img
-                ref={secondRef}
-                onLoad={secondOnLoad}
-                src={secondPlayer.avatar_url}
-                alt=""
-                style={{ flexShrink: 0, minWidth: "100%", maxWidth: "100%" }}
-              />
-            ) : (
-              <img
-                src="\default-user.jpg"
-                style={{ flexShrink: 0, minWidth: "100%", maxWidth: "100%" }}
-              />
-            )}
+            <img
+              ref={secondRef}
+              onLoad={secondOnLoad}
+              src={
+                secondPlayer.avatar_url
+                  ? secondPlayer.avatar_url
+                  : "/default-user.jpg"
+              }
+              alt=""
+              style={{
+                flexShrink: 0,
+                minWidth: "100%",
+                maxWidth: "100%",
+                display: secondLoaded ? "block" : "none",
+              }}
+            />
+            {!secondLoaded ? <CircularProgress /> : null}
           </div>
         </Grid>
       </Grid>
