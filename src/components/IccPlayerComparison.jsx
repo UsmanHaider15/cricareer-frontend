@@ -79,6 +79,9 @@ const IccPlayerComparison = () => {
               justifyContent: "center",
               alignItems: "center",
               overflow: "hidden",
+              border: "1px solid black",
+              padding: 10,
+              height: "85%",
             }}
           >
             {firstPlayer.avatar_url ? (
@@ -104,6 +107,9 @@ const IccPlayerComparison = () => {
               justifyContent: "center",
               alignItems: "center",
               overflow: "hidden",
+              border: "1px solid black",
+              padding: 10,
+              height: "85%",
             }}
           >
             {secondPlayer.avatar_url ? (
