@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { withRouter } from "react-router";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -23,14 +24,25 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
-const IccPlayerComparison = () => {
+const IccPlayerComparison = ({ history }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
-  const [firstPlayer, setFirstPlayer] = useState({});
-  const [secondPlayer, setSecondPlayer] = useState({});
+  const [firstPlayer, setFirstPlayer] = useState({
+    player_name: "Virat Kohli",
+    player_id: 253802,
+    avatar_url:
+      "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1",
+  });
+  const [secondPlayer, setSecondPlayer] = useState({
+    player_name: "Babar Azam",
+    player_id: 348144,
+    avatar_url:
+      "https://www.espncricinfo.com/inline/content/image/1221110.html",
+  });
   const [firstRef, firstLoaded, firstOnLoad] = useImageLoaded();
   const [secondRef, secondLoaded, secondOnLoad] = useImageLoaded();
 
   useEffect(() => {
+    console.log("history", history);
     axios
       .get("http://localhost:3001/get_players_list", {
         params: {
@@ -63,6 +75,7 @@ const IccPlayerComparison = () => {
           <ComboBox
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
+            player={firstPlayer}
             isFirst={true}
           />
         </Grid>
@@ -70,6 +83,7 @@ const IccPlayerComparison = () => {
           <ComboBox
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
+            player={secondPlayer}
             isFirst={false}
           />
         </Grid>
@@ -142,4 +156,4 @@ const IccPlayerComparison = () => {
   );
 };
 
-export default IccPlayerComparison;
+export default withRouter(IccPlayerComparison);

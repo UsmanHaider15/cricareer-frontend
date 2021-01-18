@@ -7,6 +7,7 @@ import axios from "axios";
 export default function ComboBox({
   InitialPlayersList,
   setSelectedPlayer,
+  player,
   isFirst,
 }) {
   const [searchedPlayersList, setSearchedPlayersList] = useState([]);
@@ -35,6 +36,8 @@ export default function ComboBox({
   return (
     <div>
       <Autocomplete
+        defaultValue={player}
+        disableClearable={true}
         // id="combo-box-demo"
         options={
           searchedPlayersList.length ? searchedPlayersList : InitialPlayersList
