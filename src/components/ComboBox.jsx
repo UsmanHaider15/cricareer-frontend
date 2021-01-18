@@ -36,7 +36,7 @@ export default function ComboBox({
   return (
     <div>
       <Autocomplete
-        defaultValue={player}
+        value={player}
         disableClearable={true}
         // id="combo-box-demo"
         options={
@@ -44,14 +44,18 @@ export default function ComboBox({
         }
         getOptionLabel={(option) => option.player_name}
         getOptionSelected={(option, value) => {
-          setSelectedPlayer(value, isFirst);
+          if (option.player_name === value.player_name) {
+            setSelectedPlayer(value, isFirst);
+          }
           return true;
         }}
         onInputChange={(event, value, reason) => {
-          if (reason === "clear") {
-            setSelectedPlayer({}, isFirst);
-          }
           return reason === "input" && setSearchStr(value);
+        }}
+        onChange={(event, value, reason) => {
+          if (reason === "select-option") {
+            setSelectedPlayer(value, isFirst);
+          }
         }}
         renderInput={(params) => (
           <TextField

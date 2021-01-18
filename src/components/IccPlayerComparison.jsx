@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
+import qs from "qs";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -26,20 +27,33 @@ const useImageLoaded = () => {
 
 const IccPlayerComparison = ({ history }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
-  const [firstPlayer, setFirstPlayer] = useState({
-    player_name: "Virat Kohli",
-    player_id: 253802,
-    avatar_url:
-      "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1",
-  });
-  const [secondPlayer, setSecondPlayer] = useState({
-    player_name: "Babar Azam",
-    player_id: 348144,
-    avatar_url:
-      "https://www.espncricinfo.com/inline/content/image/1221110.html",
-  });
+  const [firstPlayer, setFirstPlayer] = useState({});
+  //   {
+  //   player_name: "Virat Kohli",
+  //   player_id: 253802,
+  //   avatar_url:
+  //     "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1",
+  // }
+  const [secondPlayer, setSecondPlayer] = useState({});
+  //   {
+  //   player_name: "Babar Azam",
+  //   player_id: 348144,
+  //   avatar_url:
+  //     "https://www.espncricinfo.com/inline/content/image/1221110.html",
+  // }
   const [firstRef, firstLoaded, firstOnLoad] = useImageLoaded();
   const [secondRef, secondLoaded, secondOnLoad] = useImageLoaded();
+
+  useEffect(() => {
+    if (Object.keys(firstPlayer).length && Object.keys(secondPlayer).length) {
+      console.log("I am ere");
+      console.log("first");
+      history.push({
+        pathname: "",
+        search: `first_player_id=${firstPlayer.player_id}&second_player_id=${secondPlayer.player_id}`,
+      });
+    }
+  }, [firstPlayer, secondPlayer]);
 
   useEffect(() => {
     console.log("history", history);
@@ -58,6 +72,46 @@ const IccPlayerComparison = ({ history }) => {
       .then(function () {
         // always executed
       });
+
+    const player_ids = qs.parse(history.location.search.substring(1));
+    const first_player_id = player_ids.first_player_id
+      ? player_ids.first_player_id
+      : 253802;
+    const second_player_id = player_ids.second_player_id
+      ? player_ids.second_player_id
+      : 348144;
+
+    axios
+      .get(`http://localhost:3001/get_player_by_id`, {
+        params: {
+          player_id: first_player_id,
+        },
+      })
+      .then(function (response) {
+        setFirstPlayer(response.data.rows[0]);
+        // console.log("first player", response.data.rows);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .get(`http://localhost:3001/get_player_by_id`, {
+        params: {
+          player_id: second_player_id,
+        },
+      })
+      .then(function (response) {
+        setSecondPlayer(response.data.rows[0]);
+        // console.log("second player", response.data.rows);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    history.push({
+      // pathname: "",
+      search: `first_player_id=${first_player_id}&second_player_id=${second_player_id}`,
+    });
   }, []);
 
   const handleSelectedPlayer = (player, isFirst) => {
@@ -148,6 +202,7 @@ const IccPlayerComparison = ({ history }) => {
                 display: secondLoaded ? "block" : "none",
               }}
             />
+
             {!secondLoaded ? <CircularProgress /> : null}
           </div>
         </Grid>
