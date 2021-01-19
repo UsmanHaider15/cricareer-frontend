@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import qs from "qs";
+import IccCareerComparisons from "./IccCareerComparisons";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -28,26 +29,12 @@ const useImageLoaded = () => {
 const IccPlayerComparison = ({ history }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [firstPlayer, setFirstPlayer] = useState({});
-  //   {
-  //   player_name: "Virat Kohli",
-  //   player_id: 253802,
-  //   avatar_url:
-  //     "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1",
-  // }
   const [secondPlayer, setSecondPlayer] = useState({});
-  //   {
-  //   player_name: "Babar Azam",
-  //   player_id: 348144,
-  //   avatar_url:
-  //     "https://www.espncricinfo.com/inline/content/image/1221110.html",
-  // }
   const [firstRef, firstLoaded, firstOnLoad] = useImageLoaded();
   const [secondRef, secondLoaded, secondOnLoad] = useImageLoaded();
 
   useEffect(() => {
     if (Object.keys(firstPlayer).length && Object.keys(secondPlayer).length) {
-      console.log("I am ere");
-      console.log("first");
       history.push({
         pathname: "",
         search: `first_player_id=${firstPlayer.player_id}&second_player_id=${secondPlayer.player_id}`,
@@ -56,7 +43,6 @@ const IccPlayerComparison = ({ history }) => {
   }, [firstPlayer, secondPlayer]);
 
   useEffect(() => {
-    console.log("history", history);
     axios
       .get("http://localhost:3001/get_players_list", {
         params: {
@@ -206,6 +192,9 @@ const IccPlayerComparison = ({ history }) => {
             {!secondLoaded ? <CircularProgress /> : null}
           </div>
         </Grid>
+      </Grid>
+      <Grid container>
+        <IccCareerComparisons />
       </Grid>
     </div>
   );
