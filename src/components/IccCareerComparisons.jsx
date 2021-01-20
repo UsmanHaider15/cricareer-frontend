@@ -7,6 +7,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import IccBattingAveragesComparison from "./IccBattingAveragesComparison";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,6 +43,11 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  tab: {
+    "& .MuiBox-root": {
+      padding: "8px",
+    },
+  },
   root: {
     backgroundColor: theme.palette.background.paper,
     width: "100%",
@@ -81,8 +87,13 @@ export default function IccCareerComparisons() {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          Batting
+        <TabPanel
+          value={value}
+          index={0}
+          dir={theme.direction}
+          className={classes.tab}
+        >
+          <IccBattingAveragesComparison />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           Bowling

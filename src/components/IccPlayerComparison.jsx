@@ -75,7 +75,6 @@ const IccPlayerComparison = ({ history }) => {
       })
       .then(function (response) {
         setFirstPlayer(response.data.rows[0]);
-        // console.log("first player", response.data.rows);
       })
       .catch(function (error) {
         console.log(error);
@@ -89,7 +88,6 @@ const IccPlayerComparison = ({ history }) => {
       })
       .then(function (response) {
         setSecondPlayer(response.data.rows[0]);
-        // console.log("second player", response.data.rows);
       })
       .catch(function (error) {
         console.log(error);
