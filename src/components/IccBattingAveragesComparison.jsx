@@ -27,7 +27,7 @@ export default function IccBattingAveragesComparison() {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({ first_player: {}, second_player: {} });
 
-  const formatOptions = ["ODIs", "T20Is", "T20", "Tests"];
+  const formatOptions = ["ODIs", "T20Is", "T20s", "Tests"];
   const handleChange = (event) => {
     setFormat(event.target.value);
   };
@@ -103,7 +103,6 @@ export default function IccBattingAveragesComparison() {
                     color: "white",
                     backgroundColor: "#ff2400",
                     flex: "1 1 0",
-                    // borderTopRightRadius: 100,
                     borderBottomLeftRadius: 20,
                     borderTopLeftRadius: 20,
                     fontWeight: "bold",
@@ -131,7 +130,6 @@ export default function IccBattingAveragesComparison() {
                     borderTopRightRadius: 20,
                     borderBottomRightRadius: 20,
                     fontWeight: "bold",
-                    // borderTopLeftRadius: 100,
                   }}
                 >
                   {data.second_player[key]}
