@@ -58,29 +58,31 @@ export default function IccBattingAveragesComparison() {
   }, [format]);
 
   return (
-    <div style={{ textAlign: "left" }}>
-      <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Format</InputLabel>
-        <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={format}
-          onChange={handleChange}
-          label="Format"
-          className={classes.root}
-        >
-          {formatOptions.map((option) => (
-            <MenuItem value={option}>{option}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <div>
+      <div style={{ textAlign: "left" }}>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel id="demo-controlled-open-select-label">Format</InputLabel>
+          <Select
+            labelId="demo-controlled-open-select-label"
+            id="demo-controlled-open-select"
+            open={open}
+            onClose={handleClose}
+            onOpen={handleOpen}
+            value={format}
+            onChange={handleChange}
+            label="Format"
+            className={classes.root}
+          >
+            {formatOptions.map((option) => (
+              <MenuItem value={option}>{option}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+
       <div
         style={{
-          marginBottom: 1000,
-          textAlign: "center",
+          marginBottom: 20,
         }}
       >
         <div>
