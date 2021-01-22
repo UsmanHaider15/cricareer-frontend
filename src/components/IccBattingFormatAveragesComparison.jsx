@@ -7,6 +7,8 @@ import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import humanify from "../Utils/humanify";
+import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
+import DataViewTabs from "./DataViewTabs";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -80,9 +82,14 @@ export default function IccBattingFormatAveragesComparison() {
           secondPlayer[obj["match_type"]] = obj[battingAverageOption.value];
         });
 
-        setData({ first_player: firstPlayer, second_player: secondPlayer });
+        const first_player = {};
+        const second_player = {};
+        ["Tests", "ODIs", "T20Is", "T20s"].map((format) => {
+          first_player[format] = firstPlayer[format];
+          second_player[format] = secondPlayer[format];
+        });
 
-        // ["ODIs", "T20Is", "T20s", "Tests"]
+        setData({ first_player, second_player });
       })
       .catch(function (error) {
         console.log(error);
@@ -161,6 +168,12 @@ export default function IccBattingFormatAveragesComparison() {
             </div>
           ))}
         </div>
+        <div>
+          <IccBattingFormatAveragesComparisonChart chartData={data} />
+        </div>
+      </div>
+      <div>
+        <DataViewTabs />
       </div>
     </div>
   );
