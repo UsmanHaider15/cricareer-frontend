@@ -5,7 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { TableChart, BarChart } from "@material-ui/icons";
 import TableView from "./common/TableView";
-import ChartView from "./ChartView";
+import ChartView from "./common/ChartView";
 import TabPanel from "./common/TabPanel";
 
 const useStyles = makeStyles((theme) => ({
