@@ -1,0 +1,15 @@
+export const battingAverageOptions = [
+  { label: "Matches Played", value: "matches_played" },
+  { label: "Innings Played", value: "innings_played" },
+  { label: "Not Outs", value: "not_outs" },
+  { label: "Runs Scored", value: "runs_scored" },
+  { label: "Highest Inns Score", value: "highest_inns_score" },
+  { label: "Batting Average", value: "batting_average" },
+  { label: "Balls Faced", value: "balls_faced" },
+  { label: "Batting Strike Rate", value: "batting_strike_rate" },
+  { label: "Hundreds Scored", value: "hundreds_scored" },
+  { label: "Fifties Scored", value: "fifties_scored" },
+  { label: "Boundary Fours", value: "boundary_fours" },
+  { label: "Boundary Sixes", value: "boundary_sixes" },
+  { label: "Catches Taken", value: "catches_taken" },
+];

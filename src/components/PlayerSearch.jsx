@@ -4,7 +4,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function ComboBox({
+export default function PlayerSearch({
   InitialPlayersList,
   setSelectedPlayer,
   player,

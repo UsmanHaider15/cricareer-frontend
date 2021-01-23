@@ -5,8 +5,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import axios from "axios";
-import humanify from "../Utils/humanify";
-import Typography from "@material-ui/core/Typography";
 import TableView from "./common/TableView";
 
 const useStyles = makeStyles((theme) => ({

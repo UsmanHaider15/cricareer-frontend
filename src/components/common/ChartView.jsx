@@ -13,7 +13,6 @@ const obj = {
 */
 
 const ChartView = ({ chartData }) => {
-  console.log("chartData", chartData);
   const data = {
     labels: Object.keys(chartData.first_player),
     datasets: [

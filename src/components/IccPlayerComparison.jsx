@@ -1,4 +1,4 @@
-import ComboBox from "./ComboBox";
+import PlayerSearch from "./PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
@@ -110,7 +110,7 @@ const IccPlayerComparison = ({ history }) => {
     <div>
       <Grid container style={{ paddingTop: 10 }} spacing={1}>
         <Grid item xs={6}>
-          <ComboBox
+          <PlayerSearch
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={firstPlayer}
@@ -118,7 +118,7 @@ const IccPlayerComparison = ({ history }) => {
           />
         </Grid>
         <Grid item xs={6}>
-          <ComboBox
+          <PlayerSearch
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={secondPlayer}
