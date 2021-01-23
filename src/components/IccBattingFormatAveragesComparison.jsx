@@ -33,6 +33,10 @@ export default function IccBattingFormatAveragesComparison({
   });
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({ first_player: {}, second_player: {} });
+  const [chartData, setChartData] = useState({
+    first_player: {},
+    second_player: {},
+  });
 
   const battingAverageOptions = [
     { label: "Matches Played", value: "matches_played" },
@@ -93,13 +97,14 @@ export default function IccBattingFormatAveragesComparison({
           second_player[format] = second[format] ? second[format] : "-";
         });
 
+        setChartData({ first_player, second_player });
         setData({
           first_player: Object.assign(
-            { player_name: firstPlayer.player_name },
+            { player_name: firstPlayer.player_name.split(" ")[0] },
             first_player
           ),
           second_player: Object.assign(
-            { player_name: secondPlayer.player_name },
+            { player_name: secondPlayer.player_name.split(" ")[0] },
             second_player
           ),
         });
@@ -137,7 +142,12 @@ export default function IccBattingFormatAveragesComparison({
       </div>
       <div></div>
       <div>
-        <DataViewTabs data={data} />
+        <DataViewTabs
+          data={data}
+          chartData={chartData}
+          firstPlayer={firstPlayer}
+          secondPlayer={secondPlayer}
+        />
       </div>
     </div>
   );

@@ -1,13 +1,15 @@
 import { Bar } from "react-chartjs-2";
 
-const IccBattingFormatAveragesComparisonChart = ({ chartData }) => {
-  delete chartData.first_player.player_name;
-  delete chartData.second_player.player_name;
+const IccBattingFormatAveragesComparisonChart = ({
+  chartData,
+  firstPlayer,
+  secondPlayer,
+}) => {
   const data = {
     labels: Object.keys(chartData.first_player),
     datasets: [
       {
-        label: "My First dataset",
+        label: firstPlayer.player_name,
         backgroundColor: "rgba(255,99,132,0.2)",
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
@@ -18,7 +20,7 @@ const IccBattingFormatAveragesComparisonChart = ({ chartData }) => {
       },
 
       {
-        label: "My second dataset",
+        label: secondPlayer.player_name,
         backgroundColor: "rgba(155,231,91,0.2)",
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
@@ -33,7 +35,7 @@ const IccBattingFormatAveragesComparisonChart = ({ chartData }) => {
   const options = {
     responsive: true,
     legend: {
-      display: false,
+      display: true,
     },
     type: "bar",
   };

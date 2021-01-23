@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import IccBattingFormatAveragesComparisonTable from "./IccBattingFormatAveragesComparisonTable";
 import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
-import _ from "lodash";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -66,7 +65,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DataViewTabs({ data }) {
+export default function DataViewTabs({
+  data,
+  chartData,
+  firstPlayer,
+  secondPlayer,
+}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -93,7 +97,9 @@ export default function DataViewTabs({ data }) {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <IccBattingFormatAveragesComparisonChart
-          chartData={_.cloneDeep(data)}
+          chartData={chartData}
+          firstPlayer={firstPlayer}
+          secondPlayer={secondPlayer}
         />
       </TabPanel>
     </div>
