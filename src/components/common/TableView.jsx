@@ -3,19 +3,9 @@ import humanify from "../../Utils/humanify";
 
 const TableView = ({ data }) => {
   return (
-    <div
-      style={{
-        marginBottom: 20,
-      }}
-    >
+    <div>
       <Typography>
-        <div
-          style={{
-            boxShadow: "2px 2px 6px 0px #888888",
-            borderRadius: "10px 10px 10px 10px",
-            padding: 8,
-          }}
-        >
+        <div>
           {Object.keys(data.first_player)
             .filter(
               (key) =>

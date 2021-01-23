@@ -7,7 +7,7 @@ import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import humanify from "../Utils/humanify";
-import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
+import IccBattingFormatAveragesComparisonChart from "./ChartView";
 import DataViewTabs from "./DataViewTabs";
 
 const useStyles = makeStyles((theme) => ({

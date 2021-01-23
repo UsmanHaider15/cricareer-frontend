@@ -4,9 +4,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { TableChart, BarChart } from "@material-ui/icons";
-import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
-import TabPanel from "./common/TabPanel";
 import TableView from "./common/TableView";
+import ChartView from "./ChartView";
+import TabPanel from "./common/TabPanel";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,10 +69,12 @@ export default function DataViewTabs({
         <TableView data={data} />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.tabPanel}>
-        <IccBattingFormatAveragesComparisonChart
-          chartData={chartData}
-          firstPlayer={firstPlayer}
-          secondPlayer={secondPlayer}
+        <ChartView
+          chartData={{
+            ...chartData,
+            first_player_name: firstPlayer.player_name,
+            second_player_name: secondPlayer.player_name,
+          }}
         />
       </TabPanel>
     </div>

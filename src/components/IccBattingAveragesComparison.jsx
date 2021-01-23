@@ -89,7 +89,16 @@ export default function IccBattingAveragesComparison({
           </Select>
         </FormControl>
       </div>
-      <TableView data={data} />
+      <div
+        style={{
+          boxShadow: "2px 2px 6px 0px #888888",
+          borderRadius: "10px 10px 10px 10px",
+          padding: 8,
+          marginBottom: 20,
+        }}
+      >
+        <TableView data={data} />
+      </div>
     </div>
   );
 }
