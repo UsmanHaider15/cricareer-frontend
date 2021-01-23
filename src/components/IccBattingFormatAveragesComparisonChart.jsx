@@ -11,22 +11,14 @@ const IccBattingFormatAveragesComparisonChart = ({
       {
         label: firstPlayer.player_name,
         backgroundColor: "rgba(255, 36, 0, 0.6)",
-        // borderColor: "rgba(255, 36, 0,1)",
         borderWidth: 1,
-        //stack: 1,
-        // hoverBackgroundColor: "rgba(255, 36, 0,0.4)",
-        // hoverBorderColor: "rgba(255, 36, 0,1)",
         data: Object.values(chartData.first_player),
       },
 
       {
         label: secondPlayer.player_name,
         backgroundColor: "rgba(0, 115, 207, 0.6)",
-        // borderColor: "rgba(255, 36, 0,1)",
         borderWidth: 1,
-        //stack: 1,
-        // hoverBackgroundColor: "rgba(255, 36, 0,0.4)",
-        // hoverBorderColor: "rgba(255, 36, 0,1)",
         data: Object.values(chartData.second_player),
       },
     ],

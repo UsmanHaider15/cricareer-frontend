@@ -9,7 +9,6 @@ import axios from "axios";
 import humanify from "../Utils/humanify";
 import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
 import DataViewTabs from "./DataViewTabs";
-import IccBattingFormatAveragesComparisonTable from "./IccBattingFormatAveragesComparisonTable";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
