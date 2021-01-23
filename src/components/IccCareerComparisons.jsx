@@ -8,6 +8,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import IccBattingFormatAveragesComparison from "./IccBattingFormatAveragesComparison";
+import IccBattingAveragesComparison from "./IccBattingAveragesComparison";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -19,9 +20,10 @@ function TabPanel(props) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
+      style={{ marginBottom: 400 }}
     >
       {value === index && (
-        <Box p={3}>
+        <Box p={0}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -46,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     "& .MuiBox-root": {
       padding: "8px",
-      marginBottom: 500,
     },
   },
   root: {
@@ -55,7 +56,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IccCareerComparisons() {
+export default function IccCareerComparisons({
+  firstPlayerID,
+  secondPlayerID,
+}) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -94,8 +98,14 @@ export default function IccCareerComparisons() {
           dir={theme.direction}
           className={classes.tab}
         >
-          {/* <IccBattingAveragesComparison /> */}
-          <IccBattingFormatAveragesComparison />
+          <IccBattingAveragesComparison
+            firstPlayerID={firstPlayerID}
+            secondPlayerID={secondPlayerID}
+          />
+          <IccBattingFormatAveragesComparison
+            firstPlayerID={firstPlayerID}
+            secondPlayerID={secondPlayerID}
+          />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           Bowling

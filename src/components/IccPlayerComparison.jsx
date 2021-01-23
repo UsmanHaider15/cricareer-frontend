@@ -192,7 +192,10 @@ const IccPlayerComparison = ({ history }) => {
         </Grid>
       </Grid>
       <Grid container>
-        <IccCareerComparisons />
+        <IccCareerComparisons
+          firstPlayerID={firstPlayer.player_id}
+          secondPlayerID={secondPlayer.player_id}
+        />
       </Grid>
     </div>
   );

@@ -4,15 +4,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import PhoneIcon from "@material-ui/icons/Phone";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import PersonPinIcon from "@material-ui/icons/PersonPin";
-import HelpIcon from "@material-ui/icons/Help";
-import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
-import ThumbDown from "@material-ui/icons/ThumbDown";
-import ThumbUp from "@material-ui/icons/ThumbUp";
+import { TableChart, BarChart } from "@material-ui/icons";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import IccBattingFormatAveragesComparisonTable from "./IccBattingFormatAveragesComparisonTable";
+import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -24,6 +20,12 @@ function TabPanel(props) {
       id={`scrollable-force-tabpanel-${index}`}
       aria-labelledby={`scrollable-force-tab-${index}`}
       {...other}
+      style={{
+        // borderStyle: "solid",
+        // borderColor: "gray",
+        // borderWidth: "0px 1px 1px 1px",
+        boxShadow: "2px 2px 6px 0px #888888",
+      }}
     >
       {value === index && (
         <Box p={0}>
@@ -55,13 +57,16 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     padding: "0px !important",
     minHeight: "0px",
+
     "& .MuiTab-wrapper": {
+      padding: "10px 10px 10px 10px",
+      backgroundColor: " #f5f5f5",
       flexDirection: "row !important",
     },
   },
 }));
 
-export default function DataViewTabs() {
+export default function DataViewTabs({ data }) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -79,19 +84,15 @@ export default function DataViewTabs() {
           indicatorColor="primary"
           textColor="primary"
         >
-          <Tab label="Item One" icon={<PhoneIcon />} className={classes.tab} />
-          <Tab
-            label="Item Two"
-            icon={<FavoriteIcon />}
-            className={classes.tab}
-          />
+          <Tab label="Table" icon={<TableChart />} className={classes.tab} />
+          <Tab label="Chart" icon={<BarChart />} className={classes.tab} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        Item One
+      <TabPanel value={value} index={0} className={classes.tabpanel}>
+        <IccBattingFormatAveragesComparisonTable data={data} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <IccBattingFormatAveragesComparisonChart chartData={data} />
       </TabPanel>
     </div>
   );
