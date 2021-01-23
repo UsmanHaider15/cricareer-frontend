@@ -1,6 +1,8 @@
 import { Bar } from "react-chartjs-2";
 
 const IccBattingFormatAveragesComparisonChart = ({ chartData }) => {
+  delete chartData.first_player.player_name;
+  delete chartData.second_player.player_name;
   const data = {
     labels: Object.keys(chartData.first_player),
     datasets: [

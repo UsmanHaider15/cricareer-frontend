@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IccBattingAveragesComparison({
-  firstPlayerID,
-  secondPlayerID,
+  firstPlayer,
+  secondPlayer,
 }) {
   const classes = useStyles();
   const [format, setFormat] = React.useState("ODIs");
@@ -46,19 +46,27 @@ export default function IccBattingAveragesComparison({
     axios
       .get(`http://localhost:3001/icc_comparison/batting_averages_comparison`, {
         params: {
-          first_player_id: firstPlayerID,
-          second_player_id: secondPlayerID,
+          first_player_id: firstPlayer.player_id,
+          second_player_id: secondPlayer.player_id,
           format,
         },
       })
       .then(function (response) {
-        setData(response.data);
-        console.log("response", response.data);
+        setData({
+          first_player: Object.assign(
+            { player_name: firstPlayer.player_name },
+            response.data.first_player
+          ),
+          second_player: Object.assign(
+            { player_name: secondPlayer.player_name },
+            response.data.second_player
+          ),
+        });
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, [format, firstPlayerID, secondPlayerID]);
+  }, [format, firstPlayer.player_id, secondPlayer.player_id]);
 
   return (
     <div>

@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import IccBattingFormatAveragesComparisonTable from "./IccBattingFormatAveragesComparisonTable";
 import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
-
+import _ from "lodash";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -92,7 +92,9 @@ export default function DataViewTabs({ data }) {
         <IccBattingFormatAveragesComparisonTable data={data} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <IccBattingFormatAveragesComparisonChart chartData={data} />
+        <IccBattingFormatAveragesComparisonChart
+          chartData={_.cloneDeep(data)}
+        />
       </TabPanel>
     </div>
   );

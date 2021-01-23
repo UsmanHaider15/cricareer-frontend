@@ -192,10 +192,12 @@ const IccPlayerComparison = ({ history }) => {
         </Grid>
       </Grid>
       <Grid container>
-        <IccCareerComparisons
-          firstPlayerID={firstPlayer.player_id}
-          secondPlayerID={secondPlayer.player_id}
-        />
+        {firstPlayer.player_id && secondPlayer.player_id ? (
+          <IccCareerComparisons
+            firstPlayer={firstPlayer}
+            secondPlayer={secondPlayer}
+          />
+        ) : null}
       </Grid>
     </div>
   );

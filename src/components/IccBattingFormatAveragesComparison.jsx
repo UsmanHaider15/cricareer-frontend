@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IccBattingFormatAveragesComparison({
-  firstPlayerID,
-  secondPlayerID,
+  firstPlayer,
+  secondPlayer,
 }) {
   const classes = useStyles();
   const [battingAverageOption, setBattingAverageOption] = React.useState({
@@ -70,35 +70,48 @@ export default function IccBattingFormatAveragesComparison({
         `http://localhost:3001/icc_comparison/batting_format_averages_comparison`,
         {
           params: {
-            first_player_id: firstPlayerID,
-            second_player_id: secondPlayerID,
+            first_player_id: firstPlayer.player_id,
+            second_player_id: secondPlayer.player_id,
             battingAverageOption: battingAverageOption.value,
           },
         }
       )
       .then(function (response) {
-        const firstPlayer = {};
+        const first = {};
         response.data.first_player.map((obj) => {
-          firstPlayer[obj["match_type"]] = obj[battingAverageOption.value];
+          first[obj["match_type"]] = obj[battingAverageOption.value];
         });
-        const secondPlayer = {};
+        const second = {};
         response.data.second_player.map((obj) => {
-          secondPlayer[obj["match_type"]] = obj[battingAverageOption.value];
+          second[obj["match_type"]] = obj[battingAverageOption.value];
         });
 
         const first_player = {};
         const second_player = {};
         ["Tests", "ODIs", "T20Is", "T20s"].map((format) => {
-          first_player[format] = firstPlayer[format];
-          second_player[format] = secondPlayer[format];
+          first_player[format] = first[format];
+          second_player[format] = second[format];
         });
 
-        setData({ first_player, second_player });
+        setData({
+          first_player: Object.assign(
+            { player_name: firstPlayer.player_name },
+            first_player
+          ),
+          second_player: Object.assign(
+            { player_name: secondPlayer.player_name },
+            second_player
+          ),
+        });
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, [battingAverageOption.value, firstPlayerID, secondPlayerID]);
+  }, [
+    battingAverageOption.value,
+    firstPlayer.player_id,
+    secondPlayer.player_id,
+  ]);
 
   return (
     <div>

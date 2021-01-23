@@ -56,10 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IccCareerComparisons({
-  firstPlayerID,
-  secondPlayerID,
-}) {
+export default function IccCareerComparisons({ firstPlayer, secondPlayer }) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -99,12 +96,12 @@ export default function IccCareerComparisons({
           className={classes.tab}
         >
           <IccBattingAveragesComparison
-            firstPlayerID={firstPlayerID}
-            secondPlayerID={secondPlayerID}
+            firstPlayer={firstPlayer}
+            secondPlayer={secondPlayer}
           />
           <IccBattingFormatAveragesComparison
-            firstPlayerID={firstPlayerID}
-            secondPlayerID={secondPlayerID}
+            firstPlayer={firstPlayer}
+            secondPlayer={secondPlayer}
           />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
