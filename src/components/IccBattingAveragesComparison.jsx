@@ -54,11 +54,11 @@ export default function IccBattingAveragesComparison({
       .then(function (response) {
         setData({
           first_player: Object.assign(
-            { player_name: firstPlayer.player_name },
+            { player_name: firstPlayer.player_name.split(" ")[0] },
             response.data.first_player
           ),
           second_player: Object.assign(
-            { player_name: secondPlayer.player_name },
+            { player_name: secondPlayer.player_name.split(" ")[0] },
             response.data.second_player
           ),
         });

@@ -89,8 +89,8 @@ export default function IccBattingFormatAveragesComparison({
         const first_player = {};
         const second_player = {};
         ["Tests", "ODIs", "T20Is", "T20s"].map((format) => {
-          first_player[format] = first[format];
-          second_player[format] = second[format];
+          first_player[format] = first[format] ? first[format] : "-";
+          second_player[format] = second[format] ? second[format] : "-";
         });
 
         setData({
