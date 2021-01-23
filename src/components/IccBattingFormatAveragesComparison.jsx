@@ -140,7 +140,6 @@ export default function IccBattingFormatAveragesComparison({
           </Select>
         </FormControl>
       </div>
-      <div></div>
       <div>
         <DataViewTabs
           data={data}

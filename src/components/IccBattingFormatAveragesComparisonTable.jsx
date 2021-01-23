@@ -15,7 +15,7 @@ const IccBattingFormatAveragesComparisonTable = ({ data }) => {
           <div
             style={{
               color: "white",
-              backgroundColor: "#ff2400",
+              backgroundColor: "rgba(255, 36, 0, 1)",
               flex: "1 1 0",
               borderBottomLeftRadius: 20,
               borderTopLeftRadius: 20,
@@ -26,7 +26,8 @@ const IccBattingFormatAveragesComparisonTable = ({ data }) => {
           </div>
           <div
             style={{
-              backgroundImage: "linear-gradient(to right, #ff2400, #0073cf)",
+              backgroundImage:
+                "linear-gradient(to right, rgba(255, 36, 0, 1), rgba(0, 115, 207, 1))",
               color: "white",
               flex: "2 1 0",
               whiteSpace: "nowrap",
@@ -38,7 +39,7 @@ const IccBattingFormatAveragesComparisonTable = ({ data }) => {
           <div
             style={{
               color: "white",
-              backgroundColor: "#0073cf",
+              backgroundColor: "rgba(0, 115, 207, 1)",
               flex: "1 1 0",
               borderTopRightRadius: 20,
               borderBottomRightRadius: 20,

@@ -9,33 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import IccBattingFormatAveragesComparison from "./IccBattingFormatAveragesComparison";
 import IccBattingAveragesComparison from "./IccBattingAveragesComparison";
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-      style={{ marginBottom: 400 }}
-    >
-      {value === index && (
-        <Box p={0}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
+import TabPanel from "./common/TabPanel";
 
 function a11yProps(index) {
   return {
@@ -45,9 +19,9 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  tab: {
+  tabPanel: {
     "& .MuiBox-root": {
-      padding: "8px",
+      padding: 8,
     },
   },
   root: {
@@ -93,7 +67,7 @@ export default function IccCareerComparisons({ firstPlayer, secondPlayer }) {
           value={value}
           index={0}
           dir={theme.direction}
-          className={classes.tab}
+          className={classes.tabPanel}
         >
           <IccBattingAveragesComparison
             firstPlayer={firstPlayer}
@@ -104,7 +78,12 @@ export default function IccCareerComparisons({ firstPlayer, secondPlayer }) {
             secondPlayer={secondPlayer}
           />
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
+        <TabPanel
+          value={value}
+          index={1}
+          dir={theme.direction}
+          className={classes.tabPanel}
+        >
           Bowling
         </TabPanel>
       </SwipeableViews>

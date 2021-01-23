@@ -1,45 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { TableChart, BarChart } from "@material-ui/icons";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import IccBattingFormatAveragesComparisonTable from "./IccBattingFormatAveragesComparisonTable";
 import IccBattingFormatAveragesComparisonChart from "./IccBattingFormatAveragesComparisonChart";
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`scrollable-force-tabpanel-${index}`}
-      aria-labelledby={`scrollable-force-tab-${index}`}
-      {...other}
-      style={{
-        // borderStyle: "solid",
-        // borderColor: "gray",
-        // borderWidth: "0px 1px 1px 1px",
-        boxShadow: "2px 2px 6px 0px #888888",
-      }}
-    >
-      {value === index && (
-        <Box p={0}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
+import TabPanel from "./common/TabPanel";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,11 +23,17 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     padding: "0px !important",
     minHeight: "0px",
-
     "& .MuiTab-wrapper": {
       padding: "10px 10px 10px 10px",
-      backgroundColor: " #f5f5f5",
+      backgroundColor: " #f3f1f1",
       flexDirection: "row !important",
+    },
+  },
+  tabPanel: {
+    boxShadow: "2px 2px 6px 0px #888888",
+    borderRadius: "0px 10px 10px 10px",
+    "& .MuiBox-root": {
+      padding: 8,
     },
   },
 }));
@@ -92,10 +65,10 @@ export default function DataViewTabs({
           <Tab label="Chart" icon={<BarChart />} className={classes.tab} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0} className={classes.tabpanel}>
+      <TabPanel value={value} index={0} className={classes.tabPanel}>
         <IccBattingFormatAveragesComparisonTable data={data} />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} className={classes.tabPanel}>
         <IccBattingFormatAveragesComparisonChart
           chartData={chartData}
           firstPlayer={firstPlayer}
