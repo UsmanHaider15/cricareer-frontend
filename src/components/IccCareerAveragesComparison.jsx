@@ -18,9 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IccBattingAveragesComparison({
+export default function IccCareerAveragesComparison({
   firstPlayer,
   secondPlayer,
+  career,
 }) {
   const classes = useStyles();
   const [format, setFormat] = React.useState("ODIs");
@@ -41,13 +42,16 @@ export default function IccBattingAveragesComparison({
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/icc_comparison/batting_averages_comparison`, {
-        params: {
-          first_player_id: firstPlayer.player_id,
-          second_player_id: secondPlayer.player_id,
-          format,
-        },
-      })
+      .get(
+        `http://localhost:3001/icc_comparison/${career}_averages_comparison`,
+        {
+          params: {
+            first_player_id: firstPlayer.player_id,
+            second_player_id: secondPlayer.player_id,
+            format,
+          },
+        }
+      )
       .then(function (response) {
         setData({
           first_player: Object.assign(

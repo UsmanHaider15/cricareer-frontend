@@ -7,7 +7,6 @@ import Select from "@material-ui/core/Select";
 import axios from "axios";
 import humanify from "../Utils/humanify";
 import DataViewTabs from "./DataViewTabs";
-import { battingAverageOptions } from "../data/data";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -23,12 +22,11 @@ const useStyles = makeStyles((theme) => ({
 export default function IccBattingFormatAveragesComparison({
   firstPlayer,
   secondPlayer,
+  career,
+  options,
 }) {
   const classes = useStyles();
-  const [battingAverageOption, setBattingAverageOption] = React.useState({
-    label: "Matches Played",
-    value: "matches_played",
-  });
+  const [option, setOption] = React.useState("matches_played");
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({ first_player: {}, second_player: {} });
   const [chartData, setChartData] = useState({
@@ -36,27 +34,8 @@ export default function IccBattingFormatAveragesComparison({
     second_player: {},
   });
 
-  // const battingAverageOptions = [
-  //   { label: "Matches Played", value: "matches_played" },
-  //   { label: "Innings Played", value: "innings_played" },
-  //   { label: "Not Outs", value: "not_outs" },
-  //   { label: "Runs Scored", value: "runs_scored" },
-  //   { label: "Highest Inns Score", value: "highest_inns_score" },
-  //   { label: "Batting Average", value: "batting_average" },
-  //   { label: "Balls Faced", value: "balls_faced" },
-  //   { label: "Batting Strike Rate", value: "batting_strike_rate" },
-  //   { label: "Hundreds Scored", value: "hundreds_scored" },
-  //   { label: "Fifties Scored", value: "fifties_scored" },
-  //   { label: "Boundary Fours", value: "boundary_fours" },
-  //   { label: "Boundary Sixes", value: "boundary_sixes" },
-  //   { label: "Catches Taken", value: "catches_taken" },
-  // ];
-
   const handleChange = (event) => {
-    setBattingAverageOption({
-      label: humanify(event.target.value),
-      value: event.target.value,
-    });
+    setOption(event.target.value);
   };
 
   const handleClose = () => {
@@ -69,23 +48,23 @@ export default function IccBattingFormatAveragesComparison({
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3001/icc_comparison/batting_format_averages_comparison`,
+        `http://localhost:3001/icc_comparison/${career}_format_averages_comparison`,
         {
           params: {
             first_player_id: firstPlayer.player_id,
             second_player_id: secondPlayer.player_id,
-            battingAverageOption: battingAverageOption.value,
+            option: option,
           },
         }
       )
       .then(function (response) {
         const first = {};
         response.data.first_player.map((obj) => {
-          first[obj["match_type"]] = obj[battingAverageOption.value];
+          first[obj["match_type"]] = obj[option];
         });
         const second = {};
         response.data.second_player.map((obj) => {
-          second[obj["match_type"]] = obj[battingAverageOption.value];
+          second[obj["match_type"]] = obj[option];
         });
 
         const first_player = {};
@@ -110,11 +89,7 @@ export default function IccBattingFormatAveragesComparison({
       .catch(function (error) {
         console.log(error);
       });
-  }, [
-    battingAverageOption.value,
-    firstPlayer.player_id,
-    secondPlayer.player_id,
-  ]);
+  }, [option, firstPlayer.player_id, secondPlayer.player_id]);
 
   return (
     <div>
@@ -127,13 +102,13 @@ export default function IccBattingFormatAveragesComparison({
             open={open}
             onClose={handleClose}
             onOpen={handleOpen}
-            value={battingAverageOption.value}
+            value={option}
             onChange={handleChange}
             label="Option"
             className={classes.root}
           >
-            {battingAverageOptions.map((option) => (
-              <MenuItem value={option.value}>{option.label}</MenuItem>
+            {options.map((value) => (
+              <MenuItem value={value}>{humanify(value)}</MenuItem>
             ))}
           </Select>
         </FormControl>

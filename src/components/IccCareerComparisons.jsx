@@ -5,8 +5,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import IccBattingFormatAveragesComparison from "./IccBattingFormatAveragesComparison";
-import IccBattingAveragesComparison from "./IccBattingAveragesComparison";
 import TabPanel from "./common/TabPanel";
+import IccCareerAveragesComparison from "./IccCareerAveragesComparison";
+import { battingAverageOptions, bowingAverageOptions } from "../data/data";
 
 function a11yProps(index) {
   return {
@@ -66,13 +67,17 @@ export default function IccCareerComparisons({ firstPlayer, secondPlayer }) {
           dir={theme.direction}
           className={classes.tabPanel}
         >
-          <IccBattingAveragesComparison
+          <IccCareerAveragesComparison
             firstPlayer={firstPlayer}
             secondPlayer={secondPlayer}
+            career="batting"
           />
+
           <IccBattingFormatAveragesComparison
             firstPlayer={firstPlayer}
             secondPlayer={secondPlayer}
+            career="batting"
+            options={battingAverageOptions}
           />
         </TabPanel>
         <TabPanel
@@ -81,7 +86,17 @@ export default function IccCareerComparisons({ firstPlayer, secondPlayer }) {
           dir={theme.direction}
           className={classes.tabPanel}
         >
-          Bowling
+          <IccCareerAveragesComparison
+            firstPlayer={firstPlayer}
+            secondPlayer={secondPlayer}
+            career="bowling"
+          />
+          <IccBattingFormatAveragesComparison
+            firstPlayer={firstPlayer}
+            secondPlayer={secondPlayer}
+            career="bowling"
+            options={bowingAverageOptions}
+          />
         </TabPanel>
       </SwipeableViews>
     </div>
