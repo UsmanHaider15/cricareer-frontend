@@ -109,7 +109,11 @@ const PslPlayerProfiles = ({ history }) => {
             <img
               ref={ref}
               onLoad={onLoad}
-              src={player.avatar_url ? player.avatar_url : "/default-user.jpg"}
+              src={
+                player.player_image_url
+                  ? player.player_image_url
+                  : "/default-user.jpg"
+              }
               alt=""
               style={{
                 display: loaded ? "block" : "none",

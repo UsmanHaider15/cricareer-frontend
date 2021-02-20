@@ -142,8 +142,8 @@ const IccPlayerComparison = ({ history }) => {
               ref={firstRef}
               onLoad={firstOnLoad}
               src={
-                firstPlayer.avatar_url
-                  ? firstPlayer.avatar_url
+                firstPlayer.player_image_url
+                  ? firstPlayer.player_image_url
                   : "/default-user.jpg"
               }
               alt=""
@@ -173,8 +173,8 @@ const IccPlayerComparison = ({ history }) => {
               ref={secondRef}
               onLoad={secondOnLoad}
               src={
-                secondPlayer.avatar_url
-                  ? secondPlayer.avatar_url
+                secondPlayer.player_image_url
+                  ? secondPlayer.player_image_url
                   : "/default-user.jpg"
               }
               alt=""
