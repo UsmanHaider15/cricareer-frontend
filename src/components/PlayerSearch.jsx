@@ -9,6 +9,8 @@ export default function PlayerSearch({
   setSelectedPlayer,
   player,
   isFirst = true,
+  url = "http://localhost:3001/search_player_by_name",
+  league_name = "psl",
 }) {
   const [searchedPlayersList, setSearchedPlayersList] = useState([]);
   const [searchStr, setSearchStr] = useState("");
@@ -16,9 +18,10 @@ export default function PlayerSearch({
   useEffect(() => {
     if (searchStr) {
       axios
-        .get("http://localhost:3001/search_player_by_name", {
+        .get(url, {
           params: {
             player_name: searchStr,
+            league_name,
           },
         })
         .then(function (response) {

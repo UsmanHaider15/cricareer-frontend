@@ -5,6 +5,7 @@ import qs from "qs";
 import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import PslPlayerBattingAverages from "./PslPlayerBattingAverages";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -41,9 +42,10 @@ const PslPlayerProfiles = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/get_players_list", {
+      .get("http://localhost:3001/psl_profile/get_players_list", {
         params: {
           limit: 100,
+          league_name: "psl",
         },
       })
       .then(function (response) {
@@ -57,12 +59,13 @@ const PslPlayerProfiles = ({ history }) => {
       });
 
     const url_id = qs.parse(history.location.search.substring(1));
-    const player_id = url_id.player_id ? url_id.player_id : 253802;
+    const player_id = url_id.player_id ? url_id.player_id : 440;
 
     axios
-      .get(`http://localhost:3001/get_player_by_id`, {
+      .get(`http://localhost:3001/psl_profile/get_player_by_id`, {
         params: {
           player_id: player_id,
+          league_name: "psl",
         },
       })
       .then(function (response) {
@@ -90,10 +93,13 @@ const PslPlayerProfiles = ({ history }) => {
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={player}
+            url="http://localhost:3001/psl_profile/search_player_by_name"
+            league_name="psl"
           />
         </Grid>
         <Grid
-          item={12}
+          item
+          xs={12}
           container
           direction="row"
           justify="center"
@@ -121,6 +127,11 @@ const PslPlayerProfiles = ({ history }) => {
             />
             {!loaded ? <CircularProgress /> : null}
           </div>
+        </Grid>
+        <Grid item xs={12} style={{ marginBottom: 500 }}>
+          {Object.keys(player).length > 0 ? (
+            <PslPlayerBattingAverages player={player} />
+          ) : null}
         </Grid>
       </Grid>
     </div>
