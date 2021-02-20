@@ -8,7 +8,7 @@ export default function PlayerSearch({
   InitialPlayersList,
   setSelectedPlayer,
   player,
-  isFirst,
+  isFirst = true,
 }) {
   const [searchedPlayersList, setSearchedPlayersList] = useState([]);
   const [searchStr, setSearchStr] = useState("");

@@ -1,10 +1,10 @@
 import PlayerSearch from "./PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
+import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
-import qs from "qs";
 import IccCareerComparisons from "./IccCareerComparisons";
 
 const useImageLoaded = () => {
@@ -114,7 +114,6 @@ const IccPlayerComparison = ({ history }) => {
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={firstPlayer}
-            isFirst={true}
           />
         </Grid>
         <Grid item xs={6}>
