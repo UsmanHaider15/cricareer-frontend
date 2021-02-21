@@ -128,7 +128,7 @@ const PslPlayerProfiles = ({ history }) => {
             {!loaded ? <CircularProgress /> : null}
           </div>
         </Grid>
-        <Grid item xs={12} style={{ marginBottom: 500 }}>
+        <Grid item xs={12} style={{ marginBottom: 1000 }}>
           {Object.keys(player).length > 0 ? (
             <PslPlayerBattingAverages player={player} />
           ) : null}

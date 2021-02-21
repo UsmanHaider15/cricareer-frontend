@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   table: {
-    minWidth: 750,
+    // minWidth: 750,
   },
   visuallyHidden: {
     border: 0,
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AveragesTable = () => {
+const AveragesTable = ({ rows }) => {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -112,19 +112,31 @@ const AveragesTable = () => {
               order={order}
               orderBy={orderBy}
               onRequestSort={handleRequestSort}
+              row={rows[0]}
             />
             <TableBody>
               {stableSort(rows, getComparator(order, orderBy)).map(
                 (row, index) => {
                   return (
-                    <TableRow hover tabIndex={-1} key={row.name}>
+                    <TableRow hover tabIndex={-1} key={row.opposition_team}>
                       <TableCell component="th" scope="row" padding="none">
-                        {row.name}
+                        {row.opposition_team}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell align="left">{row.innings_played}</TableCell>
+                      <TableCell align="left">{row.not_outs}</TableCell>
+                      <TableCell align="left">{row.runs_scored}</TableCell>
+                      <TableCell align="left">
+                        {row.highest_inns_score}
+                      </TableCell>
+                      <TableCell align="left">{row.batting_average}</TableCell>
+                      <TableCell align="left">{row.balls_faced}</TableCell>
+                      <TableCell align="left">
+                        {row.batting_strike_rate}
+                      </TableCell>
+                      <TableCell align="left">{row.hundreds_scored}</TableCell>
+                      <TableCell align="left">{row.fifties_scored}</TableCell>
+                      <TableCell align="left">{row.boundary_fours}</TableCell>
+                      <TableCell align="left">{row.boundary_sixes}</TableCell>
                     </TableRow>
                   );
                 }

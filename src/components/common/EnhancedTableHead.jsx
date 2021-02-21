@@ -4,25 +4,35 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import PropTypes from "prop-types";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
+import humanify from "../../Utils/humanify";
 
-const headCells = [
-  {
-    id: "name",
-    numeric: false,
-    disablePadding: true,
-    label: "Dessert (100g serving)",
-  },
-  { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
-  { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
-  { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
-  { id: "protein", numeric: true, disablePadding: false, label: "Protein (g)" },
-];
+// const headCells = [
+//   {
+//     id: "name",
+//     numeric: false,
+//     disablePadding: true,
+//     label: "Dessert (100g serving)",
+//   },
+//   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
+//   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
+//   { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
+//   { id: "protein", numeric: true, disablePadding: false, label: "Protein (g)" },
+// ];
 
 function EnhancedTableHead(props) {
-  const { classes, order, orderBy, onRequestSort } = props;
+  const { classes, order, orderBy, onRequestSort, row } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
+
+  const headCells = Object.keys(row).map((column) => ({
+    id: column,
+    numeric: false,
+    disablePadding: true,
+    label: humanify(column),
+  }));
+
+  console.log("headCells", headCells);
 
   return (
     <TableHead>
