@@ -29,3 +29,5 @@ export const bowingAverageOptions = [
   "five_wkts_in_an_inns",
   "ten_wkts_in_an_inns",
 ];
+
+export const pslSeasonOptions = [0, 1, 3, 4, 5];
