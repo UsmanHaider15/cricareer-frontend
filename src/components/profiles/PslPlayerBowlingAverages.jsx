@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PslPlayerBattingAverages = ({ player }) => {
+const PslPlayerBowlingAverages = ({ player }) => {
   const classes = useStyles();
-  const [battingAverages, setBattingAverages] = useState([]);
+  const [bowlingAverages, setBowlingAverages] = useState([]);
   const [option, setOption] = React.useState(0);
   const [open, setOpen] = React.useState(false);
 
@@ -39,7 +39,7 @@ const PslPlayerBattingAverages = ({ player }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/psl_profile/get_player_batting_averages", {
+      .get("http://localhost:3001/psl_profile/get_player_bowling_averages", {
         params: {
           player_id: player.player_id,
           season_number: option,
@@ -53,22 +53,20 @@ const PslPlayerBattingAverages = ({ player }) => {
           _.pick(obj, [
             "opposition_team",
             "innings_played",
-            "not_outs",
-            "runs_scored",
-            "highest_inns_score",
-            "batting_average",
-            "balls_faced",
-            "batting_strike_rate",
-            "hundreds_scored",
-            "fifties_scored",
-            "boundary_fours",
-            // "boundary_sixes",
+            "balls_bowled",
+            "runs_conceded",
+            "wickets_taken",
+            "best_innings_bowling",
+            "bowling_average",
+            "economy_rate",
+            "bowling_strike_rate",
+            "five_wkts_in_an_inns",
+            "four_wkts_in_an_inns",
+            "ten_wkts_in_an_inns",
           ])
         );
 
-        setBattingAverages(modifiedData);
-
-        console.log("modifiedData", modifiedData);
+        setBowlingAverages(modifiedData);
       })
       .catch(function (error) {
         console.log(error);
@@ -100,11 +98,11 @@ const PslPlayerBattingAverages = ({ player }) => {
           </Select>
         </FormControl>
       </div>
-      {Object.keys(battingAverages).length ? (
-        <AveragesTable rows={battingAverages} />
+      {Object.keys(bowlingAverages).length ? (
+        <AveragesTable rows={bowlingAverages} />
       ) : null}
     </div>
   );
 };
 
-export default PslPlayerBattingAverages;
+export default PslPlayerBowlingAverages;

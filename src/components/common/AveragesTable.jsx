@@ -100,7 +100,10 @@ const AveragesTable = ({ rows }) => {
                 (row, index) => {
                   return (
                     <TableRow hover tabIndex={-1} key={row.opposition_team}>
-                      <TableCell component="th" scope="row" padding="none">
+                      {Object.values(row).map((col_val) => (
+                        <TableCell align="left">{col_val}</TableCell>
+                      ))}
+                      {/* <TableCell component="th" scope="row" padding="none">
                         {row.opposition_team}
                       </TableCell>
                       <TableCell align="left">{row.innings_played}</TableCell>
@@ -117,7 +120,7 @@ const AveragesTable = ({ rows }) => {
                       <TableCell align="left">{row.hundreds_scored}</TableCell>
                       <TableCell align="left">{row.fifties_scored}</TableCell>
                       <TableCell align="left">{row.boundary_fours}</TableCell>
-                      <TableCell align="left">{row.boundary_sixes}</TableCell>
+                      <TableCell align="left">{row.boundary_sixes}</TableCell> */}
                     </TableRow>
                   );
                 }

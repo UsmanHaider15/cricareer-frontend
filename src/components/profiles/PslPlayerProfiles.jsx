@@ -6,6 +6,7 @@ import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PslPlayerBattingAverages from "./PslPlayerBattingAverages";
+import PslPlayerBowlingAverages from "./PslPlayerBowlingAverages";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -128,9 +129,14 @@ const PslPlayerProfiles = ({ history }) => {
             {!loaded ? <CircularProgress /> : null}
           </div>
         </Grid>
-        <Grid item xs={12} style={{ marginBottom: 1000 }}>
+        <Grid item xs={12} style={{ marginBottom: 30 }}>
           {Object.keys(player).length > 0 ? (
             <PslPlayerBattingAverages player={player} />
+          ) : null}
+        </Grid>
+        <Grid item xs={12} style={{ marginBottom: 1000 }}>
+          {Object.keys(player).length > 0 ? (
+            <PslPlayerBowlingAverages player={player} />
           ) : null}
         </Grid>
       </Grid>

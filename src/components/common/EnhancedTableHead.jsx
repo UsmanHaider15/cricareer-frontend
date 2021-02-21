@@ -6,19 +6,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import humanify from "../../Utils/humanify";
 
-// const headCells = [
-//   {
-//     id: "name",
-//     numeric: false,
-//     disablePadding: true,
-//     label: "Dessert (100g serving)",
-//   },
-//   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
-//   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
-//   { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
-//   { id: "protein", numeric: true, disablePadding: false, label: "Protein (g)" },
-// ];
-
 function EnhancedTableHead(props) {
   const { classes, order, orderBy, onRequestSort, row } = props;
   const createSortHandler = (property) => (event) => {
@@ -31,8 +18,6 @@ function EnhancedTableHead(props) {
     disablePadding: true,
     label: humanify(column),
   }));
-
-  console.log("headCells", headCells);
 
   return (
     <TableHead>
