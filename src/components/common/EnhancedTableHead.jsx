@@ -7,16 +7,16 @@ import TableRow from "@material-ui/core/TableRow";
 import humanify from "../../Utils/humanify";
 
 function EnhancedTableHead(props) {
-  const { classes, order, orderBy, onRequestSort, row } = props;
+  const { classes, order, orderBy, onRequestSort, columnNamesLookup } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
-  const headCells = Object.keys(row).map((column) => ({
-    id: column,
+  const headCells = Object.entries(columnNamesLookup).map(([key, value]) => ({
+    id: key,
     numeric: false,
     disablePadding: true,
-    label: humanify(column),
+    label: value,
   }));
 
   return (
@@ -25,7 +25,7 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
+            align={headCell.numeric ? "right" : "center"}
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
           >

@@ -30,4 +30,32 @@ export const bowingAverageOptions = [
   "ten_wkts_in_an_inns",
 ];
 
-export const pslSeasonOptions = [0, 1, 3, 4, 5];
+export const league_batting_table_column_name_lookup = {
+  opposition_team: "Teams",
+  innings_played: "Inns",
+  not_outs: "NO",
+  runs_scored: "Runs",
+  highest_inns_score: "HS",
+  batting_average: "Ave",
+  balls_faced: "BF",
+  batting_strike_rate: "SR",
+  hundreds_scored: "100",
+  fifties_scored: "50",
+  boundary_fours: "4s",
+  boundary_sixes: "6s",
+};
+
+export const league_bowling_table_column_to_label_lookup = {
+  opposition_team: "Teams",
+  innings_played: "Inns",
+  balls_bowled: "Balls",
+  runs_conceded: "Runs",
+  wickets_taken: "Wkts",
+  best_innings_bowling: "BBI",
+  bowling_average: "Ave",
+  economy_rate: "Econ",
+  bowling_strike_rate: "SR",
+  five_wkts_in_an_inns: "4W",
+  four_wkts_in_an_inns: "5W",
+  ten_wkts_in_an_inns: "10W",
+};

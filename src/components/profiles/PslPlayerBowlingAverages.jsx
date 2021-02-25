@@ -7,6 +7,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
+import {
+  league_batting_table_column_name_lookup,
+  league_bowling_table_column_to_label_lookup,
+} from "../../data/data";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -92,14 +96,19 @@ const PslPlayerBowlingAverages = ({ player }) => {
             label="Option"
             className={classes.root}
           >
-            {[0, 1, 2, 3, 4, 5].map((value) => (
-              <MenuItem value={value}>Season {value}</MenuItem>
+            {[0, 5, 4, 3, 2, 1].map((value) => (
+              <MenuItem value={value}>
+                {value ? `PSL ${value}` : "All Seasons"}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
       </div>
-      {Object.keys(bowlingAverages).length ? (
-        <AveragesTable rows={bowlingAverages} />
+      {bowlingAverages.length ? (
+        <AveragesTable
+          rows={bowlingAverages}
+          columnNamesLookup={league_bowling_table_column_to_label_lookup}
+        />
       ) : null}
     </div>
   );

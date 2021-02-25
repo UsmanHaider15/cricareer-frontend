@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import EnhancedTableHead from "./EnhancedTableHead";
+import { league_batting_table_column_name_lookup } from "../../data/data";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -62,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AveragesTable = ({ rows }) => {
+const AveragesTable = ({ rows, columnNamesLookup }) => {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("calories");
+  const [orderBy, setOrderBy] = React.useState("opposition_team");
   const [dense, setDense] = React.useState(false);
 
   const handleRequestSort = (event, property) => {
@@ -93,7 +94,7 @@ const AveragesTable = ({ rows }) => {
               order={order}
               orderBy={orderBy}
               onRequestSort={handleRequestSort}
-              row={rows[0]}
+              columnNamesLookup={columnNamesLookup}
             />
             <TableBody>
               {stableSort(rows, getComparator(order, orderBy)).map(
@@ -101,26 +102,8 @@ const AveragesTable = ({ rows }) => {
                   return (
                     <TableRow hover tabIndex={-1} key={row.opposition_team}>
                       {Object.values(row).map((col_val) => (
-                        <TableCell align="left">{col_val}</TableCell>
+                        <TableCell>{col_val}</TableCell>
                       ))}
-                      {/* <TableCell component="th" scope="row" padding="none">
-                        {row.opposition_team}
-                      </TableCell>
-                      <TableCell align="left">{row.innings_played}</TableCell>
-                      <TableCell align="left">{row.not_outs}</TableCell>
-                      <TableCell align="left">{row.runs_scored}</TableCell>
-                      <TableCell align="left">
-                        {row.highest_inns_score}
-                      </TableCell>
-                      <TableCell align="left">{row.batting_average}</TableCell>
-                      <TableCell align="left">{row.balls_faced}</TableCell>
-                      <TableCell align="left">
-                        {row.batting_strike_rate}
-                      </TableCell>
-                      <TableCell align="left">{row.hundreds_scored}</TableCell>
-                      <TableCell align="left">{row.fifties_scored}</TableCell>
-                      <TableCell align="left">{row.boundary_fours}</TableCell>
-                      <TableCell align="left">{row.boundary_sixes}</TableCell> */}
                     </TableRow>
                   );
                 }
