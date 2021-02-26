@@ -10,7 +10,6 @@ import Paper from "@material-ui/core/Paper";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import EnhancedTableHead from "./EnhancedTableHead";
-import { league_batting_table_column_name_lookup } from "../../data/data";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -101,8 +100,8 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                 (row, index) => {
                   return (
                     <TableRow hover tabIndex={-1} key={row.opposition_team}>
-                      {Object.values(row).map((col_val) => (
-                        <TableCell>{col_val}</TableCell>
+                      {Object.values(row).map((col_val, index) => (
+                        <TableCell align="left">{col_val}</TableCell>
                       ))}
                     </TableRow>
                   );

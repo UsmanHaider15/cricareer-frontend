@@ -22,19 +22,20 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        {headCells.map((headCell, index) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "center"}
+            align={headCell.numeric ? "left" : "left"}
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
+            {...(index ? {} : { style: { paddingLeft: 15, paddingRight: 70 } })}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
             >
-              {headCell.label}
+              <b>{headCell.label}</b>
               {orderBy === headCell.id ? (
                 <span className={classes.visuallyHidden}>
                   {order === "desc" ? "sorted descending" : "sorted ascending"}
