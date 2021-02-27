@@ -1,16 +1,13 @@
 import Typography from "@material-ui/core/Typography";
 import humanify from "../../Utils/humanify";
 
-const TableView = ({ data }) => {
+const TableView = ({ data, excludedKeys }) => {
   return (
     <div>
       <Typography>
         <div>
           {Object.keys(data.first_player)
-            .filter(
-              (key) =>
-                !["player_id", "match_type", "stumpings_made"].includes(key)
-            )
+            .filter((key) => !excludedKeys.includes(key))
             .map((key) => (
               <div
                 style={{

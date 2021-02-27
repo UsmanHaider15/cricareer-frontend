@@ -64,7 +64,10 @@ export default function DataViewTabs({
         className={classes.content}
       >
         <TabPanel value={value} index={0}>
-          <TableView data={data} />
+          <TableView
+            data={data}
+            excludedKeys={["player_id", "match_type", "stumpings_made"]}
+          />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <ChartView

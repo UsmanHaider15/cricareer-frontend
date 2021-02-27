@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import TableView from "../common/TableView";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -18,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 const PslPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   const classes = useStyles();
+  const [chartData, setChartData] = React.useState({
+    first_player: {},
+    second_player: {},
+  });
+
   const [seasonOption, setSeasonOption] = React.useState(0);
   const [seasonMenuOpen, setSeasonMenuOpen] = React.useState(false);
 
@@ -47,6 +54,34 @@ const PslPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   const handleOppositionMenuOpen = () => {
     setOppositionMenuOpen(true);
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/psl_comparison/batting_averages_comparison`, {
+        params: {
+          first_player_id: firstPlayer.player_id,
+          second_player_id: secondPlayer.player_id,
+          season_number: seasonOption,
+          opposition_team: oppositionOption,
+          league_name: "psl",
+        },
+      })
+      .then(function ({ data }) {
+        const { first_player, second_player } = data;
+
+        console.log("first_player", first_player);
+
+        setChartData({ first_player, second_player });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [
+    seasonOption,
+    oppositionOption,
+    firstPlayer.player_id,
+    secondPlayer.player_id,
+  ]);
 
   return (
     <div>
@@ -102,8 +137,10 @@ const PslPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
         </FormControl>
       </div>
       <div>
-        Season: {seasonOption}
-        Opposition Option: {oppositionOption}
+        <TableView
+          data={chartData}
+          excludedKeys={["player_id", "season_number", "opposition_team"]}
+        />
       </div>
     </div>
   );

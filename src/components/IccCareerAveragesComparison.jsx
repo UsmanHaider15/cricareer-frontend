@@ -99,7 +99,10 @@ export default function IccCareerAveragesComparison({
           marginBottom: 20,
         }}
       >
-        <TableView data={data} />
+        <TableView
+          data={data}
+          excludedKeys={["player_id", "match_type", "stumpings_made"]}
+        />
       </div>
     </div>
   );
