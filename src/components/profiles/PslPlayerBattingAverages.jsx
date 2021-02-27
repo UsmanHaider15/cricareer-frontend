@@ -79,10 +79,6 @@ const PslPlayerBattingAverages = ({ player }) => {
       });
   }, [player.player_id, option]);
 
-  console.log(
-    "league_batting_table_column_name_lookup",
-    league_batting_table_column_name_lookup["hundreds_scored"]
-  );
   return (
     <div>
       <div style={{ textAlign: "left" }}>

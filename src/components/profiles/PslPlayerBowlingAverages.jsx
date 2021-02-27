@@ -7,10 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import {
-  league_batting_table_column_name_lookup,
-  league_bowling_table_column_to_label_lookup,
-} from "../../data/data";
+import { league_bowling_table_column_to_label_lookup } from "../../data/data";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
