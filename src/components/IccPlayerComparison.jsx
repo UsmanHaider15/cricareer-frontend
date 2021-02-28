@@ -157,7 +157,14 @@ const IccPlayerComparison = ({ history }) => {
             {!firstLoaded ? <CircularProgress /> : null}
           </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid
+          item
+          xs={6}
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
           <div
             style={{
               display: "flex",

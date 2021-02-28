@@ -71,8 +71,6 @@ const PslPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
       .then(function ({ data }) {
         const { first_player, second_player } = data;
 
-        console.log("first_player", first_player);
-
         setChartData({ first_player, second_player });
       })
       .catch(function (error) {
