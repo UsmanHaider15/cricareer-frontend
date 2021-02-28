@@ -6,6 +6,7 @@ import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import TableView from "../common/TableView";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -57,19 +58,18 @@ const PslPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/psl_comparison/batting_averages_comparison`, {
+      .get(`http://localhost:3001/psl_comparison/career_averages_comparison`, {
         params: {
           first_player_id: firstPlayer.player_id,
           second_player_id: secondPlayer.player_id,
           season_number: seasonOption,
           opposition_team: oppositionOption,
           league_name: "psl",
+          type: "batting",
         },
       })
       .then(function ({ data }) {
         const { first_player, second_player } = data;
-
-        console.log("first_player", first_player);
 
         setChartData({ first_player, second_player });
       })
@@ -84,7 +84,7 @@ const PslPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   ]);
 
   return (
-    <div>
+    <Grid container>
       <div>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
@@ -136,13 +136,21 @@ const PslPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
           </Select>
         </FormControl>
       </div>
-      <div>
+      <div
+        style={{
+          boxShadow: "2px 2px 6px 0px #888888",
+          borderRadius: "10px 10px 10px 10px",
+          padding: 8,
+          marginBottom: 20,
+          width: "100%",
+        }}
+      >
         <TableView
           data={chartData}
           excludedKeys={["player_id", "season_number", "opposition_team"]}
         />
       </div>
-    </div>
+    </Grid>
   );
 };
 

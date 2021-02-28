@@ -1,10 +1,11 @@
 import React from "react";
 import PslPlayersBattingAveragesComparison from "./PslPlayersBattingAveragesComparison";
 import PslPlayersBowlingAveragesComparison from "./PslPlayersBowlingAveragesComparison";
+import Grid from "@material-ui/core/Grid";
 
 const PslCareerComparisons = ({ firstPlayer, secondPlayer }) => {
   return (
-    <div>
+    <Grid container>
       <PslPlayersBattingAveragesComparison
         firstPlayer={firstPlayer}
         secondPlayer={secondPlayer}
@@ -13,7 +14,7 @@ const PslCareerComparisons = ({ firstPlayer, secondPlayer }) => {
         firstPlayer={firstPlayer}
         secondPlayer={secondPlayer}
       />
-    </div>
+    </Grid>
   );
 };
 
