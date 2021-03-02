@@ -5,6 +5,8 @@ import qs from "qs";
 import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import IccPlayerBattingAverages from "./IccPlayerBattingAverages";
+import IccPlayerBowlingAverages from "./IccPlayerBowlingAverages";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -122,8 +124,12 @@ const IccPlayerProfile = ({ history }) => {
             </div>
           </Grid>
         </Grid>
-        <Grid item xs={12} style={{ marginBottom: 30 }}></Grid>
-        <Grid item xs={12} style={{ marginBottom: 1000 }}></Grid>
+        <Grid item xs={12} style={{ marginBottom: 30 }}>
+          <IccPlayerBattingAverages />
+        </Grid>
+        <Grid item xs={12} style={{ marginBottom: 1000 }}>
+          <IccPlayerBowlingAverages />
+        </Grid>
       </Grid>
     </div>
   );
