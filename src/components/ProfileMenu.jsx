@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function ProfileMenu() {
-  const [btnLabel, setBtnLabel] = React.useState("Icc Profile");
+  const location = useLocation();
+  const [btnLabel, setBtnLabel] = React.useState("Select Profile");
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -15,6 +17,12 @@ export default function ProfileMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    if (!location.pathname.includes("profiles")) {
+      setBtnLabel("Select Profile");
+    }
+  }, [location.pathname]);
 
   return (
     <div>

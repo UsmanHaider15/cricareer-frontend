@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function ComparisonMenu() {
+  const location = useLocation();
+
   const [btnLabel, setBtnLabel] = React.useState("Comparison");
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -15,6 +18,12 @@ export default function ComparisonMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    if (!location.pathname.includes("comparisons")) {
+      setBtnLabel("Select Comparison");
+    }
+  }, [location.pathname]);
 
   return (
     <div>

@@ -1,16 +1,11 @@
 import React from "react";
-
 import "./App.css";
 import IccPlayerComparison from "./components/IccPlayerComparison";
 import PslPlayerProfiles from "./components/profiles/PslPlayerProfiles";
 import PslPlayersComparison from "./components/comparisons/PslPlayersComparison";
 import IccPlayerProfile from "./components/profiles/IccPlayerProfile";
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Toolbar from "@material-ui/core/Toolbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import MenuToolbar from "./components/MenuToolbar";
 
 export default function App() {
@@ -21,8 +16,8 @@ export default function App() {
 
         <MenuToolbar />
 
-        <Container style={{ marginTop: 60 }}>
-          <Box my={2}>
+        <div style={{ marginTop: 60 }}>
+          <div>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <div className="App" style={{ paddingBottom: 500 }}>
@@ -42,8 +37,8 @@ export default function App() {
                 </Route>
               </Switch>
             </div>
-          </Box>
-        </Container>
+          </div>
+        </div>
       </Router>
     </React.Fragment>
   );
