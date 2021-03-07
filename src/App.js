@@ -22,17 +22,17 @@ export default function App() {
             renders the first one that matches the current URL. */}
             <div className="App" style={{ paddingBottom: 500 }}>
               <Switch>
-                <Route path="/profiles/icc_player">
+                <Route path="/profiles/icc_profile">
                   <IccPlayerProfile />
                 </Route>
-                <Route path="/profiles/psl_player">
+                <Route path="/profiles/psl_profile">
                   <PslPlayerProfiles />
                 </Route>
-                <Route path="/comparisons/icc_player_comparison">
+                <Route path="/comparisons/icc_comparison">
                   <IccPlayerComparison />
                 </Route>
 
-                <Route path="/comparisons/psl_player_comparison">
+                <Route path="/comparisons/psl_comparison">
                   <PslPlayersComparison />
                 </Route>
               </Switch>

@@ -4,11 +4,12 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import humanify from "../Utils/humanify";
 
 export default function ComparisonMenu() {
   const location = useLocation();
 
-  const [btnLabel, setBtnLabel] = React.useState("Comparison");
+  const [btnLabel, setBtnLabel] = React.useState("Select Comparison");
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -22,6 +23,9 @@ export default function ComparisonMenu() {
   useEffect(() => {
     if (!location.pathname.includes("comparisons")) {
       setBtnLabel("Select Comparison");
+    } else {
+      const btnLabel = humanify(location.pathname.split("/").pop());
+      setBtnLabel(btnLabel);
     }
   }, [location.pathname]);
 
@@ -47,9 +51,7 @@ export default function ComparisonMenu() {
             handleClose();
           }}
         >
-          <Link to="/comparisons/icc_player_comparison">
-            ICC Player comparisons
-          </Link>
+          <Link to="/comparisons/icc_comparison">ICC Player comparisons</Link>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -57,9 +59,7 @@ export default function ComparisonMenu() {
             handleClose();
           }}
         >
-          <Link to="/comparisons/psl_player_comparison">
-            PSL Player comparisons
-          </Link>
+          <Link to="/comparisons/psl_comparison">PSL Player comparisons</Link>
         </MenuItem>
       </Menu>
     </div>

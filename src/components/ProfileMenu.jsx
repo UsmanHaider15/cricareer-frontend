@@ -4,6 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import humanify from "../Utils/humanify";
 
 export default function ProfileMenu() {
   const location = useLocation();
@@ -21,6 +22,9 @@ export default function ProfileMenu() {
   useEffect(() => {
     if (!location.pathname.includes("profiles")) {
       setBtnLabel("Select Profile");
+    } else {
+      const btnLabel = humanify(location.pathname.split("/").pop());
+      setBtnLabel(btnLabel);
     }
   }, [location.pathname]);
 
@@ -46,7 +50,7 @@ export default function ProfileMenu() {
             handleClose();
           }}
         >
-          <Link to="/profiles/icc_player">ICC Player Profile</Link>
+          <Link to="/profiles/icc_profile">ICC Player Profile</Link>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -54,7 +58,7 @@ export default function ProfileMenu() {
             handleClose();
           }}
         >
-          <Link to="/profiles/psl_player">PSL Player Profile</Link>
+          <Link to="/profiles/psl_profile">PSL Player Profile</Link>
         </MenuItem>
       </Menu>
     </div>
