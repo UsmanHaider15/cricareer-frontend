@@ -46,10 +46,11 @@ const IccPlayerBattingAverages = ({ player }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/icc_profile/get_player_batting_averages", {
+      .get("http://localhost:3001/icc_profile/icc_career_averages", {
         params: {
           player_id: player.player_id,
           opposition_team: oppositionOption,
+          type: "batting",
         },
       })
       .then(function (response) {
@@ -86,7 +87,7 @@ const IccPlayerBattingAverages = ({ player }) => {
 
   return (
     <Grid container>
-      <Grid item xs={12} alignContent="flex-start" alignItems="flex-start">
+      <Grid item>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="demo-controlled-open-select-label">
             Opposition

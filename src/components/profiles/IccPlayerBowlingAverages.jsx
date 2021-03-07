@@ -46,10 +46,11 @@ const IccPlayerBowlingAverages = ({ player }) => {
   useEffect(() => {
     console.log("player", player["player_id"]);
     axios
-      .get("http://localhost:3001/icc_profile/get_player_bowling_averages", {
+      .get("http://localhost:3001/icc_profile/icc_career_averages", {
         params: {
           player_id: player["player_id"],
           opposition_team: oppositionOption,
+          type: "bowling",
         },
       })
       .then(function (response) {

@@ -130,7 +130,7 @@ const IccPlayerProfile = ({ history }) => {
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ marginBottom: 1000 }}>
-          {Object.keys(player) ? (
+          {Object.keys(player).length ? (
             <IccPlayerBowlingAverages player={player} />
           ) : null}
         </Grid>
