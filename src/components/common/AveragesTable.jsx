@@ -66,16 +66,11 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("opposition_team");
-  const [dense, setDense] = React.useState(false);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  };
-
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
   };
 
   return (
@@ -85,7 +80,7 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
-            size={dense ? "small" : "medium"}
+            size={"small"}
             aria-label="enhanced table"
           >
             <EnhancedTableHead
@@ -111,10 +106,6 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
           </Table>
         </TableContainer>
       </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      />
     </div>
   );
 };

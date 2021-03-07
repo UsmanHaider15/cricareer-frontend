@@ -28,7 +28,7 @@ function EnhancedTableHead(props) {
             align={headCell.numeric ? "left" : "left"}
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
-            {...(index ? {} : { style: { paddingLeft: 15, paddingRight: 70 } })}
+            // {...(index ? {} : { style: { paddingLeft: 15, paddingRight: 70 } })}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
