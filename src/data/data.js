@@ -119,3 +119,33 @@ export const icc_format_lookup = {
   t201: "T20Is",
   test: "Tests",
 };
+
+export const league_teams = {
+  ipl: [
+    "All Teams",
+    "Chennai Super Kings",
+    "Delhi Capitals",
+    "Punjab Kings",
+    "Kolkata Knight Riders",
+    "Mumbai Indians",
+    "Rajasthan Royals",
+    "Royal Challengers Bangalore",
+    "Sunrisers Hyderabad",
+    "Deccan Chargers",
+    "Kochi Tuskers Kerala",
+    "Pune Warriors India",
+    "Rising Pune Supergiant",
+    "Gujarat Lions",
+  ],
+  psl: [
+    "All Teams",
+    "Islamabad United",
+    "Karachi Kings",
+    "Lahore Qalandars",
+    "Multan Sultans",
+    "Peshawar Zalmi",
+    "Quetta Gladiators",
+  ],
+};
+
+export const league_seasons = { psl: 5, ipl: 13 };

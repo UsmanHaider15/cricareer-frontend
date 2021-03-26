@@ -43,7 +43,7 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/league_profile/get_players_list", {
+      .get("http://localhost:3001/league_player_profile/get_players_list", {
         params: {
           limit: 100,
           league_name: leagueName,
@@ -63,7 +63,7 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
     const player_id = url_id.player_id ? url_id.player_id : 440;
 
     axios
-      .get(`http://localhost:3001/league_profile/get_player_by_id`, {
+      .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
         params: {
           player_id: player_id,
           league_name: leagueName,
@@ -94,7 +94,7 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={player}
-            url="http://localhost:3001/league_profile/search_player_by_name"
+            url="http://localhost:3001/league_player_profile/search_player_by_name"
             league_name={leagueName}
           />
         </Grid>

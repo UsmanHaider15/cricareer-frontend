@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import IccPlayerComparison from "./components/IccPlayerComparison";
 import LeaguePlayerProfiles from "./components/profiles/LeaguePlayerProfiles";
-import PslPlayersComparison from "./components/comparisons/PslPlayersComparison";
+import LeaguePlayersComparison from "./components/comparisons/LeaguePlayersComparison";
 import IccPlayerProfile from "./components/profiles/IccPlayerProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -28,12 +28,18 @@ export default function App() {
                 <Route path="/profiles/psl_profile">
                   <LeaguePlayerProfiles leagueName="psl" />
                 </Route>
+                <Route path="/profiles/ipl_profile">
+                  <LeaguePlayerProfiles leagueName="ipl" />
+                </Route>
                 <Route path="/comparisons/icc_comparison">
                   <IccPlayerComparison />
                 </Route>
 
                 <Route path="/comparisons/psl_comparison">
-                  <PslPlayersComparison leagueName="psl" />
+                  <LeaguePlayersComparison leagueName="psl" />
+                </Route>
+                <Route path="/comparisons/ipl_comparison">
+                  <LeaguePlayersComparison leagueName="ipl" />
                 </Route>
               </Switch>
             </div>

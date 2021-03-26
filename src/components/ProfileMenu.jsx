@@ -60,6 +60,14 @@ export default function ProfileMenu() {
         >
           <Link to="/profiles/psl_profile">PSL Player Profile</Link>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("Ipl Profile");
+            handleClose();
+          }}
+        >
+          <Link to="/profiles/ipl_profile">IPL Player Profile</Link>
+        </MenuItem>
       </Menu>
     </div>
   );

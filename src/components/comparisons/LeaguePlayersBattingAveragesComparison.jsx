@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import TableView from "../common/TableView";
 import Grid from "@material-ui/core/Grid";
+import { league_teams, league_seasons } from "../../data/data";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -19,7 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PslPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
+const LeaguePlayersBattingAveragesComparison = ({
+  firstPlayer,
+  secondPlayer,
+  leagueName,
+}) => {
   const classes = useStyles();
   const [chartData, setChartData] = React.useState({
     first_player: {},
@@ -58,16 +63,19 @@ const PslPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/psl_comparison/career_averages_comparison`, {
-        params: {
-          first_player_id: firstPlayer.player_id,
-          second_player_id: secondPlayer.player_id,
-          season_number: seasonOption,
-          opposition_team: oppositionOption,
-          league_name: "psl",
-          type: "bowling",
-        },
-      })
+      .get(
+        `http://localhost:3001/league_player_comparison/career_averages_comparison`,
+        {
+          params: {
+            first_player_id: firstPlayer.player_id,
+            second_player_id: secondPlayer.player_id,
+            season_number: seasonOption,
+            opposition_team: oppositionOption,
+            league_name: leagueName,
+            type: "batting",
+          },
+        }
+      )
       .then(function ({ data }) {
         const { first_player, second_player } = data;
 
@@ -99,9 +107,15 @@ const PslPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
             label="Season"
             className={classes.root}
           >
-            {[0, 5, 4, 3, 2, 1].map((value) => (
+            {[
+              0,
+              ...Array.from(
+                Array(league_seasons[leagueName]),
+                (x, i) => i + 1
+              ).reverse(),
+            ].map((value) => (
               <MenuItem value={value}>
-                {value ? `PSL ${value}` : "All Seasons"}
+                {value ? `${leagueName.toUpperCase()} ${value}` : "All Seasons"}
               </MenuItem>
             ))}
           </Select>
@@ -122,15 +136,7 @@ const PslPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
             label="Opposition"
             className={classes.root}
           >
-            {[
-              "All Teams",
-              "Islamabad United",
-              "Karachi Kings",
-              "Lahore Qalandars",
-              "Multan Sultans",
-              "Peshawar Zalmi",
-              "Quetta Gladiators",
-            ].map((value) => (
+            {league_teams[leagueName].map((value) => (
               <MenuItem value={value}>{value}</MenuItem>
             ))}
           </Select>
@@ -154,4 +160,4 @@ const PslPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   );
 };
 
-export default PslPlayersBowlingAveragesComparison;
+export default LeaguePlayersBattingAveragesComparison;

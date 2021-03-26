@@ -5,7 +5,7 @@ import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
-import PslCareerComparisons from "./PslCareerComparisons";
+import LeagueCareerComparisons from "./LeagueCareerComparisons";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -26,7 +26,7 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
-const PslPlayersBattingComparison = ({ history }) => {
+const LeaguePlayersComparison = ({ history, leagueName }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [firstPlayer, setFirstPlayer] = useState({});
   const [secondPlayer, setSecondPlayer] = useState({});
@@ -44,10 +44,10 @@ const PslPlayersBattingComparison = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/league_profile/get_players_list", {
+      .get("http://localhost:3001/league_player_profile/get_players_list", {
         params: {
           limit: 100,
-          league_name: "psl",
+          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -69,10 +69,10 @@ const PslPlayersBattingComparison = ({ history }) => {
       : 441;
 
     axios
-      .get(`http://localhost:3001/league_profile/get_player_by_id`, {
+      .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
         params: {
           player_id: first_player_id,
-          league_name: "psl",
+          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -83,10 +83,10 @@ const PslPlayersBattingComparison = ({ history }) => {
       });
 
     axios
-      .get(`http://localhost:3001/league_profile/get_player_by_id`, {
+      .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
         params: {
           player_id: second_player_id,
-          league_name: "psl",
+          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -117,8 +117,8 @@ const PslPlayersBattingComparison = ({ history }) => {
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={firstPlayer}
-            url="http://localhost:3001/league_profile/search_player_by_name"
-            league_name="psl"
+            url="http://localhost:3001/league_player_profile/search_player_by_name"
+            league_name={leagueName}
           />
         </Grid>
         <Grid item xs={6}>
@@ -127,8 +127,8 @@ const PslPlayersBattingComparison = ({ history }) => {
             setSelectedPlayer={handleSelectedPlayer}
             player={secondPlayer}
             isFirst={false}
-            url="http://localhost:3001/league_profile/search_player_by_name"
-            league_name="psl"
+            url="http://localhost:3001/league_player_profile/search_player_by_name"
+            league_name={leagueName}
           />
         </Grid>
       </Grid>
@@ -199,9 +199,10 @@ const PslPlayersBattingComparison = ({ history }) => {
       </Grid>
       <Grid container>
         {firstPlayer.player_id && secondPlayer.player_id ? (
-          <PslCareerComparisons
+          <LeagueCareerComparisons
             firstPlayer={firstPlayer}
             secondPlayer={secondPlayer}
+            leagueName={leagueName}
           />
         ) : null}
       </Grid>
@@ -209,4 +210,4 @@ const PslPlayersBattingComparison = ({ history }) => {
   );
 };
 
-export default withRouter(PslPlayersBattingComparison);
+export default withRouter(LeaguePlayersComparison);

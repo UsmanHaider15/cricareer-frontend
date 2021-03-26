@@ -40,13 +40,16 @@ const LeaguePlayerBattingAverages = ({ player, leagueName }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/league_profile/get_player_batting_averages", {
-        params: {
-          player_id: player.player_id,
-          season_number: option,
-          league_name: leagueName,
-        },
-      })
+      .get(
+        "http://localhost:3001/league_player_profile/get_player_batting_averages",
+        {
+          params: {
+            player_id: player.player_id,
+            season_number: option,
+            league_name: leagueName,
+          },
+        }
+      )
       .then(function (response) {
         const data = response.data.rows;
 

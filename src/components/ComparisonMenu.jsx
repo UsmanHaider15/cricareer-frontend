@@ -61,6 +61,14 @@ export default function ComparisonMenu() {
         >
           <Link to="/comparisons/psl_comparison">PSL Player comparisons</Link>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("Ipl Comparison");
+            handleClose();
+          }}
+        >
+          <Link to="/comparisons/ipl_comparison">Ipl Player comparisons</Link>
+        </MenuItem>
       </Menu>
     </div>
   );
