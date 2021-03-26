@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import IccPlayerComparison from "./components/IccPlayerComparison";
-import PslPlayerProfiles from "./components/profiles/PslPlayerProfiles";
+import LeaguePlayerProfiles from "./components/profiles/LeaguePlayerProfiles";
 import PslPlayersComparison from "./components/comparisons/PslPlayersComparison";
 import IccPlayerProfile from "./components/profiles/IccPlayerProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -26,14 +26,14 @@ export default function App() {
                   <IccPlayerProfile />
                 </Route>
                 <Route path="/profiles/psl_profile">
-                  <PslPlayerProfiles />
+                  <LeaguePlayerProfiles leagueName="psl" />
                 </Route>
                 <Route path="/comparisons/icc_comparison">
                   <IccPlayerComparison />
                 </Route>
 
                 <Route path="/comparisons/psl_comparison">
-                  <PslPlayersComparison />
+                  <PslPlayersComparison leagueName="psl" />
                 </Route>
               </Switch>
             </div>

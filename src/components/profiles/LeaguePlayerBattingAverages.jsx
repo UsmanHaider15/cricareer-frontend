@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PslPlayerBattingAverages = ({ player }) => {
+const LeaguePlayerBattingAverages = ({ player, leagueName }) => {
   const classes = useStyles();
   const [battingAverages, setBattingAverages] = useState([]);
   const [option, setOption] = React.useState(0);
@@ -40,11 +40,11 @@ const PslPlayerBattingAverages = ({ player }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/psl_profile/get_player_batting_averages", {
+      .get("http://localhost:3001/league_profile/get_player_batting_averages", {
         params: {
           player_id: player.player_id,
           season_number: option,
-          league_name: "psl",
+          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -68,8 +68,6 @@ const PslPlayerBattingAverages = ({ player }) => {
         );
 
         setBattingAverages(modifiedData);
-
-        console.log("modifiedData", modifiedData);
       })
       .catch(function (error) {
         console.log(error);
@@ -97,7 +95,7 @@ const PslPlayerBattingAverages = ({ player }) => {
           >
             {[0, 5, 4, 3, 2, 1].map((value) => (
               <MenuItem value={value}>
-                {value ? `PSL ${value}` : "All Seasons"}
+                {value ? `${leagueName.toUpperCase()} ${value}` : "All Seasons"}
               </MenuItem>
             ))}
           </Select>
@@ -113,4 +111,4 @@ const PslPlayerBattingAverages = ({ player }) => {
   );
 };
 
-export default PslPlayerBattingAverages;
+export default LeaguePlayerBattingAverages;

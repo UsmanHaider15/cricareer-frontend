@@ -44,7 +44,7 @@ const PslPlayersBattingComparison = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/psl_profile/get_players_list", {
+      .get("http://localhost:3001/league_profile/get_players_list", {
         params: {
           limit: 100,
           league_name: "psl",
@@ -69,7 +69,7 @@ const PslPlayersBattingComparison = ({ history }) => {
       : 441;
 
     axios
-      .get(`http://localhost:3001/psl_profile/get_player_by_id`, {
+      .get(`http://localhost:3001/league_profile/get_player_by_id`, {
         params: {
           player_id: first_player_id,
           league_name: "psl",
@@ -83,7 +83,7 @@ const PslPlayersBattingComparison = ({ history }) => {
       });
 
     axios
-      .get(`http://localhost:3001/psl_profile/get_player_by_id`, {
+      .get(`http://localhost:3001/league_profile/get_player_by_id`, {
         params: {
           player_id: second_player_id,
           league_name: "psl",
@@ -117,7 +117,7 @@ const PslPlayersBattingComparison = ({ history }) => {
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={firstPlayer}
-            url="http://localhost:3001/psl_profile/search_player_by_name"
+            url="http://localhost:3001/league_profile/search_player_by_name"
             league_name="psl"
           />
         </Grid>
@@ -127,7 +127,7 @@ const PslPlayersBattingComparison = ({ history }) => {
             setSelectedPlayer={handleSelectedPlayer}
             player={secondPlayer}
             isFirst={false}
-            url="http://localhost:3001/psl_profile/search_player_by_name"
+            url="http://localhost:3001/league_profile/search_player_by_name"
             league_name="psl"
           />
         </Grid>

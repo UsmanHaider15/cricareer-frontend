@@ -5,8 +5,8 @@ import qs from "qs";
 import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import PslPlayerBattingAverages from "./PslPlayerBattingAverages";
-import PslPlayerBowlingAverages from "./PslPlayerBowlingAverages";
+import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
+import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -27,7 +27,7 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
-const PslPlayerProfiles = ({ history }) => {
+const LeaguePlayerProfiles = ({ history, leagueName }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
   const [ref, loaded, onLoad] = useImageLoaded();
@@ -43,10 +43,10 @@ const PslPlayerProfiles = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/psl_profile/get_players_list", {
+      .get("http://localhost:3001/league_profile/get_players_list", {
         params: {
           limit: 100,
-          league_name: "psl",
+          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -63,10 +63,10 @@ const PslPlayerProfiles = ({ history }) => {
     const player_id = url_id.player_id ? url_id.player_id : 440;
 
     axios
-      .get(`http://localhost:3001/psl_profile/get_player_by_id`, {
+      .get(`http://localhost:3001/league_profile/get_player_by_id`, {
         params: {
           player_id: player_id,
-          league_name: "psl",
+          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -94,8 +94,8 @@ const PslPlayerProfiles = ({ history }) => {
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={player}
-            url="http://localhost:3001/psl_profile/search_player_by_name"
-            league_name="psl"
+            url="http://localhost:3001/league_profile/search_player_by_name"
+            league_name={leagueName}
           />
         </Grid>
         <Grid
@@ -131,12 +131,18 @@ const PslPlayerProfiles = ({ history }) => {
         </Grid>
         <Grid item xs={12} style={{ marginBottom: 30 }}>
           {Object.keys(player).length > 0 ? (
-            <PslPlayerBattingAverages player={player} />
+            <LeaguePlayerBattingAverages
+              leagueName={leagueName}
+              player={player}
+            />
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ marginBottom: 1000 }}>
           {Object.keys(player).length > 0 ? (
-            <PslPlayerBowlingAverages player={player} />
+            <LeaguePlayerBowlingAverages
+              leagueName={leagueName}
+              player={player}
+            />
           ) : null}
         </Grid>
       </Grid>
@@ -144,4 +150,4 @@ const PslPlayerProfiles = ({ history }) => {
   );
 };
 
-export default withRouter(PslPlayerProfiles);
+export default withRouter(LeaguePlayerProfiles);
