@@ -26,20 +26,34 @@ export default function App() {
                   <IccPlayerProfile />
                 </Route>
                 <Route path="/profiles/psl_profile">
-                  <LeaguePlayerProfiles leagueName="psl" />
+                  <LeaguePlayerProfiles
+                    leagueName="psl"
+                    initialPlayerID="440"
+                  />
                 </Route>
                 <Route path="/profiles/ipl_profile">
-                  <LeaguePlayerProfiles leagueName="ipl" />
+                  <LeaguePlayerProfiles
+                    leagueName="ipl"
+                    initialPlayerID="146"
+                  />
                 </Route>
                 <Route path="/comparisons/icc_comparison">
                   <IccPlayerComparison />
                 </Route>
 
                 <Route path="/comparisons/psl_comparison">
-                  <LeaguePlayersComparison leagueName="psl" />
+                  <LeaguePlayersComparison
+                    leagueName="psl"
+                    initialFirstPlayerID="440"
+                    initialSecondPlayerID="441"
+                  />
                 </Route>
                 <Route path="/comparisons/ipl_comparison">
-                  <LeaguePlayersComparison leagueName="ipl" />
+                  <LeaguePlayersComparison
+                    leagueName="ipl"
+                    initialFirstPlayerID="146"
+                    initialSecondPlayerID="28"
+                  />
                 </Route>
               </Switch>
             </div>

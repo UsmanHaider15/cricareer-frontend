@@ -8,6 +8,7 @@ import axios from "axios";
 import TableView from "../common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { league_teams, league_seasons } from "../../data/data";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -93,6 +94,11 @@ const LeaguePlayersBattingAveragesComparison = ({
 
   return (
     <Grid container>
+      <div>
+        <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+          Batting Averages Comparison
+        </Typography>
+      </div>
       <div>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>

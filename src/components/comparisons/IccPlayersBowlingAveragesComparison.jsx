@@ -8,6 +8,7 @@ import axios from "axios";
 import TableView from "../common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { icc_teams_lookup } from "../../data/data";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -85,6 +86,11 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
 
   return (
     <Grid container>
+      <div>
+        <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+          Bowling Averages Comparison
+        </Typography>
+      </div>
       <div>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="demo-controlled-open-select-label">Format</InputLabel>

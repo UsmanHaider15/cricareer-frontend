@@ -34,7 +34,12 @@ function usePrevious(value) {
   return ref.current;
 }
 
-const LeaguePlayersComparison = ({ history, leagueName }) => {
+const LeaguePlayersComparison = ({
+  history,
+  leagueName,
+  initialFirstPlayerID,
+  initialSecondPlayerID,
+}) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [firstPlayer, setFirstPlayer] = useState({});
   const [secondPlayer, setSecondPlayer] = useState({});
@@ -76,10 +81,10 @@ const LeaguePlayersComparison = ({ history, leagueName }) => {
     const player_ids = qs.parse(history.location.search.substring(1));
     const first_player_id = player_ids.first_player_id
       ? player_ids.first_player_id
-      : 440;
+      : initialFirstPlayerID;
     const second_player_id = player_ids.second_player_id
       ? player_ids.second_player_id
-      : 441;
+      : initialSecondPlayerID;
 
     axios
       .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {

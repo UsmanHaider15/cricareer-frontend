@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
+import Typography from "@material-ui/core/Typography";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -35,7 +36,7 @@ function usePrevious(value) {
   return ref.current;
 }
 
-const LeaguePlayerProfiles = ({ history, leagueName }) => {
+const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
   const [ref, loaded, onLoad] = useImageLoaded();
@@ -72,7 +73,7 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
       });
 
     const url_id = qs.parse(history.location.search.substring(1));
-    const player_id = url_id.player_id ? url_id.player_id : 440;
+    const player_id = url_id.player_id ? url_id.player_id : initialPlayerID;
 
     axios
       .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
@@ -144,7 +145,10 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
           <Grid item xs={3}></Grid>
         </Grid>
 
-        <Grid item xs={12} style={{ marginBottom: 30 }}>
+        <Grid item xs={12} style={{ padding: "10px 0px" }}>
+          <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+            Batting Averages
+          </Typography>
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBattingAverages
               leagueName={leagueName}
@@ -152,7 +156,10 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
             />
           ) : null}
         </Grid>
-        <Grid item xs={12} style={{ marginBottom: 1000 }}>
+        <Grid item xs={12} style={{ padding: "10px 0px" }}>
+          <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+            Bowling Averages
+          </Typography>
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBowlingAverages
               leagueName={leagueName}
