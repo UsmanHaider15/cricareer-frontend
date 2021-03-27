@@ -27,11 +27,23 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
 const LeaguePlayerProfiles = ({ history, leagueName }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
   const [ref, loaded, onLoad] = useImageLoaded();
+  const prevLeagueName = usePrevious(leagueName);
 
+  if (prevLeagueName && leagueName !== prevLeagueName) {
+    window.location.reload();
+  }
   useEffect(() => {
     if (Object.keys(player).length) {
       history.push({
@@ -89,46 +101,49 @@ const LeaguePlayerProfiles = ({ history, leagueName }) => {
   return (
     <div>
       <Grid container style={{ paddingTop: 10 }} spacing={1}>
-        <Grid item xs={12}>
-          <PlayerSearch
-            InitialPlayersList={initialPlayersList}
-            setSelectedPlayer={handleSelectedPlayer}
-            player={player}
-            url="http://localhost:3001/league_player_profile/search_player_by_name"
-            league_name={leagueName}
-          />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <div
-            style={{
-              overflow: "hidden",
-              border: "1px solid black",
-              padding: 10,
-            }}
-          >
-            <img
-              ref={ref}
-              onLoad={onLoad}
-              src={
-                player.player_image_url
-                  ? player.player_image_url
-                  : "/default-user.jpg"
-              }
-              alt=""
-              style={{
-                display: loaded ? "block" : "none",
-              }}
+        <Grid container>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={6}>
+            <PlayerSearch
+              InitialPlayersList={initialPlayersList}
+              setSelectedPlayer={handleSelectedPlayer}
+              player={player}
+              url="http://localhost:3001/league_player_profile/search_player_by_name"
+              league_name={leagueName}
             />
-            {!loaded ? <CircularProgress /> : null}
-          </div>
+          </Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
+        <Grid container>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={6}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingTop: 10,
+              }}
+            >
+              <img
+                ref={ref}
+                onLoad={onLoad}
+                src={
+                  player.player_image_url
+                    ? player.player_image_url
+                    : "/default-user.jpg"
+                }
+                alt=""
+                style={{
+                  display: loaded ? "block" : "none",
+                }}
+              />
+              {!loaded ? <CircularProgress /> : null}
+            </div>
+          </Grid>
+          <Grid item xs={3}></Grid>
+        </Grid>
+
         <Grid item xs={12} style={{ marginBottom: 30 }}>
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBattingAverages

@@ -5,10 +5,18 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import humanify from "../Utils/humanify";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuButton from "./common/MenuButton";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    color: "white",
+  },
+}));
 
 export default function ComparisonMenu() {
+  const classes = useStyles();
   const location = useLocation();
-
   const [btnLabel, setBtnLabel] = React.useState("Select Comparison");
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -31,13 +39,14 @@ export default function ComparisonMenu() {
 
   return (
     <div>
-      <Button
+      <MenuButton
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
       >
         {btnLabel}
-      </Button>
+      </MenuButton>
+
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -67,7 +76,7 @@ export default function ComparisonMenu() {
             handleClose();
           }}
         >
-          <Link to="/comparisons/ipl_comparison">Ipl Player comparisons</Link>
+          <Link to="/comparisons/ipl_comparison">IPL Player comparisons</Link>
         </MenuItem>
       </Menu>
     </div>

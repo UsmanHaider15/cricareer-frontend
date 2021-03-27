@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import humanify from "../Utils/humanify";
+import MenuButton from "./common/MenuButton";
 
 export default function ProfileMenu() {
   const location = useLocation();
@@ -30,13 +30,14 @@ export default function ProfileMenu() {
 
   return (
     <div>
-      <Button
+      <MenuButton
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
       >
         {btnLabel}
-      </Button>
+      </MenuButton>
+
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}

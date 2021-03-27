@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import IccPlayerBattingAverages from "./IccPlayerBattingAverages";
 import IccPlayerBowlingAverages from "./IccPlayerBowlingAverages";
+import Typography from "@material-ui/core/Typography";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -87,16 +88,21 @@ const IccPlayerProfile = ({ history }) => {
   return (
     <div>
       <Grid container style={{ paddingTop: 10 }} spacing={1}>
-        <Grid item xs={12}>
-          <PlayerSearch
-            InitialPlayersList={initialPlayersList}
-            setSelectedPlayer={handleSelectedPlayer}
-            player={player}
-            url="http://localhost:3001/search_player_by_name"
-          />
+        <Grid container>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={6}>
+            <PlayerSearch
+              InitialPlayersList={initialPlayersList}
+              setSelectedPlayer={handleSelectedPlayer}
+              player={player}
+              url="http://localhost:3001/search_player_by_name"
+            />
+          </Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
         <Grid container>
-          <Grid item xs={12}>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={6}>
             <div
               style={{
                 display: "flex",
@@ -123,13 +129,24 @@ const IccPlayerProfile = ({ history }) => {
               {!loaded ? <CircularProgress /> : null}
             </div>
           </Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
-        <Grid item xs={12} style={{ marginBottom: 30 }}>
+        <Grid item xs={12} style={{ paddingTop: 10 }}>
+          <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+            Batting Averages
+          </Typography>
           {Object.keys(player).length ? (
             <IccPlayerBattingAverages player={player} />
           ) : null}
         </Grid>
-        <Grid item xs={12} style={{ marginBottom: 1000 }}>
+        <Grid item xs={12} style={{ paddingBottom: 10 }}>
+          <Typography
+            variant="h5"
+            align="left"
+            style={{ padding: "10px 0px 10px 0px" }}
+          >
+            Bowling Averages
+          </Typography>
           {Object.keys(player).length ? (
             <IccPlayerBowlingAverages player={player} />
           ) : null}

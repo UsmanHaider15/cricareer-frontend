@@ -26,12 +26,25 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
 const LeaguePlayersComparison = ({ history, leagueName }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [firstPlayer, setFirstPlayer] = useState({});
   const [secondPlayer, setSecondPlayer] = useState({});
   const [firstRef, firstLoaded, firstOnLoad] = useImageLoaded();
   const [secondRef, secondLoaded, secondOnLoad] = useImageLoaded();
+  const prevLeagueName = usePrevious(leagueName);
+
+  if (prevLeagueName && leagueName !== prevLeagueName) {
+    window.location.reload();
+  }
 
   useEffect(() => {
     if (Object.keys(firstPlayer).length && Object.keys(secondPlayer).length) {
