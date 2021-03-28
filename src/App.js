@@ -7,6 +7,7 @@ import IccPlayerProfile from "./components/profiles/IccPlayerProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MenuToolbar from "./components/MenuToolbar";
+import Home from "./components/Home";
 
 export default function App() {
   return (
@@ -22,6 +23,9 @@ export default function App() {
             renders the first one that matches the current URL. */}
             <div className="App" style={{ paddingBottom: 500 }}>
               <Switch>
+                <Route path="/" exact>
+                  <Home />
+                </Route>
                 <Route path="/profiles/icc_profile">
                   <IccPlayerProfile />
                 </Route>
