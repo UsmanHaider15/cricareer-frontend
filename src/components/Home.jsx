@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@material-ui/core/Breadcrumbs";
+import Breadcrumb from "./common/Breadcrumb";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +22,7 @@ const Home = () => {
 
   return (
     <div className={classes.root}>
+      <Breadcrumb />
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>

@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import IccCareerComparisons from "./IccCareerComparisons";
+import Breadcrumb from "./common/Breadcrumb";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -108,6 +109,7 @@ const IccPlayerComparison = ({ history }) => {
 
   return (
     <div>
+      <Breadcrumb />
       <Grid container style={{ paddingTop: 10 }} spacing={1}>
         <Grid item xs={6}>
           <PlayerSearch

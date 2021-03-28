@@ -8,6 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import IccPlayerBattingAverages from "./IccPlayerBattingAverages";
 import IccPlayerBowlingAverages from "./IccPlayerBowlingAverages";
 import Typography from "@material-ui/core/Typography";
+import Breadcrumb from "../common/Breadcrumb";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -87,6 +88,7 @@ const IccPlayerProfile = ({ history }) => {
 
   return (
     <div>
+      <Breadcrumb />
       <Grid container style={{ paddingTop: 10 }} spacing={1}>
         <Grid container>
           <Grid item xs={3}></Grid>

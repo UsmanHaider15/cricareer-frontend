@@ -8,6 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Typography from "@material-ui/core/Typography";
+import Breadcrumb from "../common/Breadcrumb";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -101,6 +102,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
 
   return (
     <div>
+      <Breadcrumb />
       <Grid container style={{ paddingTop: 10 }} spacing={1}>
         <Grid container>
           <Grid item xs={3}></Grid>

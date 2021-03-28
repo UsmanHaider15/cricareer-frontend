@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import IccPlayerComparison from "./components/IccPlayerComparison";
 import LeaguePlayerProfiles from "./components/profiles/LeaguePlayerProfiles";
@@ -9,12 +9,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import MenuToolbar from "./components/MenuToolbar";
 import Home from "./components/Home";
 
-export default function App() {
+function App() {
   return (
     <React.Fragment>
       <Router>
         <CssBaseline />
-
         <MenuToolbar />
 
         <div style={{ marginTop: 60 }}>
@@ -67,3 +66,5 @@ export default function App() {
     </React.Fragment>
   );
 }
+
+export default App;
