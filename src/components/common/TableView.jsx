@@ -17,7 +17,7 @@ const TableView = ({ data, excludedKeys }) => {
           >
             <div
               style={{
-                color: "#00154F",
+                color: "#00154f",
                 background: "linear-gradient(225deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
                 fontWeight: "bold",
@@ -39,7 +39,7 @@ const TableView = ({ data, excludedKeys }) => {
             <div
               style={{
                 color: "#00154F",
-                background: "linear-gradient(135deg, #F4AF1B 85%, white 15%)",
+                background: "linear-gradient(135deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
 
                 fontWeight: "bold",

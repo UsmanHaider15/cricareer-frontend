@@ -11,8 +11,10 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center",
+    textAlign: "left",
+    fontSize: 24,
     color: theme.palette.text.secondary,
+    height: 200,
   },
 }));
 
@@ -24,57 +26,44 @@ const Home = () => {
       <Breadcrumb />
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            {" "}
-            <Link to="/profiles/icc_profile" style={{ textDecoration: "none" }}>
-              ICC Player Profile
-            </Link>
-          </Paper>
+          <Link to="/profiles/icc_profile" style={{ textDecoration: "none" }}>
+            <Paper className={classes.paper}>ICC Player Profile</Paper>
+          </Link>
         </Grid>
 
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Link
-              to="/comparisons/icc_comparison"
-              style={{ textDecoration: "none" }}
-            >
-              ICC Player comparisons
-            </Link>
-          </Paper>
+          <Link
+            to="/comparisons/icc_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <Paper className={classes.paper}>ICC Player comparisons</Paper>
+          </Link>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Link to="/profiles/psl_profile" style={{ textDecoration: "none" }}>
-              PSL Player Profile
-            </Link>
-          </Paper>
+          <Link to="/profiles/psl_profile" style={{ textDecoration: "none" }}>
+            <Paper className={classes.paper}>PSL Player Profile</Paper>
+          </Link>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Link
-              to="/comparisons/psl_comparison"
-              style={{ textDecoration: "none" }}
-            >
-              PSL Player comparisons
-            </Link>
-          </Paper>
+          <Link
+            to="/comparisons/psl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <Paper className={classes.paper}>PSL Player comparisons</Paper>
+          </Link>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Link to="/profiles/ipl_profile" style={{ textDecoration: "none" }}>
-              IPL Player Profile
-            </Link>
-          </Paper>
+          <Link to="/profiles/ipl_profile" style={{ textDecoration: "none" }}>
+            <Paper className={classes.paper}>IPL Player Profile</Paper>
+          </Link>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Link
-              to="/comparisons/ipl_comparison"
-              style={{ textDecoration: "none" }}
-            >
-              IPL Player comparisons
-            </Link>
-          </Paper>
+          <Link
+            to="/comparisons/ipl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <Paper className={classes.paper}>IPL Player comparisons</Paper>
+          </Link>
         </Grid>
       </Grid>
     </div>

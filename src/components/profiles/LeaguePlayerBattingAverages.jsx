@@ -9,7 +9,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import {
   league_batting_table_column_name_lookup,
-  league_teams,
   league_seasons,
 } from "../../data/data";
 

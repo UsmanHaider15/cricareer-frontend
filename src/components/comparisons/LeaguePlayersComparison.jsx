@@ -174,7 +174,6 @@ const LeaguePlayersComparison = ({
               }
               alt=""
               style={{
-                flexShrink: 0,
                 minWidth: "60%",
                 display: firstLoaded ? "block" : "none",
               }}
