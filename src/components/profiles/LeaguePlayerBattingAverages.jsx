@@ -88,7 +88,7 @@ const LeaguePlayerBattingAverages = ({ player, leagueName }) => {
     <div>
       <div style={{ textAlign: "left" }}>
         <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel id="demo-controlled-open-select-label">Option</InputLabel>
+          <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
