@@ -137,7 +137,7 @@ const IccPlayerComparison = ({ history }) => {
               overflow: "hidden",
               border: "1px solid black",
               padding: 10,
-              height: "85%",
+              // height: "85%",
             }}
           >
             <img
@@ -168,7 +168,7 @@ const IccPlayerComparison = ({ history }) => {
               overflow: "hidden",
               border: "1px solid black",
               padding: 10,
-              height: "85%",
+              // height: "85%",
             }}
           >
             <img

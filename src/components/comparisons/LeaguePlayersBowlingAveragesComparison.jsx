@@ -94,12 +94,12 @@ const LeaguePlayersBowlingAveragesComparison = ({
 
   return (
     <Grid container>
-      <div>
-        <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+      <Grid xs={12}>
+        <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
           Bowling Averages Comparison
         </Typography>
-      </div>
-      <div>
+      </Grid>
+      <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
           <Select
@@ -147,7 +147,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
             ))}
           </Select>
         </FormControl>
-      </div>
+      </Grid>
       <div
         style={{
           boxShadow: "2px 2px 6px 0px #888888",

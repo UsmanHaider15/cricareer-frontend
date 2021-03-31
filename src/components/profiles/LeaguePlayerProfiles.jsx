@@ -148,7 +148,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
         </Grid>
 
         <Grid item xs={12} style={{ padding: "10px 0px" }}>
-          <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+          <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
             Batting Averages
           </Typography>
           {Object.keys(player).length > 0 ? (
@@ -159,7 +159,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ padding: "10px 0px" }}>
-          <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+          <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
             Bowling Averages
           </Typography>
           {Object.keys(player).length > 0 ? (

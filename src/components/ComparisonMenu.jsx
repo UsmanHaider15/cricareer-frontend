@@ -1,21 +1,12 @@
 import React, { useEffect } from "react";
-import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import humanify from "../Utils/humanify";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuButton from "./common/MenuButton";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    color: "white",
-  },
-}));
-
 export default function ComparisonMenu() {
-  const classes = useStyles();
   const location = useLocation();
   const [btnLabel, setBtnLabel] = React.useState("Select Comparison");
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -60,7 +51,12 @@ export default function ComparisonMenu() {
             handleClose();
           }}
         >
-          <Link to="/comparisons/icc_comparison">ICC Player comparisons</Link>
+          <Link
+            to="/comparisons/icc_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            ICC Player comparisons
+          </Link>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -68,7 +64,12 @@ export default function ComparisonMenu() {
             handleClose();
           }}
         >
-          <Link to="/comparisons/psl_comparison">PSL Player comparisons</Link>
+          <Link
+            to="/comparisons/psl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            PSL Player comparisons
+          </Link>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -76,7 +77,12 @@ export default function ComparisonMenu() {
             handleClose();
           }}
         >
-          <Link to="/comparisons/ipl_comparison">IPL Player comparisons</Link>
+          <Link
+            to="/comparisons/ipl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            IPL Player comparisons
+          </Link>
         </MenuItem>
       </Menu>
     </div>

@@ -51,7 +51,9 @@ export default function ProfileMenu() {
             handleClose();
           }}
         >
-          <Link to="/profiles/icc_profile">ICC Player Profile</Link>
+          <Link to="/profiles/icc_profile" style={{ textDecoration: "none" }}>
+            ICC Player Profile
+          </Link>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -59,7 +61,9 @@ export default function ProfileMenu() {
             handleClose();
           }}
         >
-          <Link to="/profiles/psl_profile">PSL Player Profile</Link>
+          <Link to="/profiles/psl_profile" style={{ textDecoration: "none" }}>
+            PSL Player Profile
+          </Link>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -67,7 +71,9 @@ export default function ProfileMenu() {
             handleClose();
           }}
         >
-          <Link to="/profiles/ipl_profile">IPL Player Profile</Link>
+          <Link to="/profiles/ipl_profile" style={{ textDecoration: "none" }}>
+            IPL Player Profile
+          </Link>
         </MenuItem>
       </Menu>
     </div>

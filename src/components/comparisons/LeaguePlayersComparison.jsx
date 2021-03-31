@@ -162,7 +162,7 @@ const LeaguePlayersComparison = ({
               overflow: "hidden",
               border: "1px solid black",
               padding: 10,
-              height: "85%",
+              // height: "65%",
             }}
           >
             <img
@@ -193,7 +193,7 @@ const LeaguePlayersComparison = ({
               overflow: "hidden",
               border: "1px solid black",
               padding: 10,
-              height: "85%",
+              // height: "65%",
             }}
           >
             <img

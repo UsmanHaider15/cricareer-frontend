@@ -86,12 +86,12 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
 
   return (
     <Grid container>
-      <div>
-        <Typography variant="h5" align="left" style={{ paddingBottom: 10 }}>
+      <Grid xs={12}>
+        <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
           Bowling Averages Comparison
         </Typography>
-      </div>
-      <div>
+      </Grid>
+      <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel id="demo-controlled-open-select-label">Format</InputLabel>
           <Select
@@ -131,8 +131,9 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
             ))}
           </Select>
         </FormControl>
-      </div>
-      <div
+      </Grid>
+      <Grid
+        xs={12}
         style={{
           boxShadow: "2px 2px 6px 0px #888888",
           borderRadius: "10px 10px 10px 10px",
@@ -150,7 +151,7 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
             "balls_bowled",
           ]}
         />
-      </div>
+      </Grid>
     </Grid>
   );
 };
