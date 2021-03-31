@@ -138,6 +138,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
                 }
                 alt=""
                 style={{
+                  minWidth: "60%",
                   display: loaded ? "block" : "none",
                 }}
               />

@@ -123,7 +123,6 @@ const IccPlayerProfile = ({ history }) => {
                 }
                 alt=""
                 style={{
-                  flexShrink: 0,
                   minWidth: "60%",
                   display: loaded ? "block" : "none",
                 }}

@@ -160,9 +160,8 @@ const LeaguePlayersComparison = ({
               justifyContent: "center",
               alignItems: "center",
               overflow: "hidden",
-              border: "1px solid black",
+              // border: "1px solid black",
               padding: 10,
-              // height: "65%",
             }}
           >
             <img
@@ -176,8 +175,7 @@ const LeaguePlayersComparison = ({
               alt=""
               style={{
                 flexShrink: 0,
-                minWidth: "100%",
-                maxWidth: "100%",
+                minWidth: "60%",
                 display: firstLoaded ? "block" : "none",
               }}
             />
@@ -191,9 +189,8 @@ const LeaguePlayersComparison = ({
               justifyContent: "center",
               alignItems: "center",
               overflow: "hidden",
-              border: "1px solid black",
+              // border: "1px solid black",
               padding: 10,
-              // height: "65%",
             }}
           >
             <img
@@ -206,9 +203,7 @@ const LeaguePlayersComparison = ({
               }
               alt=""
               style={{
-                flexShrink: 0,
-                minWidth: "100%",
-                maxWidth: "100%",
+                minWidth: "60%",
                 display: secondLoaded ? "block" : "none",
               }}
             />
