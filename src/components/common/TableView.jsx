@@ -17,11 +17,9 @@ const TableView = ({ data, excludedKeys }) => {
           >
             <div
               style={{
-                color: "white",
-                backgroundColor: "#ff2400",
+                color: "#00154F",
+                background: "linear-gradient(225deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
-                borderBottomLeftRadius: 20,
-                borderTopLeftRadius: 20,
                 fontWeight: "bold",
               }}
             >
@@ -29,7 +27,7 @@ const TableView = ({ data, excludedKeys }) => {
             </div>
             <div
               style={{
-                backgroundImage: "linear-gradient(to right, #ff2400, #0073cf)",
+                backgroundColor: "#00154F",
                 color: "white",
                 flex: "2 1 0",
                 whiteSpace: "nowrap",
@@ -40,11 +38,10 @@ const TableView = ({ data, excludedKeys }) => {
             </div>
             <div
               style={{
-                color: "white",
-                backgroundColor: "#0073cf",
+                color: "#00154F",
+                background: "linear-gradient(135deg, #F4AF1B 85%, white 15%)",
                 flex: "1 1 0",
-                borderTopRightRadius: 20,
-                borderBottomRightRadius: 20,
+
                 fontWeight: "bold",
               }}
             >
