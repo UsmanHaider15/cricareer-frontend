@@ -7,7 +7,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import { league_batting_table_column_name_lookup } from "../../data/data";
+import {
+  league_batting_table_column_name_lookup,
+  league_teams,
+  league_seasons,
+} from "../../data/data";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -96,7 +100,13 @@ const LeaguePlayerBattingAverages = ({ player, leagueName }) => {
             label="Option"
             className={classes.root}
           >
-            {[0, 5, 4, 3, 2, 1].map((value) => (
+            {[
+              0,
+              ...Array.from(
+                Array(league_seasons[leagueName]),
+                (x, i) => i + 1
+              ).reverse(),
+            ].map((value) => (
               <MenuItem value={value}>
                 {value ? `${leagueName.toUpperCase()} ${value}` : "All Seasons"}
               </MenuItem>
