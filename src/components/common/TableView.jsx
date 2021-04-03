@@ -28,7 +28,7 @@ const TableView = ({ data, excludedKeys }) => {
             <div
               style={{
                 backgroundColor: "#00154F",
-                color: "white",
+                color: "#eee6e0",
                 flex: "2 1 0",
                 whiteSpace: "nowrap",
                 fontWeight: "bolder",

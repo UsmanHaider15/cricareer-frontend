@@ -9,6 +9,7 @@ import TableView from "../common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { icc_teams_lookup } from "../../data/data";
 import Typography from "@material-ui/core/Typography";
+import CustomResponsiveFontSizes from "../common/Heading";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -87,9 +88,7 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   return (
     <Grid container>
       <Grid xs={12}>
-        <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
-          Bowling Averages Comparison
-        </Typography>
+        <CustomResponsiveFontSizes text="Bowling Averages Comparison" />
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined" className={classes.formControl}>

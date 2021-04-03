@@ -6,7 +6,7 @@ import humanify from "../../Utils/humanify";
 
 const Breadcrumb = ({ history }) => {
   return (
-    <Breadcrumbs aria-label="breadcrumb">
+    <Breadcrumbs aria-label="breadcrumb" style={{ marginBottom: 20 }}>
       <Link to="/">Home</Link>
       {history.location.pathname != "/" ? (
         <Link to={history.location.pathname}>

@@ -9,6 +9,7 @@ import TableView from "../common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { league_teams, league_seasons } from "../../data/data";
 import Typography from "@material-ui/core/Typography";
+import CustomResponsiveFontSizes from "../common/Heading";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -95,9 +96,7 @@ const LeaguePlayersBattingAveragesComparison = ({
   return (
     <Grid container>
       <Grid xs={12}>
-        <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
-          Batting Averages Comparison
-        </Typography>
+        <CustomResponsiveFontSizes text="Batting Averages Comparison" />
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined" className={classes.formControl}>

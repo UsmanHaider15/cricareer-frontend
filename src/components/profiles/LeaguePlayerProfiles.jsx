@@ -9,6 +9,7 @@ import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Typography from "@material-ui/core/Typography";
 import Breadcrumb from "../common/Breadcrumb";
+import CustomResponsiveFontSizes from "../common/Heading";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -103,7 +104,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
   return (
     <div>
       <Breadcrumb />
-      <Grid container style={{ paddingTop: 10 }} spacing={1}>
+      <Grid container spacing={1}>
         <Grid container>
           <Grid item xs={3}></Grid>
           <Grid item xs={6}>
@@ -148,10 +149,8 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
           <Grid item xs={3}></Grid>
         </Grid>
 
-        <Grid item xs={12} style={{ padding: "10px 0px" }}>
-          <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
-            Batting Averages
-          </Typography>
+        <Grid item xs={12} style={{ paddingTop: 10 }}>
+          <CustomResponsiveFontSizes text="Batting Averages" />
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBattingAverages
               leagueName={leagueName}
@@ -159,10 +158,8 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
             />
           ) : null}
         </Grid>
-        <Grid item xs={12} style={{ padding: "10px 0px" }}>
-          <Typography variant="h4" align="left" style={{ paddingBottom: 10 }}>
-            Bowling Averages
-          </Typography>
+        <Grid item xs={12} style={{ paddingTop: 10 }}>
+          <CustomResponsiveFontSizes text="Bowling Averages" />
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBowlingAverages
               leagueName={leagueName}

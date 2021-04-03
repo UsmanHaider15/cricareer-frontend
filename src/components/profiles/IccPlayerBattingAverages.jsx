@@ -14,8 +14,10 @@ import {
 import AveragesTable from "../common/AveragesTable";
 
 const useStyles = makeStyles((theme) => ({
-  root: { padding: 0, marginBottom: 10 },
-
+  root: { padding: 0 },
+  select: {
+    marginBottom: 10,
+  },
   button: {
     display: "block",
   },
@@ -101,7 +103,7 @@ const IccPlayerBattingAverages = ({ player }) => {
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
-            className={classes.root}
+            className={classes.select}
           >
             {Object.entries(icc_teams_lookup).map(([value, label]) => (
               <MenuItem value={value}>{label}</MenuItem>

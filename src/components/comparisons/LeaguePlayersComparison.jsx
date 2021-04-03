@@ -131,7 +131,7 @@ const LeaguePlayersComparison = ({
   return (
     <div>
       <Breadcrumb />
-      <Grid container style={{ paddingTop: 10 }} spacing={1}>
+      <Grid container spacing={1}>
         <Grid item xs={6}>
           <PlayerSearch
             InitialPlayersList={initialPlayersList}
@@ -160,7 +160,6 @@ const LeaguePlayersComparison = ({
               justifyContent: "center",
               alignItems: "center",
               overflow: "hidden",
-              // border: "1px solid black",
               padding: 10,
             }}
           >
@@ -188,7 +187,6 @@ const LeaguePlayersComparison = ({
               justifyContent: "center",
               alignItems: "center",
               overflow: "hidden",
-              // border: "1px solid black",
               padding: 10,
             }}
           >

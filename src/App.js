@@ -39,7 +39,7 @@ function App() {
                 <CssBaseline />
                 <MenuToolbar />
 
-                <div style={{ marginTop: 60 }}>
+                <div style={{ marginTop: 40 }}>
                   <div>
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
