@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import IccCareerComparisons from "./IccCareerComparisons";
-import Breadcrumb from "components/common/Breadcrumb";
-import httpService from "services/httpService";
+import Breadcrumb from "Components/Common/Breadcrumb";
+import httpService from "Services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);

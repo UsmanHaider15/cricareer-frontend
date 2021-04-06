@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import IccPlayersBattingAveragesComparison from "./comparisons/IccPlayersBattingAveragesComparison";
-import IccPlayersBowlingAveragesComparison from "./comparisons/IccPlayersBowlingAveragesComparison";
+import IccPlayersBattingAveragesComparison from "./Comparisons/IccPlayersBattingAveragesComparison";
+import IccPlayersBowlingAveragesComparison from "./Comparisons/IccPlayersBowlingAveragesComparison";
 
 export default function IccCareerComparisons({ firstPlayer, secondPlayer }) {
   return (

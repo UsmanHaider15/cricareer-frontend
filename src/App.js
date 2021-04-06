@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import IccPlayerComparison from "./components/IccPlayerComparison";
-import LeaguePlayerProfiles from "./components/profiles/LeaguePlayerProfiles";
-import LeaguePlayersComparison from "./components/comparisons/LeaguePlayersComparison";
-import IccPlayerProfile from "./components/profiles/IccPlayerProfile";
+import IccPlayerComparison from "./Components/IccPlayerComparison";
+import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";
+import LeaguePlayersComparison from "./Components/Comparisons/LeaguePlayersComparison";
+import IccPlayerProfile from "./Components/Profiles/IccPlayerProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import MenuToolbar from "./components/MenuToolbar";
-import Home from "./components/Home";
+import MenuToolbar from "./Components/MenuToolbar";
+import Home from "./Components/Home";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 

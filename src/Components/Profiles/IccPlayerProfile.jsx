@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router";
 import qs from "qs";
-import PlayerSearch from "components/PlayerSearch";
+import PlayerSearch from "Components/PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
-import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
-import Breadcrumb from "components/common/Breadcrumb";
-import CustomResponsiveFontSizes from "components/common/Heading";
-import httpService from "services/httpService";
+import IccPlayerBattingAverages from "./IccPlayerBattingAverages";
+import IccPlayerBowlingAverages from "./IccPlayerBowlingAverages";
+import Breadcrumb from "Components/Common/Breadcrumb";
+import CustomResponsiveFontSizes from "Components/Common/Heading";
+import httpService from "Services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -29,23 +29,11 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
-const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
+const IccPlayerProfile = ({ history }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
   const [ref, loaded, onLoad] = useImageLoaded();
-  const prevLeagueName = usePrevious(leagueName);
 
-  if (prevLeagueName && leagueName !== prevLeagueName) {
-    window.location.reload();
-  }
   useEffect(() => {
     if (Object.keys(player).length) {
       history.push({
@@ -57,10 +45,9 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
 
   useEffect(() => {
     httpService
-      .get("/league_player_profile/get_players_list", {
+      .get("/get_players_list", {
         params: {
           limit: 100,
-          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -74,13 +61,12 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
       });
 
     const url_id = qs.parse(history.location.search.substring(1));
-    const player_id = url_id.player_id ? url_id.player_id : initialPlayerID;
+    const player_id = url_id.player_id ? url_id.player_id : 253802;
 
     httpService
-      .get(`/league_player_profile/get_player_by_id`, {
+      .get(`/get_player_by_id`, {
         params: {
           player_id: player_id,
-          league_name: leagueName,
         },
       })
       .then(function (response) {
@@ -111,8 +97,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
               InitialPlayersList={initialPlayersList}
               setSelectedPlayer={handleSelectedPlayer}
               player={player}
-              url="/league_player_profile/search_player_by_name"
-              league_name={leagueName}
+              url="/search_player_by_name"
             />
           </Grid>
           <Grid item xs={3}></Grid>
@@ -147,23 +132,16 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
           </Grid>
           <Grid item xs={3}></Grid>
         </Grid>
-
         <Grid item xs={12} style={{ paddingTop: 10 }}>
           <CustomResponsiveFontSizes text="Batting Averages" />
-          {Object.keys(player).length > 0 ? (
-            <LeaguePlayerBattingAverages
-              leagueName={leagueName}
-              player={player}
-            />
+          {Object.keys(player).length ? (
+            <IccPlayerBattingAverages player={player} />
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ paddingTop: 10 }}>
           <CustomResponsiveFontSizes text="Bowling Averages" />
-          {Object.keys(player).length > 0 ? (
-            <LeaguePlayerBowlingAverages
-              leagueName={leagueName}
-              player={player}
-            />
+          {Object.keys(player).length ? (
+            <IccPlayerBowlingAverages player={player} />
           ) : null}
         </Grid>
       </Grid>
@@ -171,4 +149,4 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
   );
 };
 
-export default withRouter(LeaguePlayerProfiles);
+export default withRouter(IccPlayerProfile);

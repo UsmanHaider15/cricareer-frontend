@@ -2,7 +2,7 @@
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { useState, useEffect } from "react";
-import httpService from "services/httpService";
+import httpService from "Services/httpService";
 
 export default function PlayerSearch({
   InitialPlayersList,

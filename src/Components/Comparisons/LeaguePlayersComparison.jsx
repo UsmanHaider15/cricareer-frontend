@@ -1,12 +1,12 @@
-import PlayerSearch from "components/PlayerSearch";
+import PlayerSearch from "Components/PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import LeagueCareerComparisons from "./LeagueCareerComparisons";
-import Breadcrumb from "components/common/Breadcrumb";
-import httpService from "services/httpService";
+import Breadcrumb from "Components/Common/Breadcrumb";
+import httpService from "Services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);

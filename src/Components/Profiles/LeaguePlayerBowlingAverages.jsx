@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AveragesTable from "components/common/AveragesTable";
+import AveragesTable from "Components/Common/AveragesTable";
 import _ from "lodash";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,8 +9,8 @@ import Select from "@material-ui/core/Select";
 import {
   league_bowling_table_column_to_label_lookup,
   league_seasons,
-} from "data/data";
-import httpService from "services/httpService";
+} from "Data/data";
+import httpService from "Services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },

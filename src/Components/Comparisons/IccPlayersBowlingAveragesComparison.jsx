@@ -4,12 +4,12 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
-import TableView from "components/common/TableView";
+import TableView from "Components/Common/TableView";
 import Grid from "@material-ui/core/Grid";
-import { league_teams, league_seasons } from "data/data";
+import { icc_teams_lookup } from "Data/data";
 import Typography from "@material-ui/core/Typography";
-import CustomResponsiveFontSizes from "components/common/Heading";
-import httpService from "services/httpService";
+import CustomResponsiveFontSizes from "Components/Common/Heading";
+import httpService from "Services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -22,33 +22,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LeaguePlayersBowlingAveragesComparison = ({
-  firstPlayer,
-  secondPlayer,
-  leagueName,
-}) => {
+const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   const classes = useStyles();
   const [chartData, setChartData] = React.useState({
     first_player: {},
     second_player: {},
   });
 
-  const [seasonOption, setSeasonOption] = React.useState(0);
-  const [seasonMenuOpen, setSeasonMenuOpen] = React.useState(false);
+  const [formatType, setFormatType] = React.useState("All Formats");
+  const [formatMenuOpen, setFormatMenuOpen] = React.useState(false);
 
-  const handleSeasonChange = (event) => {
-    setSeasonOption(event.target.value);
+  const handleFormatChange = (event) => {
+    setFormatType(event.target.value);
   };
 
-  const handleSeasonMenuClose = () => {
-    setSeasonMenuOpen(false);
+  const handleFormatMenuClose = () => {
+    setFormatMenuOpen(false);
   };
 
-  const handleSeasonMenuOpen = () => {
-    setSeasonMenuOpen(true);
+  const handleFormatMenuOpen = () => {
+    setFormatMenuOpen(true);
   };
 
-  const [oppositionOption, setOppositionOption] = React.useState("All Teams");
+  const [oppositionOption, setOppositionOption] = React.useState("all_teams");
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
 
   const handleOppositionChange = (event) => {
@@ -65,13 +61,12 @@ const LeaguePlayersBowlingAveragesComparison = ({
 
   useEffect(() => {
     httpService
-      .get(`/league_player_comparison/career_averages_comparison`, {
+      .get(`/icc_comparison/career_averages_comparison`, {
         params: {
           first_player_id: firstPlayer.player_id,
           second_player_id: secondPlayer.player_id,
-          season_number: seasonOption,
+          format_type: formatType,
           opposition_team: oppositionOption,
-          league_name: leagueName,
           type: "bowling",
         },
       })
@@ -84,7 +79,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
         console.log(error);
       });
   }, [
-    seasonOption,
+    formatType,
     oppositionOption,
     firstPlayer.player_id,
     secondPlayer.player_id,
@@ -97,28 +92,20 @@ const LeaguePlayersBowlingAveragesComparison = ({
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
+          <InputLabel id="demo-controlled-open-select-label">Format</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
-            open={seasonMenuOpen}
-            onClose={handleSeasonMenuClose}
-            onOpen={handleSeasonMenuOpen}
-            value={seasonOption}
-            onChange={handleSeasonChange}
-            label="Season"
+            open={formatMenuOpen}
+            onClose={handleFormatMenuClose}
+            onOpen={handleFormatMenuOpen}
+            value={formatType}
+            onChange={handleFormatChange}
+            label="Format"
             className={classes.root}
           >
-            {[
-              0,
-              ...Array.from(
-                Array(league_seasons[leagueName]),
-                (x, i) => i + 1
-              ).reverse(),
-            ].map((value) => (
-              <MenuItem value={value}>
-                {value ? `${leagueName.toUpperCase()} ${value}` : "All Seasons"}
-              </MenuItem>
+            {["All Formats", "T20Is", "Tests", "ODIs"].map((format) => (
+              <MenuItem value={format}>{format}</MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -138,13 +125,14 @@ const LeaguePlayersBowlingAveragesComparison = ({
             label="Opposition"
             className={classes.root}
           >
-            {league_teams[leagueName].map((value) => (
-              <MenuItem value={value}>{value}</MenuItem>
+            {Object.entries(icc_teams_lookup).map(([value, label]) => (
+              <MenuItem value={value}>{label}</MenuItem>
             ))}
           </Select>
         </FormControl>
       </Grid>
-      <div
+      <Grid
+        xs={12}
         style={{
           boxShadow: "2px 2px 6px 0px #888888",
           padding: 8,
@@ -154,11 +142,16 @@ const LeaguePlayersBowlingAveragesComparison = ({
       >
         <TableView
           data={chartData}
-          excludedKeys={["player_id", "season_number", "opposition_team"]}
+          excludedKeys={[
+            "player_id",
+            "format_type",
+            "opposition_team",
+            "balls_bowled",
+          ]}
         />
-      </div>
+      </Grid>
     </Grid>
   );
 };
 
-export default LeaguePlayersBowlingAveragesComparison;
+export default IccPlayersBowlingAveragesComparison;

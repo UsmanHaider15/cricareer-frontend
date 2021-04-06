@@ -8,10 +8,10 @@ import Grid from "@material-ui/core/Grid";
 import {
   icc_teams_lookup,
   icc_bowling_table_column_name_lookup,
-} from "data/data";
+} from "Data/data";
 import _ from "lodash";
-import AveragesTable from "components/common/AveragesTable";
-import httpService from "services/httpService";
+import AveragesTable from "Components/Common/AveragesTable";
+import httpService from "Services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
