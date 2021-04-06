@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl =
-  process.env.NODE_ENV === "production"
+  process.env.NODE_ENV === "PROD"
     ? "http://65.0.31.34"
     : "http://localhost:3001";
 
