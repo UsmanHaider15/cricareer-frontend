@@ -1,7 +1,8 @@
 import axios from "axios";
 
+console.log("process.env", process.env);
 const baseUrl =
-  process.env.NODE_ENV === "PROD"
+  process.env.REACT_APP_ENVIRONMENT === "PROD"
     ? "http://65.0.31.34"
     : "http://localhost:3001";
 
