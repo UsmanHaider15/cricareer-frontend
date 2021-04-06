@@ -4,11 +4,11 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
-import TableView from "../common/TableView";
+import TableView from "components/common/TableView";
 import Grid from "@material-ui/core/Grid";
-import { icc_teams_lookup } from "../../data/data";
+import { icc_teams_lookup } from "data/data";
 import Typography from "@material-ui/core/Typography";
-import CustomResponsiveFontSizes from "../common/Heading";
+import CustomResponsiveFontSizes from "components/common/Heading";
 import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({

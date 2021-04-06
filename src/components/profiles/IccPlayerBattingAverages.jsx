@@ -9,8 +9,8 @@ import _ from "lodash";
 import {
   icc_batting_table_column_name_lookup,
   icc_teams_lookup,
-} from "../../data/data";
-import AveragesTable from "../common/AveragesTable";
+} from "data/data";
+import AveragesTable from "components/common/AveragesTable";
 import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({

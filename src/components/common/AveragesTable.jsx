@@ -7,8 +7,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 import EnhancedTableHead from "./EnhancedTableHead";
 
 function descendingComparator(a, b, orderBy) {

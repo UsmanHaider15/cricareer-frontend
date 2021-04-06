@@ -4,9 +4,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { TableChart, BarChart } from "@material-ui/icons";
-import TableView from "./common/TableView";
-import ChartView from "./common/ChartView";
-import TabPanel from "./common/TabPanel";
+import TableView from "components/common/TableView";
+import ChartView from "components/common/ChartView";
+import TabPanel from "components/common/TabPanel";
 import SwipeableViews from "react-swipeable-views";
 
 const useStyles = makeStyles((theme) => ({

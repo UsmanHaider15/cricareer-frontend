@@ -3,8 +3,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import humanify from "../Utils/humanify";
-import MenuButton from "./common/MenuButton";
+import humanify from "Utils/humanify";
+import MenuButton from "components/common/MenuButton";
 
 export default function ProfileMenu() {
   const location = useLocation();

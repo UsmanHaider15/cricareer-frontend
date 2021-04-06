@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router";
 import qs from "qs";
-import PlayerSearch from "../PlayerSearch";
+import PlayerSearch from "components/PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
-import Breadcrumb from "../common/Breadcrumb";
-import CustomResponsiveFontSizes from "../common/Heading";
+import Breadcrumb from "components/common/Breadcrumb";
+import CustomResponsiveFontSizes from "components/common/Heading";
 import httpService from "services/httpService";
 
 const useImageLoaded = () => {

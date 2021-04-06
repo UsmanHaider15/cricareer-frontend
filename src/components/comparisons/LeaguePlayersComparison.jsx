@@ -1,11 +1,11 @@
-import PlayerSearch from "../PlayerSearch";
+import PlayerSearch from "components/PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import LeagueCareerComparisons from "./LeagueCareerComparisons";
-import Breadcrumb from "../common/Breadcrumb";
+import Breadcrumb from "components/common/Breadcrumb";
 import httpService from "services/httpService";
 
 const useImageLoaded = () => {

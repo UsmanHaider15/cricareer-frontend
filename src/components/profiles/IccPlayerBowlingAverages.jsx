@@ -8,9 +8,9 @@ import Grid from "@material-ui/core/Grid";
 import {
   icc_teams_lookup,
   icc_bowling_table_column_name_lookup,
-} from "../../data/data";
+} from "data/data";
 import _ from "lodash";
-import AveragesTable from "../common/AveragesTable";
+import AveragesTable from "components/common/AveragesTable";
 import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({
