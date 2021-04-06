@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router";
-import axios from "axios";
 import qs from "qs";
 import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import IccPlayerBattingAverages from "./IccPlayerBattingAverages";
 import IccPlayerBowlingAverages from "./IccPlayerBowlingAverages";
-import Typography from "@material-ui/core/Typography";
 import Breadcrumb from "../common/Breadcrumb";
 import CustomResponsiveFontSizes from "../common/Heading";
+import httpService from "services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -45,8 +44,8 @@ const IccPlayerProfile = ({ history }) => {
   }, [player]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/get_players_list", {
+    httpService
+      .get("/get_players_list", {
         params: {
           limit: 100,
         },
@@ -64,8 +63,8 @@ const IccPlayerProfile = ({ history }) => {
     const url_id = qs.parse(history.location.search.substring(1));
     const player_id = url_id.player_id ? url_id.player_id : 253802;
 
-    axios
-      .get(`http://localhost:3001/get_player_by_id`, {
+    httpService
+      .get(`/get_player_by_id`, {
         params: {
           player_id: player_id,
         },
@@ -98,7 +97,7 @@ const IccPlayerProfile = ({ history }) => {
               InitialPlayersList={initialPlayersList}
               setSelectedPlayer={handleSelectedPlayer}
               player={player}
-              url="http://localhost:3001/search_player_by_name"
+              url="/search_player_by_name"
             />
           </Grid>
           <Grid item xs={3}></Grid>

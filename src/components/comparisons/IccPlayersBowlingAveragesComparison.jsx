@@ -4,12 +4,12 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
-import axios from "axios";
 import TableView from "../common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { icc_teams_lookup } from "../../data/data";
 import Typography from "@material-ui/core/Typography";
 import CustomResponsiveFontSizes from "../common/Heading";
+import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -60,8 +60,8 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   };
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/icc_comparison/career_averages_comparison`, {
+    httpService
+      .get(`/icc_comparison/career_averages_comparison`, {
         params: {
           first_player_id: firstPlayer.player_id,
           second_player_id: secondPlayer.player_id,

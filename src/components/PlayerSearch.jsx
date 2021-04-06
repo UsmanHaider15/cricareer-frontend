@@ -2,14 +2,14 @@
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import httpService from "services/httpService";
 
 export default function PlayerSearch({
   InitialPlayersList,
   setSelectedPlayer,
   player,
   isFirst = true,
-  url = "http://localhost:3001/search_player_by_name",
+  url = "/search_player_by_name",
   league_name = "psl",
 }) {
   const [searchedPlayersList, setSearchedPlayersList] = useState([]);
@@ -17,7 +17,7 @@ export default function PlayerSearch({
 
   useEffect(() => {
     if (searchStr) {
-      axios
+      httpService
         .get(url, {
           params: {
             player_name: searchStr,

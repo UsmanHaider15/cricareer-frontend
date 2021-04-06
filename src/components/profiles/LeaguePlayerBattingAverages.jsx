@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import axios from "axios";
 import AveragesTable from "../common/AveragesTable";
 import _ from "lodash";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -11,6 +10,7 @@ import {
   league_batting_table_column_name_lookup,
   league_seasons,
 } from "../../data/data";
+import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -42,17 +42,14 @@ const LeaguePlayerBattingAverages = ({ player, leagueName }) => {
   };
 
   useEffect(() => {
-    axios
-      .get(
-        "http://localhost:3001/league_player_profile/get_player_batting_averages",
-        {
-          params: {
-            player_id: player.player_id,
-            season_number: option,
-            league_name: leagueName,
-          },
-        }
-      )
+    httpService
+      .get("/league_player_profile/get_player_batting_averages", {
+        params: {
+          player_id: player.player_id,
+          season_number: option,
+          league_name: leagueName,
+        },
+      })
       .then(function (response) {
         const data = response.data.rows;
 

@@ -5,13 +5,13 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
-import axios from "axios";
 import _ from "lodash";
 import {
   icc_batting_table_column_name_lookup,
   icc_teams_lookup,
 } from "../../data/data";
 import AveragesTable from "../common/AveragesTable";
+import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0 },
@@ -47,8 +47,8 @@ const IccPlayerBattingAverages = ({ player }) => {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/icc_profile/icc_career_averages", {
+    httpService
+      .get("/icc_profile/icc_career_averages", {
         params: {
           player_id: player.player_id,
           opposition_team: oppositionOption,

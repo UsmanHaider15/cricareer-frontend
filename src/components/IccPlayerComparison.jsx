@@ -1,12 +1,12 @@
 import PlayerSearch from "./PlayerSearch";
 import Grid from "@material-ui/core/Grid";
-import axios from "axios";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import IccCareerComparisons from "./IccCareerComparisons";
 import Breadcrumb from "./common/Breadcrumb";
+import httpService from "services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -44,8 +44,8 @@ const IccPlayerComparison = ({ history }) => {
   }, [firstPlayer, secondPlayer]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/get_players_list", {
+    httpService
+      .get("/get_players_list", {
         params: {
           limit: 100,
         },
@@ -68,8 +68,8 @@ const IccPlayerComparison = ({ history }) => {
       ? player_ids.second_player_id
       : 348144;
 
-    axios
-      .get(`http://localhost:3001/get_player_by_id`, {
+    httpService
+      .get(`/get_player_by_id`, {
         params: {
           player_id: first_player_id,
         },
@@ -81,8 +81,8 @@ const IccPlayerComparison = ({ history }) => {
         console.log(error);
       });
 
-    axios
-      .get(`http://localhost:3001/get_player_by_id`, {
+    httpService
+      .get(`/get_player_by_id`, {
         params: {
           player_id: second_player_id,
         },

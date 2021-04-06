@@ -9,9 +9,9 @@ import {
   icc_teams_lookup,
   icc_bowling_table_column_name_lookup,
 } from "../../data/data";
-import axios from "axios";
 import _ from "lodash";
 import AveragesTable from "../common/AveragesTable";
+import httpService from "services/httpService";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0, marginBottom: 10 },
@@ -44,9 +44,8 @@ const IccPlayerBowlingAverages = ({ player }) => {
   };
 
   useEffect(() => {
-    console.log("player", player["player_id"]);
-    axios
-      .get("http://localhost:3001/icc_profile/icc_career_averages", {
+    httpService
+      .get("/icc_profile/icc_career_averages", {
         params: {
           player_id: player["player_id"],
           opposition_team: oppositionOption,

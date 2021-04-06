@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router";
-import axios from "axios";
 import qs from "qs";
 import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
-import Typography from "@material-ui/core/Typography";
 import Breadcrumb from "../common/Breadcrumb";
 import CustomResponsiveFontSizes from "../common/Heading";
+import httpService from "services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -57,8 +56,8 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
   }, [player]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/league_player_profile/get_players_list", {
+    httpService
+      .get("/league_player_profile/get_players_list", {
         params: {
           limit: 100,
           league_name: leagueName,
@@ -77,8 +76,8 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
     const url_id = qs.parse(history.location.search.substring(1));
     const player_id = url_id.player_id ? url_id.player_id : initialPlayerID;
 
-    axios
-      .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
+    httpService
+      .get(`/league_player_profile/get_player_by_id`, {
         params: {
           player_id: player_id,
           league_name: leagueName,
@@ -112,7 +111,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
               InitialPlayersList={initialPlayersList}
               setSelectedPlayer={handleSelectedPlayer}
               player={player}
-              url="http://localhost:3001/league_player_profile/search_player_by_name"
+              url="/league_player_profile/search_player_by_name"
               league_name={leagueName}
             />
           </Grid>

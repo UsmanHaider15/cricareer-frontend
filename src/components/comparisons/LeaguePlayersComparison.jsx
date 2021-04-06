@@ -1,12 +1,12 @@
 import PlayerSearch from "../PlayerSearch";
 import Grid from "@material-ui/core/Grid";
-import axios from "axios";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
 import LeagueCareerComparisons from "./LeagueCareerComparisons";
 import Breadcrumb from "../common/Breadcrumb";
+import httpService from "services/httpService";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -62,8 +62,8 @@ const LeaguePlayersComparison = ({
   }, [firstPlayer, secondPlayer]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/league_player_profile/get_players_list", {
+    httpService
+      .get("/league_player_profile/get_players_list", {
         params: {
           limit: 100,
           league_name: leagueName,
@@ -87,8 +87,8 @@ const LeaguePlayersComparison = ({
       ? player_ids.second_player_id
       : initialSecondPlayerID;
 
-    axios
-      .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
+    httpService
+      .get(`/league_player_profile/get_player_by_id`, {
         params: {
           player_id: first_player_id,
           league_name: leagueName,
@@ -101,8 +101,8 @@ const LeaguePlayersComparison = ({
         console.log(error);
       });
 
-    axios
-      .get(`http://localhost:3001/league_player_profile/get_player_by_id`, {
+    httpService
+      .get(`/league_player_profile/get_player_by_id`, {
         params: {
           player_id: second_player_id,
           league_name: leagueName,
@@ -137,7 +137,7 @@ const LeaguePlayersComparison = ({
             InitialPlayersList={initialPlayersList}
             setSelectedPlayer={handleSelectedPlayer}
             player={firstPlayer}
-            url="http://localhost:3001/league_player_profile/search_player_by_name"
+            url="/league_player_profile/search_player_by_name"
             league_name={leagueName}
           />
         </Grid>
@@ -147,7 +147,7 @@ const LeaguePlayersComparison = ({
             setSelectedPlayer={handleSelectedPlayer}
             player={secondPlayer}
             isFirst={false}
-            url="http://localhost:3001/league_player_profile/search_player_by_name"
+            url="/league_player_profile/search_player_by_name"
             league_name={leagueName}
           />
         </Grid>
