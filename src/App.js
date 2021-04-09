@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import IccPlayerComparison from "./Components/IccPlayerComparison";
 import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";

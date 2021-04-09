@@ -4,7 +4,6 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import PropTypes from "prop-types";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
-import humanify from "Utils/humanify";
 
 function EnhancedTableHead(props) {
   const { classes, order, orderBy, onRequestSort, columnNamesLookup } = props;

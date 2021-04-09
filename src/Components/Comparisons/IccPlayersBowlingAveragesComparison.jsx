@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import TableView from "Components/Common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { icc_teams_lookup } from "Data/data";
-import Typography from "@material-ui/core/Typography";
 import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
 
