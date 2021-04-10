@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import IccPlayerComparison from "./Components/IccPlayerComparison";
 import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";
@@ -10,8 +10,9 @@ import MenuToolbar from "./Components/MenuToolbar";
 import Home from "./Components/Home";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-
 import { makeStyles } from "@material-ui/core/styles";
+
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,31 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const history = useHistory();
+
+  const onBackButtonEvent = (e) => {
+    e.preventDefault();
+    history.push("/");
+  };
+
+  useEffect(() => {
+    if (process.env.REACT_APP_ENVIRONMENT === "PROD") {
+      const script = document.createElement("script");
+
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-5KY9X93YJY";
+      script.async = true;
+
+      document.head.appendChild(script);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.pathname);
+    window.addEventListener("popstate", onBackButtonEvent);
+    return () => {
+      window.removeEventListener("popstate", onBackButtonEvent);
+    };
+  }, []);
 
   return (
     <React.Fragment>
