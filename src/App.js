@@ -37,12 +37,17 @@ function App() {
 
   useEffect(() => {
     if (process.env.REACT_APP_ENVIRONMENT === "PROD") {
-      const script = document.createElement("script");
-
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-5KY9X93YJY";
-      script.async = true;
-
-      document.head.appendChild(script);
+      const first_script = document.createElement("script");
+      first_script.src =
+        "https://www.googletagmanager.com/gtag/js?id=G-5KY9X93YJY";
+      first_script.async = true;
+      document.head.appendChild(first_script);
+      const second_script = document.createElement("script");
+      second_script.innerHTML = ` window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L1814RT31Y');`;
+      document.head.appendChild(second_script);
     }
   }, []);
 
