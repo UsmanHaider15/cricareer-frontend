@@ -35,21 +35,21 @@ function App() {
     history.push("/");
   };
 
-  useEffect(() => {
-    if (process.env.REACT_APP_ENVIRONMENT === "PROD") {
-      const first_script = document.createElement("script");
-      first_script.src =
-        "https://www.googletagmanager.com/gtag/js?id=G-5KY9X93YJY";
-      first_script.async = true;
-      document.head.appendChild(first_script);
-      const second_script = document.createElement("script");
-      second_script.innerHTML = ` window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-L1814RT31Y');`;
-      document.head.appendChild(second_script);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (process.env.REACT_APP_ENVIRONMENT === "PROD") {
+  //     const first_script = document.createElement("script");
+  //     first_script.src =
+  //       "https://www.googletagmanager.com/gtag/js?id=G-5KY9X93YJY";
+  //     first_script.async = true;
+  //     document.head.appendChild(first_script);
+  //     const second_script = document.createElement("script");
+  //     second_script.innerHTML = ` window.dataLayer = window.dataLayer || [];
+  //     function gtag(){dataLayer.push(arguments);}
+  //     gtag('js', new Date());
+  //     gtag('config', 'G-L1814RT31Y');`;
+  //     document.head.appendChild(second_script);
+  //   }
+  // }, []);
 
   useEffect(() => {
     window.history.pushState(null, null, window.location.pathname);
