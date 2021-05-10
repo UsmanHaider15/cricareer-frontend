@@ -8,7 +8,7 @@ import Footer from "Components/Common/Footer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter forceRefresh={true}>
+    <HashRouter>
       <App />
       <Footer />
     </HashRouter>
