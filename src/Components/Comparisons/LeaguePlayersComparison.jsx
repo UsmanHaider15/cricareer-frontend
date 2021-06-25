@@ -167,8 +167,8 @@ const LeaguePlayersComparison = ({
               ref={firstRef}
               onLoad={firstOnLoad}
               src={
-                firstPlayer.player_image_url
-                  ? firstPlayer.player_image_url
+                firstPlayer.headshot_image_url
+                  ? firstPlayer.headshot_image_url
                   : "/default-user.jpg"
               }
               alt=""
@@ -194,8 +194,8 @@ const LeaguePlayersComparison = ({
               ref={secondRef}
               onLoad={secondOnLoad}
               src={
-                secondPlayer.player_image_url
-                  ? secondPlayer.player_image_url
+                secondPlayer.headshot_image_url
+                  ? secondPlayer.headshot_image_url
                   : "/default-user.jpg"
               }
               alt=""

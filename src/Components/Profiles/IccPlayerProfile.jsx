@@ -117,8 +117,8 @@ const IccPlayerProfile = ({ history }) => {
                 ref={ref}
                 onLoad={onLoad}
                 src={
-                  player.player_image_url
-                    ? player.player_image_url
+                  player.headshot_image_url
+                    ? player.headshot_image_url
                     : "/default-user.jpg"
                 }
                 alt=""
