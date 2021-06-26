@@ -85,7 +85,7 @@ function App() {
                         <Route path="/profiles/psl_profile">
                           <LeaguePlayerProfiles
                             leagueName="psl"
-                            initialPlayerID="440"
+                            initialPlayerID="7626"
                           />
                         </Route>
                         <Route path="/profiles/ipl_profile">
@@ -101,8 +101,8 @@ function App() {
                         <Route path="/comparisons/psl_comparison">
                           <LeaguePlayersComparison
                             leagueName="psl"
-                            initialFirstPlayerID="440"
-                            initialSecondPlayerID="441"
+                            initialFirstPlayerID="7626"
+                            initialSecondPlayerID="7636"
                           />
                         </Route>
                         <Route path="/comparisons/ipl_comparison">
