@@ -24,10 +24,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const IccPlayerBowlingAverages = ({ player }) => {
+const IccPlayerBowlingAverages = ({
+  player,
+  bowlingOpposition,
+  setBowlingOpposition,
+}) => {
   const classes = useStyles();
 
-  const [oppositionOption, setOppositionOption] = React.useState("all_teams");
+  const [oppositionOption, setOppositionOption] =
+    React.useState(bowlingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
   const [bowlingAverages, setBowlingAverages] = useState([]);
 
@@ -44,6 +49,14 @@ const IccPlayerBowlingAverages = ({ player }) => {
   };
 
   useEffect(() => {
+    // history.push({
+    //   pathname: "",
+    //   search: `player_id=${player.player_id}&bowling_opposition=${oppositionOption}`,
+    // });
+    setBowlingOpposition(oppositionOption);
+  }, [oppositionOption]);
+
+  useEffect(() => {
     httpService
       .get("/icc_profile/icc_career_averages", {
         params: {
@@ -54,7 +67,6 @@ const IccPlayerBowlingAverages = ({ player }) => {
       })
       .then(function (response) {
         const data = response.data.rows;
-        console.log("data", data);
         const modifiedData = data.map((obj) =>
           _.pick(obj, Object.keys(icc_bowling_table_column_name_lookup))
         );

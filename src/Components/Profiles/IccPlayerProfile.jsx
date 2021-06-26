@@ -35,15 +35,16 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
   const [ref, loaded, onLoad] = useImageLoaded();
 
   const [battingOpposition, setBattingOpposition] = React.useState("");
+  const [bowlingOpposition, setBowlingOpposition] = React.useState("");
 
   useEffect(() => {
     if (Object.keys(player).length) {
       history.push({
         pathname: "",
-        search: `player_id=${player.player_id}&batting_opposition=${battingOpposition}`,
+        search: `player_id=${player.player_id}&batting_opposition=${battingOpposition}&bowling_opposition=${bowlingOpposition}`,
       });
     }
-  }, [player]);
+  }, [player, battingOpposition, bowlingOpposition]);
 
   useEffect(() => {
     httpService
@@ -64,7 +65,9 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
 
     const query_parameters = qs.parse(history.location.search.substring(1));
     const batting_opposition = query_parameters["batting_opposition"];
+    const bowling_opposition = query_parameters["bowling_opposition"];
     setBattingOpposition(batting_opposition || "all_teams");
+    setBowlingOpposition(bowling_opposition || "all_teams");
 
     const player_id = query_parameters["player_id"]
       ? query_parameters["player_id"]
@@ -145,13 +148,18 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
             <IccPlayerBattingAverages
               player={player}
               battingOpposition={battingOpposition}
+              setBattingOpposition={setBattingOpposition}
             />
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ paddingTop: 10 }}>
           <CustomResponsiveFontSizes text="Bowling Averages" />
           {Object.keys(player).length ? (
-            <IccPlayerBowlingAverages player={player} />
+            <IccPlayerBowlingAverages
+              player={player}
+              bowlingOpposition={bowlingOpposition}
+              setBowlingOpposition={setBowlingOpposition}
+            />
           ) : null}
         </Grid>
       </Grid>
