@@ -96,8 +96,8 @@ function App() {
                         </Route>
                         <Route path="/comparisons/icc_comparison">
                           <IccPlayerComparison
-                            initialFirstPlayerID="348144"
-                            initialSecondPlayerID="253802"
+                            initialFirstPlayerID="290948"
+                            initialSecondPlayerID="348144"
                           />
                         </Route>
 

@@ -21,14 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
+const IccPlayersBowlingAveragesComparison = ({
+  firstPlayer,
+  secondPlayer,
+  bowlingFormat,
+  setBowlingFormat,
+  bowlingOpposition,
+  setBowlingOpposition,
+}) => {
   const classes = useStyles();
   const [chartData, setChartData] = React.useState({
     first_player: {},
     second_player: {},
   });
 
-  const [formatType, setFormatType] = React.useState("All Formats");
+  const [formatType, setFormatType] = React.useState(bowlingFormat);
   const [formatMenuOpen, setFormatMenuOpen] = React.useState(false);
 
   const handleFormatChange = (event) => {
@@ -43,7 +50,8 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
     setFormatMenuOpen(true);
   };
 
-  const [oppositionOption, setOppositionOption] = React.useState("all_teams");
+  const [oppositionOption, setOppositionOption] =
+    React.useState(bowlingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
 
   const handleOppositionChange = (event) => {
@@ -57,6 +65,11 @@ const IccPlayersBowlingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   const handleOppositionMenuOpen = () => {
     setOppositionMenuOpen(true);
   };
+
+  useEffect(() => {
+    setBowlingFormat(formatType);
+    setBowlingOpposition(oppositionOption);
+  }, [formatType, oppositionOption]);
 
   useEffect(() => {
     httpService

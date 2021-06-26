@@ -21,14 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const IccPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
+const IccPlayersBattingAveragesComparison = ({
+  firstPlayer,
+  secondPlayer,
+  battingFormat,
+  setBattingFormat,
+  battingOpposition,
+  setBattingOpposition,
+}) => {
   const classes = useStyles();
   const [chartData, setChartData] = React.useState({
     first_player: {},
     second_player: {},
   });
 
-  const [formatType, setFormatType] = React.useState("All Formats");
+  const [formatType, setFormatType] = React.useState(battingFormat);
   const [formatMenuOpen, setFormatMenuOpen] = React.useState(false);
 
   const handleFormatChange = (event) => {
@@ -43,7 +50,8 @@ const IccPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
     setFormatMenuOpen(true);
   };
 
-  const [oppositionOption, setOppositionOption] = React.useState("all_teams");
+  const [oppositionOption, setOppositionOption] =
+    React.useState(battingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
 
   const handleOppositionChange = (event) => {
@@ -57,6 +65,11 @@ const IccPlayersBattingAveragesComparison = ({ firstPlayer, secondPlayer }) => {
   const handleOppositionMenuOpen = () => {
     setOppositionMenuOpen(true);
   };
+
+  useEffect(() => {
+    setBattingFormat(formatType);
+    setBattingOpposition(oppositionOption);
+  }, [formatType, oppositionOption]);
 
   useEffect(() => {
     httpService
