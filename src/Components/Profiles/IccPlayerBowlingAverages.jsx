@@ -49,10 +49,6 @@ const IccPlayerBowlingAverages = ({
   };
 
   useEffect(() => {
-    // history.push({
-    //   pathname: "",
-    //   search: `player_id=${player.player_id}&bowling_opposition=${oppositionOption}`,
-    // });
     setBowlingOpposition(oppositionOption);
   }, [oppositionOption]);
 

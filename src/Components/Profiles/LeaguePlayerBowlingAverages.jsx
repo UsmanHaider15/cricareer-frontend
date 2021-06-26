@@ -23,10 +23,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LeaguePlayerBowlingAverages = ({ player, leagueName }) => {
+const LeaguePlayerBowlingAverages = ({
+  player,
+  leagueName,
+  setBowlingSeason,
+  bowlingSeason,
+}) => {
   const classes = useStyles();
   const [bowlingAverages, setBowlingAverages] = useState([]);
-  const [option, setOption] = React.useState(0);
+  const [option, setOption] = React.useState(bowlingSeason);
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
@@ -40,6 +45,10 @@ const LeaguePlayerBowlingAverages = ({ player, leagueName }) => {
   const handleOpen = () => {
     setOpen(true);
   };
+
+  useEffect(() => {
+    setBowlingSeason(option);
+  }, [option]);
 
   useEffect(() => {
     httpService
