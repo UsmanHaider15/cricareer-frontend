@@ -25,6 +25,10 @@ const LeaguePlayersBattingAveragesComparison = ({
   firstPlayer,
   secondPlayer,
   leagueName,
+  battingSeason,
+  setBattingSeason,
+  battingOpposition,
+  setBattingOpposition,
 }) => {
   const classes = useStyles();
   const [chartData, setChartData] = React.useState({
@@ -32,7 +36,7 @@ const LeaguePlayersBattingAveragesComparison = ({
     second_player: {},
   });
 
-  const [seasonOption, setSeasonOption] = React.useState(0);
+  const [seasonOption, setSeasonOption] = React.useState(battingSeason);
   const [seasonMenuOpen, setSeasonMenuOpen] = React.useState(false);
 
   const handleSeasonChange = (event) => {
@@ -47,7 +51,8 @@ const LeaguePlayersBattingAveragesComparison = ({
     setSeasonMenuOpen(true);
   };
 
-  const [oppositionOption, setOppositionOption] = React.useState("All Teams");
+  const [oppositionOption, setOppositionOption] =
+    React.useState(battingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
 
   const handleOppositionChange = (event) => {
@@ -61,6 +66,11 @@ const LeaguePlayersBattingAveragesComparison = ({
   const handleOppositionMenuOpen = () => {
     setOppositionMenuOpen(true);
   };
+
+  useEffect(() => {
+    setBattingSeason(seasonOption);
+    setBattingOpposition(oppositionOption);
+  }, [seasonOption, oppositionOption]);
 
   useEffect(() => {
     httpService

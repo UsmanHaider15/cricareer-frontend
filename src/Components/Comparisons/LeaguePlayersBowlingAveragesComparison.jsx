@@ -25,6 +25,10 @@ const LeaguePlayersBowlingAveragesComparison = ({
   firstPlayer,
   secondPlayer,
   leagueName,
+  bowlingSeason,
+  setBowlingSeason,
+  bowlingOpposition,
+  setBowlingOpposition,
 }) => {
   const classes = useStyles();
   const [chartData, setChartData] = React.useState({
@@ -32,7 +36,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
     second_player: {},
   });
 
-  const [seasonOption, setSeasonOption] = React.useState(0);
+  const [seasonOption, setSeasonOption] = React.useState(bowlingSeason);
   const [seasonMenuOpen, setSeasonMenuOpen] = React.useState(false);
 
   const handleSeasonChange = (event) => {
@@ -47,7 +51,8 @@ const LeaguePlayersBowlingAveragesComparison = ({
     setSeasonMenuOpen(true);
   };
 
-  const [oppositionOption, setOppositionOption] = React.useState("All Teams");
+  const [oppositionOption, setOppositionOption] =
+    React.useState(bowlingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
 
   const handleOppositionChange = (event) => {
@@ -61,6 +66,11 @@ const LeaguePlayersBowlingAveragesComparison = ({
   const handleOppositionMenuOpen = () => {
     setOppositionMenuOpen(true);
   };
+
+  useEffect(() => {
+    setBowlingSeason(seasonOption);
+    setBowlingOpposition(oppositionOption);
+  }, [seasonOption, oppositionOption]);
 
   useEffect(() => {
     httpService

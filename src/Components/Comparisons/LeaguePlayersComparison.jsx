@@ -1,12 +1,14 @@
+import React from "react";
 import PlayerSearch from "Components/PlayerSearch";
 import Grid from "@material-ui/core/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router";
-import LeagueCareerComparisons from "./LeagueCareerComparisons";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";
+import LeaguePlayersBattingAveragesComparison from "./LeaguePlayersBattingAveragesComparison";
+import LeaguePlayersBowlingAveragesComparison from "./LeaguePlayersBowlingAveragesComparison";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +50,11 @@ const LeaguePlayersComparison = ({
   const [secondRef, secondLoaded, secondOnLoad] = useImageLoaded();
   const prevLeagueName = usePrevious(leagueName);
 
+  const [battingSeason, setBattingSeason] = React.useState(5);
+  const [battingOpposition, setBattingOpposition] = React.useState("All Teams");
+  const [bowlingSeason, setBowlingSeason] = React.useState(5);
+  const [bowlingOpposition, setBowlingOpposition] = React.useState("All Teams");
+
   if (prevLeagueName && leagueName !== prevLeagueName) {
     window.location.reload();
   }
@@ -56,10 +63,17 @@ const LeaguePlayersComparison = ({
     if (Object.keys(firstPlayer).length && Object.keys(secondPlayer).length) {
       history.push({
         pathname: "",
-        search: `first_player_id=${firstPlayer.player_id}&second_player_id=${secondPlayer.player_id}`,
+        search: `first_player_id=${firstPlayer.player_id}&second_player_id=${secondPlayer.player_id}&batting_season=${battingSeason}&batting_opposition=${battingOpposition}&bowling_season=${bowlingSeason}&bowling_opposition=${bowlingOpposition}`,
       });
     }
-  }, [firstPlayer, secondPlayer]);
+  }, [
+    firstPlayer,
+    secondPlayer,
+    battingSeason,
+    battingOpposition,
+    bowlingSeason,
+    bowlingOpposition,
+  ]);
 
   useEffect(() => {
     httpService
@@ -79,13 +93,24 @@ const LeaguePlayersComparison = ({
         // always executed
       });
 
+    const query_parameters = qs.parse(history.location.search.substring(1));
+
+    const batting_opposition = query_parameters["batting_opposition"];
+    console.log("batting_opposition", batting_opposition);
+    setBattingOpposition(batting_opposition || "All Teams");
+    const batting_season = query_parameters["batting_season"];
+    console.log("batting_season", batting_season);
+    setBattingSeason(batting_season || 0);
+
+    const bowling_opposition = query_parameters["bowling_opposition"];
+    setBowlingOpposition(bowling_opposition || "All Teams");
+    const bowling_season = query_parameters["bowling_season"];
+    setBowlingSeason(bowling_season || 0);
+
     const player_ids = qs.parse(history.location.search.substring(1));
-    const first_player_id = player_ids.first_player_id
-      ? player_ids.first_player_id
-      : initialFirstPlayerID;
-    const second_player_id = player_ids.second_player_id
-      ? player_ids.second_player_id
-      : initialSecondPlayerID;
+    const first_player_id = player_ids.first_player_id || initialFirstPlayerID;
+    const second_player_id =
+      player_ids.second_player_id || initialSecondPlayerID;
 
     httpService
       .get(`/league_player_profile/get_player_by_id`, {
@@ -166,11 +191,7 @@ const LeaguePlayersComparison = ({
             <img
               ref={firstRef}
               onLoad={firstOnLoad}
-              src={
-                firstPlayer.headshot_image_url
-                  ? firstPlayer.headshot_image_url
-                  : "/default-user.jpg"
-              }
+              src={firstPlayer.headshot_image_url || "/default-user.jpg"}
               alt=""
               style={{
                 minWidth: "60%",
@@ -193,11 +214,7 @@ const LeaguePlayersComparison = ({
             <img
               ref={secondRef}
               onLoad={secondOnLoad}
-              src={
-                secondPlayer.headshot_image_url
-                  ? secondPlayer.headshot_image_url
-                  : "/default-user.jpg"
-              }
+              src={secondPlayer.headshot_image_url || "/default-user.jpg"}
               alt=""
               style={{
                 minWidth: "60%",
@@ -211,11 +228,26 @@ const LeaguePlayersComparison = ({
       </Grid>
       <Grid container>
         {firstPlayer.player_id && secondPlayer.player_id ? (
-          <LeagueCareerComparisons
-            firstPlayer={firstPlayer}
-            secondPlayer={secondPlayer}
-            leagueName={leagueName}
-          />
+          <Grid container>
+            <LeaguePlayersBattingAveragesComparison
+              firstPlayer={firstPlayer}
+              secondPlayer={secondPlayer}
+              leagueName={leagueName}
+              battingSeason={battingSeason}
+              setBattingSeason={setBattingSeason}
+              battingOpposition={battingOpposition}
+              setBattingOpposition={setBattingOpposition}
+            />
+            <LeaguePlayersBowlingAveragesComparison
+              firstPlayer={firstPlayer}
+              secondPlayer={secondPlayer}
+              leagueName={leagueName}
+              bowlingSeason={bowlingSeason}
+              setBowlingSeason={setBowlingSeason}
+              bowlingOpposition={bowlingOpposition}
+              setBowlingOpposition={setBowlingOpposition}
+            />
+          </Grid>
         ) : null}
       </Grid>
     </div>
