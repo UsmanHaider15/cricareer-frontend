@@ -12,6 +12,7 @@ import {
 } from "Data/data";
 import AveragesTable from "Components/Common/AveragesTable";
 import httpService from "Services/httpService";
+import { withRouter } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: 0 },
@@ -26,12 +27,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const IccPlayerBattingAverages = ({ player }) => {
+const IccPlayerBattingAverages = ({ history, player, battingOpposition }) => {
   const classes = useStyles();
 
   const [battingAverages, setBattingAverages] = useState([]);
 
-  const [oppositionOption, setOppositionOption] = React.useState("all_teams");
+  const [oppositionOption, setOppositionOption] =
+    React.useState(battingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
 
   const handleOppositionChange = (event) => {
@@ -45,6 +47,13 @@ const IccPlayerBattingAverages = ({ player }) => {
   const handleOppositionMenuOpen = () => {
     setOppositionMenuOpen(true);
   };
+
+  useEffect(() => {
+    history.push({
+      pathname: "",
+      search: `player_id=${player.player_id}&batting_opposition=${oppositionOption}`,
+    });
+  }, [oppositionOption]);
 
   useEffect(() => {
     httpService
@@ -123,4 +132,4 @@ const IccPlayerBattingAverages = ({ player }) => {
   );
 };
 
-export default IccPlayerBattingAverages;
+export default withRouter(IccPlayerBattingAverages);

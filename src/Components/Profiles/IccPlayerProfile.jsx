@@ -29,16 +29,18 @@ const useImageLoaded = () => {
   return [ref, loaded, onLoad];
 };
 
-const IccPlayerProfile = ({ history }) => {
+const IccPlayerProfile = ({ history, initialPlayerID }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
   const [ref, loaded, onLoad] = useImageLoaded();
+
+  const [battingOpposition, setBattingOpposition] = React.useState("");
 
   useEffect(() => {
     if (Object.keys(player).length) {
       history.push({
         pathname: "",
-        search: `player_id=${player.player_id}`,
+        search: `player_id=${player.player_id}&batting_opposition=${battingOpposition}`,
       });
     }
   }, [player]);
@@ -60,8 +62,13 @@ const IccPlayerProfile = ({ history }) => {
         // always executed
       });
 
-    const url_id = qs.parse(history.location.search.substring(1));
-    const player_id = url_id.player_id ? url_id.player_id : 253802;
+    const query_parameters = qs.parse(history.location.search.substring(1));
+    const batting_opposition = query_parameters["batting_opposition"];
+    setBattingOpposition(batting_opposition || "all_teams");
+
+    const player_id = query_parameters["player_id"]
+      ? query_parameters["player_id"]
+      : initialPlayerID;
 
     httpService
       .get(`/get_player_by_id`, {
@@ -135,7 +142,10 @@ const IccPlayerProfile = ({ history }) => {
         <Grid item xs={12} style={{ paddingTop: 10 }}>
           <CustomResponsiveFontSizes text="Batting Averages" />
           {Object.keys(player).length ? (
-            <IccPlayerBattingAverages player={player} />
+            <IccPlayerBattingAverages
+              player={player}
+              battingOpposition={battingOpposition}
+            />
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ paddingTop: 10 }}>

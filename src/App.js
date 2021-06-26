@@ -80,36 +80,39 @@ function App() {
                           <Home />
                         </Route>
                         <Route path="/profiles/icc_profile">
-                          <IccPlayerProfile />
+                          <IccPlayerProfile initialPlayerID="348144" />
                         </Route>
                         <Route path="/profiles/psl_profile">
                           <LeaguePlayerProfiles
                             leagueName="psl"
-                            initialPlayerID="7626"
+                            initialPlayerID="7891"
                           />
                         </Route>
                         <Route path="/profiles/ipl_profile">
                           <LeaguePlayerProfiles
                             leagueName="ipl"
-                            initialPlayerID="146"
+                            initialPlayerID="776"
                           />
                         </Route>
                         <Route path="/comparisons/icc_comparison">
-                          <IccPlayerComparison />
+                          <IccPlayerComparison
+                            initialFirstPlayerID="348144"
+                            initialSecondPlayerID="253802"
+                          />
                         </Route>
 
                         <Route path="/comparisons/psl_comparison">
                           <LeaguePlayersComparison
                             leagueName="psl"
-                            initialFirstPlayerID="7626"
-                            initialSecondPlayerID="7636"
+                            initialFirstPlayerID="7891"
+                            initialSecondPlayerID="7893"
                           />
                         </Route>
                         <Route path="/comparisons/ipl_comparison">
                           <LeaguePlayersComparison
                             leagueName="ipl"
-                            initialFirstPlayerID="146"
-                            initialSecondPlayerID="28"
+                            initialFirstPlayerID="776"
+                            initialSecondPlayerID="701"
                           />
                         </Route>
                       </Switch>

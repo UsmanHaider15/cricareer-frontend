@@ -84,6 +84,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
         },
       })
       .then(function (response) {
+        console.log("response", response);
         setPlayer(response.data.rows[0]);
       })
       .catch(function (error) {
