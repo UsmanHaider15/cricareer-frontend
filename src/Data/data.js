@@ -148,4 +148,4 @@ export const league_teams = {
   ],
 };
 
-export const league_seasons = { psl: 5, ipl: 13 };
+export const league_seasons = { psl: 6, ipl: 13 };
