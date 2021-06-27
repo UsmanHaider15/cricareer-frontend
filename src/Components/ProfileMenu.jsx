@@ -11,6 +11,8 @@ export default function ProfileMenu() {
   const [btnLabel, setBtnLabel] = React.useState("Select Profile");
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const [isActive, setIsActive] = React.useState(false);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -22,9 +24,11 @@ export default function ProfileMenu() {
   useEffect(() => {
     if (!location.pathname.includes("profiles")) {
       setBtnLabel("Select Profile");
+      setIsActive(false);
     } else {
       const btnLabel = humanify(location.pathname.split("/").pop());
       setBtnLabel(btnLabel);
+      setIsActive(true);
     }
   }, [location.pathname]);
 
@@ -33,6 +37,7 @@ export default function ProfileMenu() {
       <MenuButton
         aria-controls="simple-menu"
         aria-haspopup="true"
+        {...(isActive ? { variant: "contained", color: "secondary" } : {})}
         onClick={handleClick}
       >
         {btnLabel}
