@@ -58,6 +58,26 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
     }
   }, [player, battingSeason, bowlingSeason]);
 
+  const [locationKeys, setLocationKeys] = useState([]);
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (history.action === "PUSH") {
+        setLocationKeys([location.key]);
+      }
+
+      if (history.action === "POP") {
+        if (locationKeys[1] === location.key) {
+          setLocationKeys(([_, ...keys]) => keys);
+          // Handle forward event
+        } else {
+          // Handle back event
+          history.push("/");
+        }
+      }
+    });
+  }, [locationKeys]);
+
   useEffect(() => {
     httpService
       .get("/league_player_profile/get_players_list", {

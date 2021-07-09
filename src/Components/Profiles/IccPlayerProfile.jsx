@@ -37,6 +37,26 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
   const [battingOpposition, setBattingOpposition] = React.useState("");
   const [bowlingOpposition, setBowlingOpposition] = React.useState("");
 
+  const [locationKeys, setLocationKeys] = useState([]);
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (history.action === "PUSH") {
+        setLocationKeys([location.key]);
+      }
+
+      if (history.action === "POP") {
+        if (locationKeys[1] === location.key) {
+          setLocationKeys(([_, ...keys]) => keys);
+          // Handle forward event
+        } else {
+          // Handle back event
+          history.push("/");
+        }
+      }
+    });
+  }, [locationKeys]);
+
   useEffect(() => {
     if (Object.keys(player).length) {
       history.push({

@@ -45,6 +45,26 @@ const IccPlayerComparison = ({
   const [bowlingFormat, setBowlingFormat] = React.useState("All Formats");
   const [bowlingOpposition, setBowlingOpposition] = React.useState("all_teams");
 
+  const [locationKeys, setLocationKeys] = useState([]);
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (history.action === "PUSH") {
+        setLocationKeys([location.key]);
+      }
+
+      if (history.action === "POP") {
+        if (locationKeys[1] === location.key) {
+          setLocationKeys(([_, ...keys]) => keys);
+          // Handle forward event
+        } else {
+          // Handle back event
+          history.push("/");
+        }
+      }
+    });
+  }, [locationKeys]);
+
   useEffect(() => {
     if (Object.keys(firstPlayer).length && Object.keys(secondPlayer).length) {
       history.push({
@@ -168,11 +188,7 @@ const IccPlayerComparison = ({
             <img
               ref={firstRef}
               onLoad={firstOnLoad}
-              src={
-                firstPlayer.headshot_image_url
-                  ? firstPlayer.headshot_image_url
-                  : "/default-user.jpg"
-              }
+              src={firstPlayer.headshot_image_url || "/default-user.jpg"}
               alt=""
               style={{
                 minWidth: "60%",
@@ -195,11 +211,7 @@ const IccPlayerComparison = ({
             <img
               ref={secondRef}
               onLoad={secondOnLoad}
-              src={
-                secondPlayer.headshot_image_url
-                  ? secondPlayer.headshot_image_url
-                  : "/default-user.jpg"
-              }
+              src={secondPlayer.headshot_image_url || "/default-user.jpg"}
               alt=""
               style={{
                 minWidth: "60%",
