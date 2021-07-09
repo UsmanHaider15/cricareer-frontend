@@ -80,6 +80,16 @@ export default function ProfileMenu() {
             IPL Player Profile
           </Link>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("BBL Profile");
+            handleClose();
+          }}
+        >
+          <Link to="/profiles/bbl_profile" style={{ textDecoration: "none" }}>
+            BBL Player Profile
+          </Link>
+        </MenuItem>
       </Menu>
     </div>
   );

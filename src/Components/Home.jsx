@@ -103,6 +103,28 @@ const Home = () => {
             />
           </Link>
         </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link to="/profiles/bbl_profile" style={{ textDecoration: "none" }}>
+            <HomeCard
+              heading="BBL Player Profile"
+              paragraph="Get insight into batting and bowling averages of your
+                    favorite player"
+              btnLabel="See Profile"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link
+            to="/comparisons/bbl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <HomeCard
+              heading="BBL Player Comparison"
+              paragraph="Compare batting and bowling careers of your favorite players"
+              btnLabel="See Comparison"
+            />
+          </Link>
+        </Grid>
       </Grid>
     </div>
   );

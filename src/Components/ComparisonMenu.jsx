@@ -89,6 +89,19 @@ export default function ComparisonMenu() {
             IPL Player comparisons
           </Link>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("BBL Comparison");
+            handleClose();
+          }}
+        >
+          <Link
+            to="/comparisons/bbl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            BBL Player comparisons
+          </Link>
+        </MenuItem>
       </Menu>
     </div>
   );

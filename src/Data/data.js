@@ -130,12 +130,12 @@ export const league_teams = {
     "Mumbai Indians",
     "Rajasthan Royals",
     "Royal Challengers Bangalore",
-    "Sunrisers Hyderabad",
-    "Deccan Chargers",
-    "Kochi Tuskers Kerala",
-    "Pune Warriors India",
-    "Rising Pune Supergiant",
-    "Gujarat Lions",
+    // "Sunrisers Hyderabad",
+    // "Deccan Chargers",
+    // "Kochi Tuskers Kerala",
+    // "Pune Warriors India",
+    // "Rising Pune Supergiant",
+    // "Gujarat Lions",
   ],
   psl: [
     "All Teams",
@@ -146,6 +146,18 @@ export const league_teams = {
     "Peshawar Zalmi",
     "Quetta Gladiators",
   ],
+
+  bbl: [
+    "All Teams",
+    "Adelaide Strikers",
+    "Brisbane Heat",
+    "Hobart Hurricanes",
+    "Melbourne Renegades",
+    "	Melbourne Stars",
+    "Perth Scorchers",
+    "Sydney Sixers",
+    "Sydney Thunder",
+  ],
 };
 
-export const league_seasons = { psl: 6, ipl: 13 };
+export const league_seasons = { psl: 6, ipl: 13, bbl: 10 };
