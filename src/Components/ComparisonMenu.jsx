@@ -102,6 +102,45 @@ export default function ComparisonMenu() {
             BBL Player comparisons
           </Link>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("CPL Comparison");
+            handleClose();
+          }}
+        >
+          <Link
+            to="/comparisons/cpl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            CPL Player comparisons
+          </Link>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("Super Smash Comparison");
+            handleClose();
+          }}
+        >
+          <Link
+            to="/comparisons/super_smash_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            Super Smash Player comparisons
+          </Link>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("T20 Blast Comparison");
+            handleClose();
+          }}
+        >
+          <Link
+            to="/comparisons/t20_blast_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            T20 Blast Player comparisons
+          </Link>
+        </MenuItem>
       </Menu>
     </div>
   );

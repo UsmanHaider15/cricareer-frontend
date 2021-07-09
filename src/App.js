@@ -100,6 +100,24 @@ function App() {
                             initialPlayerID="17"
                           />
                         </Route>
+                        <Route path="/profiles/cpl_profile">
+                          <LeaguePlayerProfiles
+                            leagueName="cpl"
+                            initialPlayerID="17"
+                          />
+                        </Route>
+                        <Route path="/profiles/super_smash_profile">
+                          <LeaguePlayerProfiles
+                            leagueName="super_smash"
+                            initialPlayerID="17"
+                          />
+                        </Route>
+                        <Route path="/profiles/t20_blast_profile">
+                          <LeaguePlayerProfiles
+                            leagueName="t20_blast"
+                            initialPlayerID="2"
+                          />
+                        </Route>
                         <Route path="/comparisons/icc_comparison">
                           <IccPlayerComparison
                             initialFirstPlayerID="253802"
@@ -126,6 +144,27 @@ function App() {
                             leagueName="bbl"
                             initialFirstPlayerID="16"
                             initialSecondPlayerID="17"
+                          />
+                        </Route>
+                        <Route path="/comparisons/cpl_comparison">
+                          <LeaguePlayersComparison
+                            leagueName="cpl"
+                            initialFirstPlayerID="5"
+                            initialSecondPlayerID="17"
+                          />
+                        </Route>
+                        <Route path="/comparisons/super_smash_comparison">
+                          <LeaguePlayersComparison
+                            leagueName="super_smash"
+                            initialFirstPlayerID="12"
+                            initialSecondPlayerID="17"
+                          />
+                        </Route>
+                        <Route path="/comparisons/t20_blast_comparison">
+                          <LeaguePlayersComparison
+                            leagueName="t20_blast"
+                            initialFirstPlayerID="2"
+                            initialSecondPlayerID="13"
                           />
                         </Route>
                       </Switch>

@@ -125,6 +125,78 @@ const Home = () => {
             />
           </Link>
         </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link to="/profiles/cpl_profile" style={{ textDecoration: "none" }}>
+            <HomeCard
+              heading="CPL Player Profile"
+              paragraph="Get insight into batting and bowling averages of your
+                    favorite player"
+              btnLabel="See Profile"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link
+            to="/comparisons/cpl_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <HomeCard
+              heading="CPL Player Comparison"
+              paragraph="Compare batting and bowling careers of your favorite players"
+              btnLabel="See Comparison"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link
+            to="/profiles/super_smash_profile"
+            style={{ textDecoration: "none" }}
+          >
+            <HomeCard
+              heading="Super Smash Player Profile"
+              paragraph="Get insight into batting and bowling averages of your
+                    favorite player"
+              btnLabel="See Profile"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link
+            to="/comparisons/super_smash_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <HomeCard
+              heading="Super Smash Player Comparison"
+              paragraph="Compare batting and bowling careers of your favorite players"
+              btnLabel="See Comparison"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link
+            to="/profiles/t20_blast_profile"
+            style={{ textDecoration: "none" }}
+          >
+            <HomeCard
+              heading="T20 Blast Player Profile"
+              paragraph="Get insight into batting and bowling averages of your
+                    favorite player"
+              btnLabel="See Profile"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Link
+            to="/comparisons/t20_blast_comparison"
+            style={{ textDecoration: "none" }}
+          >
+            <HomeCard
+              heading="T20 Blast Player Comparison"
+              paragraph="Compare batting and bowling careers of your favorite players"
+              btnLabel="See Comparison"
+            />
+          </Link>
+        </Grid>
       </Grid>
     </div>
   );

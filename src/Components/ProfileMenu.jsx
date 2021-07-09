@@ -90,6 +90,42 @@ export default function ProfileMenu() {
             BBL Player Profile
           </Link>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("CPL Profile");
+            handleClose();
+          }}
+        >
+          <Link to="/profiles/cpl_profile" style={{ textDecoration: "none" }}>
+            CPL Player Profile
+          </Link>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("Super Smash Profile");
+            handleClose();
+          }}
+        >
+          <Link
+            to="/profiles/super_smash_profile"
+            style={{ textDecoration: "none" }}
+          >
+            Super Smash Player Profile
+          </Link>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setBtnLabel("T20 Blast Profile");
+            handleClose();
+          }}
+        >
+          <Link
+            to="/profiles/t20_blast_profile"
+            style={{ textDecoration: "none" }}
+          >
+            T20 Blast Player Profile
+          </Link>
+        </MenuItem>
       </Menu>
     </div>
   );
