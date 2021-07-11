@@ -50,7 +50,7 @@ const IccPlayerBowlingAverages = ({
 
   useEffect(() => {
     setBowlingOpposition(oppositionOption);
-  }, [oppositionOption]);
+  }, [oppositionOption, setBowlingOpposition]);
 
   useEffect(() => {
     httpService
@@ -75,7 +75,7 @@ const IccPlayerBowlingAverages = ({
       .then(function () {
         // always executed
       });
-  }, [player.player_id, oppositionOption]);
+  }, [player, player.player_id, oppositionOption]);
 
   return (
     <Grid container>

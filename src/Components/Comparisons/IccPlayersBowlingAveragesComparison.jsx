@@ -69,7 +69,7 @@ const IccPlayersBowlingAveragesComparison = ({
   useEffect(() => {
     setBowlingFormat(formatType);
     setBowlingOpposition(oppositionOption);
-  }, [formatType, oppositionOption]);
+  }, [formatType, oppositionOption, setBowlingFormat, setBowlingOpposition]);
 
   useEffect(() => {
     httpService

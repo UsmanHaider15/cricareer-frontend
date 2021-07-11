@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import IccPlayerComparison from "./Components/IccPlayerComparison";
 import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";
@@ -30,11 +30,6 @@ function App() {
   const classes = useStyles();
   const history = useHistory();
 
-  const onBackButtonEvent = (e) => {
-    e.preventDefault();
-    history.push("/");
-  };
-
   useEffect(() => {
     if (process.env.REACT_APP_ENVIRONMENT === "PROD") {
       const first_script = document.createElement("script");
@@ -52,12 +47,17 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const onBackButtonEvent = (e) => {
+      e.preventDefault();
+      history.push("/");
+    };
+
     window.history.pushState(null, null, window.location.pathname);
     window.addEventListener("popstate", onBackButtonEvent);
     return () => {
       window.removeEventListener("popstate", onBackButtonEvent);
     };
-  }, []);
+  }, [history]);
 
   return (
     <React.Fragment>

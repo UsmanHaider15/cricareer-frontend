@@ -56,7 +56,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
         search: `player_id=${player.player_id}&batting_season=${battingSeason}&bowling_season=${bowlingSeason}`,
       });
     }
-  }, [player, battingSeason, bowlingSeason]);
+  }, [player, battingSeason, bowlingSeason, history]);
 
   const [locationKeys, setLocationKeys] = useState([]);
 
@@ -76,7 +76,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
         }
       }
     });
-  }, [locationKeys]);
+  }, [locationKeys, history]);
 
   useEffect(() => {
     httpService
@@ -124,7 +124,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
       // pathname: "",
       search: `player_id=${player_id}`,
     });
-  }, []);
+  }, [history, initialPlayerID, leagueName]);
 
   const handleSelectedPlayer = (player) => {
     setPlayer(player);

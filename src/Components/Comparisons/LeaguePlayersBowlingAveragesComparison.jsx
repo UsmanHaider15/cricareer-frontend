@@ -70,7 +70,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
   useEffect(() => {
     setBowlingSeason(seasonOption);
     setBowlingOpposition(oppositionOption);
-  }, [seasonOption, oppositionOption]);
+  }, [seasonOption, oppositionOption, setBowlingOpposition, setBowlingSeason]);
 
   useEffect(() => {
     httpService
@@ -97,6 +97,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
     oppositionOption,
     firstPlayer.player_id,
     secondPlayer.player_id,
+    leagueName,
   ]);
 
   return (

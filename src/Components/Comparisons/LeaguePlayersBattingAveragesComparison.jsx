@@ -70,7 +70,7 @@ const LeaguePlayersBattingAveragesComparison = ({
   useEffect(() => {
     setBattingSeason(seasonOption);
     setBattingOpposition(oppositionOption);
-  }, [seasonOption, oppositionOption]);
+  }, [seasonOption, oppositionOption, setBattingOpposition, setBattingSeason]);
 
   useEffect(() => {
     httpService
@@ -97,6 +97,7 @@ const LeaguePlayersBattingAveragesComparison = ({
     oppositionOption,
     firstPlayer.player_id,
     secondPlayer.player_id,
+    leagueName,
   ]);
 
   return (

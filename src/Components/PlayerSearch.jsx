@@ -34,7 +34,7 @@ export default function PlayerSearch({
           // always executed
         });
     }
-  }, [searchStr]);
+  }, [searchStr, league_name, url]);
 
   return (
     <div>

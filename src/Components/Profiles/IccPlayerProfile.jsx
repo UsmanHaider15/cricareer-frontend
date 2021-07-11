@@ -55,7 +55,7 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
         }
       }
     });
-  }, [locationKeys]);
+  }, [locationKeys, history]);
 
   useEffect(() => {
     if (Object.keys(player).length) {
@@ -64,7 +64,7 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
         search: `player_id=${player.player_id}&batting_opposition=${battingOpposition}&bowling_opposition=${bowlingOpposition}`,
       });
     }
-  }, [player, battingOpposition, bowlingOpposition]);
+  }, [player, battingOpposition, bowlingOpposition, history]);
 
   useEffect(() => {
     httpService
@@ -110,7 +110,7 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
       // pathname: "",
       search: `player_id=${player_id}`,
     });
-  }, []);
+  }, [history, initialPlayerID]);
 
   const handleSelectedPlayer = (player) => {
     setPlayer(player);

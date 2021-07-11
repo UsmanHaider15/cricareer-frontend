@@ -73,6 +73,7 @@ const LeaguePlayersComparison = ({
     battingOpposition,
     bowlingSeason,
     bowlingOpposition,
+    history,
   ]);
 
   const [locationKeys, setLocationKeys] = useState([]);
@@ -93,7 +94,7 @@ const LeaguePlayersComparison = ({
         }
       }
     });
-  }, [locationKeys]);
+  }, [locationKeys, history]);
 
   useEffect(() => {
     httpService
@@ -163,7 +164,7 @@ const LeaguePlayersComparison = ({
       // pathname: "",
       search: `first_player_id=${first_player_id}&second_player_id=${second_player_id}`,
     });
-  }, []);
+  }, [history, initialFirstPlayerID, initialSecondPlayerID, leagueName]);
 
   const handleSelectedPlayer = (player, isFirst) => {
     if (isFirst) {

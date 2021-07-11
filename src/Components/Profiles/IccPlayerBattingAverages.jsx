@@ -53,7 +53,7 @@ const IccPlayerBattingAverages = ({
 
   useEffect(() => {
     setBattingOpposition(oppositionOption);
-  }, [oppositionOption]);
+  }, [oppositionOption, setBattingOpposition]);
 
   useEffect(() => {
     httpService

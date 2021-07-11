@@ -48,7 +48,7 @@ const LeaguePlayerBattingAverages = ({
 
   useEffect(() => {
     setBattingSeason(option);
-  }, [option]);
+  }, [option, setBattingSeason]);
 
   useEffect(() => {
     httpService
@@ -87,7 +87,7 @@ const LeaguePlayerBattingAverages = ({
       .then(function () {
         // always executed
       });
-  }, [player.player_id, option]);
+  }, [player.player_id, option, leagueName]);
 
   return (
     <div>

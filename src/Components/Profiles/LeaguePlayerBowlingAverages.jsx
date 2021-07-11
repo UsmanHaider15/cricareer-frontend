@@ -48,7 +48,7 @@ const LeaguePlayerBowlingAverages = ({
 
   useEffect(() => {
     setBowlingSeason(option);
-  }, [option]);
+  }, [option, setBowlingSeason]);
 
   useEffect(() => {
     httpService
@@ -87,7 +87,7 @@ const LeaguePlayerBowlingAverages = ({
       .then(function () {
         // always executed
       });
-  }, [player.player_id, option]);
+  }, [player.player_id, option, leagueName]);
 
   return (
     <div>

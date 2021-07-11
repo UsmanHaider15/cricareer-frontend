@@ -69,7 +69,7 @@ const IccPlayersBattingAveragesComparison = ({
   useEffect(() => {
     setBattingFormat(formatType);
     setBattingOpposition(oppositionOption);
-  }, [formatType, oppositionOption]);
+  }, [formatType, oppositionOption, setBattingFormat, setBattingOpposition]);
 
   useEffect(() => {
     httpService

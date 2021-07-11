@@ -63,7 +63,7 @@ const IccPlayerComparison = ({
         }
       }
     });
-  }, [locationKeys]);
+  }, [locationKeys, history]);
 
   useEffect(() => {
     if (Object.keys(firstPlayer).length && Object.keys(secondPlayer).length) {
@@ -79,6 +79,7 @@ const IccPlayerComparison = ({
     battingOpposition,
     bowlingFormat,
     bowlingOpposition,
+    history,
   ]);
 
   useEffect(() => {
@@ -144,7 +145,7 @@ const IccPlayerComparison = ({
       // pathname: "",
       search: `first_player_id=${first_player_id}&second_player_id=${second_player_id}`,
     });
-  }, []);
+  }, [history, initialFirstPlayerID, initialSecondPlayerID]);
 
   const handleSelectedPlayer = (player, isFirst) => {
     if (isFirst) {
