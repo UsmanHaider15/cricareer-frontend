@@ -66,7 +66,8 @@ function App() {
           <Grid xs={0} md={3}></Grid>
           <Grid xs={12} md={6}>
             <Paper className={classes.paper}>
-              <Router>
+              <div>
+                {/* <Router> */}
                 <CssBaseline />
                 <MenuToolbar />
 
@@ -171,7 +172,8 @@ function App() {
                     </div>
                   </div>
                 </div>
-              </Router>
+              </div>
+              {/* </Router> */}
             </Paper>
           </Grid>
           <Grid xs={0} md={3}></Grid>
