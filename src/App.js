@@ -135,8 +135,8 @@ function App() {
                         <Route path="/comparisons/ipl_comparison">
                           <LeaguePlayersComparison
                             leagueName="ipl"
-                            initialFirstPlayerID="1"
-                            initialSecondPlayerID="2"
+                            initialFirstPlayerID="46"
+                            initialSecondPlayerID="177"
                           />
                         </Route>
                         <Route path="/comparisons/bbl_comparison">
