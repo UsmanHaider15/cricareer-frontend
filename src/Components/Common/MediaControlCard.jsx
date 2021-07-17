@@ -57,7 +57,7 @@ export default function MediaControlCard({
       <CardMedia className={classes.media} image={logoUrl} title="ICC Logo" />
       <div className={classes.content}>
         <CardContent>
-          <Typography component="h4" variant="h4">
+          <Typography component="h1" variant="h4">
             {title}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
