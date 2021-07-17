@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("md")]: {
       backgroundColor: "white",
-      width: "100%",
-      height: 250,
+      width: "35%",
+      // height: 200,
     },
   },
 
@@ -38,27 +38,9 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "flex-end",
       paddingRight: 16,
+      paddingBottom: 16,
     },
   },
-  // details: {
-  //   display: "flex",
-  //   flexDirection: "column",
-  // },
-  // content: {
-  //   flex: "1 0 auto",
-  //   padding: "30px 50px 20px 50px",
-  // },
-  // cover: {
-  //   backgroundColor: "white",
-  //   width: "50%",
-  // },
-  // controls: {
-  //   display: "flex",
-  //   justifyContent: "flex-end",
-  //   paddingRight: 50,
-
-  //   paddingBottom: 30,
-  // },
 }));
 
 export default function MediaControlCard({

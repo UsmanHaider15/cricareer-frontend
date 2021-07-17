@@ -5,10 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "Components/Common/Footer";
+import Header from "Components/Common/Header";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Header
+        title="Cricareer - Cricket Statistics site for all leagues and ICC players"
+        description="You can view batting and bowling averages for ICC, IPL, PSL, BBL, CPL, SUPER SMASH an T20 BLAST players or you can compare averages of players to get better insight about their career."
+      />
       <App />
       <Footer />
     </BrowserRouter>

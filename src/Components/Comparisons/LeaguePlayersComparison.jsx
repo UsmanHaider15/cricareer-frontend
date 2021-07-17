@@ -9,6 +9,12 @@ import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";
 import LeaguePlayersBattingAveragesComparison from "./LeaguePlayersBattingAveragesComparison";
 import LeaguePlayersBowlingAveragesComparison from "./LeaguePlayersBowlingAveragesComparison";
+import Header from "Components/Common/Header";
+import {
+  icc_batting_table_column_name_lookup,
+  icc_bowling_table_column_name_lookup,
+  league_teams,
+} from "Data/data";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -176,6 +182,26 @@ const LeaguePlayersComparison = ({
 
   return (
     <div>
+      <Header
+        title={`${firstPlayer.player_name} vs ${
+          secondPlayer.player_name
+        } in ${leagueName.toUpperCase()}`}
+        description={`
+        Compare ${firstPlayer.player_name} and ${
+          secondPlayer.player_name
+        } in ${leagueName.toUpperCase()} on basis of ${Object.values(
+          icc_bowling_table_column_name_lookup
+        ).join(", ")} ${Object.values(
+          icc_bowling_table_column_name_lookup
+        ).join(", ")} in test, odi and t20 and all formats.
+        Compare ${firstPlayer.player_name} and ${
+          secondPlayer.player_name
+        } on basis of  ${Object.values(
+          icc_batting_table_column_name_lookup
+        ).join(", ")} ${Object.values(
+          icc_bowling_table_column_name_lookup
+        ).join(", ")} against ${league_teams[leagueName].join(", ")}.`}
+      />
       <Breadcrumb />
       <Grid container spacing={1}>
         <Grid item xs={6}>

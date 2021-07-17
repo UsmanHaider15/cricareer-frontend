@@ -9,6 +9,9 @@ import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
+import Header from "Components/Common/Header";
+import { icc_batting_table_column_name_lookup, league_teams } from "Data/data";
+import { icc_bowling_table_column_name_lookup } from "../../Data/data";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -132,6 +135,20 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
 
   return (
     <div>
+      <Header
+        title={`${
+          player.player_name
+        }'s Batting and Bowling Averages in ${leagueName.toUpperCase()}`}
+        description={`Get details of ${player.player_name}'s ${Object.values(
+          icc_batting_table_column_name_lookup
+        ).join(", ")} ${Object.values(
+          icc_bowling_table_column_name_lookup
+        ).join(", ")} ${Object.values(
+          icc_batting_table_column_name_lookup
+        ).join(", ")} in ${leagueName.toUpperCase()} against ${league_teams[
+          leagueName
+        ].join(", ")}.  `}
+      />
       <Breadcrumb />
       <Grid container spacing={1}>
         <Grid container>
