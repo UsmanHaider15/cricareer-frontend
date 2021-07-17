@@ -50,82 +50,82 @@ export default function ProfileMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Icc Profile");
-            handleClose();
-          }}
-        >
-          <Link to="/profiles/icc_profile" style={{ textDecoration: "none" }}>
+        <Link to="/profiles/icc_profile" style={{ textDecoration: "none" }}>
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Icc Profile");
+              handleClose();
+            }}
+          >
             ICC Player Profile
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Psl Profile");
-            handleClose();
-          }}
-        >
-          <Link to="/profiles/psl_profile" style={{ textDecoration: "none" }}>
+          </MenuItem>
+        </Link>
+        <Link to="/profiles/psl_profile" style={{ textDecoration: "none" }}>
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Psl Profile");
+              handleClose();
+            }}
+          >
             PSL Player Profile
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Ipl Profile");
-            handleClose();
-          }}
-        >
-          <Link to="/profiles/ipl_profile" style={{ textDecoration: "none" }}>
+          </MenuItem>
+        </Link>
+        <Link to="/profiles/ipl_profile" style={{ textDecoration: "none" }}>
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Ipl Profile");
+              handleClose();
+            }}
+          >
             IPL Player Profile
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("BBL Profile");
-            handleClose();
-          }}
-        >
-          <Link to="/profiles/bbl_profile" style={{ textDecoration: "none" }}>
+          </MenuItem>
+        </Link>
+        <Link to="/profiles/bbl_profile" style={{ textDecoration: "none" }}>
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("BBL Profile");
+              handleClose();
+            }}
+          >
             BBL Player Profile
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("CPL Profile");
-            handleClose();
-          }}
-        >
-          <Link to="/profiles/cpl_profile" style={{ textDecoration: "none" }}>
+          </MenuItem>
+        </Link>
+        <Link to="/profiles/cpl_profile" style={{ textDecoration: "none" }}>
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("CPL Profile");
+              handleClose();
+            }}
+          >
             CPL Player Profile
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Super Smash Profile");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/profiles/super_smash_profile"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/profiles/super_smash_profile"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Super Smash Profile");
+              handleClose();
+            }}
           >
             Super Smash Player Profile
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("T20 Blast Profile");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/profiles/t20_blast_profile"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/profiles/t20_blast_profile"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("T20 Blast Profile");
+              handleClose();
+            }}
           >
             T20 Blast Player Profile
-          </Link>
-        </MenuItem>
+          </MenuItem>
+        </Link>
       </Menu>
     </div>
   );

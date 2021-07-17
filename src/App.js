@@ -72,8 +72,6 @@ function App() {
 
                 <div style={{ marginTop: 40 }}>
                   <div>
-                    {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
                     <div className="App" style={{ paddingBottom: 500 }}>
                       <Switch>
                         <Route path="/" exact>

@@ -1,10 +1,6 @@
 import axios from "axios";
 
-console.log("process.env", process.env);
-const baseUrl =
-  process.env.REACT_APP_ENVIRONMENT === "PROD"
-    ? "https://criccareers.com"
-    : "http://localhost:3001";
+const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
 axios.defaults.baseURL = baseUrl;
 

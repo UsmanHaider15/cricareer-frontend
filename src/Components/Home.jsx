@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
 import Breadcrumb from "Components/Common/Breadcrumb";
-import HomeCard from "Components/Common/HomeCard";
+import MediaControlCard from "./Common/MediaControlCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,166 +35,94 @@ const Home = () => {
     <div className={classes.root}>
       <Breadcrumb />
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <Link to="/profiles/icc_profile" style={{ textDecoration: "none" }}>
-            <HomeCard
-              heading="ICC Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="International Cricket Council"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/icc_profile",
+              comparison_link: "/comparisons/icc_comparison",
+            }}
+            logoUrl="/icc_logo.svg"
+          />
         </Grid>
 
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/icc_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="ICC Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="Pakistan Super League"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/psl_profile",
+              comparison_link: "/comparisons/psl_comparison",
+            }}
+            logoUrl="/psl_logo.svg"
+          />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link to="/profiles/psl_profile" style={{ textDecoration: "none" }}>
-            <HomeCard
-              heading="PSL Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
+
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="Indian Premier League"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/ipl_profile",
+              comparison_link: "/comparisons/ipl_comparison",
+            }}
+            logoUrl="/ipl_logo.svg"
+          />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/psl_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="PSL Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
+
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="Big Bash League"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/bbl_profile",
+              comparison_link: "/comparisons/bbl_comparison",
+            }}
+            logoUrl="/bbl_logo.png"
+          />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link to="/profiles/ipl_profile" style={{ textDecoration: "none" }}>
-            <HomeCard
-              heading="IPL Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
+
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="Caribbean Premier League"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/cpl_profile",
+              comparison_link: "/comparisons/cpl_comparison",
+            }}
+            logoUrl="/cpl_logo.jpg"
+          />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/ipl_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="IPL Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
+
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="Super Smash League"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/super_smash_profile",
+              comparison_link: "/comparisons/super_smash_comparison",
+            }}
+            logoUrl="/super_smash_logo.png"
+          />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link to="/profiles/bbl_profile" style={{ textDecoration: "none" }}>
-            <HomeCard
-              heading="BBL Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/bbl_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="BBL Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link to="/profiles/cpl_profile" style={{ textDecoration: "none" }}>
-            <HomeCard
-              heading="CPL Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/cpl_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="CPL Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/profiles/super_smash_profile"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="Super Smash Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/super_smash_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="Super Smash Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/profiles/t20_blast_profile"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="T20 Blast Player Profile"
-              paragraph="Get insight into batting and bowling averages of your
-                    favorite player"
-              btnLabel="See Profile"
-            />
-          </Link>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Link
-            to="/comparisons/t20_blast_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            <HomeCard
-              heading="T20 Blast Player Comparison"
-              paragraph="Compare batting and bowling careers of your favorite players"
-              btnLabel="See Comparison"
-            />
-          </Link>
+        <Grid item xs={12}>
+          <MediaControlCard
+            title="T20 Blast League"
+            content="Get insight into batting and bowling averages of your favorite
+            player or compare players with each other to find out who is better."
+            btnLinks={{
+              profile_link: "/profiles/t20_blast_profile",
+              comparison_link: "/comparisons/t20_blast_comparison",
+            }}
+            logoUrl="/t20_blast_logo.jpg"
+          />
         </Grid>
       </Grid>
     </div>

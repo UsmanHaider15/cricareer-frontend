@@ -50,97 +50,97 @@ export default function ComparisonMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Icc Comparison");
-            handleClose();
-          }}
+        <Link
+          to="/comparisons/icc_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/icc_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Icc Comparison");
+              handleClose();
+            }}
           >
             ICC Player comparisons
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Psl Comparison");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/comparisons/psl_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/psl_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Psl Comparison");
+              handleClose();
+            }}
           >
             PSL Player comparisons
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Ipl Comparison");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/comparisons/ipl_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/ipl_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Ipl Comparison");
+              handleClose();
+            }}
           >
             IPL Player comparisons
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("BBL Comparison");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/comparisons/bbl_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/bbl_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("BBL Comparison");
+              handleClose();
+            }}
           >
             BBL Player comparisons
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("CPL Comparison");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/comparisons/cpl_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/cpl_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("CPL Comparison");
+              handleClose();
+            }}
           >
             CPL Player comparisons
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("Super Smash Comparison");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/comparisons/super_smash_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/super_smash_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("Super Smash Comparison");
+              handleClose();
+            }}
           >
             Super Smash Player comparisons
-          </Link>
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setBtnLabel("T20 Blast Comparison");
-            handleClose();
-          }}
+          </MenuItem>
+        </Link>
+        <Link
+          to="/comparisons/t20_blast_comparison"
+          style={{ textDecoration: "none" }}
         >
-          <Link
-            to="/comparisons/t20_blast_comparison"
-            style={{ textDecoration: "none" }}
+          <MenuItem
+            onClick={() => {
+              setBtnLabel("T20 Blast Comparison");
+              handleClose();
+            }}
           >
             T20 Blast Player comparisons
-          </Link>
-        </MenuItem>
+          </MenuItem>
+        </Link>
       </Menu>
     </div>
   );
