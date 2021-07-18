@@ -113,7 +113,7 @@ const LeaguePlayerBattingAverages = ({
               ).reverse(),
             ].map((value) => (
               <MenuItem value={value}>
-                {value ? `${leagueName.toUpperCase()} ${value}` : "All Seasons"}
+                {value ? `Season ${value}` : "All Seasons"}
               </MenuItem>
             ))}
           </Select>
