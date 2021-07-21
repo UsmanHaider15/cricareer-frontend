@@ -13,6 +13,7 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { useHistory } from "react-router-dom";
+const reload = () => window.location.reload();
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -165,6 +166,7 @@ function App() {
                             initialSecondPlayerID="13"
                           />
                         </Route>
+                        <Route path="/sitemap.txt" onEnter={reload} />
                       </Switch>
                     </div>
                   </div>
