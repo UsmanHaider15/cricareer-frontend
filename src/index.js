@@ -12,7 +12,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Header
         title="Cricareer - Cricket Statistics site for all leagues and ICC players"
-        description="You can view batting and bowling averages for ICC, IPL, PSL, BBL, CPL, SUPER SMASH an T20 BLAST players or you can compare averages of players to get better insight about their career."
+        description="You can view batting and bowling averages for ICC, IPL, PSL, BBL, CPL, SUPER SMASH an T20 BLAST players or you can compare averages of any two players to get better insight about their career."
       />
       <App />
       <Footer />

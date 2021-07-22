@@ -139,15 +139,14 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
         title={`${
           player.player_name
         }'s Batting and Bowling Averages in ${leagueName.toUpperCase()}`}
-        description={`Get details of ${player.player_name}'s ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} in ${leagueName.toUpperCase()} against ${league_teams[
-          leagueName
-        ].join(", ")}.  `}
+        description={`Get Details of ${
+          player.player_name
+        }'s batting and bowling averages in any season of ${leagueName.toUpperCase()}. You can also get details of bowling and batting averages of ${
+          player.player_name
+        } against PSL teams like${Object.values(league_teams[leagueName])
+          .slice(1)
+          .map((team) => ` ${team}`)} 
+           as well.`}
       />
       <Breadcrumb />
       <Grid container spacing={1}>

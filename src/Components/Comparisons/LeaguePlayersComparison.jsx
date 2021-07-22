@@ -187,20 +187,19 @@ const LeaguePlayersComparison = ({
           secondPlayer.player_name
         } in ${leagueName.toUpperCase()}`}
         description={`
-        Compare ${firstPlayer.player_name} and ${
+        Compare Batting and Bowling Averages of ${
+          firstPlayer.player_name
+        } and ${
           secondPlayer.player_name
-        } in ${leagueName.toUpperCase()} on basis of ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} in test, odi and t20 and all formats.
-        Compare ${firstPlayer.player_name} and ${
+        } in any season of ${leagueName.toUpperCase()}. You can also compare ${
+          firstPlayer.player_name
+        } and ${
           secondPlayer.player_name
-        } on basis of  ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} against ${league_teams[leagueName].join(", ")}.`}
+        } batting and bowling averages against other teams like${Object.values(
+          league_teams[leagueName]
+        )
+          .slice(1)
+          .map((team) => ` ${team}`)} as well.`}
       />
       <Breadcrumb />
       <Grid container spacing={1}>

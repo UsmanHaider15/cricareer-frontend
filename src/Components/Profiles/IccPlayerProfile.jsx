@@ -10,12 +10,8 @@ import Breadcrumb from "Components/Common/Breadcrumb";
 import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
-
-import {
-  icc_batting_table_column_name_lookup,
-  icc_bowling_table_column_name_lookup,
-  icc_teams_lookup,
-} from "Data/data";
+import humanify from "Utils/humanify";
+import { icc_teams_lookup } from "Data/data";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -126,22 +122,15 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
   return (
     <div>
       <Header
-        title={`${
-          player.player_name
-        }'s Batting and Bowling Averages in International Cricket in all formats against ${Object.keys(
+        title={`${player.player_name}'s Batting and Bowling Averages`}
+        description={`Get Details of
+      ${player.player_name}'s batting and bowling averages against ${humanify(
+          battingOpposition
+        )} in Tests, ODIs and T20Is. You can also get details of bowling and batting averages of player against teams like${Object.values(
           icc_teams_lookup
-        ).join(", ")}. in International cricket`}
-        description={`
-        ${player.player_name}'s ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} in test, odi and t20 and all formats.
-        ${player.player_name}'s ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} against ${Object.keys(icc_teams_lookup).join(", ")}.
+        )
+          .slice(1)
+          .map((team) => ` ${team}`)} as well.
        `}
       />
       <Breadcrumb />

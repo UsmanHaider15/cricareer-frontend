@@ -10,11 +10,7 @@ import httpService from "Services/httpService";
 import IccPlayersBattingAveragesComparison from "./Comparisons/IccPlayersBattingAveragesComparison";
 import IccPlayersBowlingAveragesComparison from "./Comparisons/IccPlayersBowlingAveragesComparison";
 import Header from "Components/Common/Header";
-import {
-  icc_batting_table_column_name_lookup,
-  icc_bowling_table_column_name_lookup,
-  icc_teams_lookup,
-} from "Data/data";
+import { icc_teams_lookup } from "Data/data";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -166,20 +162,15 @@ const IccPlayerComparison = ({
       <Header
         title={`${firstPlayer.player_name} vs ${secondPlayer.player_name}`}
         description={`
-        Compare ${firstPlayer.player_name} and ${
+        Compare Batting and Bowling Averages of ${
+          firstPlayer.player_name
+        } and ${
           secondPlayer.player_name
-        } on basis of ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} in test, odi and t20 and all formats.
-        Compare ${firstPlayer.player_name} and ${
-          secondPlayer.player_name
-        } on basis of  ${Object.values(
-          icc_batting_table_column_name_lookup
-        ).join(", ")} ${Object.values(
-          icc_bowling_table_column_name_lookup
-        ).join(", ")} against ${Object.keys(icc_teams_lookup).join(", ")}.`}
+        } in Tests, ODIs, T20Is. You can also compare their batting and bowling averages against other teams like${Object.values(
+          icc_teams_lookup
+        )
+          .slice(1)
+          .map((team) => ` ${team}`)} as well.`}
       />
       <Breadcrumb />
       <Grid container spacing={1}>
