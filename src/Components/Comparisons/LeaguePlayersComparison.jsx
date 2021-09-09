@@ -106,7 +106,7 @@ const LeaguePlayersComparison = ({
     httpService
       .get("/league_player_profile/get_players_list", {
         params: {
-          limit: 100,
+          limit: 500,
           league_name: leagueName,
         },
       })

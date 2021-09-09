@@ -88,7 +88,7 @@ const IccPlayerComparison = ({
     httpService
       .get("/get_players_list", {
         params: {
-          limit: 100,
+          limit: 500,
         },
       })
       .then(function (response) {
