@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/UsmanHaider15/cricareer-frontend/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/UsmanHaider15/cricareer-frontend/static/js/main.afd0c8f6.chunk.js",
+    "main.js.map": "/UsmanHaider15/cricareer-frontend/static/js/main.afd0c8f6.chunk.js.map",
+    "runtime-main.js": "/UsmanHaider15/cricareer-frontend/static/js/runtime-main.be85840a.js",
+    "runtime-main.js.map": "/UsmanHaider15/cricareer-frontend/static/js/runtime-main.be85840a.js.map",
+    "static/js/2.59f1fcd7.chunk.js": "/UsmanHaider15/cricareer-frontend/static/js/2.59f1fcd7.chunk.js",
+    "static/js/2.59f1fcd7.chunk.js.map": "/UsmanHaider15/cricareer-frontend/static/js/2.59f1fcd7.chunk.js.map",
+    "static/js/3.708d3853.chunk.js": "/UsmanHaider15/cricareer-frontend/static/js/3.708d3853.chunk.js",
+    "static/js/3.708d3853.chunk.js.map": "/UsmanHaider15/cricareer-frontend/static/js/3.708d3853.chunk.js.map",
+    "index.html": "/UsmanHaider15/cricareer-frontend/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/UsmanHaider15/cricareer-frontend/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.59f1fcd7.chunk.js.LICENSE.txt": "/UsmanHaider15/cricareer-frontend/static/js/2.59f1fcd7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.be85840a.js",
+    "static/js/2.59f1fcd7.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.afd0c8f6.chunk.js"
+  ]
+}
