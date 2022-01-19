@@ -63,21 +63,20 @@ function App() {
   return (
     <React.Fragment>
       <div className={classes.root}>
-        <Grid container spacing={1}>
-          <Grid xs={0} md={3}></Grid>
-          <Grid xs={12} md={6}>
-            <Paper className={classes.paper}>
-              <Router>
-                <CssBaseline />
-                <MenuToolbar />
-
-                <div style={{ marginTop: 40 }}>
-                  <div>
-                    <div className="App" style={{ paddingBottom: 500 }}>
-                      <Switch>
-                        <Route path="/" exact>
-                          <Home />
-                        </Route>
+        <Router>
+          <div style={{ marginTop: 40 }}>
+            <div>
+              <div className="App" style={{ paddingBottom: 500 }}>
+                <Switch>
+                  <Route path="/" exact>
+                    <Home />
+                  </Route>
+                  <Grid container spacing={1}>
+                    <Grid xs={0} md={3}></Grid>
+                    <Grid xs={12} md={6}>
+                      <Paper className={classes.paper}>
+                        <CssBaseline />
+                        <MenuToolbar />
                         <Route path="/profiles/icc_profile">
                           <IccPlayerProfile initialPlayerID="253802" />
                         </Route>
@@ -166,16 +165,16 @@ function App() {
                             initialSecondPlayerID="13"
                           />
                         </Route>
-                        <Route path="/sitemap.txt" onEnter={reload} />
-                      </Switch>
-                    </div>
-                  </div>
-                </div>
-              </Router>
-            </Paper>
-          </Grid>
-          <Grid xs={0} md={3}></Grid>
-        </Grid>
+                      </Paper>
+                    </Grid>
+                    <Grid xs={0} md={3}></Grid>
+                  </Grid>
+                  <Route path="/sitemap.txt" onEnter={reload} />
+                </Switch>
+              </div>
+            </div>
+          </div>
+        </Router>
       </div>
     </React.Fragment>
   );
