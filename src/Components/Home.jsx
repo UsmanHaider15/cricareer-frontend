@@ -1,7 +1,12 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import MediaControlCard from "./Common/MediaControlCard";
-import { Link } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const homeData = [
   {
@@ -53,28 +58,55 @@ const homeData = [
 ];
 const Home = () => {
   return (
-    <div>
-      <Grid container spacing={2}>
-        {homeData.map((data) => (
-          <Grid item xs={12}>
-            <Link
-              to={`/profiles/${data.type}_profile`}
-              style={{ textDecoration: "none" }}
-            >
-              <MediaControlCard
-                title={data.title}
-                content={data.description}
-                btnLinks={{
-                  profile_link: `/profiles/${data.type}_profile`,
-                  comparison_link: `/comparisons/${data.type}_comparison`,
-                }}
-                logoUrl={data.logo_url || `/${data.type}_logo.svg`}
-              />
-            </Link>
+    <React.Fragment>
+      <Grid container>
+        <Grid md={2}></Grid>
+        <Grid xs={12} md={8}>
+          <Box sx={{ width: "100%", maxWidth: 500 }}>
+            <Typography variant="h1" component="div" gutterBottom>
+              h1. Heading
+            </Typography>
+          </Box>
+          <Grid container spacing={2}>
+            {homeData.map((data) => (
+              <Grid item xs={12} md={4}>
+                <Card sx={{ maxWidth: 800 }}>
+                  <CardMedia
+                    component="img"
+                    alt="green iguana"
+                    height="140"
+                    image={data.logo_url || `/${data.type}_logo.svg`}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {data.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {data.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      href={`/profiles/${data.type}_profile`}
+                    >
+                      Profile
+                    </Button>
+                    <Button
+                      size="small"
+                      href={`/comparisons/${data.type}_comparison`}
+                    >
+                      Comparison
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
-        ))}
+        </Grid>
+        <Grid md={2}></Grid>
       </Grid>
-    </div>
+    </React.Fragment>
   );
 };
 

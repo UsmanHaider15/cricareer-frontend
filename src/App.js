@@ -63,6 +63,8 @@ function App() {
   return (
     <React.Fragment>
       <div className={classes.root}>
+        <CssBaseline />
+        <MenuToolbar />
         <Router>
           <div style={{ marginTop: 40 }}>
             <div>
@@ -75,8 +77,6 @@ function App() {
                     <Grid xs={0} md={3}></Grid>
                     <Grid xs={12} md={6}>
                       <Paper className={classes.paper}>
-                        <CssBaseline />
-                        <MenuToolbar />
                         <Route path="/profiles/icc_profile">
                           <IccPlayerProfile initialPlayerID="253802" />
                         </Route>
