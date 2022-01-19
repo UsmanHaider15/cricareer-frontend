@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 2),
     marginTop: "auto",
     color: "white",
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
   },
 }));
 

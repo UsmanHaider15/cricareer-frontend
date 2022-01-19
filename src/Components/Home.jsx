@@ -7,6 +7,11 @@ import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {},
+});
 
 const homeData = [
   {
@@ -57,35 +62,52 @@ const homeData = [
   },
 ];
 const Home = () => {
+  const classes = useStyles();
+
   return (
     <React.Fragment>
       <Grid container>
         <Grid md={2}></Grid>
         <Grid xs={12} md={8}>
-          <Box sx={{ width: "100%", maxWidth: 500 }}>
-            <Typography variant="h1" component="div" gutterBottom>
-              h1. Heading
+          <Box
+            sx={{
+              padding: 5,
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            <Typography variant="h3" component="div" gutterBottom>
+              Cricareer - Cricket Statistics Site
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
+              consectetur, neque doloribus, cupiditate numquam dignissimos
+              laborum fugiat deleniti? Eum quasi quidem quibusdam.
+            </Typography>
+            <Typography variant="h3" component="div" gutterBottom>
+              Some awesome stats or whatever
             </Typography>
           </Box>
           <Grid container spacing={2}>
             {homeData.map((data) => (
               <Grid item xs={12} md={4}>
-                <Card sx={{ maxWidth: 800 }}>
-                  <CardMedia
+                <Card sx={{ maxWidth: 500 }}>
+                  {/* <CardMedia
                     component="img"
                     alt="green iguana"
                     height="140"
                     image={data.logo_url || `/${data.type}_logo.svg`}
-                  />
+                  /> */}
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {data.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    {/* <Typography variant="body2" color="text.secondary">
                       {data.description}
-                    </Typography>
+                    </Typography> */}
                   </CardContent>
-                  <CardActions>
+                  <CardActions classes={classes.root}>
                     <Button
                       size="small"
                       href={`/profiles/${data.type}_profile`}

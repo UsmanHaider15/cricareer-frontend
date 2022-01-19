@@ -63,12 +63,12 @@ function App() {
   return (
     <React.Fragment>
       <div className={classes.root}>
-        <CssBaseline />
-        <MenuToolbar />
         <Router>
+          <CssBaseline />
+          <MenuToolbar />
           <div style={{ marginTop: 40 }}>
             <div>
-              <div className="App" style={{ paddingBottom: 500 }}>
+              <div className="App" style={{ paddingBottom: 50 }}>
                 <Switch>
                   <Route path="/" exact>
                     <Home />
