@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import humanify from "Utils/humanify";
 import MenuButton from "Components/Common/MenuButton";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import capitalizeFirstLetter from "Utils/capitalizeFirstLetter";
 
 export default function TopbarMenu({ type, links }) {
@@ -14,14 +15,16 @@ export default function TopbarMenu({ type, links }) {
     `Select ${capitalizeFirstLetter(type)}`
   );
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const [isOpen, setIsOpen] = React.useState(false);
   const [isActive, setIsActive] = React.useState(false);
 
   const handleClick = (event) => {
+    setIsOpen(true);
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
+    setIsOpen(false);
     setAnchorEl(null);
   };
 
@@ -44,7 +47,7 @@ export default function TopbarMenu({ type, links }) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        {btnLabel} <ArrowDropUpIcon />
+        {btnLabel} {!isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
       </MenuButton>
 
       <Menu

@@ -45,7 +45,7 @@ export default function PlayerSearch({
         options={
           searchedPlayersList.length ? searchedPlayersList : InitialPlayersList
         }
-        getOptionLabel={(option) => option.player_name}
+        getOptionLabel={(option) => (option ? option.player_name : "")}
         getOptionSelected={(option, value) => {
           if (option.player_name === value.player_name) {
             setSelectedPlayer(value, isFirst);
