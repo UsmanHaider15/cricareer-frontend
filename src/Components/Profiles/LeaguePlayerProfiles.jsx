@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import qs from "qs";
 import PlayerSearch from "Components/PlayerSearch";
 import Grid from "@mui/material/Grid";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Breadcrumb from "Components/Common/Breadcrumb";

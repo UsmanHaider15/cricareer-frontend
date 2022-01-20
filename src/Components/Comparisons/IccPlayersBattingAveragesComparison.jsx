@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
 import TableView from "Components/Common/TableView";
 import Grid from "@mui/material/Grid";
 import { icc_teams_lookup } from "Data/data";

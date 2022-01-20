@@ -1,4 +1,4 @@
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import humanify from "Utils/humanify";
 
 const TableView = ({ data, excludedKeys }) => {

@@ -5,7 +5,7 @@ import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";
 import LeaguePlayersComparison from "./Components/Comparisons/LeaguePlayersComparison";
 import IccPlayerProfile from "./Components/Profiles/IccPlayerProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import CssBaseline from "@mui/material/CssBaseline";
 import MenuToolbar from "./Components/MenuToolbar";
 import Home from "./Components/Home";
 import Grid from "@mui/material/Grid";

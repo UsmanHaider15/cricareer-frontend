@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import getFormattedBreadcrumb from "Utils/getFormattedBreadcrumb";
