@@ -1,66 +1,188 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import CardActions from "@mui/material/CardActions";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 const homeData = [
   {
-    type: "icc",
-    title: "International Cricket Council",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "PSL",
+    stats: [
+      {
+        type: "Highest Score",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "108*",
+      },
+      {
+        type: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        type: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
   },
   {
-    type: "psl",
-    title: "Pakistan Super League",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "PSL",
+    stats: [
+      {
+        type: "Highest Score",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "108*",
+      },
+      {
+        type: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        type: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
   },
   {
-    type: "ipl",
-    title: "Indian Premier League",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "PSL",
+    stats: [
+      {
+        type: "Highest Score",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "108*",
+      },
+      {
+        type: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        type: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
   },
   {
-    type: "bbl",
-    title: "Big Bash League",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
-    logo_url: "/bbl_logo.png",
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "PSL",
+    stats: [
+      {
+        type: "Highest Score",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "108*",
+      },
+      {
+        type: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        type: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
   },
   {
-    type: "cpl",
-    title: "Caribbean Premier League",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
-    logo_url: "/cpl_logo.jpg",
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "PSL",
+    stats: [
+      {
+        type: "Highest Score",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "108*",
+      },
+      {
+        type: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        type: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
   },
   {
-    type: "super_smash",
-    title: "Super Smash League",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
-    logo_url: "/super_smash_logo.png",
-  },
-  {
-    type: "t20_blast",
-    title: "T20 Blast League",
-    description:
-      "Get insight into batting and bowling averages of your favorite player or compare players with each other to find out who is better.",
-    logo_url: "/t20_blast_logo.jpg",
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "PSL",
+    stats: [
+      {
+        type: "Highest Score",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "108*",
+      },
+      {
+        type: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        type: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
   },
 ];
 const Home = () => {
+  const theme = useTheme();
+
   return (
     <React.Fragment>
       <Grid container>
-        <Grid md={2}></Grid>
-        <Grid xs={12} md={8}>
+        <Grid md={3}></Grid>
+        <Grid xs={12} md={6}>
           <Box
             sx={{
               padding: 5,
@@ -82,43 +204,75 @@ const Home = () => {
             </Typography>
           </Box>
           <Grid container spacing={2}>
-            {homeData.map((data) => (
-              <Grid item xs={12} md={4}>
-                <Card sx={{ maxWidth: 500 }}>
-                  {/* <CardMedia
-                    component="img"
-                    alt="green iguana"
-                    height="140"
-                    image={data.logo_url || `/${data.type}_logo.svg`}
-                  /> */}
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {data.title}
-                    </Typography>
-                    {/* <Typography variant="body2" color="text.secondary">
-                      {data.description}
-                    </Typography> */}
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      href={`/profiles/${data.type}_profile`}
+            {homeData.map((data) =>
+              data.stats.map((stat) => (
+                <Grid item xs={12} lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "rgb(16,4,74)",
+                      height: 200,
+                      position: "relative",
+                      borderRadius: 5,
+                      color: "white",
+                      zIndex: 1,
+                    }}
+                  >
+                    <div
+                      style={{
+                        textAlign: "left",
+                        position: "absolute",
+                        top: 20,
+                        left: 20,
+                        fontWeight: "bold",
+                        fontSize: "1.3rem",
+                      }}
                     >
-                      Profile
-                    </Button>
-                    <Button
-                      size="small"
-                      href={`/comparisons/${data.type}_comparison`}
+                      HIGHEST SCORE
+                    </div>
+                    <div
+                      style={{
+                        textAlign: "left",
+                        position: "absolute",
+                        top: 60,
+                        left: 20,
+                        fontWeight: "bold",
+                        fontSize: "1.5rem",
+                      }}
                     >
-                      Comparison
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+                      USMAN <br />
+                      HAIDER
+                    </div>
+                    <div
+                      style={{
+                        textAlign: "left",
+                        position: "absolute",
+                        top: 140,
+                        left: 20,
+                        fontWeight: "bold",
+                        fontSize: "2rem",
+                      }}
+                    >
+                      200*
+                    </div>
+                    <img
+                      style={{
+                        right: -20,
+                        bottom: 0,
+                        position: "absolute",
+                        height: 200,
+                        width: 300,
+                        zIndex: -10,
+                      }}
+                      class="image1"
+                      src="https://cricareer.s3.ap-south-1.amazonaws.com/avatars/253802_headshot.png"
+                    />
+                  </div>
+                </Grid>
+              ))
+            )}
           </Grid>
         </Grid>
-        <Grid md={2}></Grid>
+        <Grid md={3}></Grid>
       </Grid>
     </React.Fragment>
   );
