@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import Slide from "@material-ui/core/Slide";
-import Toolbar from "@material-ui/core/Toolbar";
-import ProfileMenu from "./ProfileMenu";
-import ComparisonMenu from "./ComparisonMenu";
+import AppBar from "@mui/material/AppBar";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Slide from "@mui/material/Slide";
+import Toolbar from "@mui/material/Toolbar";
+import TopbarMenu from "./Common/TopbarMenu";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -30,13 +29,36 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
+const comparisonsLinks = [
+  { link: "/comparisons/icc_comparison", league: "ICC" },
+  { link: "/comparisons/psl_comparison", league: "Psl" },
+  { link: "/comparisons/ipl_comparison", league: "Ipl" },
+  { link: "/comparisons/bbl_comparison", league: "BBL" },
+  { link: "/comparisons/cpl_comparison", league: "CPL" },
+  { link: "/comparisons/super_smash_comparison", league: "Super Smash" },
+  { link: "/comparisons/t20_blast_comparison", league: "T20 Blast" },
+];
+
+const profileLinks = [
+  { link: "/profiles/icc_profile", league: "ICC" },
+  { link: "/profiles/psl_profile", league: "Psl" },
+  { link: "/profiles/ipl_profile", league: "Ipl" },
+  { link: "/profiles/bbl_profile", league: "BBL" },
+  { link: "/profiles/cpl_profile", league: "CPL" },
+  { link: "/profiles/super_smash_profile", league: "Super Smash" },
+  { link: "/profiles/t20_blast_profile", league: "T20 Blast" },
+];
+
 const MenuToolbar = () => {
   return (
     <HideOnScroll>
-      <AppBar>
+      <AppBar style={{ backgroundColor: "white", color: "gray" }}>
         <Toolbar>
-          <ProfileMenu />
-          <ComparisonMenu />
+          <div style={{ letterSpacing: 3, fontSize: 24, paddingRight: 10 }}>
+            cricareer
+          </div>
+          <TopbarMenu type="Profile" links={comparisonsLinks} />
+          <TopbarMenu type="Comparison" links={profileLinks} />
         </Toolbar>
       </AppBar>
     </HideOnScroll>

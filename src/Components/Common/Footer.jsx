@@ -3,6 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 function Copyright() {
   return (
@@ -17,13 +19,11 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: "rgb(63,81,181)",
+    backgroundColor: "white",
+    color: "grey",
     padding: theme.spacing(3, 2),
     marginTop: "auto",
     color: "white",
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
   },
 }));
 
@@ -33,32 +33,12 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm">
-        {/* <Grid xs={12} style={{ textAlign: "center" }}>
-          <FacebookIcon color="secondary" />
-          <InstagramIcon color="secondary" />
-          <TwitterIcon color="secondary" />
+        <Grid xs={12} style={{ textAlign: "center" }}>
+          <TwitterIcon color="secondary" style={{ cursor: "pointer" }} />{" "}
+          <FacebookIcon color="secondary" style={{ cursor: "pointer" }} />
         </Grid>
-        <Grid xs={12} style={{ textAlign: "center" }}>
-          <Link
-            to="/comparisons/icc_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            About
-          </Link>
-          <Link
-            to="/comparisons/icc_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            FAQs
-          </Link>
-          <Link
-            to="/comparisons/icc_comparison"
-            style={{ textDecoration: "none" }}
-          >
-            Terms of Use
-          </Link>
-        </Grid> */}
-        <Grid xs={12} style={{ textAlign: "center" }}>
+        <Grid xs={12} style={{ textAlign: "center" }}></Grid>
+        <Grid xs={12} style={{ textAlign: "center", color: "grey" }}>
           <Copyright />
         </Grid>
       </Container>
