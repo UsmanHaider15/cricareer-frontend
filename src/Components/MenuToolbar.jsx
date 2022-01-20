@@ -57,8 +57,8 @@ const MenuToolbar = () => {
           <div style={{ letterSpacing: 3, fontSize: 24, paddingRight: 10 }}>
             cricareer
           </div>
-          <TopbarMenu type="Profile" links={comparisonsLinks} />
-          <TopbarMenu type="Comparison" links={profileLinks} />
+          <TopbarMenu type="profile" links={profileLinks} />
+          <TopbarMenu type="comparison" links={comparisonsLinks} />
         </Toolbar>
       </AppBar>
     </HideOnScroll>
