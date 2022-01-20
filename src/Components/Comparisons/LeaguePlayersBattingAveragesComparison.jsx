@@ -3,23 +3,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import { makeStyles } from "@material-ui/core/styles";
 import TableView from "Components/Common/TableView";
 import Grid from "@material-ui/core/Grid";
 import { league_teams, league_seasons } from "Data/data";
 import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
-
-const useStyles = makeStyles((theme) => ({
-  root: { padding: 0, marginBottom: 10 },
-
-  button: {
-    display: "block",
-  },
-  formControl: {
-    minWidth: 100,
-  },
-}));
 
 const LeaguePlayersBattingAveragesComparison = ({
   firstPlayer,
@@ -30,7 +18,6 @@ const LeaguePlayersBattingAveragesComparison = ({
   battingOpposition,
   setBattingOpposition,
 }) => {
-  const classes = useStyles();
   const [chartData, setChartData] = React.useState({
     first_player: {},
     second_player: {},
@@ -106,7 +93,7 @@ const LeaguePlayersBattingAveragesComparison = ({
         <CustomResponsiveFontSizes text="Batting Averages Comparison" />
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
-        <FormControl variant="outlined" className={classes.formControl}>
+        <FormControl variant="outlined">
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"
@@ -117,7 +104,6 @@ const LeaguePlayersBattingAveragesComparison = ({
             value={seasonOption}
             onChange={handleSeasonChange}
             label="Season"
-            className={classes.root}
           >
             {[
               0,
@@ -133,7 +119,7 @@ const LeaguePlayersBattingAveragesComparison = ({
           </Select>
         </FormControl>
 
-        <FormControl variant="outlined" className={classes.formControl}>
+        <FormControl variant="outlined">
           <InputLabel id="demo-controlled-open-select-label">
             Opposition
           </InputLabel>
@@ -146,7 +132,6 @@ const LeaguePlayersBattingAveragesComparison = ({
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
-            className={classes.root}
           >
             {league_teams[leagueName].map((value) => (
               <MenuItem value={value}>{value}</MenuItem>

@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -17,21 +16,9 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: "white",
-    color: "grey",
-    padding: theme.spacing(3, 2),
-    marginTop: "auto",
-    color: "white",
-  },
-}));
-
 export default function Footer() {
-  const classes = useStyles();
-
   return (
-    <footer className={classes.footer}>
+    <footer>
       <Container maxWidth="sm">
         <Grid xs={12} style={{ textAlign: "center" }}>
           <TwitterIcon color="secondary" style={{ cursor: "pointer" }} />{" "}

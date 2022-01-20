@@ -2,16 +2,10 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  root: {},
-});
 
 const homeData = [
   {
@@ -62,8 +56,6 @@ const homeData = [
   },
 ];
 const Home = () => {
-  const classes = useStyles();
-
   return (
     <React.Fragment>
       <Grid container>
@@ -107,7 +99,7 @@ const Home = () => {
                       {data.description}
                     </Typography> */}
                   </CardContent>
-                  <CardActions classes={classes.root}>
+                  <CardActions>
                     <Button
                       size="small"
                       href={`/profiles/${data.type}_profile`}

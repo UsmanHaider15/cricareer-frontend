@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -13,26 +12,11 @@ import {
 import AveragesTable from "Components/Common/AveragesTable";
 import httpService from "Services/httpService";
 
-const useStyles = makeStyles((theme) => ({
-  root: { padding: 0 },
-  select: {
-    marginBottom: 10,
-  },
-  button: {
-    display: "block",
-  },
-  formControl: {
-    minWidth: 100,
-  },
-}));
-
 const IccPlayerBattingAverages = ({
   player,
   battingOpposition,
   setBattingOpposition,
 }) => {
-  const classes = useStyles();
-
   const [battingAverages, setBattingAverages] = useState([]);
 
   const [oppositionOption, setOppositionOption] =
@@ -99,7 +83,7 @@ const IccPlayerBattingAverages = ({
   return (
     <Grid container>
       <Grid item>
-        <FormControl variant="outlined" className={classes.formControl}>
+        <FormControl variant="outlined">
           <InputLabel id="demo-controlled-open-select-label">
             Opposition
           </InputLabel>
@@ -112,7 +96,6 @@ const IccPlayerBattingAverages = ({
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
-            className={classes.select}
           >
             {Object.entries(icc_teams_lookup).map(([value, label]) => (
               <MenuItem value={value}>{label}</MenuItem>

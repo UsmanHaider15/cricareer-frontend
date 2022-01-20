@@ -6,7 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
 function EnhancedTableHead(props) {
-  const { classes, order, orderBy, onRequestSort, columnNamesLookup } = props;
+  const { order, orderBy, onRequestSort, columnNamesLookup } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -36,8 +36,8 @@ function EnhancedTableHead(props) {
             >
               <b>{headCell.label}</b>
               {orderBy === headCell.id ? (
-                <span className={classes.visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
+                <span>
+                  {/* {order === "desc" ? "sorted descending" : "sorted ascending"} */}
                 </span>
               ) : null}
             </TableSortLabel>

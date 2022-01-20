@@ -10,25 +10,11 @@ import MenuToolbar from "./Components/MenuToolbar";
 import Home from "./Components/Home";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
 
 import { useHistory } from "react-router-dom";
 const reload = () => window.location.reload();
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    paddingTop: 20,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
-
 function App() {
-  const classes = useStyles();
   const history = useHistory();
 
   useEffect(() => {
@@ -62,7 +48,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className={classes.root}>
+      <div>
         <Router>
           <CssBaseline />
           <MenuToolbar />
@@ -76,7 +62,7 @@ function App() {
                   <Grid container spacing={1}>
                     <Grid xs={0} md={3}></Grid>
                     <Grid xs={12} md={6}>
-                      <Paper className={classes.paper}>
+                      <Paper>
                         <Route path="/profiles/icc_profile">
                           <IccPlayerProfile initialPlayerID="253802" />
                         </Route>

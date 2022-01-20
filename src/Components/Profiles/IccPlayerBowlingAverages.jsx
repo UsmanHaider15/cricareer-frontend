@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -13,24 +12,11 @@ import _ from "lodash";
 import AveragesTable from "Components/Common/AveragesTable";
 import httpService from "Services/httpService";
 
-const useStyles = makeStyles((theme) => ({
-  root: { padding: 0, marginBottom: 10 },
-
-  button: {
-    display: "block",
-  },
-  formControl: {
-    minWidth: 100,
-  },
-}));
-
 const IccPlayerBowlingAverages = ({
   player,
   bowlingOpposition,
   setBowlingOpposition,
 }) => {
-  const classes = useStyles();
-
   const [oppositionOption, setOppositionOption] =
     React.useState(bowlingOpposition);
   const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
@@ -80,7 +66,7 @@ const IccPlayerBowlingAverages = ({
   return (
     <Grid container>
       <Grid item>
-        <FormControl variant="outlined" className={classes.formControl}>
+        <FormControl variant="outlined">
           <InputLabel id="demo-controlled-open-select-label">
             Opposition
           </InputLabel>
@@ -93,7 +79,6 @@ const IccPlayerBowlingAverages = ({
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
-            className={classes.root}
           >
             {Object.entries(icc_teams_lookup).map(([value, label]) => (
               <MenuItem value={value}>{label}</MenuItem>
