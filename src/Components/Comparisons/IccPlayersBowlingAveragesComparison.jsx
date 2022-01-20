@@ -4,7 +4,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import TableView from "Components/Common/TableView";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 import { icc_teams_lookup } from "Data/data";
 import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";

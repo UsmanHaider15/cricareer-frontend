@@ -5,7 +5,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@mui/material/Paper";
 import EnhancedTableHead from "./EnhancedTableHead";
 
 function descendingComparator(a, b, orderBy) {

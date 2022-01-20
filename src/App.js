@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MenuToolbar from "./Components/MenuToolbar";
 import Home from "./Components/Home";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 import { useHistory } from "react-router-dom";
 const reload = () => window.location.reload();
