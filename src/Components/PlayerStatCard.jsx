@@ -22,30 +22,132 @@ const playerStats = [
         value: "13",
       },
     ],
-    subStats: [
-      { lable: "Matches Played", value: "32" },
-      { lable: "Most Match Score", value: "32" },
-      { lable: "Best Win Percentage", value: "32" },
-      { lable: "Most Runs Scored in a match", value: "306" },
-      { lable: "total number of sixes", value: 76 },
-      { lable: "TOTAL NUMBER OF WICKETS", value: 5345 },
+  },
+
+  {
+    fullLeagueName: "Indian Premier League",
+    leagueName: "IPL",
+    stats: [
+      {
+        lable: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        lable: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
+  },
+
+  {
+    fullLeagueName: "Indian Premier League",
+    leagueName: "IPL",
+    stats: [
+      {
+        lable: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        lable: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
+  },
+
+  {
+    fullLeagueName: "Indian Premier League",
+    leagueName: "IPL",
+    stats: [
+      {
+        lable: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        lable: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
+  },
+
+  {
+    fullLeagueName: "Indian Premier League",
+    leagueName: "IPL",
+    stats: [
+      {
+        lable: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        lable: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
+    ],
+  },
+
+  {
+    fullLeagueName: "Indian Premier League",
+    leagueName: "IPL",
+    stats: [
+      {
+        lable: "Most Runs",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "259",
+      },
+      {
+        lable: "Most Wickets",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/681305_headshot.png",
+        player_name: "usman haider",
+        value: "13",
+      },
     ],
   },
 ];
 
 export default function PlayerStatCard() {
   return (
-    <Grid container>
-      <Grid md={2} />
-      <Grid xs={12} md={8}>
-        <Grid container spacing={1}>
-          {playerStats.map((playerStat) =>
-            playerStat.stats.map((stat) => (
+    <div>
+      {playerStats.map((playerStat) => (
+        <React.Fragment>
+          <Grid item xs={12}>
+            <Box sx={{ fontSize: { xs: 30, xl: 42 }, mt: 4 }}>
+              {" "}
+              {playerStat.fullLeagueName}
+            </Box>
+          </Grid>
+          <Grid container spacing={1}>
+            {playerStat.stats.map((stat) => (
               <Grid item xs={12} md={6}>
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: { xs: "column", xl: "row" },
+                    flexDirection: { xs: "column", xl: "row-reverse" },
                     alignItems: "center",
                     bgcolor: "background.paper",
                     overflow: "hidden",
@@ -101,11 +203,10 @@ export default function PlayerStatCard() {
                   </Box>
                 </Box>
               </Grid>
-            ))
-          )}
-        </Grid>
-      </Grid>
-      <Grid md={2} />
-    </Grid>
+            ))}
+          </Grid>
+        </React.Fragment>
+      ))}
+    </div>
   );
 }

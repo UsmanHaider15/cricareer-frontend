@@ -12,11 +12,12 @@ const Cover = () => {
             position: "relative",
             backgroundColor: "#170451",
             color: "white",
-            height: 700,
+            height: 500,
             width: "100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            zIndex: -10,
           }}
         >
           <Typography variant="h3" component="div" gutterBottom>
