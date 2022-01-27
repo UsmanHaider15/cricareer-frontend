@@ -22,7 +22,7 @@ const stats = [
 
 export default function StatCards() {
   return (
-    <div style={{ marginTop: -30, zIndex: 100 }}>
+    <div>
       <Grid container>
         <Grid md={2} />
         <Grid xs={12} md={8}>
