@@ -338,7 +338,7 @@ const Home = () => {
                       <div style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
                         {stat.type}
                       </div>
-                      <div style={{ fontSize: "2rem", fontWeight: "bolder" }}>
+                      <div style={{ fontSize: "3rem", fontWeight: "bolder" }}>
                         {stat.value}
                       </div>
                     </div>
