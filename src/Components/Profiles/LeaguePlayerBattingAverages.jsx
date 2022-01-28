@@ -1,27 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import AveragesTable from "Components/Common/AveragesTable";
 import _ from "lodash";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
 import {
   league_batting_table_column_name_lookup,
   league_seasons,
 } from "Data/data";
 import httpService from "Services/httpService";
-
-const useStyles = makeStyles((theme) => ({
-  root: { padding: 0, marginBottom: 10 },
-
-  button: {
-    display: "block",
-  },
-  formControl: {
-    minWidth: 100,
-  },
-}));
 
 const LeaguePlayerBattingAverages = ({
   player,
@@ -29,7 +17,6 @@ const LeaguePlayerBattingAverages = ({
   setBattingSeason,
   battingSeason,
 }) => {
-  const classes = useStyles();
   const [battingAverages, setBattingAverages] = useState([]);
   const [option, setOption] = React.useState(battingSeason);
   const [open, setOpen] = React.useState(false);
@@ -92,7 +79,7 @@ const LeaguePlayerBattingAverages = ({
   return (
     <div>
       <div style={{ textAlign: "left" }}>
-        <FormControl variant="outlined" className={classes.formControl}>
+        <FormControl variant="outlined">
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"
@@ -103,7 +90,6 @@ const LeaguePlayerBattingAverages = ({
             value={option}
             onChange={handleChange}
             label="Option"
-            className={classes.root}
           >
             {[
               0,

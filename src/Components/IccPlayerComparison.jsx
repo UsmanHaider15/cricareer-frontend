@@ -1,9 +1,9 @@
 import React from "react";
 import PlayerSearch from "./PlayerSearch";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import { withRouter } from "react-router";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";

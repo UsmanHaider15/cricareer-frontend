@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import { useState, useEffect } from "react";
 import httpService from "Services/httpService";
 
@@ -45,7 +45,7 @@ export default function PlayerSearch({
         options={
           searchedPlayersList.length ? searchedPlayersList : InitialPlayersList
         }
-        getOptionLabel={(option) => option.player_name}
+        getOptionLabel={(option) => (option ? option.player_name : "")}
         getOptionSelected={(option, value) => {
           if (option.player_name === value.player_name) {
             setSelectedPlayer(value, isFirst);
@@ -56,7 +56,7 @@ export default function PlayerSearch({
           return reason === "input" && setSearchStr(value);
         }}
         onChange={(event, value, reason) => {
-          if (reason === "select-option") {
+          if (reason === "selectOption") {
             setSelectedPlayer(value, isFirst);
           }
         }}

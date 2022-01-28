@@ -5,30 +5,16 @@ import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";
 import LeaguePlayersComparison from "./Components/Comparisons/LeaguePlayersComparison";
 import IccPlayerProfile from "./Components/Profiles/IccPlayerProfile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import CssBaseline from "@mui/material/CssBaseline";
 import MenuToolbar from "./Components/MenuToolbar";
 import Home from "./Components/Home";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 import { useHistory } from "react-router-dom";
 const reload = () => window.location.reload();
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    paddingTop: 20,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
-
 function App() {
-  const classes = useStyles();
   const history = useHistory();
 
   useEffect(() => {
@@ -62,22 +48,21 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className={classes.root}>
-        <Grid container spacing={1}>
-          <Grid xs={0} md={3}></Grid>
-          <Grid xs={12} md={6}>
-            <Paper className={classes.paper}>
-              <Router>
-                <CssBaseline />
-                <MenuToolbar />
-
-                <div style={{ marginTop: 40 }}>
-                  <div>
-                    <div className="App" style={{ paddingBottom: 500 }}>
-                      <Switch>
-                        <Route path="/" exact>
-                          <Home />
-                        </Route>
+      <div>
+        <Router>
+          <CssBaseline />
+          <MenuToolbar />
+          <div style={{ marginTop: 40 }}>
+            <div>
+              <div className="App" style={{ paddingBottom: 50 }}>
+                <Switch>
+                  <Route path="/" exact>
+                    <Home />
+                  </Route>
+                  <Grid container spacing={1}>
+                    <Grid xs={0} md={3}></Grid>
+                    <Grid xs={12} md={6}>
+                      <Paper>
                         <Route path="/profiles/icc_profile">
                           <IccPlayerProfile initialPlayerID="253802" />
                         </Route>
@@ -166,16 +151,16 @@ function App() {
                             initialSecondPlayerID="13"
                           />
                         </Route>
-                        <Route path="/sitemap.txt" onEnter={reload} />
-                      </Switch>
-                    </div>
-                  </div>
-                </div>
-              </Router>
-            </Paper>
-          </Grid>
-          <Grid xs={0} md={3}></Grid>
-        </Grid>
+                      </Paper>
+                    </Grid>
+                    <Grid xs={0} md={3}></Grid>
+                  </Grid>
+                  <Route path="/sitemap.txt" onEnter={reload} />
+                </Switch>
+              </div>
+            </div>
+          </div>
+        </Router>
       </div>
     </React.Fragment>
   );

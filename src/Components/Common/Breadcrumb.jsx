@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import getFormattedBreadcrumb from "Utils/getFormattedBreadcrumb";
@@ -13,7 +13,7 @@ const Breadcrumb = ({ history }) => {
     PageView();
   }, []);
   return (
-    <Breadcrumbs aria-label="breadcrumb" style={{ marginBottom: 20 }}>
+    <Breadcrumbs aria-label="breadcrumb" style={{ margin: 50 }}>
       <Link to="/">Home</Link>
       {history.location.pathname !== "/" ? (
         <Link to={history.location.pathname}>
