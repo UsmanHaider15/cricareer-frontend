@@ -1,5 +1,5 @@
 import React from "react";
-import PlayerSearch from "./PlayerSearch";
+import PlayerSearch from "../Common/PlayerSearch";
 import Grid from "@mui/material/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
@@ -7,8 +7,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { withRouter } from "react-router";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";
-import IccPlayersBattingAveragesComparison from "./Comparisons/IccPlayersBattingAveragesComparison";
-import IccPlayersBowlingAveragesComparison from "./Comparisons/IccPlayersBowlingAveragesComparison";
+import IccPlayersBattingAveragesComparison from "./IccPlayersBattingAveragesComparison";
+import IccPlayersBowlingAveragesComparison from "./IccPlayersBowlingAveragesComparison";
 import Header from "Components/Common/Header";
 import { icc_teams_lookup } from "Data/data";
 

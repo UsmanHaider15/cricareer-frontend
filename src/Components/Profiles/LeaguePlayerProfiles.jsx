@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router";
 import qs from "qs";
-import PlayerSearch from "Components/PlayerSearch";
+import PlayerSearch from "Components/Common/PlayerSearch";
 import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";

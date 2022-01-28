@@ -1,5 +1,5 @@
 import React from "react";
-import PlayerSearch from "Components/PlayerSearch";
+import PlayerSearch from "Components/Common/PlayerSearch";
 import Grid from "@mui/material/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";

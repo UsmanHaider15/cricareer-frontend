@@ -4,7 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
-import TopbarMenu from "./Common/TopbarMenu";
+import TopbarMenu from "./TopbarMenu";
 
 function HideOnScroll(props) {
   const { children, window } = props;
