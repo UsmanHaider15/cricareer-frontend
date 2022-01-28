@@ -10,11 +10,7 @@ import httpService from "Services/httpService";
 import LeaguePlayersBattingAveragesComparison from "./LeaguePlayersBattingAveragesComparison";
 import LeaguePlayersBowlingAveragesComparison from "./LeaguePlayersBowlingAveragesComparison";
 import Header from "Components/Common/Header";
-import {
-  icc_batting_table_column_name_lookup,
-  icc_bowling_table_column_name_lookup,
-  league_teams,
-} from "Data/data";
+import { league_teams } from "Data/data";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);

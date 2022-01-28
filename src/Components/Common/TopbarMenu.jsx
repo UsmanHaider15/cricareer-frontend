@@ -29,11 +29,10 @@ export default function TopbarMenu({ type, links }) {
   };
 
   useEffect(() => {
-    if (!location.pathname.includes(`${type}s`)) {
+    if (!location.pathname.includes(type)) {
       setBtnLabel(`Select ${capitalizeFirstLetter(type)}`);
       setIsActive(false);
     } else {
-      const btnLabel = humanify(location.pathname.split("/").pop());
       setBtnLabel(btnLabel);
       setIsActive(true);
     }
@@ -57,15 +56,19 @@ export default function TopbarMenu({ type, links }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {links.map(({ link, league }) => (
+        {links.map(({ link, leagueName }) => (
           <Link to={link} style={{ textDecoration: "none" }}>
             <MenuItem
               onClick={() => {
-                setBtnLabel(`${league} ${capitalizeFirstLetter(type)}`);
+                setBtnLabel(
+                  `${humanify(
+                    leagueName
+                  ).toUpperCase()} ${capitalizeFirstLetter(type)}`
+                );
                 handleClose();
               }}
             >
-              {league.toUpperCase()} Player {capitalizeFirstLetter(type)}
+              {humanify(leagueName).toUpperCase()} {capitalizeFirstLetter(type)}
             </MenuItem>
           </Link>
         ))}
