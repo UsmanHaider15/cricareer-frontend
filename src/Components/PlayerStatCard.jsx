@@ -141,7 +141,7 @@ export default function PlayerStatCard() {
               {playerStat.fullLeagueName}
             </Box>
           </Grid>
-          <Grid container spacing={1}>
+          <Grid container spacing={2}>
             {playerStat.stats.map((stat) => (
               <Grid item xs={12} md={6}>
                 <Box
@@ -173,7 +173,7 @@ export default function PlayerStatCard() {
                       justifyContent: "space-between",
                       flexDirection: "column",
                       flexGrow: 1,
-                      alignItems: { xs: "center", xl: "flex-center" },
+                      alignItems: { xs: "center", xl: "flex-start" },
                       m: 3,
                       height: { xl: 160 },
                     }}

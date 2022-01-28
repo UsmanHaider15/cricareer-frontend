@@ -61,11 +61,11 @@ export default function TopbarMenu({ type, links }) {
           <Link to={link} style={{ textDecoration: "none" }}>
             <MenuItem
               onClick={() => {
-                setBtnLabel(`${league} Profile`);
+                setBtnLabel(`${league} ${capitalizeFirstLetter(type)}`);
                 handleClose();
               }}
             >
-              {league} Player Profile
+              {league.toUpperCase()} Player {capitalizeFirstLetter(type)}
             </MenuItem>
           </Link>
         ))}
