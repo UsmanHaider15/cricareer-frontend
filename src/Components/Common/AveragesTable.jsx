@@ -45,46 +45,46 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
   };
 
   return (
-    <div>
-      <Paper>
-        <TableContainer sx={{ maxHeight: 400 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <EnhancedTableHead
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={handleRequestSort}
-              columnNamesLookup={columnNamesLookup}
-            />
-            <TableBody>
-              {stableSort(rows, getComparator(order, orderBy)).map(
-                (row, index) => {
-                  return (
-                    <TableRow hover tabIndex={-1} key={row.opposition_team}>
-                      {Object.values(row).map((col_val, ind) => (
-                        <TableCell
-                          sx={{
-                            ...(!ind
-                              ? {
-                                  backgroundColor: "#ddd",
-                                  left: 0,
-                                  position: "sticky",
-                                }
-                              : {}),
-                          }}
-                          align="left"
-                        >
-                          {col_val}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  );
-                }
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
-    </div>
+    <Paper sx={{ width: "100%", overflow: "hidden", paddingTop: 2 }}>
+      <TableContainer sx={{ maxHeight: 400 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <EnhancedTableHead
+            order={order}
+            orderBy={orderBy}
+            onRequestSort={handleRequestSort}
+            columnNamesLookup={columnNamesLookup}
+          />
+          <TableBody>
+            {stableSort(rows, getComparator(order, orderBy)).map(
+              (row, index) => {
+                return (
+                  <TableRow hover tabIndex={-1} key={row.opposition_team}>
+                    {Object.values(row).map((col_val, ind) => (
+                      <TableCell
+                        sx={{
+                          ...(!ind
+                            ? {
+                                backgroundColor: "#ddd",
+                                left: 0,
+                                position: "sticky",
+                                width: 200,
+                              }
+                            : {}),
+                          fontSize: 20,
+                        }}
+                        align="left"
+                      >
+                        {col_val}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                );
+              }
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 };
 

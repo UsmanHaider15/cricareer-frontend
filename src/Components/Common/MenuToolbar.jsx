@@ -43,13 +43,14 @@ const MenuToolbar = () => {
         >
           <Box
             sx={{
-              letterSpacing: 3,
-              fontSize: 24,
+              paddingBottom: 1,
+              letterSpacing: 4,
+              fontSize: 30,
               paddingRight: 10,
               display: { xs: "none", md: "block" },
             }}
           >
-            <a href="/">cricareer</a>
+            cricareer
           </Box>
           <TopbarMenu type="profile" links={profileLinks} />
           <TopbarMenu type="comparison" links={comparisonsLinks} />

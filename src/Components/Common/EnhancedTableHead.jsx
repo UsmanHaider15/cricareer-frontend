@@ -18,21 +18,26 @@ function EnhancedTableHead(props) {
     label: value,
   }));
 
-  console.log("headCells", headCells);
-
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell, index) => (
+        {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "left" : "left"}
+            align="center"
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
             sx={{
               ...(headCell.label === "Teams"
-                ? { left: 0, zIndex: (theme) => theme.zIndex.appBar + 2 }
+                ? {
+                    left: 0,
+                    zIndex: (theme) => theme.zIndex.appBar + 2,
+                  }
                 : {}),
+
+              backgroundColor: "rgb(180,180,180)",
+              padding: "5px 0px",
+              fontSize: 16,
             }}
           >
             <TableSortLabel

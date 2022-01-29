@@ -93,7 +93,7 @@ const LeaguePlayerBowlingAverages = ({
             sx={[
               {
                 ".MuiSelect-select": {
-                  padding: { xs: "10.5px 8px", md: "16.5px 14px" },
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
                 },
               },
             ]}

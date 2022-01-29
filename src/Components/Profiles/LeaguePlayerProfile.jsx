@@ -186,7 +186,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
         </Grid>
         <Grid item xs={3} />
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ paddingTop: 20 }}>
           <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
             Batting Averages
           </Box>
@@ -200,7 +200,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
           ) : null}
         </Grid>
 
-        <Grid item xs={12} style={{ paddingTop: 10 }}>
+        <Grid item xs={12} style={{ paddingTop: 20 }}>
           <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
             Bowling Averages
           </Box>
