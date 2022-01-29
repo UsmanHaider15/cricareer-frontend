@@ -11,6 +11,7 @@ import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
 import { getHeaderTitle, getHeaderDescription } from "Utils/generateHeader";
+import Box from "@mui/material/Box";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -133,7 +134,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <Header
         title={getHeaderTitle({ playerName: player.player_name, leagueName })}
         description={getHeaderDescription({
@@ -142,53 +143,52 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
         })}
       />
       <Breadcrumb />
-      <Grid container spacing={1}>
-        <Grid container>
-          <Grid item xs={3} />
-          <Grid item xs={6}>
-            <PlayerSearch
-              InitialPlayersList={initialPlayersList}
-              setSelectedPlayer={handleSelectedPlayer}
-              player={player}
-              url="/league_player_profile/search_player_by_name"
-              league_name={leagueName}
-            />
-          </Grid>
-          <Grid item xs={3} />
+      <Grid container spacing={1} sx={{ paddingLeft: { xs: 1, md: 0 } }}>
+        <Grid item xs={3} />
+        <Grid item xs={6}>
+          <PlayerSearch
+            InitialPlayersList={initialPlayersList}
+            setSelectedPlayer={handleSelectedPlayer}
+            player={player}
+            url="/league_player_profile/search_player_by_name"
+            league_name={leagueName}
+          />
         </Grid>
-        <Grid container>
-          <Grid item xs={3}></Grid>
-          <Grid item xs={6}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: 10,
-              }}
-            >
-              <img
-                ref={ref}
-                onLoad={onLoad}
-                src={
-                  player.headshot_image_url
-                    ? player.headshot_image_url
-                    : "/default-user.jpg"
-                }
-                alt=""
-                style={{
-                  minWidth: "60%",
-                  display: loaded ? "block" : "none",
-                }}
-              />
-              {!loaded ? <CircularProgress /> : null}
-            </div>
-          </Grid>
-          <Grid item xs={3}></Grid>
-        </Grid>
+        <Grid item xs={3} />
 
-        <Grid item xs={12} style={{ paddingTop: 10 }}>
-          <CustomResponsiveFontSizes text="Batting Averages" />
+        <Grid item xs={3} />
+        <Grid item xs={6}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              paddingTop: 10,
+            }}
+          >
+            <img
+              ref={ref}
+              onLoad={onLoad}
+              src={
+                player.headshot_image_url
+                  ? player.headshot_image_url
+                  : "/default-user.jpg"
+              }
+              alt=""
+              style={{
+                minWidth: "60%",
+                display: loaded ? "block" : "none",
+              }}
+            />
+            {!loaded ? <CircularProgress /> : null}
+          </div>
+        </Grid>
+        <Grid item xs={3} />
+
+        <Grid item xs={12}>
+          <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+            Batting Averages
+          </Box>
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBattingAverages
               leagueName={leagueName}
@@ -198,8 +198,12 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
             />
           ) : null}
         </Grid>
+
         <Grid item xs={12} style={{ paddingTop: 10 }}>
-          <CustomResponsiveFontSizes text="Bowling Averages" />
+          <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+            Bowling Averages
+          </Box>
+
           {Object.keys(player).length > 0 ? (
             <LeaguePlayerBowlingAverages
               leagueName={leagueName}
@@ -210,7 +214,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
           ) : null}
         </Grid>
       </Grid>
-    </div>
+    </React.Fragment>
   );
 };
 
