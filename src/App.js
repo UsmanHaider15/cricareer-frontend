@@ -50,7 +50,7 @@ function App() {
         <Router>
           <CssBaseline />
           <MenuToolbar />
-          <div style={{ marginTop: 40 }}>
+          <div style={{ marginTop: 70 }}>
             <div>
               <div className="App" style={{ paddingBottom: 50 }}>
                 <Switch>

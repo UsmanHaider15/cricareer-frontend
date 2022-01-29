@@ -6,6 +6,8 @@ import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import TopbarMenu from "./TopbarMenu";
 import { comparisonsLinks, profileLinks } from "../../config";
+import Box from "@mui/material/Box";
+
 function HideOnScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -33,10 +35,22 @@ const MenuToolbar = () => {
   return (
     <HideOnScroll>
       <AppBar style={{ backgroundColor: "white", color: "gray" }}>
-        <Toolbar>
-          <div style={{ letterSpacing: 3, fontSize: 24, paddingRight: 10 }}>
+        <Toolbar
+          sx={{
+            display: { xs: "flex", md: "inherit" },
+            justifyContent: { xs: "space-around", md: "normal" },
+          }}
+        >
+          <Box
+            sx={{
+              letterSpacing: 3,
+              fontSize: 24,
+              paddingRight: 10,
+              display: { xs: "none", md: "block" },
+            }}
+          >
             cricareer
-          </div>
+          </Box>
           <TopbarMenu type="profile" links={profileLinks} />
           <TopbarMenu type="comparison" links={comparisonsLinks} />
         </Toolbar>

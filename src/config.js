@@ -1,6 +1,6 @@
-import IccPlayerComparison from "./Components/Comparisons/IccPlayerComparison";
-import IccPlayerProfile from "./Components/Profiles/IccPlayerProfile";
-import LeaguePlayerProfiles from "./Components/Profiles/LeaguePlayerProfiles";
+// import IccPlayerComparison from "./Components/Comparisons/IccPlayerComparison";
+// import IccPlayerProfile from "./Components/Profiles/IccPlayerProfile";
+import LeaguePlayerProfile from "./Components/Profiles/LeaguePlayerProfile";
 import LeaguePlayersComparison from "./Components/Comparisons/LeaguePlayersComparison";
 
 export const comparisonsLinks = [
@@ -63,37 +63,37 @@ export const profileLinks = [
   //     playerID: "253802",
   //   },
   {
-    Component: LeaguePlayerProfiles,
+    Component: LeaguePlayerProfile,
     link: "/profiles/psl_profile",
     leagueName: "psl",
     playerID: "1",
   },
   {
-    Component: LeaguePlayerProfiles,
+    Component: LeaguePlayerProfile,
     link: "/profiles/ipl_profile",
     leagueName: "ipl",
     playerID: "46",
   },
   {
-    Component: LeaguePlayerProfiles,
+    Component: LeaguePlayerProfile,
     link: "/profiles/bbl_profile",
     leagueName: "bbl",
     playerID: "17",
   },
   {
-    Component: LeaguePlayerProfiles,
+    Component: LeaguePlayerProfile,
     link: "/profiles/cpl_profile",
     leagueName: "cpl",
     playerID: "17",
   },
   {
-    Component: LeaguePlayerProfiles,
+    Component: LeaguePlayerProfile,
     link: "/profiles/super_smash_profile",
     leagueName: "super_smash",
     playerID: "17",
   },
   {
-    Component: LeaguePlayerProfiles,
+    Component: LeaguePlayerProfile,
     link: "/profiles/t20_blast_profile",
     leagueName: "t20_blast",
     playerID: "2",

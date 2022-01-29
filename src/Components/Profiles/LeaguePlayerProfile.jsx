@@ -10,8 +10,7 @@ import Breadcrumb from "Components/Common/Breadcrumb";
 import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
-import { icc_batting_table_column_name_lookup, league_teams } from "Data/data";
-import { icc_bowling_table_column_name_lookup } from "../../Data/data";
+import { getHeaderTitle, getHeaderDescription } from "Utils/generateHeader";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -40,7 +39,7 @@ function usePrevious(value) {
   return ref.current;
 }
 
-const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
+const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
   const [ref, loaded, onLoad] = useImageLoaded();
@@ -136,22 +135,16 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
   return (
     <div>
       <Header
-        title={`${
-          player.player_name
-        }'s Batting and Bowling Averages in ${leagueName.toUpperCase()}`}
-        description={`Get Details of ${
-          player.player_name
-        }'s batting and bowling averages in any season of ${leagueName.toUpperCase()}. You can also get details of bowling and batting averages of ${
-          player.player_name
-        } against PSL teams like${Object.values(league_teams[leagueName])
-          .slice(1)
-          .map((team) => ` ${team}`)} 
-           as well.`}
+        title={getHeaderTitle({ playerName: player.player_name, leagueName })}
+        description={getHeaderDescription({
+          playerName: player.player_name,
+          leagueName,
+        })}
       />
       <Breadcrumb />
       <Grid container spacing={1}>
         <Grid container>
-          <Grid item xs={3}></Grid>
+          <Grid item xs={3} />
           <Grid item xs={6}>
             <PlayerSearch
               InitialPlayersList={initialPlayersList}
@@ -161,7 +154,7 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
               league_name={leagueName}
             />
           </Grid>
-          <Grid item xs={3}></Grid>
+          <Grid item xs={3} />
         </Grid>
         <Grid container>
           <Grid item xs={3}></Grid>
@@ -221,4 +214,4 @@ const LeaguePlayerProfiles = ({ history, leagueName, initialPlayerID }) => {
   );
 };
 
-export default withRouter(LeaguePlayerProfiles);
+export default withRouter(LeaguePlayerProfile);
