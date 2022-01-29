@@ -47,12 +47,8 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
   return (
     <div>
       <Paper>
-        <TableContainer>
-          <Table
-            aria-labelledby="tableTitle"
-            size={"small"}
-            aria-label="enhanced table"
-          >
+        <TableContainer sx={{ maxHeight: 400 }}>
+          <Table stickyHeader aria-label="sticky table">
             <EnhancedTableHead
               order={order}
               orderBy={orderBy}
@@ -64,8 +60,21 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                 (row, index) => {
                   return (
                     <TableRow hover tabIndex={-1} key={row.opposition_team}>
-                      {Object.values(row).map((col_val, index) => (
-                        <TableCell align="left">{col_val}</TableCell>
+                      {Object.values(row).map((col_val, ind) => (
+                        <TableCell
+                          sx={{
+                            ...(!ind
+                              ? {
+                                  backgroundColor: "#ddd",
+                                  left: 0,
+                                  position: "sticky",
+                                }
+                              : {}),
+                          }}
+                          align="left"
+                        >
+                          {col_val}
+                        </TableCell>
                       ))}
                     </TableRow>
                   );
