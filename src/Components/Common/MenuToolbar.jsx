@@ -49,7 +49,7 @@ const MenuToolbar = () => {
               display: { xs: "none", md: "block" },
             }}
           >
-            cricareer
+            <a href="/">cricareer</a>
           </Box>
           <TopbarMenu type="profile" links={profileLinks} />
           <TopbarMenu type="comparison" links={comparisonsLinks} />

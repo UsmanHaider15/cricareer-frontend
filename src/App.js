@@ -46,60 +46,55 @@ function App() {
 
   return (
     <React.Fragment>
-      <div>
-        <Router>
-          <CssBaseline />
-          <MenuToolbar />
-          <div style={{ marginTop: 70 }}>
-            <div>
-              <div className="App" style={{ paddingBottom: 50 }}>
-                <Switch>
-                  <Route path="/" exact>
-                    <Home />
-                  </Route>
-                  <Grid container spacing={1}>
-                    <Grid xs={0} md={3}></Grid>
-                    <Grid xs={12} md={6}>
-                      <Paper>
-                        {profileLinks.map(
-                          ({ link, Component, leagueName, playerID }) => (
-                            <Route path={link}>
-                              <Component
-                                leagueName={leagueName}
-                                initialPlayerID={playerID}
-                              />
-                            </Route>
-                          )
-                        )}
+      <Router>
+        <CssBaseline />
+        <MenuToolbar />
 
-                        {comparisonsLinks.map(
-                          ({
-                            Component,
-                            link,
-                            leagueName,
-                            firstPlayerID,
-                            secondPlayerID,
-                          }) => (
-                            <Route path={link}>
-                              <Component
-                                leagueName={leagueName}
-                                initialFirstPlayerID={firstPlayerID}
-                                initialSecondPlayerID={secondPlayerID}
-                              />
-                            </Route>
-                          )
-                        )}
-                      </Paper>
-                    </Grid>
-                    <Grid xs={0} md={3}></Grid>
-                  </Grid>
-                  <Route path="/sitemap.txt" onEnter={reload} />
-                </Switch>
-              </div>
-            </div>
-          </div>
-        </Router>
-      </div>
+        <div className="App" style={{ paddingBottom: 50 }}>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Grid container spacing={1} sx={{ paddingTop: 10 }}>
+              <Grid xs={0} md={3}></Grid>
+              <Grid xs={12} md={6}>
+                <Paper>
+                  {profileLinks.map(
+                    ({ link, Component, leagueName, playerID }) => (
+                      <Route path={link}>
+                        <Component
+                          leagueName={leagueName}
+                          initialPlayerID={playerID}
+                        />
+                      </Route>
+                    )
+                  )}
+
+                  {comparisonsLinks.map(
+                    ({
+                      Component,
+                      link,
+                      leagueName,
+                      firstPlayerID,
+                      secondPlayerID,
+                    }) => (
+                      <Route path={link}>
+                        <Component
+                          leagueName={leagueName}
+                          initialFirstPlayerID={firstPlayerID}
+                          initialSecondPlayerID={secondPlayerID}
+                        />
+                      </Route>
+                    )
+                  )}
+                </Paper>
+              </Grid>
+              <Grid xs={0} md={3}></Grid>
+            </Grid>
+            <Route path="/sitemap.txt" onEnter={reload} />
+          </Switch>
+        </div>
+      </Router>
     </React.Fragment>
   );
 }
