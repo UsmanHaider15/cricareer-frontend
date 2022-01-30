@@ -23,7 +23,7 @@ const TableView = ({ data, excludedKeys }) => {
                 flex: "1 1 0",
                 fontWeight: "bolder",
               }}
-              sx={{ fontSize: { xs: 24, md: 30 } }}
+              sx={{ fontSize: { xs: 18, md: 24 } }}
             >
               {data.first_player[key]}
             </Box>
@@ -48,7 +48,7 @@ const TableView = ({ data, excludedKeys }) => {
                 flex: "1 1 0",
                 fontWeight: "bolder",
               }}
-              sx={{ fontSize: { xs: 24, md: 30 } }}
+              sx={{ fontSize: { xs: 18, md: 24 } }}
             >
               {data.second_player[key]}
             </Box>
