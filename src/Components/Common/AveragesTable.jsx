@@ -71,6 +71,7 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                               }
                             : {}),
                           fontSize: 16,
+                          padding: { xs: 1 },
                         }}
                         align="left"
                       >
