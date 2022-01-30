@@ -64,13 +64,13 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                         sx={{
                           ...(!ind
                             ? {
-                                backgroundColor: "#ddd",
+                                backgroundColor: "white",
                                 left: 0,
                                 position: "sticky",
                                 width: 200,
                               }
                             : {}),
-                          fontSize: 20,
+                          fontSize: 16,
                         }}
                         align="left"
                       >

@@ -35,7 +35,8 @@ function EnhancedTableHead(props) {
                   }
                 : {}),
 
-              backgroundColor: "rgb(180,180,180)",
+              backgroundColor: "#170451",
+              color: "white",
               padding: "5px 0px",
               fontSize: 16,
             }}
@@ -44,13 +45,18 @@ function EnhancedTableHead(props) {
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
+              sx={[
+                {
+                  ".MuiTableSortLabel-icon": {
+                    color: "white !important",
+                    "&:hover": {
+                      color: "white",
+                    },
+                  },
+                },
+              ]}
             >
-              <b>{headCell.label}</b>
-              {orderBy === headCell.id ? (
-                <span>
-                  {/* {order === "desc" ? "sorted descending" : "sorted ascending"} */}
-                </span>
-              ) : null}
+              <b style={{ color: "white" }}>{headCell.label}</b>
             </TableSortLabel>
           </TableCell>
         ))}
