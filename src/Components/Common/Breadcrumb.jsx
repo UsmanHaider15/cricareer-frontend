@@ -15,7 +15,13 @@ const Breadcrumb = ({ history }) => {
   return (
     <Breadcrumbs
       aria-label="breadcrumb"
-      sx={{ padding: "20px 0px" }}
+      sx={{
+        margin: "10px 0px 50px 0px",
+        backgroundColor: "#f5f5f5",
+        display: "flex",
+        justifyContent: "left",
+        fontSize: 20,
+      }}
       // style={{ padding: "20px 0px" }}
     >
       <Link to="/">Home</Link>
