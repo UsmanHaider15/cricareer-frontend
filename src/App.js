@@ -55,7 +55,7 @@ function App() {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Grid container spacing={1} sx={{ paddingTop: 10 }}>
+            <Grid container spacing={1} sx={{ paddingTop: { xs: 8, md: 10 } }}>
               <Grid xs={0} md={3}></Grid>
               <Grid xs={12} md={6}>
                 <Paper>

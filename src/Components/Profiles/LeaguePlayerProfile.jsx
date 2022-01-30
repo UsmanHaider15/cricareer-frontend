@@ -133,7 +133,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   };
 
   return (
-    <Box sx={{ padding: { xs: 1, md: 2 } }}>
+    <Box sx={{ padding: { xs: 2 } }}>
       <Header
         title={getHeaderTitle({ playerName: player.player_name, leagueName })}
         description={getHeaderDescription({

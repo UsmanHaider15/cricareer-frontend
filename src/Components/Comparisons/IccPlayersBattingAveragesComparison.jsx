@@ -88,7 +88,7 @@ const IccPlayersBattingAveragesComparison = ({
     <Grid container>
       <Grid xs={12}>
         <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
-          Batting Averages Comparison
+          Batting Averages
         </Box>
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>

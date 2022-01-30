@@ -97,11 +97,11 @@ const LeaguePlayersBattingAveragesComparison = ({
             fontSize: { xs: 30, md: 48 },
           }}
         >
-          Batting Averages Comparison
+          Batting Averages
         </Box>
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
-        <FormControl variant="outlined">
+        <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"

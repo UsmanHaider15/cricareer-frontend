@@ -10,7 +10,6 @@ import httpService from "Services/httpService";
 import LeaguePlayersBattingAveragesComparison from "./LeaguePlayersBattingAveragesComparison";
 import LeaguePlayersBowlingAveragesComparison from "./LeaguePlayersBowlingAveragesComparison";
 import Header from "Components/Common/Header";
-import { league_teams } from "Data/data";
 import { Box } from "@mui/material";
 import {
   generateComparisonHeaderDescription,
@@ -182,7 +181,7 @@ const LeaguePlayersComparison = ({
   };
 
   return (
-    <Box sx={{ padding: { xs: 1, md: 2 } }}>
+    <Box sx={{ padding: { xs: 2 } }}>
       <Header
         title={generateComparisonHeaderTitle({
           firstPlayerName: firstPlayer["player_name"],

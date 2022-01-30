@@ -16,13 +16,12 @@ const Breadcrumb = ({ history }) => {
     <Breadcrumbs
       aria-label="breadcrumb"
       sx={{
-        marginBottom: { xs: 5 },
+        marginBottom: { xs: 2, md: 5 },
         backgroundColor: "#f5f5f5",
         display: "flex",
         justifyContent: "left",
-        fontSize: 20,
+        fontSize: { xs: 12, md: 20 },
       }}
-      // style={{ padding: "20px 0px" }}
     >
       <Link to="/">Home</Link>
       {history.location.pathname !== "/" ? (
