@@ -147,7 +147,7 @@ export default function PlayerStatCard() {
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: { xs: "column", xl: "row-reverse" },
+                    flexDirection: { xs: "row-reverse", xl: "row-reverse" },
                     alignItems: "center",
                     bgcolor: "background.paper",
                     overflow: "hidden",
@@ -159,10 +159,8 @@ export default function PlayerStatCard() {
                   <Box
                     component="img"
                     sx={{
-                      height: 233,
-                      width: 350,
-                      maxHeight: { xs: 200 },
-                      maxWidth: { xs: 300 },
+                      maxHeight: { xs: 100, lg: 200 },
+                      maxWidth: { xs: 150, lg: 300 },
                     }}
                     alt="The house from the offer."
                     src={stat.avatar_url}
@@ -173,14 +171,14 @@ export default function PlayerStatCard() {
                       justifyContent: "space-between",
                       flexDirection: "column",
                       flexGrow: 1,
-                      alignItems: { xs: "center", xl: "flex-start" },
+                      alignItems: { xs: "flex-start", xl: "flex-start" },
                       m: 3,
                       height: { xl: 160 },
                     }}
                   >
                     <Box
                       component="span"
-                      sx={{ fontSize: { xs: 24, xl: 30 }, mt: 1 }}
+                      sx={{ fontSize: { xs: 16, lg: 24 }, mt: 1 }}
                     >
                       {stat.lable}
                     </Box>
@@ -188,14 +186,14 @@ export default function PlayerStatCard() {
                       component="span"
                       sx={{
                         color: "primary.main",
-                        fontSize: { xs: 24, xl: 30 },
+                        fontSize: { xs: 16, lg: 24 },
                       }}
                     >
                       {stat.player_name}
                     </Box>
                     <Box
                       sx={{
-                        fontSize: { xs: 24, xl: 30 },
+                        fontSize: { xs: 16, lg: 24 },
                       }}
                     >
                       {stat.value}
