@@ -16,7 +16,7 @@ const Breadcrumb = ({ history }) => {
     <Breadcrumbs
       aria-label="breadcrumb"
       sx={{
-        margin: "10px 0px 50px 0px",
+        marginBottom: { xs: 5 },
         backgroundColor: "#f5f5f5",
         display: "flex",
         justifyContent: "left",

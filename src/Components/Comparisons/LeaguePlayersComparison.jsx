@@ -182,7 +182,7 @@ const LeaguePlayersComparison = ({
   };
 
   return (
-    <Box sx={{ padding: { md: "0px 10px" } }}>
+    <Box sx={{ padding: { xs: 1, md: 2 } }}>
       <Header
         title={generateComparisonHeaderTitle({
           firstPlayerName: firstPlayer["player_name"],

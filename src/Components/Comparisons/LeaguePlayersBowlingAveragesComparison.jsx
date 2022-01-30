@@ -88,9 +88,15 @@ const LeaguePlayersBowlingAveragesComparison = ({
   ]);
 
   return (
-    <Grid container>
+    <Grid container sx={{ marginTop: 3 }}>
       <Grid xs={12}>
-        <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+        <Box
+          sx={{
+            padding: "5px 0px",
+            textAlign: "left",
+            fontSize: { xs: 30, md: 48 },
+          }}
+        >
           Bowling Averages Comparison
         </Box>{" "}
       </Grid>
@@ -159,6 +165,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
         style={{
           boxShadow: "2px 2px 6px 0px #888888",
           width: "100%",
+          marginTop: 10,
         }}
       >
         <TableView

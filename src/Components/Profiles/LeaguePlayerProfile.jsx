@@ -133,7 +133,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   };
 
   return (
-    <Box>
+    <Box sx={{ padding: { xs: 1, md: 2 } }}>
       <Header
         title={getHeaderTitle({ playerName: player.player_name, leagueName })}
         description={getHeaderDescription({
@@ -142,7 +142,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
         })}
       />
       <Breadcrumb />
-      <Grid container spacing={1} sx={{ paddingLeft: { xs: 1, md: 0 } }}>
+      <Grid container spacing={1}>
         <Grid item xs={3} />
         <Grid item xs={6}>
           <PlayerSearch
