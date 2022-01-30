@@ -38,7 +38,7 @@ function EnhancedTableHead(props) {
               backgroundColor: "#170451",
               color: "white",
               padding: "5px 0px",
-              fontSize: 16,
+              fontSize: { xs: 12, md: 18 },
             }}
           >
             <TableSortLabel

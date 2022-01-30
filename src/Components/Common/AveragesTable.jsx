@@ -67,10 +67,11 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                                 backgroundColor: "white",
                                 left: 0,
                                 position: "sticky",
-                                width: 200,
+
+                                whiteSpace: "nowrap",
                               }
                             : {}),
-                          fontSize: 16,
+                          fontSize: { xs: 12, md: 18 },
                           padding: { xs: 1 },
                         }}
                         align="left"
