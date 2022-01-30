@@ -41,7 +41,7 @@ export default function TopbarMenu({ type, links }) {
   return (
     <div>
       <MenuButton
-        style={{ color: isActive ? "red" : "grey" }}
+        style={{ color: isActive ? "#170451" : "grey", fontWeight: "bold" }}
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
@@ -57,8 +57,9 @@ export default function TopbarMenu({ type, links }) {
         onClose={handleClose}
       >
         {links.map(({ link, leagueName }) => (
-          <Link to={link} style={{ textDecoration: "none" }}>
+          <Link to={link} style={{ textDecoration: "none", color: "#170451" }}>
             <MenuItem
+              sx={{ textDecoration: "none" }}
               onClick={() => {
                 setBtnLabel(
                   `${humanify(

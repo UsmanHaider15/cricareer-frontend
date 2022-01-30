@@ -165,7 +165,7 @@ const LeaguePlayersBowlingAveragesComparison = ({
         style={{
           boxShadow: "2px 2px 6px 0px #888888",
           width: "100%",
-          marginTop: 10,
+          marginTop: 20,
         }}
       >
         <TableView
