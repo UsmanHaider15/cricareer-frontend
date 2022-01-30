@@ -41,9 +41,8 @@ const MenuToolbar = () => {
             justifyContent: { xs: "space-around", md: "normal" },
           }}
         >
-          <Box
+          {/* <Box
             sx={{
-              paddingBottom: 1,
               letterSpacing: 4,
               fontSize: 30,
               paddingRight: 10,
@@ -51,7 +50,7 @@ const MenuToolbar = () => {
             }}
           >
             cricareer
-          </Box>
+          </Box> */}
           <TopbarMenu type="profile" links={profileLinks} />
           <TopbarMenu type="comparison" links={comparisonsLinks} />
         </Toolbar>

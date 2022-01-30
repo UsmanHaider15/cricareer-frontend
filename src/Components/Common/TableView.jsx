@@ -22,7 +22,6 @@ const TableView = ({ data, excludedKeys }) => {
                 background: "linear-gradient(225deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
                 fontWeight: "bolder",
-                padding: 5,
               }}
               sx={{ fontSize: { xs: 24, md: 30 } }}
             >
@@ -37,7 +36,6 @@ const TableView = ({ data, excludedKeys }) => {
                 alignItems: "center",
                 flex: "2 1 0",
                 whiteSpace: "nowrap",
-                padding: 5,
               }}
               sx={{ fontSize: { xs: 18, md: 18 } }}
             >
@@ -49,7 +47,6 @@ const TableView = ({ data, excludedKeys }) => {
                 background: "linear-gradient(135deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
                 fontWeight: "bolder",
-                padding: 5,
               }}
               sx={{ fontSize: { xs: 24, md: 30 } }}
             >

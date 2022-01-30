@@ -158,8 +158,6 @@ const LeaguePlayersBowlingAveragesComparison = ({
       <div
         style={{
           boxShadow: "2px 2px 6px 0px #888888",
-          padding: 8,
-          marginBottom: 20,
           width: "100%",
         }}
       >
