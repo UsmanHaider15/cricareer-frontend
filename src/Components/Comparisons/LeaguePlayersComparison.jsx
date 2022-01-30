@@ -11,6 +11,11 @@ import LeaguePlayersBattingAveragesComparison from "./LeaguePlayersBattingAverag
 import LeaguePlayersBowlingAveragesComparison from "./LeaguePlayersBowlingAveragesComparison";
 import Header from "Components/Common/Header";
 import { league_teams } from "Data/data";
+import { Box } from "@mui/material";
+import {
+  generateComparisonHeaderDescription,
+  generateComparisonHeaderTitle,
+} from "Utils/generateHeader";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -177,25 +182,18 @@ const LeaguePlayersComparison = ({
   };
 
   return (
-    <div>
+    <Box sx={{ padding: { md: "0px 10px" } }}>
       <Header
-        title={`${firstPlayer.player_name} vs ${
-          secondPlayer.player_name
-        } in ${leagueName.toUpperCase()}`}
-        description={`
-        Compare Batting and Bowling Averages of ${
-          firstPlayer.player_name
-        } and ${
-          secondPlayer.player_name
-        } in any season of ${leagueName.toUpperCase()}. You can also compare ${
-          firstPlayer.player_name
-        } and ${
-          secondPlayer.player_name
-        } batting and bowling averages against other teams like${Object.values(
-          league_teams[leagueName]
-        )
-          .slice(1)
-          .map((team) => ` ${team}`)} as well.`}
+        title={generateComparisonHeaderTitle({
+          firstPlayerName: firstPlayer["player_name"],
+          secondPlayerName: secondPlayer["player_name"],
+          leagueName,
+        })}
+        description={generateComparisonHeaderDescription({
+          firstPlayerName: firstPlayer["player_name"],
+          secondPlayerName: secondPlayer["player_name"],
+          leagueName,
+        })}
       />
       <Breadcrumb />
       <Grid container spacing={1}>
@@ -292,7 +290,7 @@ const LeaguePlayersComparison = ({
           </Grid>
         ) : null}
       </Grid>
-    </div>
+    </Box>
   );
 };
 

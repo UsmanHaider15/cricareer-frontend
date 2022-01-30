@@ -6,8 +6,8 @@ import Select from "@mui/material/Select";
 import TableView from "Components/Common/TableView";
 import Grid from "@mui/material/Grid";
 import { league_teams, league_seasons } from "Data/data";
-import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
+import { Box } from "@mui/material";
 
 const LeaguePlayersBowlingAveragesComparison = ({
   firstPlayer,
@@ -90,7 +90,9 @@ const LeaguePlayersBowlingAveragesComparison = ({
   return (
     <Grid container>
       <Grid xs={12}>
-        <CustomResponsiveFontSizes text="Bowling Averages Comparison" />
+        <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+          Bowling Averages Comparison
+        </Box>{" "}
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined">
@@ -104,6 +106,13 @@ const LeaguePlayersBowlingAveragesComparison = ({
             value={seasonOption}
             onChange={handleSeasonChange}
             label="Season"
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
           >
             {[
               0,
@@ -132,6 +141,13 @@ const LeaguePlayersBowlingAveragesComparison = ({
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
           >
             {league_teams[leagueName].map((value) => (
               <MenuItem value={value}>{value}</MenuItem>

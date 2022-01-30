@@ -7,11 +7,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 import IccPlayerBattingAverages from "./IccPlayerBattingAverages";
 import IccPlayerBowlingAverages from "./IccPlayerBowlingAverages";
 import Breadcrumb from "Components/Common/Breadcrumb";
-import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
 import humanify from "Utils/humanify";
 import { icc_teams_lookup } from "Data/data";
+import { Box } from "@mui/material";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -178,7 +178,10 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
           <Grid item xs={3}></Grid>
         </Grid>
         <Grid item xs={12} style={{ paddingTop: 10 }}>
-          <CustomResponsiveFontSizes text="Batting Averages" />
+          <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+            Batting Averages
+          </Box>
+
           {Object.keys(player).length ? (
             <IccPlayerBattingAverages
               player={player}
@@ -188,7 +191,9 @@ const IccPlayerProfile = ({ history, initialPlayerID }) => {
           ) : null}
         </Grid>
         <Grid item xs={12} style={{ paddingTop: 10 }}>
-          <CustomResponsiveFontSizes text="Bowling Averages" />
+          <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+            Bowling Averages
+          </Box>
           {Object.keys(player).length ? (
             <IccPlayerBowlingAverages
               player={player}

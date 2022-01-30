@@ -79,6 +79,13 @@ const IccPlayerBowlingAverages = ({
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
           >
             {Object.entries(icc_teams_lookup).map(([value, label]) => (
               <MenuItem value={value}>{label}</MenuItem>

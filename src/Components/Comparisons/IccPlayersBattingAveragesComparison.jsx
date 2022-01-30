@@ -6,8 +6,8 @@ import Select from "@mui/material/Select";
 import TableView from "Components/Common/TableView";
 import Grid from "@mui/material/Grid";
 import { icc_teams_lookup } from "Data/data";
-import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
+import { Box } from "@mui/material";
 
 const IccPlayersBattingAveragesComparison = ({
   firstPlayer,
@@ -87,7 +87,9 @@ const IccPlayersBattingAveragesComparison = ({
   return (
     <Grid container>
       <Grid xs={12}>
-        <CustomResponsiveFontSizes text="Batting Averages Comparison" />
+        <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+          Batting Averages Comparison
+        </Box>
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined">
@@ -101,6 +103,13 @@ const IccPlayersBattingAveragesComparison = ({
             value={formatType}
             onChange={handleFormatChange}
             label="Format"
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
           >
             {["All Formats", "T20Is", "Tests", "ODIs"].map((format) => (
               <MenuItem value={format}>{format}</MenuItem>
@@ -121,6 +130,13 @@ const IccPlayersBattingAveragesComparison = ({
             value={oppositionOption}
             onChange={handleOppositionChange}
             label="Opposition"
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
           >
             {Object.entries(icc_teams_lookup).map(([value, label]) => (
               <MenuItem value={value}>{label}</MenuItem>

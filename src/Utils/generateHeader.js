@@ -11,6 +11,24 @@ export const getHeaderDescription = ({
 )} 
    as well.`;
 
+export const generateComparisonHeaderTitle = ({
+  firstPlayerName,
+  secondPlayerName,
+  leagueName,
+}) =>
+  `${firstPlayerName} vs ${secondPlayerName} in ${leagueName.toUpperCase()}`;
+
+export const generateComparisonHeaderDescription = ({
+  firstPlayerName,
+  secondPlayerName,
+  leagueName,
+}) => `
+Compare Batting and Bowling Averages of ${firstPlayerName} and ${secondPlayerName} in any season of ${leagueName.toUpperCase()}. You can also compare ${firstPlayerName} and ${secondPlayerName} batting and bowling averages against other teams like${Object.values(
+  league_teams[leagueName]
+)
+  .slice(1)
+  .map((team) => ` ${team}`)} as well.`;
+
 const humanifyLeagueTeams = (leagueName) =>
   Object.values(league_teams[leagueName])
     .slice(1)

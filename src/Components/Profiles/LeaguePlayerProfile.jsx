@@ -7,12 +7,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Breadcrumb from "Components/Common/Breadcrumb";
-import CustomResponsiveFontSizes from "Components/Common/Heading";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
 import { getHeaderTitle, getHeaderDescription } from "Utils/generateHeader";
 import Box from "@mui/material/Box";
-import TestTable from "Components/TestTable";
 
 const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
@@ -135,7 +133,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   };
 
   return (
-    <React.Fragment>
+    <Box sx={{ padding: { xs: "0px 10px" } }}>
       <Header
         title={getHeaderTitle({ playerName: player.player_name, leagueName })}
         description={getHeaderDescription({
@@ -215,7 +213,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
           ) : null}
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Box>
   );
 };
 

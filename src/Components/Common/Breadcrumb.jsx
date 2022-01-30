@@ -13,7 +13,11 @@ const Breadcrumb = ({ history }) => {
     PageView();
   }, []);
   return (
-    <Breadcrumbs aria-label="breadcrumb" style={{ padding: 20 }}>
+    <Breadcrumbs
+      aria-label="breadcrumb"
+      sx={{ padding: "20px 0px" }}
+      // style={{ padding: "20px 0px" }}
+    >
       <Link to="/">Home</Link>
       {history.location.pathname !== "/" ? (
         <Link to={history.location.pathname}>

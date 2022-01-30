@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import humanify from "Utils/humanify";
+import { Box } from "@mui/material";
 
 const TableView = ({ data, excludedKeys }) => {
   return (
@@ -7,7 +8,7 @@ const TableView = ({ data, excludedKeys }) => {
       {Object.keys(data.first_player)
         .filter((key) => !excludedKeys.includes(key))
         .map((key) => (
-          <div
+          <Box
             style={{
               display: "flex",
               flexDirection: "row",
@@ -15,39 +16,46 @@ const TableView = ({ data, excludedKeys }) => {
               marginBottom: 2,
             }}
           >
-            <div
+            <Box
               style={{
                 color: "#00154f",
                 background: "linear-gradient(225deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
-                fontWeight: "bold",
+                fontWeight: "bolder",
+                padding: 5,
               }}
+              sx={{ fontSize: { xs: 24, md: 30 } }}
             >
               {data.first_player[key]}
-            </div>
-            <div
+            </Box>
+            <Box
               style={{
-                backgroundColor: "#00154F",
+                backgroundColor: "#170451",
                 color: "#eee6e0",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
                 flex: "2 1 0",
                 whiteSpace: "nowrap",
-                fontWeight: "bolder",
+                padding: 5,
               }}
+              sx={{ fontSize: { xs: 18, md: 18 } }}
             >
               {humanify(key)}
-            </div>
-            <div
+            </Box>
+            <Box
               style={{
                 color: "#00154F",
                 background: "linear-gradient(135deg, #F2BC94 85%, white 15%)",
                 flex: "1 1 0",
-
-                fontWeight: "bold",
+                fontWeight: "bolder",
+                padding: 5,
               }}
+              sx={{ fontSize: { xs: 24, md: 30 } }}
             >
               {data.second_player[key]}
-            </div>
-          </div>
+            </Box>
+          </Box>
         ))}
     </Typography>
   );
