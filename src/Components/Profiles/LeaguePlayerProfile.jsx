@@ -3,13 +3,13 @@ import { withRouter } from "react-router";
 import qs from "qs";
 import PlayerSearch from "Components/Common/PlayerSearch";
 import Grid from "@mui/material/Grid";
-import CircularProgress from "@mui/material/CircularProgress";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
 import { getHeaderTitle, getHeaderDescription } from "Utils/generateHeader";
+import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 const useImageLoaded = () => {
@@ -156,13 +156,15 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
         <Grid item xs={3} />
 
         <Grid item xs={3} />
-        <Grid item xs={6}>
-          <div
-            style={{
+        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: 150, md: 300 },
+              height: { xs: 150, md: 300 },
+
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
-              paddingTop: 10,
             }}
           >
             <img
@@ -175,12 +177,20 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
               }
               alt=""
               style={{
-                minWidth: "60%",
-                display: loaded ? "block" : "none",
+                width: "auto",
+                height: "100%",
               }}
             />
-            {!loaded ? <CircularProgress /> : null}
-          </div>
+            {!loaded ? (
+              <CircularProgress
+                sx={{
+                  position: "absolute",
+                  top: "35%",
+                  left: "50%",
+                }}
+              />
+            ) : null}
+          </Box>
         </Grid>
         <Grid item xs={3} />
 
@@ -195,7 +205,26 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
               battingSeason={battingSeason}
               setBattingSeason={setBattingSeason}
             />
-          ) : null}
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                height: 250,
+                width: "100%",
+                position: "relative",
+              }}
+            >
+              <CircularProgress
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(50%, 50%)",
+                }}
+              />
+            </Box>
+          )}
         </Grid>
 
         <Grid item xs={12}>

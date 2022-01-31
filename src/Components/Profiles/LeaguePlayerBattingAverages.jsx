@@ -10,6 +10,7 @@ import {
   league_seasons,
 } from "Data/data";
 import httpService from "Services/httpService";
+import CircularLoader from "Components/Common/CircularLoader";
 
 const LeaguePlayerBattingAverages = ({
   player,
@@ -18,10 +19,12 @@ const LeaguePlayerBattingAverages = ({
   battingSeason,
 }) => {
   const [battingAverages, setBattingAverages] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [option, setOption] = React.useState(battingSeason);
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
+    setLoading(true);
     setOption(event.target.value);
   };
 
@@ -67,6 +70,7 @@ const LeaguePlayerBattingAverages = ({
         );
 
         setBattingAverages(modifiedData);
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -112,12 +116,14 @@ const LeaguePlayerBattingAverages = ({
           </Select>
         </FormControl>
       </div>
-      {battingAverages.length ? (
+      {!loading ? (
         <AveragesTable
           rows={battingAverages}
           columnNamesLookup={league_batting_table_column_name_lookup}
         />
-      ) : null}
+      ) : (
+        <CircularLoader />
+      )}
     </div>
   );
 };

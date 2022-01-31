@@ -10,6 +10,7 @@ import {
   league_seasons,
 } from "Data/data";
 import httpService from "Services/httpService";
+import CircularLoader from "Components/Common/CircularLoader";
 
 const LeaguePlayerBowlingAverages = ({
   player,
@@ -18,10 +19,13 @@ const LeaguePlayerBowlingAverages = ({
   bowlingSeason,
 }) => {
   const [bowlingAverages, setBowlingAverages] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [option, setOption] = React.useState(bowlingSeason);
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
+    setLoading(true);
+
     setOption(event.target.value);
   };
 
@@ -67,6 +71,7 @@ const LeaguePlayerBowlingAverages = ({
         );
 
         setBowlingAverages(modifiedData);
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -112,12 +117,14 @@ const LeaguePlayerBowlingAverages = ({
           </Select>
         </FormControl>
       </div>
-      {bowlingAverages.length ? (
+      {!loading ? (
         <AveragesTable
           rows={bowlingAverages}
           columnNamesLookup={league_bowling_table_column_to_label_lookup}
         />
-      ) : null}
+      ) : (
+        <CircularLoader />
+      )}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EnhancedTableHead from "./EnhancedTableHead";
+import NoData from "./NoData";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -43,6 +44,10 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
+
+  if (rows.length === 0) {
+    return <NoData />;
+  }
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden", paddingTop: 2 }}>
