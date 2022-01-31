@@ -8,6 +8,7 @@ const CircularLoader = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         height: 250,
         width: "100%",
         position: "relative",

@@ -11,25 +11,7 @@ import Header from "Components/Common/Header";
 import { getHeaderTitle, getHeaderDescription } from "Utils/generateHeader";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-
-const useImageLoaded = () => {
-  const [loaded, setLoaded] = useState(false);
-  const ref = useRef();
-
-  const onLoad = (val) => {
-    setLoaded(val);
-  };
-
-  useEffect(() => {
-    if (ref.current && ref.current.complete) {
-      onLoad(true);
-    } else {
-      onLoad(false);
-    }
-  });
-
-  return [ref, loaded, onLoad];
-};
+import PlayerImage from "Components/Common/PlayerImage";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -42,7 +24,6 @@ function usePrevious(value) {
 const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [player, setPlayer] = useState({});
-  const [ref, loaded, onLoad] = useImageLoaded();
   const prevLeagueName = usePrevious(leagueName);
 
   const [battingSeason, setBattingSeason] = React.useState("");
@@ -157,40 +138,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
 
         <Grid item xs={3} />
         <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
-          <Box
-            sx={{
-              position: "relative",
-              width: { xs: 150, md: 300 },
-              height: { xs: 150, md: 300 },
-
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              ref={ref}
-              onLoad={onLoad}
-              src={
-                player.headshot_image_url
-                  ? player.headshot_image_url
-                  : "/default-user.jpg"
-              }
-              alt=""
-              style={{
-                width: "auto",
-                height: "100%",
-              }}
-            />
-            {!loaded ? (
-              <CircularProgress
-                sx={{
-                  position: "absolute",
-                  top: "35%",
-                  left: "50%",
-                }}
-              />
-            ) : null}
-          </Box>
+          <PlayerImage imageUrl={player.headshot_image_url} />
         </Grid>
         <Grid item xs={3} />
 

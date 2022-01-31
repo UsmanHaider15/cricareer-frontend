@@ -15,25 +15,7 @@ import {
   generateComparisonHeaderDescription,
   generateComparisonHeaderTitle,
 } from "Utils/generateHeader";
-
-const useImageLoaded = () => {
-  const [loaded, setLoaded] = useState(false);
-  const ref = useRef();
-
-  const onLoad = (val) => {
-    setLoaded(val);
-  };
-
-  useEffect(() => {
-    if (ref.current && ref.current.complete) {
-      onLoad(true);
-    } else {
-      onLoad(false);
-    }
-  });
-
-  return [ref, loaded, onLoad];
-};
+import PlayerImage from "Components/Common/PlayerImage";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -52,8 +34,7 @@ const LeaguePlayersComparison = ({
   const [initialPlayersList, setInitialPlayersList] = useState([]);
   const [firstPlayer, setFirstPlayer] = useState({});
   const [secondPlayer, setSecondPlayer] = useState({});
-  const [firstRef, firstLoaded, firstOnLoad] = useImageLoaded();
-  const [secondRef, secondLoaded, secondOnLoad] = useImageLoaded();
+
   const prevLeagueName = usePrevious(leagueName);
 
   const [battingSeason, setBattingSeason] = React.useState(5);
@@ -217,52 +198,11 @@ const LeaguePlayersComparison = ({
         </Grid>
       </Grid>
       <Grid container spacing={1}>
-        <Grid item xs={6}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              overflow: "hidden",
-              padding: 10,
-            }}
-          >
-            <img
-              ref={firstRef}
-              onLoad={firstOnLoad}
-              src={firstPlayer.headshot_image_url || "/default-user.jpg"}
-              alt=""
-              style={{
-                minWidth: "60%",
-                display: firstLoaded ? "block" : "none",
-              }}
-            />
-            {!firstLoaded ? <CircularProgress /> : null}
-          </div>
+        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+          <PlayerImage imageUrl={firstPlayer.headshot_image_url} />
         </Grid>
-        <Grid item xs={6}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              overflow: "hidden",
-              padding: 10,
-            }}
-          >
-            <img
-              ref={secondRef}
-              onLoad={secondOnLoad}
-              src={secondPlayer.headshot_image_url || "/default-user.jpg"}
-              alt=""
-              style={{
-                minWidth: "60%",
-                display: secondLoaded ? "block" : "none",
-              }}
-            />
-
-            {!secondLoaded ? <CircularProgress /> : null}
-          </div>
+        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+          <PlayerImage imageUrl={secondPlayer.headshot_image_url} />
         </Grid>
       </Grid>
       <Grid container>

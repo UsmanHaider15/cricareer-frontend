@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import { league_teams, league_seasons } from "Data/data";
 import httpService from "Services/httpService";
 import { Box } from "@mui/material";
+import CircularLoader from "Components/Common/CircularLoader";
 
 const LeaguePlayersBattingAveragesComparison = ({
   firstPlayer,
@@ -18,15 +19,17 @@ const LeaguePlayersBattingAveragesComparison = ({
   battingOpposition,
   setBattingOpposition,
 }) => {
-  const [chartData, setChartData] = React.useState({
+  const [chartData, setChartData] = useState({
     first_player: {},
     second_player: {},
   });
+  const [loading, setLoading] = useState(true);
 
-  const [seasonOption, setSeasonOption] = React.useState(battingSeason);
-  const [seasonMenuOpen, setSeasonMenuOpen] = React.useState(false);
+  const [seasonOption, setSeasonOption] = useState(battingSeason);
+  const [seasonMenuOpen, setSeasonMenuOpen] = useState(false);
 
   const handleSeasonChange = (event) => {
+    setLoading(true);
     setSeasonOption(event.target.value);
   };
 
@@ -38,11 +41,11 @@ const LeaguePlayersBattingAveragesComparison = ({
     setSeasonMenuOpen(true);
   };
 
-  const [oppositionOption, setOppositionOption] =
-    React.useState(battingOpposition);
-  const [oppositionMenuOpen, setOppositionMenuOpen] = React.useState(false);
+  const [oppositionOption, setOppositionOption] = useState(battingOpposition);
+  const [oppositionMenuOpen, setOppositionMenuOpen] = useState(false);
 
   const handleOppositionChange = (event) => {
+    setLoading(true);
     setOppositionOption(event.target.value);
   };
 
@@ -75,6 +78,7 @@ const LeaguePlayersBattingAveragesComparison = ({
         const { first_player, second_player } = data;
 
         setChartData({ first_player, second_player });
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -169,10 +173,14 @@ const LeaguePlayersBattingAveragesComparison = ({
           marginTop: 20,
         }}
       >
-        <TableView
-          data={chartData}
-          excludedKeys={["player_id", "season_number", "opposition_team"]}
-        />
+        {!loading ? (
+          <TableView
+            data={chartData}
+            excludedKeys={["player_id", "season_number", "opposition_team"]}
+          />
+        ) : (
+          <CircularLoader />
+        )}
       </Grid>
     </Grid>
   );
