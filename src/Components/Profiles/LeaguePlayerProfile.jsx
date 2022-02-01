@@ -36,7 +36,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
     if (Object.keys(player).length) {
       history.push({
         pathname: "",
-        search: `player_id=${player.player_id}&batting_season=${battingSeason}&bowling_season=${bowlingSeason}`,
+        search: `player_id=${player["player_id"]}&batting_season=${battingSeason}&bowling_season=${bowlingSeason}`,
       });
     }
   }, [player, battingSeason, bowlingSeason, history]);
@@ -86,7 +86,9 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
     setBowlingSeason(bowling_season || 0);
 
     const url_id = qs.parse(history.location.search.substring(1));
-    const player_id = url_id.player_id ? url_id.player_id : initialPlayerID;
+    const player_id = url_id["player_id"]
+      ? url_id["player_id"]
+      : initialPlayerID;
 
     httpService
       .get(`/league_player_profile/get_player_by_id`, {
@@ -119,11 +121,11 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
         <Box sx={{ padding: { xs: 2 } }}>
           <Header
             title={getHeaderTitle({
-              playerName: player.player_name,
+              playerName: player["player_name"],
               leagueName,
             })}
             description={getHeaderDescription({
-              playerName: player.player_name,
+              playerName: player["player_name"],
               leagueName,
             })}
           />
@@ -147,7 +149,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
               xs={6}
               sx={{ display: "flex", justifyContent: "center" }}
             >
-              <PlayerImage imageUrl={player.headshot_image_url} />
+              <PlayerImage imageUrl={player["headshot_image_url"]} />
             </Grid>
             <Grid item xs={3} />
 

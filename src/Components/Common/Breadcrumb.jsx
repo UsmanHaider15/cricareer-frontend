@@ -13,7 +13,8 @@ const Breadcrumb = ({ leagueName, type }) => {
         backgroundColor: "#f5f5f5",
         display: "flex",
         justifyContent: "left",
-        fontSize: { xs: 12, md: 20 },
+        fontSize: { xs: 14, md: 20 },
+        padding: 1,
       }}
     >
       <Link to="/">Home</Link>
