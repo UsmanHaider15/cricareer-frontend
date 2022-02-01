@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
-import getFormattedBreadcrumb from "Utils/getFormattedBreadcrumb";
-import { initGA, PageView } from "Utils/tracking";
+import capitalizeFirstLetter from "Utils/capitalizeFirstLetter";
+import getFormattedPageName from "Utils/getFormattedPageName";
 
-const Breadcrumb = ({ history }) => {
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    initGA("G-5KY9X93YJY");
-    PageView();
-  }, []);
+const Breadcrumb = ({ leagueName, type }) => {
   return (
     <Breadcrumbs
       aria-label="breadcrumb"
@@ -24,13 +17,11 @@ const Breadcrumb = ({ history }) => {
       }}
     >
       <Link to="/">Home</Link>
-      {history.location.pathname !== "/" ? (
-        <Link to={history.location.pathname}>
-          {getFormattedBreadcrumb(history.location.pathname)}
-        </Link>
-      ) : null}
+      <Link to={`/${type}/${leagueName}_${type}`}>
+        {getFormattedPageName({ leagueName, type })}
+      </Link>
     </Breadcrumbs>
   );
 };
 
-export default withRouter(Breadcrumb);
+export default Breadcrumb;

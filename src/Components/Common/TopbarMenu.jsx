@@ -8,6 +8,7 @@ import MenuButton from "Components/Common/MenuButton";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import capitalizeFirstLetter from "Utils/capitalizeFirstLetter";
+import getFormattedPageName from "Utils/getFormattedPageName";
 
 export default function TopbarMenu({ type, links }) {
   const location = useLocation();
@@ -61,15 +62,11 @@ export default function TopbarMenu({ type, links }) {
             <MenuItem
               sx={{ textDecoration: "none" }}
               onClick={() => {
-                setBtnLabel(
-                  `${humanify(
-                    leagueName
-                  ).toUpperCase()} ${capitalizeFirstLetter(type)}`
-                );
+                setBtnLabel(getFormattedPageName({ leagueName, type }));
                 handleClose();
               }}
             >
-              {humanify(leagueName).toUpperCase()} {capitalizeFirstLetter(type)}
+              {getFormattedPageName({ leagueName, type })}
             </MenuItem>
           </Link>
         ))}

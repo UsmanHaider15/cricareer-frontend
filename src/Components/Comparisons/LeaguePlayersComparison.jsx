@@ -175,7 +175,7 @@ const LeaguePlayersComparison = ({
           leagueName,
         })}
       />
-      <Breadcrumb />
+      <Breadcrumb leagueName={leagueName} type="comparison" />
       <Grid container spacing={1}>
         <Grid item xs={6}>
           <PlayerSearch

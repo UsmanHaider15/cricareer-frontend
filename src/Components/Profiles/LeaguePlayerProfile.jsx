@@ -122,7 +122,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
           leagueName,
         })}
       />
-      <Breadcrumb />
+      <Breadcrumb leagueName={leagueName} type="profile" />
       <Grid container spacing={1}>
         <Grid item xs={3} />
         <Grid item xs={6}>

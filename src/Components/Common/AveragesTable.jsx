@@ -50,7 +50,7 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
   }
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden", paddingTop: 2 }}>
+    <Paper sx={{ width: "100%", overflow: "hidden", marginTop: 2 }}>
       <TableContainer sx={{ maxHeight: 400 }}>
         <Table stickyHeader aria-label="sticky table">
           <EnhancedTableHead

@@ -37,19 +37,31 @@ const PlayerImage = ({ imageUrl }) => {
       <img
         ref={ref}
         onLoad={onLoad}
-        src={imageUrl ? imageUrl : "/default-user.jpg"}
+        src={imageUrl}
         alt=""
         style={{
           width: "auto",
           height: "100%",
         }}
       />
+
       {!loaded ? (
         <CircularProgress
           sx={{
             position: "absolute",
             top: "35%",
             left: "50%",
+          }}
+        />
+      ) : null}
+
+      {loaded && !imageUrl ? (
+        <img
+          src="/default-user.jpg"
+          alt=""
+          style={{
+            width: "auto",
+            height: "100%",
           }}
         />
       ) : null}
