@@ -12,6 +12,7 @@ export default function PlayerSearch({
   url = "/search_player_by_name",
   league_name = "psl",
 }) {
+  console.log("player", player);
   const [searchedPlayersList, setSearchedPlayersList] = useState([]);
   const [searchStr, setSearchStr] = useState("");
 

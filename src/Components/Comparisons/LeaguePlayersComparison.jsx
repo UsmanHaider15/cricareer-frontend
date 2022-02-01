@@ -16,6 +16,8 @@ import {
   generateComparisonHeaderTitle,
 } from "Utils/generateHeader";
 import PlayerImage from "Components/Common/PlayerImage";
+import LeaguePlayerProfileSkeleton from "Components/Profiles/LeaguePlayerProfileSkeleton";
+import LeaguePlayerComparisonSkeleton from "./LeaguePlayerComparisonSkeleton";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -162,74 +164,86 @@ const LeaguePlayersComparison = ({
   };
 
   return (
-    <Box sx={{ padding: { xs: 2 } }}>
-      <Header
-        title={generateComparisonHeaderTitle({
-          firstPlayerName: firstPlayer["player_name"],
-          secondPlayerName: secondPlayer["player_name"],
-          leagueName,
-        })}
-        description={generateComparisonHeaderDescription({
-          firstPlayerName: firstPlayer["player_name"],
-          secondPlayerName: secondPlayer["player_name"],
-          leagueName,
-        })}
-      />
-      <Breadcrumb leagueName={leagueName} type="comparison" />
-      <Grid container spacing={1}>
-        <Grid item xs={6}>
-          <PlayerSearch
-            InitialPlayersList={initialPlayersList}
-            setSelectedPlayer={handleSelectedPlayer}
-            player={firstPlayer}
-            url="/league_player_profile/search_player_by_name"
-            league_name={leagueName}
+    <React.Fragment>
+      {firstPlayer["player_id"] && secondPlayer["player_id"] ? (
+        <Box sx={{ padding: { xs: 2 } }}>
+          <Header
+            title={generateComparisonHeaderTitle({
+              firstPlayerName: firstPlayer["player_name"],
+              secondPlayerName: secondPlayer["player_name"],
+              leagueName,
+            })}
+            description={generateComparisonHeaderDescription({
+              firstPlayerName: firstPlayer["player_name"],
+              secondPlayerName: secondPlayer["player_name"],
+              leagueName,
+            })}
           />
-        </Grid>
-        <Grid item xs={6}>
-          <PlayerSearch
-            InitialPlayersList={initialPlayersList}
-            setSelectedPlayer={handleSelectedPlayer}
-            player={secondPlayer}
-            isFirst={false}
-            url="/league_player_profile/search_player_by_name"
-            league_name={leagueName}
-          />
-        </Grid>
-      </Grid>
-      <Grid container spacing={1}>
-        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
-          <PlayerImage imageUrl={firstPlayer.headshot_image_url} />
-        </Grid>
-        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
-          <PlayerImage imageUrl={secondPlayer.headshot_image_url} />
-        </Grid>
-      </Grid>
-      <Grid container>
-        {firstPlayer.player_id && secondPlayer.player_id ? (
-          <Grid container>
-            <LeaguePlayersBattingAveragesComparison
-              firstPlayer={firstPlayer}
-              secondPlayer={secondPlayer}
-              leagueName={leagueName}
-              battingSeason={battingSeason}
-              setBattingSeason={setBattingSeason}
-              battingOpposition={battingOpposition}
-              setBattingOpposition={setBattingOpposition}
-            />
-            <LeaguePlayersBowlingAveragesComparison
-              firstPlayer={firstPlayer}
-              secondPlayer={secondPlayer}
-              leagueName={leagueName}
-              bowlingSeason={bowlingSeason}
-              setBowlingSeason={setBowlingSeason}
-              bowlingOpposition={bowlingOpposition}
-              setBowlingOpposition={setBowlingOpposition}
-            />
+          <Breadcrumb leagueName={leagueName} type="comparison" />
+          <Grid container spacing={1}>
+            <Grid item xs={6}>
+              <PlayerSearch
+                InitialPlayersList={initialPlayersList}
+                setSelectedPlayer={handleSelectedPlayer}
+                player={firstPlayer}
+                url="/league_player_profile/search_player_by_name"
+                league_name={leagueName}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <PlayerSearch
+                InitialPlayersList={initialPlayersList}
+                setSelectedPlayer={handleSelectedPlayer}
+                player={secondPlayer}
+                isFirst={false}
+                url="/league_player_profile/search_player_by_name"
+                league_name={leagueName}
+              />
+            </Grid>
           </Grid>
-        ) : null}
-      </Grid>
-    </Box>
+          <Grid container spacing={1}>
+            <Grid
+              item
+              xs={6}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <PlayerImage imageUrl={firstPlayer["headshot_image_url"]} />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <PlayerImage imageUrl={secondPlayer["headshot_image_url"]} />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid container>
+              <LeaguePlayersBattingAveragesComparison
+                firstPlayer={firstPlayer}
+                secondPlayer={secondPlayer}
+                leagueName={leagueName}
+                battingSeason={battingSeason}
+                setBattingSeason={setBattingSeason}
+                battingOpposition={battingOpposition}
+                setBattingOpposition={setBattingOpposition}
+              />
+              <LeaguePlayersBowlingAveragesComparison
+                firstPlayer={firstPlayer}
+                secondPlayer={secondPlayer}
+                leagueName={leagueName}
+                bowlingSeason={bowlingSeason}
+                setBowlingSeason={setBowlingSeason}
+                bowlingOpposition={bowlingOpposition}
+                setBowlingOpposition={setBowlingOpposition}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      ) : (
+        <LeaguePlayerComparisonSkeleton />
+      )}
+    </React.Fragment>
   );
 };
 

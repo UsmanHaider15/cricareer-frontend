@@ -2,16 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router";
 import qs from "qs";
 import PlayerSearch from "Components/Common/PlayerSearch";
-import Grid from "@mui/material/Grid";
 import LeaguePlayerBattingAverages from "./LeaguePlayerBattingAverages";
 import LeaguePlayerBowlingAverages from "./LeaguePlayerBowlingAverages";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";
 import Header from "Components/Common/Header";
 import { getHeaderTitle, getHeaderDescription } from "Utils/generateHeader";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
 import PlayerImage from "Components/Common/PlayerImage";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LeaguePlayerProfileSkeleton from "./LeaguePlayerProfileSkeleton";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -114,83 +114,72 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   };
 
   return (
-    <Box sx={{ padding: { xs: 2 } }}>
-      <Header
-        title={getHeaderTitle({ playerName: player.player_name, leagueName })}
-        description={getHeaderDescription({
-          playerName: player.player_name,
-          leagueName,
-        })}
-      />
-      <Breadcrumb leagueName={leagueName} type="profile" />
-      <Grid container spacing={1}>
-        <Grid item xs={3} />
-        <Grid item xs={6}>
-          <PlayerSearch
-            InitialPlayersList={initialPlayersList}
-            setSelectedPlayer={handleSelectedPlayer}
-            player={player}
-            url="/league_player_profile/search_player_by_name"
-            league_name={leagueName}
+    <React.Fragment>
+      {Object.keys(player).length ? (
+        <Box sx={{ padding: { xs: 2 } }}>
+          <Header
+            title={getHeaderTitle({
+              playerName: player.player_name,
+              leagueName,
+            })}
+            description={getHeaderDescription({
+              playerName: player.player_name,
+              leagueName,
+            })}
           />
-        </Grid>
-        <Grid item xs={3} />
-
-        <Grid item xs={3} />
-        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
-          <PlayerImage imageUrl={player.headshot_image_url} />
-        </Grid>
-        <Grid item xs={3} />
-
-        <Grid item xs={12}>
-          <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
-            Batting Averages
-          </Box>
-          {Object.keys(player).length > 0 ? (
-            <LeaguePlayerBattingAverages
-              leagueName={leagueName}
-              player={player}
-              battingSeason={battingSeason}
-              setBattingSeason={setBattingSeason}
-            />
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                height: 250,
-                width: "100%",
-                position: "relative",
-              }}
-            >
-              <CircularProgress
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(50%, 50%)",
-                }}
+          <Breadcrumb leagueName={leagueName} type="profile" />
+          <Grid container spacing={1}>
+            <Grid item xs={3} />
+            <Grid item xs={6}>
+              <PlayerSearch
+                InitialPlayersList={initialPlayersList}
+                setSelectedPlayer={handleSelectedPlayer}
+                player={player}
+                url="/league_player_profile/search_player_by_name"
+                league_name={leagueName}
               />
-            </Box>
-          )}
-        </Grid>
+            </Grid>
+            <Grid item xs={3} />
 
-        <Grid item xs={12}>
-          <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
-            Bowling Averages
-          </Box>
+            <Grid item xs={3} />
+            <Grid
+              item
+              xs={6}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <PlayerImage imageUrl={player.headshot_image_url} />
+            </Grid>
+            <Grid item xs={3} />
 
-          {Object.keys(player).length > 0 ? (
-            <LeaguePlayerBowlingAverages
-              leagueName={leagueName}
-              player={player}
-              bowlingSeason={bowlingSeason}
-              setBowlingSeason={setBowlingSeason}
-            />
-          ) : null}
-        </Grid>
-      </Grid>
-    </Box>
+            <Grid item xs={12}>
+              <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+                Batting Averages
+              </Box>
+              <LeaguePlayerBattingAverages
+                leagueName={leagueName}
+                player={player}
+                battingSeason={battingSeason}
+                setBattingSeason={setBattingSeason}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Box sx={{ textAlign: "left", fontSize: { xs: 30, md: 48 } }}>
+                Bowling Averages
+              </Box>
+              <LeaguePlayerBowlingAverages
+                leagueName={leagueName}
+                player={player}
+                bowlingSeason={bowlingSeason}
+                setBowlingSeason={setBowlingSeason}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      ) : (
+        <LeaguePlayerProfileSkeleton />
+      )}
+    </React.Fragment>
   );
 };
 
