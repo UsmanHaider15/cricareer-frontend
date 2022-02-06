@@ -19,7 +19,9 @@ const TableView = ({ data, excludedKeys }) => {
             <Box
               style={{
                 color: "#00154f",
-                background: "linear-gradient(225deg, #F2BC94 85%, white 15%)",
+                // background: "linear-gradient(225deg, #F2BC94 85%, white 15%)",
+                borderRadius: "5px 0px 0px 5px",
+                background: "#F2BC94",
                 flex: "1 1 0",
                 fontWeight: "bolder",
               }}
@@ -44,7 +46,9 @@ const TableView = ({ data, excludedKeys }) => {
             <Box
               style={{
                 color: "#00154F",
-                background: "linear-gradient(135deg, #F2BC94 85%, white 15%)",
+                // background: "linear-gradient(135deg, #F2BC94 85%, white 15%)",
+                borderRadius: "0px 5px 5px 0px",
+                background: "#F2BC94",
                 flex: "1 1 0",
                 fontWeight: "bolder",
               }}

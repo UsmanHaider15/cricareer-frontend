@@ -6,7 +6,7 @@ import Skeleton from "@mui/material/Skeleton";
 const LeaguePlayerProfileSkeleton = () => {
   return (
     <Box sx={{ padding: { xs: 2 } }}>
-      <Grid xs={12} sx={{ height: 30, marginBottom: 5 }}>
+      <Grid xs={12} sx={{ height: 60, marginBottom: 5 }}>
         <Skeleton variant="text" height="100%" />
       </Grid>
 

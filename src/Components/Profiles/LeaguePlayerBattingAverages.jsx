@@ -52,21 +52,9 @@ const LeaguePlayerBattingAverages = ({
       .then(function (response) {
         const data = response.data.rows;
 
+        // Important: here we are enforcing order
         const modifiedData = data.map((obj) =>
-          _.pick(obj, [
-            "opposition_team",
-            "innings_played",
-            "not_outs",
-            "runs_scored",
-            "highest_inns_score",
-            "batting_average",
-            "balls_faced",
-            "batting_strike_rate",
-            "hundreds_scored",
-            "fifties_scored",
-            "boundary_fours",
-            "boundary_sixes",
-          ])
+          _.pick(obj, Object.keys(league_batting_table_column_name_lookup))
         );
 
         setBattingAverages(modifiedData);

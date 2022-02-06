@@ -1,7 +1,6 @@
 import React from "react";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
-import capitalizeFirstLetter from "Utils/capitalizeFirstLetter";
 import getFormattedPageName from "Utils/getFormattedPageName";
 
 const Breadcrumb = ({ leagueName, type }) => {

@@ -53,21 +53,9 @@ const LeaguePlayerBowlingAverages = ({
       .then(function (response) {
         const data = response.data.rows;
 
+        // Important: here we are enforcing order
         const modifiedData = data.map((obj) =>
-          _.pick(obj, [
-            "opposition_team",
-            "innings_played",
-            "balls_bowled",
-            "runs_conceded",
-            "wickets_taken",
-            "best_innings_bowling",
-            "bowling_average",
-            "economy_rate",
-            "bowling_strike_rate",
-            "five_wkts_in_an_inns",
-            "four_wkts_in_an_inns",
-            "ten_wkts_in_an_inns",
-          ])
+          _.pick(obj, Object.keys(league_bowling_table_column_to_label_lookup))
         );
 
         setBowlingAverages(modifiedData);
