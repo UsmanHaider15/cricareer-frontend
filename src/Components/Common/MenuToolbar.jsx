@@ -6,7 +6,6 @@ import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import TopbarMenu from "./TopbarMenu";
 import { comparisonsLinks, profileLinks } from "../../config";
-import Box from "@mui/material/Box";
 
 function HideOnScroll(props) {
   const { children, window } = props;

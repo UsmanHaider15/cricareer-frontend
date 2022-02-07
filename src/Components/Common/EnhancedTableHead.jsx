@@ -24,7 +24,6 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align="center"
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
             sx={{
@@ -32,12 +31,16 @@ function EnhancedTableHead(props) {
                 ? {
                     left: 0,
                     zIndex: (theme) => theme.zIndex.appBar + 2,
+                    textAlign: "center",
                   }
-                : {}),
+                : {
+                    textAlign: "right",
+                  }),
 
               backgroundColor: "#170451",
               color: "white",
-              padding: "5px 0px",
+              padding: { xs: 1 },
+
               fontSize: { xs: 12, md: 18 },
             }}
           >

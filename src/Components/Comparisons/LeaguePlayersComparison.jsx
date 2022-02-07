@@ -3,7 +3,6 @@ import PlayerSearch from "Components/Common/PlayerSearch";
 import Grid from "@mui/material/Grid";
 import qs from "qs";
 import { useState, useEffect, useRef } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
 import { withRouter } from "react-router";
 import Breadcrumb from "Components/Common/Breadcrumb";
 import httpService from "Services/httpService";
@@ -16,7 +15,6 @@ import {
   generateComparisonHeaderTitle,
 } from "Utils/generateHeader";
 import PlayerImage from "Components/Common/PlayerImage";
-import LeaguePlayerProfileSkeleton from "Components/Profiles/LeaguePlayerProfileSkeleton";
 import LeaguePlayerComparisonSkeleton from "./LeaguePlayerComparisonSkeleton";
 
 function usePrevious(value) {

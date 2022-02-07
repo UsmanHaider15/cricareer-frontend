@@ -72,14 +72,15 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                                 backgroundColor: "white",
                                 left: 0,
                                 position: "sticky",
-
+                                align: "left",
                                 whiteSpace: "nowrap",
                               }
-                            : {}),
+                            : {
+                                textAlign: "center",
+                              }),
                           fontSize: { xs: 12, md: 18 },
                           padding: { xs: 1 },
                         }}
-                        align="left"
                       >
                         {col_val}
                       </TableCell>
