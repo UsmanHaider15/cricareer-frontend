@@ -6,8 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import EnhancedTableHead from "./EnhancedTableHead";
-import NoData from "./NoData";
+import LeagueEnhancedTableHead from "./LeagueEnhancedTableHead";
+import NoData from "Components/Common/NoData";
 import { Link } from "react-router-dom";
 
 function descendingComparator(a, b, orderBy) {
@@ -36,7 +36,7 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-const AveragesTable = ({ rows, columnNamesLookup }) => {
+const LeagueAveragesTable = ({ rows, columnNamesLookup }) => {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("opposition_team");
 
@@ -55,7 +55,7 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
     <Paper sx={{ width: "100%", overflow: "hidden", marginTop: 2 }}>
       <TableContainer sx={{ maxHeight: 400 }}>
         <Table stickyHeader aria-label="sticky table">
-          <EnhancedTableHead
+          <LeagueEnhancedTableHead
             order={order}
             orderBy={orderBy}
             onRequestSort={handleRequestSort}
@@ -84,7 +84,14 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                           padding: { xs: 1 },
                         }}
                       >
-                        {col_val}
+                        {/* TODO: please fix me */}
+                        {typeof col_val === "object" ? (
+                          <Link to={col_val["link"]}>
+                            {col_val["player_name"]}
+                          </Link>
+                        ) : (
+                          col_val
+                        )}
                       </TableCell>
                     ))}
                   </TableRow>
@@ -98,4 +105,4 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
   );
 };
 
-export default AveragesTable;
+export default LeagueAveragesTable;

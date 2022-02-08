@@ -3,15 +3,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import {
-  league_batting_table_column_name_lookup,
-  league_seasons,
-  league_teams,
-} from "Data/data";
+import { league_seasons, league_teams } from "Data/data";
 import { Grid, Box } from "@mui/material";
 import httpService from "Services/httpService";
 import _ from "lodash";
-import AveragesTable from "Components/Common/AveragesTable";
+import LeagueAveragesTable from "./LeagueAveragesTable";
 import CircularLoader from "Components/Common/CircularLoader";
 
 const battingStats = [
@@ -83,118 +79,114 @@ const LeagueBattingStats = ({ leagueName }) => {
   }, [season, battingStat, oppositionOption]);
 
   return (
-    <div>
-      <div style={{ textAlign: "left" }}>
-        <Grid container>
-          <Grid xs={12}>
-            <Box
-              sx={{
-                padding: "5px 0px",
-                textAlign: "left",
-                fontSize: { xs: 30, md: 48 },
-              }}
-            >
-              Batting Averages
-            </Box>
-          </Grid>
-          <Grid xs={12} style={{ textAlign: "left" }}>
-            <FormControl sx={{ paddingRight: 1 }}>
-              <InputLabel id="demo-simple-select-label">Stat</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={battingStat}
-                label="Stat"
-                onChange={(e) => {
-                  setBattingStat(e.target.value);
-                  setLoading(true);
-                }}
-                sx={[
-                  {
-                    ".MuiSelect-select": {
-                      padding: { xs: "8.5px 6px", md: "16.5px 14px" },
-                    },
-                  },
-                ]}
-              >
-                {battingStats.map((stat) => (
-                  <MenuItem value={stat}>{stat}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+    <Grid container>
+      <Grid xs={12}>
+        <Box
+          sx={{
+            padding: "5px 0px",
+            textAlign: "left",
+            fontSize: { xs: 30, md: 48 },
+          }}
+        >
+          Batting Averages
+        </Box>
+      </Grid>
+      <Grid xs={12} style={{ textAlign: "left" }}>
+        <FormControl sx={{ paddingRight: 1 }}>
+          <InputLabel id="demo-simple-select-label">Stat</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={battingStat}
+            label="Stat"
+            onChange={(e) => {
+              setBattingStat(e.target.value);
+              setLoading(true);
+            }}
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
+          >
+            {battingStats.map((stat) => (
+              <MenuItem value={stat}>{stat}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
-            <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
-              <InputLabel id="demo-simple-select-label">Season</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={season}
-                label="Season"
-                onChange={(e) => {
-                  setSeason(e.target.value);
-                  setLoading(true);
-                }}
-                sx={[
-                  {
-                    ".MuiSelect-select": {
-                      padding: { xs: "8.5px 6px", md: "16.5px 14px" },
-                    },
-                  },
-                ]}
-              >
-                {[
-                  0,
-                  ...Array.from(
-                    Array(league_seasons[leagueName]),
-                    (x, i) => i + 1
-                  ).reverse(),
-                ].map((value) => (
-                  <MenuItem value={value}>
-                    {value ? `Season ${value}` : "All Seasons"}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+        <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
+          <InputLabel id="demo-simple-select-label">Season</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={season}
+            label="Season"
+            onChange={(e) => {
+              setSeason(e.target.value);
+              setLoading(true);
+            }}
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
+          >
+            {[
+              0,
+              ...Array.from(
+                Array(league_seasons[leagueName]),
+                (x, i) => i + 1
+              ).reverse(),
+            ].map((value) => (
+              <MenuItem value={value}>
+                {value ? `Season ${value}` : "All Seasons"}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
-            <FormControl>
-              <InputLabel id="demo-simple-select-label">Against</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={oppositionOption}
-                label="Against"
-                onChange={(e) => {
-                  setOppositionOption(e.target.value);
-                  setLoading(true);
-                }}
-                sx={[
-                  {
-                    ".MuiSelect-select": {
-                      padding: { xs: "8.5px 6px", md: "16.5px 14px" },
-                    },
-                  },
-                ]}
-              >
-                {league_teams[leagueName].map((value) => (
-                  <MenuItem value={value}>{value}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Grid>
-          {!loading ? (
-            <AveragesTable
-              rows={battingAverages}
-              columnNamesLookup={{
-                player_name: "Player",
-                ...column_name_lookup,
-              }}
-            />
-          ) : (
-            <CircularLoader />
-          )}
-        </Grid>
-      </div>
-    </div>
+        <FormControl>
+          <InputLabel id="demo-simple-select-label">Against</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={oppositionOption}
+            label="Against"
+            onChange={(e) => {
+              setOppositionOption(e.target.value);
+              setLoading(true);
+            }}
+            sx={[
+              {
+                ".MuiSelect-select": {
+                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                },
+              },
+            ]}
+          >
+            {league_teams[leagueName].map((value) => (
+              <MenuItem value={value}>{value}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
+      {!loading ? (
+        <LeagueAveragesTable
+          rows={battingAverages}
+          columnNamesLookup={{
+            player_name: "Player",
+            ...column_name_lookup,
+          }}
+        />
+      ) : (
+        <CircularLoader />
+      )}
+    </Grid>
   );
 };
 

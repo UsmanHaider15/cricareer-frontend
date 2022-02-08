@@ -3,15 +3,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import {
-  league_bowling_table_column_to_label_lookup,
-  league_seasons,
-  league_teams,
-} from "Data/data";
+import { league_seasons, league_teams } from "Data/data";
 import { Grid, Box } from "@mui/material";
 import httpService from "Services/httpService";
 import _ from "lodash";
-import AveragesTable from "Components/Common/AveragesTable";
+import LeagueAveragesTable from "./LeagueAveragesTable";
 import CircularLoader from "Components/Common/CircularLoader";
 
 const bowlingStats = [
@@ -180,7 +176,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
         </FormControl>
       </Grid>
       {!loading ? (
-        <AveragesTable
+        <LeagueAveragesTable
           rows={bowlingAverages}
           columnNamesLookup={{
             player_name: "Player",
