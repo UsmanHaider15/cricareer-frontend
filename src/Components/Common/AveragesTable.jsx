@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EnhancedTableHead from "./EnhancedTableHead";
 import NoData from "./NoData";
+import { Link } from "react-router-dom";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -49,6 +50,7 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
     return <NoData />;
   }
 
+  console.log("rows", rows);
   return (
     <Paper sx={{ width: "100%", overflow: "hidden", marginTop: 2 }}>
       <TableContainer sx={{ maxHeight: 400 }}>
@@ -82,7 +84,14 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                           padding: { xs: 1 },
                         }}
                       >
-                        {col_val}
+                        {/* TODO: please fix me */}
+                        {typeof col_val === "object" ? (
+                          <Link to={col_val["link"]}>
+                            {col_val["player_name"]}
+                          </Link>
+                        ) : (
+                          col_val
+                        )}
                       </TableCell>
                     ))}
                   </TableRow>

@@ -54,6 +54,13 @@ export const comparisonsLinks = [
     firstPlayerID: "2",
     secondPlayerID: "13",
   },
+  {
+    Component: LeaguePlayersComparison,
+    link: "/comparison/lpl_comparison",
+    leagueName: "lpl",
+    firstPlayerID: "2",
+    secondPlayerID: "13",
+  },
 ];
 
 export const profileLinks = [
@@ -99,6 +106,12 @@ export const profileLinks = [
     leagueName: "t20_blast",
     playerID: "2",
   },
+  {
+    Component: LeaguePlayerProfile,
+    link: "/profile/lpl_profile",
+    leagueName: "lpl",
+    playerID: "2",
+  },
 ];
 
 export const LeagueLinks = [
@@ -131,5 +144,10 @@ export const LeagueLinks = [
     Component: LeagueStats,
     link: "/league/t20_blast_league",
     leagueName: "t20_blast",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/lpl_league",
+    leagueName: "lpl",
   },
 ];

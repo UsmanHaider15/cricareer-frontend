@@ -207,6 +207,18 @@ export const league_teams = {
     "Auckland",
     "Otago",
   ],
+
+  lpl: [
+    "All Teams",
+    "Kandy Warriors",
+    "Dambulla Viiking",
+    "Colombo Kings",
+    "Dambulla Giants",
+    "Galle Gladiators",
+    "Kandy Tuskers",
+    "Colombo Stars",
+    "Jaffna Stallions",
+  ],
 };
 
 export const league_seasons = {
@@ -214,6 +226,7 @@ export const league_seasons = {
   ipl: 13,
   bbl: 10,
   cpl: 8,
+  lpl: 2,
   t20_blast: 18,
   super_smash: 16,
 };

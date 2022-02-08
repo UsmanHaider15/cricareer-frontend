@@ -28,7 +28,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
 
   const [bowlingStat, setBowlingStats] = React.useState("Most Wickets");
   const [oppositionOption, setOppositionOption] = React.useState("All Teams");
-  const [battingAverages, setBattingAverages] = React.useState([]);
+  const [bowlingAverages, setBowlingAverages] = React.useState([]);
 
   React.useEffect(() => {
     console.log("here");
@@ -46,16 +46,25 @@ const LeagueBowlingStats = ({ leagueName }) => {
         const { rows } = data;
 
         // Important: here we are enforcing order
-        const modifiedData = rows.map((obj) =>
-          _.pick(obj, [
-            "player_id",
+        const modifiedData = rows.map((obj) => {
+          const newObj = _.pick(obj, [
+            "player_name",
             ...Object.keys(league_bowling_table_column_to_label_lookup),
-          ])
-        );
+          ]);
 
-        console.table(modifiedData);
+          // TODO: please fix me
+          return {
+            ...newObj,
+            player_name: {
+              player_name: obj["player_name"],
+              link: `/profile/${leagueName}_profile?player_id=${obj["player_id"]}`,
+            },
+          };
+        });
 
-        setBattingAverages(modifiedData);
+        console.log("modified-data", modifiedData);
+
+        setBowlingAverages(modifiedData);
         setLoading(false);
       });
   }, [season, bowlingStat, oppositionOption]);
@@ -161,9 +170,9 @@ const LeagueBowlingStats = ({ leagueName }) => {
           </Grid>
           {!loading ? (
             <AveragesTable
-              rows={battingAverages}
+              rows={bowlingAverages}
               columnNamesLookup={{
-                player_id: "ID",
+                player_name: "Player",
                 ...league_bowling_table_column_to_label_lookup,
               }}
             />

@@ -46,17 +46,26 @@ const LeagueBattingStats = ({ leagueName }) => {
       })
       .then(({ data }) => {
         const { rows } = data;
+        console.table(rows);
 
         // Important: here we are enforcing order
-        const modifiedData = rows.map((obj) =>
-          _.pick(obj, [
-            "player_id",
+        const modifiedData = rows.map((obj) => {
+          const newObj = _.pick(obj, [
+            "player_name",
             ...Object.keys(league_batting_table_column_name_lookup),
-          ])
-        );
+          ]);
+
+          // TODO: please fix me
+          return {
+            ...newObj,
+            player_name: {
+              player_name: obj["player_name"],
+              link: `/profile/${leagueName}_profile?player_id=${obj["player_id"]}`,
+            },
+          };
+        });
         setBattingAverages(modifiedData);
         setLoading(false);
-        console.table(modifiedData);
       });
   }, [season, battingStat, oppositionOption]);
 
@@ -163,7 +172,7 @@ const LeagueBattingStats = ({ leagueName }) => {
             <AveragesTable
               rows={battingAverages}
               columnNamesLookup={{
-                player_id: "ID",
+                player_name: "Player",
                 ...league_batting_table_column_name_lookup,
               }}
             />
