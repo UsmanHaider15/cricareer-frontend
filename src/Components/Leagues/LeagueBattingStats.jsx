@@ -23,6 +23,19 @@ const battingStats = [
   "Best Batting Strike Rate",
   "Best Batting Averages",
 ];
+const column_name_lookup = {
+  innings_played: "Inns",
+  not_outs: "NO",
+  runs_scored: "Runs",
+  highest_inns_score: "HS",
+  batting_average: "Avg",
+  balls_faced: "BF",
+  batting_strike_rate: "SR",
+  boundary_fours: "4s",
+  boundary_sixes: "6s",
+  fifties_scored: "50s",
+  hundreds_scored: "100s",
+};
 
 const LeagueBattingStats = ({ leagueName }) => {
   const [season, setSeason] = React.useState(0);
@@ -52,7 +65,7 @@ const LeagueBattingStats = ({ leagueName }) => {
         const modifiedData = rows.map((obj) => {
           const newObj = _.pick(obj, [
             "player_name",
-            ...Object.keys(league_batting_table_column_name_lookup),
+            ...Object.keys(column_name_lookup),
           ]);
 
           // TODO: please fix me
@@ -173,7 +186,7 @@ const LeagueBattingStats = ({ leagueName }) => {
               rows={battingAverages}
               columnNamesLookup={{
                 player_name: "Player",
-                ...league_batting_table_column_name_lookup,
+                ...column_name_lookup,
               }}
             />
           ) : (
