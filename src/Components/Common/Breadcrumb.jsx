@@ -12,7 +12,7 @@ const Breadcrumb = ({ leagueName, type }) => {
         backgroundColor: "#f5f5f5",
         display: "flex",
         justifyContent: "left",
-        fontSize: { xs: 14, md: 20 },
+        fontSize: { xs: 12, md: 16 },
         padding: 1,
       }}
     >

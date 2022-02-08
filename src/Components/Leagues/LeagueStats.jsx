@@ -12,6 +12,7 @@ const leagueNameLookup = {
   bbl: "Big Bash League",
   bpl: "Bangladesh Premier League",
 };
+
 const LeagueStats = ({ leagueName }) => {
   return (
     <Box sx={{ padding: { xs: 2 } }}>

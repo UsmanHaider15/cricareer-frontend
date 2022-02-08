@@ -40,19 +40,9 @@ const MenuToolbar = () => {
             justifyContent: { xs: "space-around", md: "normal" },
           }}
         >
-          {/* <Box
-            sx={{
-              letterSpacing: 4,
-              fontSize: 30,
-              paddingRight: 10,
-              display: { xs: "none", md: "block" },
-            }}
-          >
-            cricareer
-          </Box> */}
           <TopbarMenu type="profile" links={profileLinks} />
-          <TopbarMenu type="comparison" links={comparisonsLinks} />
           <TopbarMenu type="league" links={LeagueLinks} />
+          <TopbarMenu type="comparison" links={comparisonsLinks} />
         </Toolbar>
       </AppBar>
     </HideOnScroll>

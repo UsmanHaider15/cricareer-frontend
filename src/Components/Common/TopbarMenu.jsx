@@ -6,14 +6,12 @@ import { useLocation } from "react-router-dom";
 import MenuButton from "Components/Common/MenuButton";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import capitalizeFirstLetter from "Utils/capitalizeFirstLetter";
 import getFormattedPageName from "Utils/getFormattedPageName";
+import _ from "lodash";
 
 export default function TopbarMenu({ type, links }) {
   const location = useLocation();
-  const [btnLabel, setBtnLabel] = React.useState(
-    `Select ${capitalizeFirstLetter(type)}`
-  );
+  const [btnLabel, setBtnLabel] = React.useState(`${_.capitalize(type)}s`);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const [isActive, setIsActive] = React.useState(false);
@@ -30,7 +28,7 @@ export default function TopbarMenu({ type, links }) {
 
   useEffect(() => {
     if (!location.pathname.includes(type)) {
-      setBtnLabel(`Select ${capitalizeFirstLetter(type)}`);
+      setBtnLabel(`${_.capitalize(type)}s`);
       setIsActive(false);
     } else {
       setBtnLabel(btnLabel);
@@ -41,7 +39,10 @@ export default function TopbarMenu({ type, links }) {
   return (
     <div>
       <MenuButton
-        style={{ color: isActive ? "#170451" : "grey", fontWeight: "bold" }}
+        sx={{
+          color: isActive ? "#170451" : "gray",
+          fontWeight: "bold",
+        }}
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}

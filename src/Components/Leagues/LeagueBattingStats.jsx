@@ -19,6 +19,17 @@ const battingStats = [
   "Best Batting Strike Rate",
   "Best Batting Averages",
 ];
+
+const statsLookup = {
+  "Most Runs": "runs_scored",
+  "Most Fours": "boundary_fours",
+  "Most Sixes": "boundary_sixes",
+  "Most Fifties": "fifties_scored",
+  "Most Centuries": "hundreds_scored",
+  "Best Batting Strike Rate": "batting_strike_rate",
+  "Best Batting Averages": "batting_averages",
+};
+
 const column_name_lookup = {
   innings_played: "Inns",
   not_outs: "NO",
