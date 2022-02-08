@@ -3,9 +3,16 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { league_seasons, league_teams } from "Data/data";
+import {
+  league_batting_table_column_name_lookup,
+  league_seasons,
+  league_teams,
+} from "Data/data";
 import { Grid, Box } from "@mui/material";
 import httpService from "Services/httpService";
+import _ from "lodash";
+import AveragesTable from "Components/Common/AveragesTable";
+import CircularLoader from "Components/Common/CircularLoader";
 
 const battingStats = [
   "Most Runs",
@@ -19,19 +26,35 @@ const battingStats = [
 
 const LeagueBattingStats = ({ leagueName }) => {
   const [season, setSeason] = React.useState(0);
+  const [loading, setLoading] = React.useState(true);
+
   const [battingStat, setBattingStat] = React.useState("Most Runs");
   const [oppositionOption, setOppositionOption] = React.useState("All Teams");
+  const [battingAverages, setBattingAverages] = React.useState([]);
 
   React.useEffect(() => {
     console.log("here");
-    httpService.get("/league_stats", {
-      params: {
-        stat_type: "batting",
-        stat_name: battingStat,
-        season_number: season,
-        team_name: oppositionOption,
-      },
-    });
+    httpService
+      .get("/league_stats", {
+        params: {
+          league_name: leagueName,
+          stat_type: "batting",
+          stat_name: battingStat,
+          season_number: season,
+          team_name: oppositionOption,
+        },
+      })
+      .then(({ data }) => {
+        const { rows } = data;
+
+        // Important: here we are enforcing order
+        const modifiedData = rows.map((obj) =>
+          _.pick(obj, Object.keys(league_batting_table_column_name_lookup))
+        );
+        setBattingAverages(modifiedData);
+        setLoading(false);
+        console.table(modifiedData);
+      });
   }, [season, battingStat, oppositionOption]);
 
   return (
@@ -57,7 +80,10 @@ const LeagueBattingStats = ({ leagueName }) => {
                 id="demo-simple-select"
                 value={battingStat}
                 label="Stat"
-                onChange={(e) => setBattingStat(e.target.value)}
+                onChange={(e) => {
+                  setBattingStat(e.target.value);
+                  setLoading(true);
+                }}
                 sx={[
                   {
                     ".MuiSelect-select": {
@@ -79,7 +105,10 @@ const LeagueBattingStats = ({ leagueName }) => {
                 id="demo-simple-select"
                 value={season}
                 label="Season"
-                onChange={(e) => setSeason(e.target.value)}
+                onChange={(e) => {
+                  setSeason(e.target.value);
+                  setLoading(true);
+                }}
                 sx={[
                   {
                     ".MuiSelect-select": {
@@ -109,7 +138,10 @@ const LeagueBattingStats = ({ leagueName }) => {
                 id="demo-simple-select"
                 value={oppositionOption}
                 label="Against"
-                onChange={(e) => setOppositionOption(e.target.value)}
+                onChange={(e) => {
+                  setOppositionOption(e.target.value);
+                  setLoading(true);
+                }}
                 sx={[
                   {
                     ".MuiSelect-select": {
@@ -124,6 +156,14 @@ const LeagueBattingStats = ({ leagueName }) => {
               </Select>
             </FormControl>
           </Grid>
+          {!loading ? (
+            <AveragesTable
+              rows={battingAverages}
+              columnNamesLookup={league_batting_table_column_name_lookup}
+            />
+          ) : (
+            <CircularLoader />
+          )}
         </Grid>
       </div>
     </div>
