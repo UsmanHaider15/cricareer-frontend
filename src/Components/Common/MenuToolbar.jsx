@@ -5,7 +5,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import TopbarMenu from "./TopbarMenu";
-import { comparisonsLinks, profileLinks } from "../../config";
+import { comparisonsLinks, profileLinks, LeagueLinks } from "../../config";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -52,6 +52,7 @@ const MenuToolbar = () => {
           </Box> */}
           <TopbarMenu type="profile" links={profileLinks} />
           <TopbarMenu type="comparison" links={comparisonsLinks} />
+          <TopbarMenu type="league" links={LeagueLinks} />
         </Toolbar>
       </AppBar>
     </HideOnScroll>

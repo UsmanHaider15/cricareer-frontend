@@ -2,6 +2,7 @@
 // import IccPlayerProfile from "./Components/Profiles/IccPlayerProfile";
 import LeaguePlayerProfile from "./Components/Profiles/LeaguePlayerProfile";
 import LeaguePlayersComparison from "./Components/Comparisons/LeaguePlayersComparison";
+import LeagueStats from "./Components/Leagues/LeagueStats";
 
 export const comparisonsLinks = [
   //   {
@@ -97,5 +98,38 @@ export const profileLinks = [
     link: "/profile/t20_blast_profile",
     leagueName: "t20_blast",
     playerID: "2",
+  },
+];
+
+export const LeagueLinks = [
+  {
+    Component: LeagueStats,
+    link: "/league/psl_league",
+    leagueName: "psl",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/ipl_league",
+    leagueName: "ipl",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/bbl_league",
+    leagueName: "bbl",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/cpl_league",
+    leagueName: "cpl",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/super_smash_league",
+    leagueName: "super_smash",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/t20_blast_league",
+    leagueName: "t20_blast",
   },
 ];

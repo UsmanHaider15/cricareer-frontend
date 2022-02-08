@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Component, useEffect } from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -7,7 +7,7 @@ import MenuToolbar from "./Components/Common/MenuToolbar";
 import Home from "./Components/Home/Home";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import { comparisonsLinks, profileLinks } from "./config";
+import { comparisonsLinks, profileLinks, LeagueLinks } from "./config";
 
 import { useHistory } from "react-router-dom";
 const reload = () => window.location.reload();
@@ -87,6 +87,12 @@ function App() {
                       </Route>
                     )
                   )}
+
+                  {LeagueLinks.map(({ Component, link, leagueName }) => (
+                    <Route path={link}>
+                      <Component leagueName={leagueName} />
+                    </Route>
+                  ))}
                 </Paper>
               </Grid>
               <Grid xs={0} md={3}></Grid>
