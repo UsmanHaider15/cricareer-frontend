@@ -49,7 +49,10 @@ const LeagueBattingStats = ({ leagueName }) => {
 
         // Important: here we are enforcing order
         const modifiedData = rows.map((obj) =>
-          _.pick(obj, Object.keys(league_batting_table_column_name_lookup))
+          _.pick(obj, [
+            "player_id",
+            ...Object.keys(league_batting_table_column_name_lookup),
+          ])
         );
         setBattingAverages(modifiedData);
         setLoading(false);
@@ -159,7 +162,10 @@ const LeagueBattingStats = ({ leagueName }) => {
           {!loading ? (
             <AveragesTable
               rows={battingAverages}
-              columnNamesLookup={league_batting_table_column_name_lookup}
+              columnNamesLookup={{
+                player_id: "ID",
+                ...league_batting_table_column_name_lookup,
+              }}
             />
           ) : (
             <CircularLoader />
