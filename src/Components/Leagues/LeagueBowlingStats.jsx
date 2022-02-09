@@ -10,23 +10,12 @@ import _ from "lodash";
 import LeagueAveragesTable from "./LeagueAveragesTable";
 import CircularLoader from "Components/Common/CircularLoader";
 
-const bowlingStats = [
-  "Most Wickets",
-  "Best Bowling Average",
-  "Best Bowling Economy",
-  "Best Bowling Strike Rate",
-  "Most Runs Conceded",
-];
-
 const stats_lookup = {
   "Most Wickets": "wickets_taken",
-  "Most Runs Conceded": "runs_conceded",
   "Best Bowling Average": "bowling_average",
-  "Best Economy Rate": "economy_rate",
+  "Best Bowling Economy": "economy_rate",
   "Best Bowling Strike Rate": "bowling_strike_rate",
-  "Four Wickets": "four_wkts_in_an_inns",
-  "Most Four wickets in Inn": "four_wkts_in_an_inns",
-  "Most Five wickets in Inn": "five_wkts_in_an_inns",
+  "Most Runs Conceded": "runs_conceded",
 };
 
 const column_name_lookup = {
@@ -124,7 +113,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
               },
             ]}
           >
-            {bowlingStats.map((stat) => (
+            {Object.keys(stats_lookup).map((stat) => (
               <MenuItem value={stat}>{stat}</MenuItem>
             ))}
           </Select>

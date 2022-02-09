@@ -10,16 +10,6 @@ import _ from "lodash";
 import LeagueAveragesTable from "./LeagueAveragesTable";
 import CircularLoader from "Components/Common/CircularLoader";
 
-const battingStats = [
-  "Most Runs",
-  "Most Fours",
-  "Most Sixes",
-  "Most Fifties",
-  "Most Centuries",
-  "Best Batting Strike Rate",
-  "Best Batting Averages",
-];
-
 const stats_lookup = {
   "Most Runs": "runs_scored",
   "Most Fours": "boundary_fours",
@@ -122,7 +112,7 @@ const LeagueBattingStats = ({ leagueName }) => {
               },
             ]}
           >
-            {battingStats.map((stat) => (
+            {Object.keys(stats_lookup).map((stat) => (
               <MenuItem value={stat}>{stat}</MenuItem>
             ))}
           </Select>
