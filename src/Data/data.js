@@ -224,8 +224,8 @@ export const league_teams = {
 export const league_seasons = {
   psl: 6,
   ipl: 13,
-  bbl: 10,
-  cpl: 8,
+  bbl: 11,
+  cpl: 9,
   lpl: 2,
   t20_blast: 18,
   super_smash: 16,

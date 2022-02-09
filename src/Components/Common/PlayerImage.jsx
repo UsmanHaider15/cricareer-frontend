@@ -28,8 +28,8 @@ const PlayerImage = ({ imageUrl }) => {
     <Box
       sx={{
         position: "relative",
-        width: { xs: 150, md: 300 },
-        height: { xs: 150, md: 300 },
+        width: { xs: 150, xl: 250 },
+        height: { xs: 150, xl: 250 },
         display: "flex",
         justifyContent: "center",
       }}

@@ -26,20 +26,14 @@ export const comparisonsLinks = [
   //   firstPlayerID: "46",
   //   secondPlayerID: "177",
   // },
-  // {
-  //   Component: LeaguePlayersComparison,
-  //   link: "/comparison/bbl_comparison",
-  //   leagueName: "bbl",
-  //   firstPlayerID: "16",
-  //   secondPlayerID: "17",
-  // },
-  // {
-  //   Component: LeaguePlayersComparison,
-  //   link: "/comparison/cpl_comparison",
-  //   leagueName: "cpl",
-  //   firstPlayerID: "5",
-  //   secondPlayerID: "17",
-  // },
+  {
+    Component: LeaguePlayersComparison,
+    link: "/comparison/bbl_comparison",
+    leagueName: "bbl",
+    firstPlayerID: "137",
+    secondPlayerID: "28",
+  },
+
   // {
   //   Component: LeaguePlayersComparison,
   //   link: "/comparison/super_smash_comparison",
@@ -89,18 +83,12 @@ export const profileLinks = [
   //   leagueName: "ipl",
   //   playerID: "46",
   // },
-  // {
-  //   Component: LeaguePlayerProfile,
-  //   link: "/profile/bbl_profile",
-  //   leagueName: "bbl",
-  //   playerID: "17",
-  // },
-  // {
-  //   Component: LeaguePlayerProfile,
-  //   link: "/profile/cpl_profile",
-  //   leagueName: "cpl",
-  //   playerID: "17",
-  // },
+  {
+    Component: LeaguePlayerProfile,
+    link: "/profile/bbl_profile",
+    leagueName: "bbl",
+    playerID: "137",
+  },
   // {
   //   Component: LeaguePlayerProfile,
   //   link: "/profile/super_smash_profile",
@@ -138,16 +126,11 @@ export const LeagueLinks = [
   //   link: "/league/ipl_league",
   //   leagueName: "ipl",
   // },
-  // {
-  //   Component: LeagueStats,
-  //   link: "/league/bbl_league",
-  //   leagueName: "bbl",
-  // },
-  // {
-  //   Component: LeagueStats,
-  //   link: "/league/cpl_league",
-  //   leagueName: "cpl",
-  // },
+  {
+    Component: LeagueStats,
+    link: "/league/bbl_league",
+    leagueName: "bbl",
+  },
   // {
   //   Component: LeagueStats,
   //   link: "/league/super_smash_league",

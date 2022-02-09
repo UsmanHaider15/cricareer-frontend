@@ -5,6 +5,29 @@ import { Link } from "react-router-dom";
 
 const playerStats = [
   {
+    fullLeagueName: "Big Bash League",
+    leagueName: "bbl",
+    brandColor: "#4a4543",
+    stats: [
+      {
+        label: "Most Runs",
+        player_url: "/profile/bbl_profile?player_id=137",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/326637_headshot.png",
+        player_name: "CA Lynn",
+        value: "2960",
+      },
+      {
+        label: "Most Wickets",
+        player_url: "/profile/bbl_profile?player_id=66",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/398666_headshot.png",
+        player_name: "SA Abbott",
+        value: "503",
+      },
+    ],
+  },
+  {
     fullLeagueName: "Lanka Premier League",
     leagueName: "lpl",
     brandColor: "#2389d0",
@@ -137,6 +160,7 @@ export default function PlayerStatCard() {
                     />
                     <Box
                       sx={{
+                        color: "white",
                         display: "flex",
                         justifyContent: "space-between",
                         flexDirection: "column",
@@ -166,6 +190,7 @@ export default function PlayerStatCard() {
                       </Box>
                       <Box
                         sx={{
+                          color: "white",
                           fontSize: { xs: 24, xl: 38 },
                         }}
                       >
