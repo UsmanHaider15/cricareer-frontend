@@ -5,6 +5,29 @@ import { Link } from "react-router-dom";
 
 const playerStats = [
   {
+    fullLeagueName: "Indian Premier League",
+    leagueName: "ipl",
+    brandColor: "#163787",
+    stats: [
+      {
+        label: "Most Runs",
+        player_url: "/profile/ipl_profile?player_id=59",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/253802_headshot.png",
+        player_name: "Virat Kohli",
+        value: "6283",
+      },
+      {
+        label: "Most Wickets",
+        player_url: "/profile/ipl_profile?player_id=23",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/49758_headshot.png",
+        player_name: "SL Malinga",
+        value: "170",
+      },
+    ],
+  },
+  {
     fullLeagueName: "Big Bash League",
     leagueName: "bbl",
     brandColor: "#4a4543",

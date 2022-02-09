@@ -9,12 +9,12 @@ const stats = [
     description: "",
   },
   {
-    value: "645+",
+    value: "2300+",
     title: "Matches",
     description: "",
   },
   {
-    value: "2312+",
+    value: "3750+",
     title: "Players",
     description: "",
   },
