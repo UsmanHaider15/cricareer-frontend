@@ -6,17 +6,17 @@ const stats = [
   {
     value: "7",
     title: "Cricket Leagues",
-    description: "See performance stats of players from ipl, psl, bbl, cpl",
+    description: "",
   },
   {
     value: "645+",
     title: "Matches",
-    description: "See performance stats of players from ipl, psl, bbl, cpl",
+    description: "",
   },
   {
     value: "2312+",
     title: "Players",
-    description: "See performance stats of players from ipl, psl, bbl, cpl",
+    description: "",
   },
 ];
 

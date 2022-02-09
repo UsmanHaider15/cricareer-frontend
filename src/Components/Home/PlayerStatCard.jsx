@@ -5,49 +5,74 @@ import { Link } from "react-router-dom";
 
 const playerStats = [
   {
-    fullLeagueName: "Indian Premier League",
-    leagueName: "ipl",
+    fullLeagueName: "Lanka Premier League",
+    leagueName: "lpl",
+    brandColor: "#2389d0",
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/ipl_profile?player_id=59",
+        player_url: "/profile/lpl_profile?player_id=47",
         avatar_url:
-          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/253802_headshot.png",
-        player_name: "Virat Kohli",
-        value: "6283",
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/345821_headshot.png",
+        player_name: "MD Gunathilaka",
+        value: "702",
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/ipl_profile?player_id=23",
+        player_url: "/profile/lpl_profile?player_id=21",
         avatar_url:
-          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/49758_headshot.png",
-        player_name: "SL Malinga",
-        value: "170",
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/784379_headshot.png",
+        player_name: "PWH de Silva",
+        value: "28",
       },
     ],
   },
+
   {
-    fullLeagueName: "Pakistan Super League",
-    leagueName: "psl",
+    fullLeagueName: "Caribbean Premier League",
+    leagueName: "cpl",
+    brandColor: "#ed1c24",
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/psl_profile?player_id=63",
+        player_url: "/profile/cpl_profile?player_id=19",
         avatar_url:
-          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/348144_headshot.png",
-        player_name: "Babar Azam",
-        value: "2264",
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/53116_headshot.png",
+        player_name: "LMP Simmons",
+        value: "2545",
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/psl_profile?player_id=9",
+        player_url: "/profile/cpl_profile?player_id=58",
         avatar_url:
-          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/43590_headshot.png",
-        player_name: "Wahab Riaz",
-        value: "94",
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/51439_headshot.png",
+        player_name: "DJ Bravo",
+        value: "58",
       },
     ],
   },
+  // {
+  //   fullLeagueName: "Pakistan Super League",
+  //   leagueName: "psl",
+  //   stats: [
+  //     {
+  //       label: "Most Runs",
+  //       player_url: "/profile/psl_profile?player_id=63",
+  //       avatar_url:
+  //         "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/348144_headshot.png",
+  //       player_name: "Babar Azam",
+  //       value: "2264",
+  //     },
+  //     {
+  //       label: "Most Wickets",
+  //       player_url: "/profile/psl_profile?player_id=9",
+  //       avatar_url:
+  //         "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/43590_headshot.png",
+  //       player_name: "Wahab Riaz",
+  //       value: "94",
+  //     },
+  //   ],
+  // },
   // {
   //   fullLeagueName: "Big Bash League",
   //   leagueName: "bbl",
@@ -80,7 +105,9 @@ export default function PlayerStatCard() {
           <Grid item xs={12}>
             <Box sx={{ fontSize: { xs: 30, xl: 42 }, mt: 4 }}>
               {" "}
-              {playerStat.fullLeagueName}
+              <Link to={`/league/${playerStat.leagueName}_league`}>
+                {playerStat.fullLeagueName}
+              </Link>
             </Box>
           </Grid>
           <Grid container spacing={2}>
@@ -92,7 +119,7 @@ export default function PlayerStatCard() {
                       display: "flex",
                       flexDirection: { xs: "row-reverse", xl: "row-reverse" },
                       alignItems: "center",
-                      bgcolor: "background.paper",
+                      bgcolor: playerStat.brandColor,
                       overflow: "hidden",
                       borderRadius: "12px",
                       boxShadow: 1,
@@ -102,8 +129,8 @@ export default function PlayerStatCard() {
                     <Box
                       component="img"
                       sx={{
-                        maxHeight: { xs: 100, lg: 200 },
-                        maxWidth: { xs: 150, lg: 300 },
+                        maxHeight: { xs: 100, xl: 200 },
+                        maxWidth: { xs: 150, xl: 300 },
                       }}
                       alt="The house from the offer."
                       src={stat.avatar_url}
@@ -115,21 +142,23 @@ export default function PlayerStatCard() {
                         flexDirection: "column",
                         flexGrow: 1,
                         alignItems: { xs: "flex-start", xl: "flex-start" },
-                        m: 3,
-                        height: { xl: 160 },
+                        margin: { xs: "10px 24px" },
+                        height: { xs: 120, xl: 160 },
                       }}
                     >
                       <Box
                         component="span"
-                        sx={{ fontSize: { xs: 16, lg: 24 }, mt: 1 }}
+                        sx={{ fontSize: { xs: 16, xl: 24 }, mt: 1 }}
                       >
                         {stat.label}
                       </Box>
                       <Box
                         component="span"
                         sx={{
-                          color: "primary.main",
-                          fontSize: { xs: 16, lg: 24 },
+                          color: "white",
+                          fontSize: { xs: 16, xl: 24 },
+                          textDecoration: "underline",
+                          whiteSpace: "nowrap",
                         }}
                         src={stat.player_url}
                       >
@@ -137,7 +166,7 @@ export default function PlayerStatCard() {
                       </Box>
                       <Box
                         sx={{
-                          fontSize: { xs: 16, lg: 24 },
+                          fontSize: { xs: 24, xl: 38 },
                         }}
                       >
                         {stat.value}

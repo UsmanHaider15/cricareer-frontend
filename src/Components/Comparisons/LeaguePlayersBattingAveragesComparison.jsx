@@ -119,7 +119,8 @@ const LeaguePlayersBattingAveragesComparison = ({
             sx={[
               {
                 ".MuiSelect-select": {
-                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                  padding: { xs: "7px 5px", md: "16.5px 14px" },
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 },
               },
             ]}
@@ -154,7 +155,8 @@ const LeaguePlayersBattingAveragesComparison = ({
             sx={[
               {
                 ".MuiSelect-select": {
-                  padding: { xs: "8.5px 6px", md: "16.5px 14px" },
+                  padding: { xs: "7px 5px", md: "16.5px 14px" },
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 },
               },
             ]}
