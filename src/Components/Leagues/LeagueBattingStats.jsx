@@ -20,7 +20,7 @@ const battingStats = [
   "Best Batting Averages",
 ];
 
-const statsLookup = {
+const stats_lookup = {
   "Most Runs": "runs_scored",
   "Most Fours": "boundary_fours",
   "Most Sixes": "boundary_sixes",
@@ -53,7 +53,6 @@ const LeagueBattingStats = ({ leagueName }) => {
   const [battingAverages, setBattingAverages] = React.useState([]);
 
   React.useEffect(() => {
-    console.log("here");
     httpService
       .get("/league_stats", {
         params: {
@@ -72,6 +71,7 @@ const LeagueBattingStats = ({ leagueName }) => {
         const modifiedData = rows.map((obj) => {
           const newObj = _.pick(obj, [
             "player_name",
+            stats_lookup[battingStat],
             ...Object.keys(column_name_lookup),
           ]);
 
@@ -191,6 +191,7 @@ const LeagueBattingStats = ({ leagueName }) => {
           rows={battingAverages}
           columnNamesLookup={{
             player_name: "Player",
+            [stats_lookup[battingStat]]: "focus",
             ...column_name_lookup,
           }}
         />

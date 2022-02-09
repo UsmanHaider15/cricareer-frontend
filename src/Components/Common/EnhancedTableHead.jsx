@@ -21,17 +21,17 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        {headCells.map((headCell, idx) => (
           <TableCell
             key={headCell.id}
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
             sx={{
-              ...(headCell.label === "Teams"
+              ...(!idx
                 ? {
                     left: 0,
                     zIndex: (theme) => theme.zIndex.appBar + 2,
-                    textAlign: "center",
+                    textAlign: "left",
                   }
                 : {
                     textAlign: "right",

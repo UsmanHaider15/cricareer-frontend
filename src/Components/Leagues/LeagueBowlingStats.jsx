@@ -18,6 +18,17 @@ const bowlingStats = [
   "Most Runs Conceded",
 ];
 
+const stats_lookup = {
+  "Most Wickets": "wickets_taken",
+  "Most Runs Conceded": "runs_conceded",
+  "Best Bowling Average": "bowling_average",
+  "Best Economy Rate": "economy_rate",
+  "Best Bowling Strike Rate": "bowling_strike_rate",
+  "Four Wickets": "four_wkts_in_an_inns",
+  "Most Four wickets in Inn": "four_wkts_in_an_inns",
+  "Most Five wickets in Inn": "five_wkts_in_an_inns",
+};
+
 const column_name_lookup = {
   innings_played: "Inns",
   balls_bowled: "Balls",
@@ -32,6 +43,7 @@ const column_name_lookup = {
   five_wkts_in_an_inns: "5w",
   ten_wkts_in_an_inns: "10w",
 };
+
 const LeagueBowlingStats = ({ leagueName }) => {
   const [season, setSeason] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
@@ -59,6 +71,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
         const modifiedData = rows.map((obj) => {
           const newObj = _.pick(obj, [
             "player_name",
+            stats_lookup[bowlingStat],
             ...Object.keys(column_name_lookup),
           ]);
           console.table(newObj);
@@ -88,7 +101,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
             fontSize: { xs: 30, md: 48 },
           }}
         >
-          Batting Averages
+          Bowling Averages
         </Box>
       </Grid>
       <Grid xs={12} style={{ textAlign: "left" }}>
@@ -180,6 +193,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
           rows={bowlingAverages}
           columnNamesLookup={{
             player_name: "Player",
+            [stats_lookup[bowlingStat]]: "focus",
             ...column_name_lookup,
           }}
         />

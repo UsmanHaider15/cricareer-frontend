@@ -58,8 +58,8 @@ export const comparisonsLinks = [
     Component: LeaguePlayersComparison,
     link: "/comparison/lpl_comparison",
     leagueName: "lpl",
-    firstPlayerID: "2",
-    secondPlayerID: "13",
+    firstPlayerID: "47",
+    secondPlayerID: "62",
   },
 ];
 
@@ -110,7 +110,7 @@ export const profileLinks = [
     Component: LeaguePlayerProfile,
     link: "/profile/lpl_profile",
     leagueName: "lpl",
-    playerID: "2",
+    playerID: "47",
   },
 ];
 
