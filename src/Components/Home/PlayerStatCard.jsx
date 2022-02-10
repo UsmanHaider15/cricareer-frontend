@@ -121,12 +121,12 @@ const playerStats = [
   },
   {
     fullLeagueName: "Super Smash League",
-    leagueName: "lpl",
+    leagueName: "super_smash",
     brandColor: "#141134",
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/lpl_profile?player_id=12",
+        player_url: "/profile/super_smash_profile?player_id=12",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/379140_headshot.png",
         player_name: "DP Conway",
@@ -134,7 +134,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/lpl_profile?player_id=66",
+        player_url: "/profile/super_smash_profile?player_id=66",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/854909_headshot.png",
         player_name: "BM Tickner",
