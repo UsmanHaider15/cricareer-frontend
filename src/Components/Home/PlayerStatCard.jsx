@@ -51,29 +51,28 @@ const playerStats = [
     ],
   },
   {
-    fullLeagueName: "Lanka Premier League",
-    leagueName: "lpl",
-    brandColor: "#2389d0",
+    fullLeagueName: "T20 Blast",
+    leagueName: "t20_blast",
+    brandColor: "#e71269",
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/lpl_profile?player_id=47",
+        player_url: "/profile/t20_blast_profile?player_id=110",
         avatar_url:
-          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/345821_headshot.png",
-        player_name: "MD Gunathilaka",
-        value: "702",
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/23460_headshot.png",
+        player_name: "LJ Wright",
+        value: "110",
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/lpl_profile?player_id=21",
+        player_url: "/profile/t20_blast_profile?player_id=281",
         avatar_url:
-          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/784379_headshot.png",
-        player_name: "PWH de Silva",
-        value: "28",
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/310107_headshot.png",
+        player_name: "DR Briggs",
+        value: "112",
       },
     ],
   },
-
   {
     fullLeagueName: "Caribbean Premier League",
     leagueName: "cpl",
@@ -97,50 +96,52 @@ const playerStats = [
       },
     ],
   },
-  // {
-  //   fullLeagueName: "Pakistan Super League",
-  //   leagueName: "psl",
-  //   stats: [
-  //     {
-  //       label: "Most Runs",
-  //       player_url: "/profile/psl_profile?player_id=63",
-  //       avatar_url:
-  //         "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/348144_headshot.png",
-  //       player_name: "Babar Azam",
-  //       value: "2264",
-  //     },
-  //     {
-  //       label: "Most Wickets",
-  //       player_url: "/profile/psl_profile?player_id=9",
-  //       avatar_url:
-  //         "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/43590_headshot.png",
-  //       player_name: "Wahab Riaz",
-  //       value: "94",
-  //     },
-  //   ],
-  // },
-  // {
-  //   fullLeagueName: "Big Bash League",
-  //   leagueName: "bbl",
-  //   stats: [
-  //     {
-  //       label: "Most Runs",
-  //       player_url: "/profile/bbl_profile?player_id=137",
-  //       avatar_url:
-  //         "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/326637_headshot.png",
-  //       player_name: "CA Lynn",
-  //       value: "2960",
-  //     },
-  //     {
-  //       label: "Most Wickets",
-  //       player_url: "/profile/bbl_profile?player_id=66",
-  //       avatar_url:
-  //         "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/398666_headshot.png",
-  //       player_name: "SA Abbott",
-  //       value: "124",
-  //     },
-  //   ],
-  // },
+  {
+    fullLeagueName: "Lanka Premier League",
+    leagueName: "lpl",
+    brandColor: "#2389d0",
+    stats: [
+      {
+        label: "Most Runs",
+        player_url: "/profile/lpl_profile?player_id=47",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/345821_headshot.png",
+        player_name: "MD Gunathilaka",
+        value: "702",
+      },
+      {
+        label: "Most Wickets",
+        player_url: "/profile/lpl_profile?player_id=21",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/784379_headshot.png",
+        player_name: "PWH de Silva",
+        value: "28",
+      },
+    ],
+  },
+  {
+    fullLeagueName: "Super Smash League",
+    leagueName: "lpl",
+    brandColor: "#2389d0",
+    stats: [
+      {
+        label: "Most Runs",
+        player_url: "/profile/lpl_profile?player_id=12",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/379140_headshot.png",
+        player_name: "DP Conway",
+        value: "1607",
+      },
+      {
+        label: "Most Wickets",
+        player_url: "/profile/lpl_profile?player_id=66",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/854909_headshot.png",
+        player_name: "BM Tickner",
+        value: "75",
+      },
+    ],
+  },
 ];
 
 export default function PlayerStatCard() {

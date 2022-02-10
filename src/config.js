@@ -5,20 +5,6 @@ import LeaguePlayersComparison from "./Components/Comparisons/LeaguePlayersCompa
 import LeagueStats from "./Components/Leagues/LeagueStats";
 
 export const comparisonsLinks = [
-  //   {
-  //     Component: IccPlayerComparison,
-  //     link: "/comparisons/icc_comparison",
-  //     leagueName: "icc",
-  //     firstPlayerID: "253802",
-  //     secondPlayerID: "28081",
-  //   },
-  // {
-  //   Component: LeaguePlayersComparison,
-  //   link: "/comparison/psl_comparison",
-  //   leagueName: "psl",
-  //   firstPlayerID: "1",
-  //   secondPlayerID: "2",
-  // },
   {
     Component: LeaguePlayersComparison,
     link: "/comparison/ipl_comparison",
@@ -33,21 +19,20 @@ export const comparisonsLinks = [
     firstPlayerID: "137",
     secondPlayerID: "28",
   },
-
-  // {
-  //   Component: LeaguePlayersComparison,
-  //   link: "/comparison/super_smash_comparison",
-  //   leagueName: "super_smash",
-  //   firstPlayerID: "12",
-  //   secondPlayerID: "17",
-  // },
-  // {
-  //   Component: LeaguePlayersComparison,
-  //   link: "/comparison/t20_blast_comparison",
-  //   leagueName: "t20_blast",
-  //   firstPlayerID: "2",
-  //   secondPlayerID: "13",
-  // },
+  {
+    Component: LeaguePlayersComparison,
+    link: "/comparison/t20_blast_comparison",
+    leagueName: "t20_blast",
+    firstPlayerID: "110",
+    secondPlayerID: "123",
+  },
+  {
+    Component: LeaguePlayersComparison,
+    link: "/comparison/cpl_comparison",
+    leagueName: "cpl",
+    firstPlayerID: "19",
+    secondPlayerID: "115",
+  },
   {
     Component: LeaguePlayersComparison,
     link: "/comparison/lpl_comparison",
@@ -57,26 +42,14 @@ export const comparisonsLinks = [
   },
   {
     Component: LeaguePlayersComparison,
-    link: "/comparison/cpl_comparison",
-    leagueName: "cpl",
-    firstPlayerID: "19",
-    secondPlayerID: "115",
+    link: "/comparison/super_smash_comparison",
+    leagueName: "super_smash",
+    firstPlayerID: "12",
+    secondPlayerID: "5",
   },
 ];
 
 export const profileLinks = [
-  //   {
-  //     Component: IccPlayerProfile,
-  //     link: "/profiles/icc_profile",
-  //     leagueName: "icc",
-  //     playerID: "253802",
-  //   },
-  // {
-  //   Component: LeaguePlayerProfile,
-  //   link: "/profile/psl_profile",
-  //   leagueName: "psl",
-  //   playerID: "1",
-  // },
   {
     Component: LeaguePlayerProfile,
     link: "/profile/ipl_profile",
@@ -89,18 +62,18 @@ export const profileLinks = [
     leagueName: "bbl",
     playerID: "137",
   },
-  // {
-  //   Component: LeaguePlayerProfile,
-  //   link: "/profile/super_smash_profile",
-  //   leagueName: "super_smash",
-  //   playerID: "17",
-  // },
-  // {
-  //   Component: LeaguePlayerProfile,
-  //   link: "/profile/t20_blast_profile",
-  //   leagueName: "t20_blast",
-  //   playerID: "2",
-  // },
+  {
+    Component: LeaguePlayerProfile,
+    link: "/profile/t20_blast_profile",
+    leagueName: "t20_blast",
+    playerID: "110",
+  },
+  {
+    Component: LeaguePlayerProfile,
+    link: "/profile/cpl_profile",
+    leagueName: "cpl",
+    playerID: "19",
+  },
   {
     Component: LeaguePlayerProfile,
     link: "/profile/lpl_profile",
@@ -109,18 +82,13 @@ export const profileLinks = [
   },
   {
     Component: LeaguePlayerProfile,
-    link: "/profile/cpl_profile",
-    leagueName: "cpl",
-    playerID: "19",
+    link: "/profile/super_smash_profile",
+    leagueName: "super_smash",
+    playerID: "12",
   },
 ];
 
 export const LeagueLinks = [
-  // {
-  //   Component: LeagueStats,
-  //   link: "/league/psl_league",
-  //   leagueName: "psl",
-  // },
   {
     Component: LeagueStats,
     link: "/league/ipl_league",
@@ -131,16 +99,16 @@ export const LeagueLinks = [
     link: "/league/bbl_league",
     leagueName: "bbl",
   },
-  // {
-  //   Component: LeagueStats,
-  //   link: "/league/super_smash_league",
-  //   leagueName: "super_smash",
-  // },
-  // {
-  //   Component: LeagueStats,
-  //   link: "/league/t20_blast_league",
-  //   leagueName: "t20_blast",
-  // },
+  {
+    Component: LeagueStats,
+    link: "/league/t20_blast_league",
+    leagueName: "t20_blast",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/cpl_league",
+    leagueName: "cpl",
+  },
   {
     Component: LeagueStats,
     link: "/league/lpl_league",
@@ -148,7 +116,7 @@ export const LeagueLinks = [
   },
   {
     Component: LeagueStats,
-    link: "/league/cpl_league",
-    leagueName: "cpl",
+    link: "/league/super_smash_league",
+    leagueName: "super_smash",
   },
 ];
