@@ -16,7 +16,8 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if (process.env.REACT_APP_ENVIRONMENT === "PROD") {
+    console.log("process.env", process.env);
+    if (process.env.NODE_ENV === "production") {
       const first_script = document.createElement("script");
       first_script.src =
         "https://www.googletagmanager.com/gtag/js?id=G-5KY9X93YJY";

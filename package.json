@@ -24,8 +24,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "REACT_APP_BACKEND_URL=${server_url:-https://staging-cricareer-backend.herokuapp.com/} react-scripts start",
-    "build": "REACT_APP_BACKEND_URL=https://staging-cricareer-backend.herokuapp.com/ REACT_APP_ENVIRONMENT=PROD react-scripts build",
+    "start": "REACT_APP_BACKEND_URL=${server_url:-https://www.criccareers.com/} react-scripts start",
+    "build": "REACT_APP_BACKEND_URL=https://www.criccareers.com/ react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
