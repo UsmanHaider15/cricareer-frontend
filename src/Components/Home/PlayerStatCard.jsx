@@ -122,7 +122,7 @@ const playerStats = [
   {
     fullLeagueName: "Super Smash League",
     leagueName: "lpl",
-    brandColor: "#2389d0",
+    brandColor: "#141134",
     stats: [
       {
         label: "Most Runs",
