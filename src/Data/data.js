@@ -201,8 +201,8 @@ export const league_teams = {
   super_smash: [
     "All Teams",
     "Central Districts",
-    "Wellington",
     "Canterbury",
+    "Wellington",
     "Northern Districts",
     "Auckland",
     "Otago",
@@ -222,11 +222,11 @@ export const league_teams = {
 };
 
 export const league_seasons = {
-  psl: 6,
-  ipl: 13,
+  psl: 7,
+  ipl: 14,
   bbl: 11,
   cpl: 9,
   lpl: 2,
-  t20_blast: 18,
-  super_smash: 16,
+  t20_blast: 19,
+  super_smash: 17,
 };

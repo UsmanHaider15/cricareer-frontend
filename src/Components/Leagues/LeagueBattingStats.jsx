@@ -35,7 +35,7 @@ const column_name_lookup = {
 };
 
 const LeagueBattingStats = ({ leagueName }) => {
-  const [season, setSeason] = React.useState(0);
+  const [season, setSeason] = React.useState(league_seasons[leagueName]);
   const [loading, setLoading] = React.useState(true);
 
   const [battingStat, setBattingStat] = React.useState("Most Runs");

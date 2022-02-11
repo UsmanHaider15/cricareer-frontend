@@ -16,6 +16,7 @@ import {
 } from "Utils/generateHeader";
 import PlayerImage from "Components/Common/PlayerImage";
 import LeaguePlayerComparisonSkeleton from "./LeaguePlayerComparisonSkeleton";
+import { league_seasons } from "Data/data";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -37,9 +38,13 @@ const LeaguePlayersComparison = ({
 
   const prevLeagueName = usePrevious(leagueName);
 
-  const [battingSeason, setBattingSeason] = React.useState(5);
+  const [battingSeason, setBattingSeason] = React.useState(
+    league_seasons[leagueName]
+  );
   const [battingOpposition, setBattingOpposition] = React.useState("All Teams");
-  const [bowlingSeason, setBowlingSeason] = React.useState(5);
+  const [bowlingSeason, setBowlingSeason] = React.useState(
+    league_seasons[leagueName]
+  );
   const [bowlingOpposition, setBowlingOpposition] = React.useState("All Teams");
 
   if (prevLeagueName && leagueName !== prevLeagueName) {
@@ -104,16 +109,14 @@ const LeaguePlayersComparison = ({
     const query_parameters = qs.parse(history.location.search.substring(1));
 
     const batting_opposition = query_parameters["batting_opposition"];
-    console.log("batting_opposition", batting_opposition);
     setBattingOpposition(batting_opposition || "All Teams");
     const batting_season = query_parameters["batting_season"];
-    console.log("batting_season", batting_season);
-    setBattingSeason(batting_season || 0);
+    setBattingSeason(batting_season || league_seasons[leagueName]);
 
     const bowling_opposition = query_parameters["bowling_opposition"];
     setBowlingOpposition(bowling_opposition || "All Teams");
     const bowling_season = query_parameters["bowling_season"];
-    setBowlingSeason(bowling_season || 0);
+    setBowlingSeason(bowling_season || league_seasons[leagueName]);
 
     const player_ids = qs.parse(history.location.search.substring(1));
     const first_player_id = player_ids.first_player_id || initialFirstPlayerID;

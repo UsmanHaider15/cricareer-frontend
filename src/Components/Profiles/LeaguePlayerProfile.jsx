@@ -12,6 +12,7 @@ import PlayerImage from "Components/Common/PlayerImage";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LeaguePlayerProfileSkeleton from "./LeaguePlayerProfileSkeleton";
+import { league_seasons } from "Data/data";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -26,8 +27,12 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   const [player, setPlayer] = useState({});
   const prevLeagueName = usePrevious(leagueName);
 
-  const [battingSeason, setBattingSeason] = React.useState("");
-  const [bowlingSeason, setBowlingSeason] = React.useState("");
+  const [battingSeason, setBattingSeason] = React.useState(
+    league_seasons[leagueName]
+  );
+  const [bowlingSeason, setBowlingSeason] = React.useState(
+    league_seasons[leagueName]
+  );
 
   if (prevLeagueName && leagueName !== prevLeagueName) {
     window.location.reload();
@@ -82,8 +87,8 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
     const query_parameters = qs.parse(history.location.search.substring(1));
     const batting_season = query_parameters["batting_season"];
     const bowling_season = query_parameters["bowling_season"];
-    setBattingSeason(batting_season || 0);
-    setBowlingSeason(bowling_season || 0);
+    setBattingSeason(batting_season || league_seasons[leagueName]);
+    setBowlingSeason(bowling_season || league_seasons[leagueName]);
 
     const url_id = qs.parse(history.location.search.substring(1));
     const player_id = url_id["player_id"]
