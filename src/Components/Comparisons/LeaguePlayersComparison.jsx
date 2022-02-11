@@ -65,7 +65,6 @@ const LeaguePlayersComparison = ({
     battingOpposition,
     bowlingSeason,
     bowlingOpposition,
-    history,
   ]);
 
   const [locationKeys, setLocationKeys] = useState([]);
@@ -105,19 +104,9 @@ const LeaguePlayersComparison = ({
       .then(function () {
         // always executed
       });
+  }, []);
 
-    const query_parameters = qs.parse(history.location.search.substring(1));
-
-    const batting_opposition = query_parameters["batting_opposition"];
-    setBattingOpposition(batting_opposition || "All Teams");
-    const batting_season = query_parameters["batting_season"];
-    setBattingSeason(batting_season || league_seasons[leagueName]);
-
-    const bowling_opposition = query_parameters["bowling_opposition"];
-    setBowlingOpposition(bowling_opposition || "All Teams");
-    const bowling_season = query_parameters["bowling_season"];
-    setBowlingSeason(bowling_season || league_seasons[leagueName]);
-
+  useEffect(() => {
     const player_ids = qs.parse(history.location.search.substring(1));
     const first_player_id = player_ids.first_player_id || initialFirstPlayerID;
     const second_player_id =
@@ -154,7 +143,7 @@ const LeaguePlayersComparison = ({
       // pathname: "",
       search: `first_player_id=${first_player_id}&second_player_id=${second_player_id}`,
     });
-  }, [history, initialFirstPlayerID, initialSecondPlayerID, leagueName]);
+  }, [initialFirstPlayerID, initialSecondPlayerID]);
 
   const handleSelectedPlayer = (player, isFirst) => {
     if (isFirst) {
