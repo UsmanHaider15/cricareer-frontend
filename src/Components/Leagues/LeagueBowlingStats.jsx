@@ -3,7 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { league_seasons, league_teams } from "Data/data";
+import { test_league_seasons, league_teams } from "Data/data";
 import { Grid, Box } from "@mui/material";
 import httpService from "Services/httpService";
 import _ from "lodash";
@@ -34,7 +34,9 @@ const column_name_lookup = {
 };
 
 const LeagueBowlingStats = ({ leagueName }) => {
-  const [season, setSeason] = React.useState(league_seasons[leagueName]);
+  const [{ season_number: last_season_number }] =
+    test_league_seasons[leagueName].reverse();
+  const [season, setSeason] = React.useState(last_season_number);
   const [loading, setLoading] = React.useState(true);
 
   const [bowlingStat, setBowlingStats] = React.useState("Most Wickets");
@@ -140,17 +142,11 @@ const LeagueBowlingStats = ({ leagueName }) => {
               },
             ]}
           >
-            {[
-              0,
-              ...Array.from(
-                Array(league_seasons[leagueName]),
-                (x, i) => i + 1
-              ).reverse(),
-            ].map((value) => (
-              <MenuItem value={value}>
-                {value ? `Season ${value}` : "All Seasons"}
-              </MenuItem>
-            ))}
+            {test_league_seasons[leagueName]
+              .reverse()
+              .map(({ season_number, label }) => (
+                <MenuItem value={season_number}>{label}</MenuItem>
+              ))}
           </Select>
         </FormControl>
 
