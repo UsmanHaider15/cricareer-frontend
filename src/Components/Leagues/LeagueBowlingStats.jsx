@@ -83,7 +83,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
   return (
     <React.Fragment>
       {bowlingAverages.length ? (
-        <Grid container>
+        <Grid container sx={{ padding: 1 }}>
           <Grid xs={12}>
             <Box
               sx={{
