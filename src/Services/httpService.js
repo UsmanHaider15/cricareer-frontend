@@ -3,7 +3,7 @@ import axios from "axios";
 const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
 axios.defaults.baseURL = baseUrl;
-
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
     error.response &&
