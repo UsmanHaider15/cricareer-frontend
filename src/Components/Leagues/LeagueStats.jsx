@@ -11,6 +11,8 @@ const leagueNameLookup = {
   cpl: "Caribbean Premier League",
   bbl: "Big Bash League",
   bpl: "Bangladesh Premier League",
+  t20_blast: "T20 Blast League",
+  super_smash: "Super Smash League",
 };
 
 const LeagueStats = ({ leagueName }) => {

@@ -9,6 +9,7 @@ import httpService from "Services/httpService";
 import _ from "lodash";
 import LeagueAveragesTable from "./LeagueAveragesTable";
 import CircularLoader from "Components/Common/CircularLoader";
+import LeagueStatsSkeleton from "./LeagueStatsSkeleton";
 
 const stats_lookup = {
   "Most Wickets": "wickets_taken",
@@ -42,7 +43,6 @@ const LeagueBowlingStats = ({ leagueName }) => {
   const [bowlingAverages, setBowlingAverages] = React.useState([]);
 
   React.useEffect(() => {
-    console.log("here");
     httpService
       .get("/league_stats", {
         params: {
@@ -81,110 +81,116 @@ const LeagueBowlingStats = ({ leagueName }) => {
   }, [season, bowlingStat, oppositionOption]);
 
   return (
-    <Grid container>
-      <Grid xs={12}>
-        <Box
-          sx={{
-            padding: "5px 0px",
-            textAlign: "left",
-            fontSize: { xs: 30, md: 48 },
-          }}
-        >
-          Bowling Averages
-        </Box>
-      </Grid>
-      <Grid xs={12} style={{ textAlign: "left" }}>
-        <FormControl sx={{ paddingRight: 1 }}>
-          <InputLabel id="demo-simple-select-label">Stat</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={bowlingStat}
-            label="Stat"
-            onChange={(e) => {
-              setBowlingStats(e.target.value);
-              setLoading(true);
-            }}
-            sx={[
-              {
-                ".MuiSelect-select": {
-                  padding: { xs: "7px 5px", md: "16.5px 14px" },
-                  fontSize: { xs: "0.9rem", md: "1rem" },
-                },
-              },
-            ]}
-          >
-            {Object.keys(stats_lookup).map((stat) => (
-              <MenuItem value={stat}>{stat}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+    <React.Fragment>
+      {bowlingAverages.length ? (
+        <Grid container>
+          <Grid xs={12}>
+            <Box
+              sx={{
+                padding: "5px 0px",
+                textAlign: "left",
+                fontSize: { xs: 30, md: 48 },
+              }}
+            >
+              Bowling Averages
+            </Box>
+          </Grid>
+          <Grid xs={12} style={{ textAlign: "left" }}>
+            <FormControl sx={{ paddingRight: 1 }}>
+              <InputLabel id="demo-simple-select-label">Stat</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={bowlingStat}
+                label="Stat"
+                onChange={(e) => {
+                  setBowlingStats(e.target.value);
+                  setLoading(true);
+                }}
+                sx={[
+                  {
+                    ".MuiSelect-select": {
+                      padding: { xs: "7px 5px", md: "16.5px 14px" },
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                    },
+                  },
+                ]}
+              >
+                {Object.keys(stats_lookup).map((stat) => (
+                  <MenuItem value={stat}>{stat}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
-        <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
-          <InputLabel id="demo-simple-select-label">Season</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={season}
-            label="Season"
-            onChange={(e) => {
-              setSeason(e.target.value);
-              setLoading(true);
-            }}
-            sx={[
-              {
-                ".MuiSelect-select": {
-                  padding: { xs: "7px 5px", md: "16.5px 14px" },
-                  fontSize: { xs: "0.9rem", md: "1rem" },
-                },
-              },
-            ]}
-          >
-            {league_seasons[leagueName].map(({ season_number, label }) => (
-              <MenuItem value={season_number}>{label}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+            <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
+              <InputLabel id="demo-simple-select-label">Season</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={season}
+                label="Season"
+                onChange={(e) => {
+                  setSeason(e.target.value);
+                  setLoading(true);
+                }}
+                sx={[
+                  {
+                    ".MuiSelect-select": {
+                      padding: { xs: "7px 5px", md: "16.5px 14px" },
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                    },
+                  },
+                ]}
+              >
+                {league_seasons[leagueName].map(({ season_number, label }) => (
+                  <MenuItem value={season_number}>{label}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">Against</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={oppositionOption}
-            label="Against"
-            onChange={(e) => {
-              setOppositionOption(e.target.value);
-              setLoading(true);
-            }}
-            sx={[
-              {
-                ".MuiSelect-select": {
-                  padding: { xs: "7px 5px", md: "16.5px 14px" },
-                  fontSize: { xs: "0.9rem", md: "1rem" },
-                },
-              },
-            ]}
-          >
-            {league_teams[leagueName].map((value) => (
-              <MenuItem value={value}>{value}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Grid>
-      {!loading ? (
-        <LeagueAveragesTable
-          rows={bowlingAverages}
-          columnNamesLookup={{
-            player_name: "Player",
-            [stats_lookup[bowlingStat]]: "focus",
-            ...column_name_lookup,
-          }}
-        />
+            <FormControl>
+              <InputLabel id="demo-simple-select-label">Against</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={oppositionOption}
+                label="Against"
+                onChange={(e) => {
+                  setOppositionOption(e.target.value);
+                  setLoading(true);
+                }}
+                sx={[
+                  {
+                    ".MuiSelect-select": {
+                      padding: { xs: "7px 5px", md: "16.5px 14px" },
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                    },
+                  },
+                ]}
+              >
+                {league_teams[leagueName].map((value) => (
+                  <MenuItem value={value}>{value}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          {!loading ? (
+            <LeagueAveragesTable
+              rows={bowlingAverages}
+              columnNamesLookup={{
+                player_name: "Player",
+                [stats_lookup[bowlingStat]]: "focus",
+                ...column_name_lookup,
+              }}
+            />
+          ) : (
+            <CircularLoader />
+          )}
+        </Grid>
       ) : (
-        <CircularLoader />
+        <LeagueStatsSkeleton />
       )}
-    </Grid>
+    </React.Fragment>
   );
 };
 
