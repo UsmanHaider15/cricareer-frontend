@@ -222,16 +222,6 @@ export const league_teams = {
 };
 
 export const league_seasons = {
-  psl: 7,
-  ipl: 14,
-  bbl: 11,
-  cpl: 9,
-  lpl: 2,
-  t20_blast: 19,
-  super_smash: 17,
-};
-
-export const test_league_seasons = {
   ipl: [
     { season_number: 0, year: null, label: "All Seasons" },
     { season_number: 1, year: 2008, label: "IPL 2008" },

@@ -3,7 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { test_league_seasons, league_teams } from "Data/data";
+import { league_seasons, league_teams } from "Data/data";
 import { Grid, Box } from "@mui/material";
 import httpService from "Services/httpService";
 import _ from "lodash";
@@ -35,7 +35,7 @@ const column_name_lookup = {
 
 const LeagueBowlingStats = ({ leagueName }) => {
   const [{ season_number: last_season_number }] =
-    test_league_seasons[leagueName].reverse();
+    league_seasons[leagueName].reverse();
   const [season, setSeason] = React.useState(last_season_number);
   const [loading, setLoading] = React.useState(true);
 
@@ -142,7 +142,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
               },
             ]}
           >
-            {test_league_seasons[leagueName]
+            {league_seasons[leagueName]
               .reverse()
               .map(({ season_number, label }) => (
                 <MenuItem value={season_number}>{label}</MenuItem>

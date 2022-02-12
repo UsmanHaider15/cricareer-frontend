@@ -125,17 +125,11 @@ const LeaguePlayersBowlingAveragesComparison = ({
               },
             ]}
           >
-            {[
-              0,
-              ...Array.from(
-                Array(league_seasons[leagueName]),
-                (x, i) => i + 1
-              ).reverse(),
-            ].map((value) => (
-              <MenuItem value={value}>
-                {value ? `Season ${value}` : "All Seasons"}
-              </MenuItem>
-            ))}
+            {league_seasons[leagueName]
+              .reverse()
+              .map(({ season_number, label }) => (
+                <MenuItem value={season_number}>{label}</MenuItem>
+              ))}
           </Select>
         </FormControl>
 

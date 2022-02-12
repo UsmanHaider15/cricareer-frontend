@@ -16,7 +16,6 @@ import {
 } from "Utils/generateHeader";
 import PlayerImage from "Components/Common/PlayerImage";
 import LeaguePlayerComparisonSkeleton from "./LeaguePlayerComparisonSkeleton";
-import { league_seasons } from "Data/data";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -38,13 +37,9 @@ const LeaguePlayersComparison = ({
 
   const prevLeagueName = usePrevious(leagueName);
 
-  const [battingSeason, setBattingSeason] = React.useState(
-    league_seasons[leagueName]
-  );
+  const [battingSeason, setBattingSeason] = React.useState(0);
   const [battingOpposition, setBattingOpposition] = React.useState("All Teams");
-  const [bowlingSeason, setBowlingSeason] = React.useState(
-    league_seasons[leagueName]
-  );
+  const [bowlingSeason, setBowlingSeason] = React.useState(0);
   const [bowlingOpposition, setBowlingOpposition] = React.useState("All Teams");
 
   if (prevLeagueName && leagueName !== prevLeagueName) {
