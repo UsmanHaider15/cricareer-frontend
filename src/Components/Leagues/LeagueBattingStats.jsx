@@ -35,9 +35,7 @@ const column_name_lookup = {
 };
 
 const LeagueBattingStats = ({ leagueName }) => {
-  const [{ season_number: last_season_number }] =
-    league_seasons[leagueName].reverse();
-  const [season, setSeason] = React.useState(last_season_number);
+  const [season, setSeason] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
 
   const [battingStat, setBattingStat] = React.useState("Most Runs");
@@ -141,11 +139,9 @@ const LeagueBattingStats = ({ leagueName }) => {
               },
             ]}
           >
-            {league_seasons[leagueName]
-              .reverse()
-              .map(({ season_number, label }) => (
-                <MenuItem value={season_number}>{label}</MenuItem>
-              ))}
+            {league_seasons[leagueName].map(({ season_number, label }) => (
+              <MenuItem value={season_number}>{label}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 

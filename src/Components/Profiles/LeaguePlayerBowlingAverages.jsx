@@ -92,11 +92,9 @@ const LeaguePlayerBowlingAverages = ({
               },
             ]}
           >
-            {league_seasons[leagueName]
-              .reverse()
-              .map(({ season_number, label }) => (
-                <MenuItem value={season_number}>{label}</MenuItem>
-              ))}
+            {league_seasons[leagueName].map(({ season_number, label }) => (
+              <MenuItem value={season_number}>{label}</MenuItem>
+            ))}
           </Select>
         </FormControl>
       </div>
