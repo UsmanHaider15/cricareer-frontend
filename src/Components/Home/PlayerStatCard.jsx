@@ -74,7 +74,7 @@ const playerStats = [
     ],
   },
   {
-    fullLeagueName: "T20 Blast",
+    fullLeagueName: "T20 Blast League",
     leagueName: "t20_blast",
     brandColor: "#e71269",
     stats: [
