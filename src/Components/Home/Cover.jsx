@@ -24,7 +24,7 @@ const Cover = () => {
             CRICAREER
           </Typography>
           <Typography variant="body1" gutterBottom>
-            World's Best Cricket League Statistic Site
+            World's Best Cricket Leagues Statistics Site
           </Typography>
         </Box>
       </Grid>
