@@ -196,9 +196,18 @@ export default function PlayerStatCard() {
       {playerStats.map((playerStat) => (
         <React.Fragment>
           <Grid item xs={12}>
-            <Box sx={{ fontSize: { xs: 30, xl: 42 }, mt: 4 }}>
-              {" "}
-              <Link to={`/league/${playerStat.leagueName}_league`}>
+            <Box
+              sx={{
+                fontSize: { xs: 30, xl: 42 },
+                mt: 4,
+                textDecoration: "none",
+              }}
+            >
+              <Link
+                to={`/league/${playerStat.leagueName}_league`}
+                style={{ textDecoration: "none" }}
+              >
+                {" "}
                 {playerStat.fullLeagueName}
               </Link>
             </Box>

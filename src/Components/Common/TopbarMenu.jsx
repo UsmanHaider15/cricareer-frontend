@@ -47,7 +47,7 @@ export default function TopbarMenu({ type, links }) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        {btnLabel} {!isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+        {btnLabel} {!isOpen ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
       </MenuButton>
 
       <Menu

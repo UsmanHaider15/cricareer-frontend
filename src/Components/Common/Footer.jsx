@@ -18,14 +18,23 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <footer>
-      <Container maxWidth="sm">
+    <footer
+      style={{
+        width: "100%",
+        boxShadow: "5px 10px ",
+        backgroundColor: "#170451",
+      }}
+    >
+      <Container maxWidth="sm" sx={{ paddingTop: 5, paddingBottom: 5 }}>
+        <Grid xs={12} style={{ textAlign: "center", color: "white" }}>
+          Follow Us
+        </Grid>
         <Grid xs={12} style={{ textAlign: "center" }}>
-          <TwitterIcon color="secondary" style={{ cursor: "pointer" }} />{" "}
-          <FacebookIcon color="secondary" style={{ cursor: "pointer" }} />
+          <TwitterIcon color="primary" style={{ cursor: "pointer" }} />{" "}
+          <FacebookIcon color="primary" style={{ cursor: "pointer" }} />
         </Grid>
         <Grid xs={12} style={{ textAlign: "center" }}></Grid>
-        <Grid xs={12} style={{ textAlign: "center", color: "grey" }}>
+        <Grid xs={12} style={{ textAlign: "center", color: "white" }}>
           <Copyright />
         </Grid>
       </Container>
