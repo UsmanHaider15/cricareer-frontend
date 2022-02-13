@@ -78,7 +78,7 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
                                 whiteSpace: "nowrap",
                               }
                             : {
-                                textAlign: "center",
+                                textAlign: { xs: "left", md: "center" },
                               }),
                           fontSize: { xs: 12, md: 18 },
                           padding: { xs: 1 },

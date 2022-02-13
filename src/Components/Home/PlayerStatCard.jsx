@@ -51,6 +51,29 @@ const playerStats = [
     ],
   },
   {
+    fullLeagueName: "Pakistan Super League",
+    leagueName: "psl",
+    brandColor: "#00998c",
+    stats: [
+      {
+        label: "Most Runs",
+        player_url: "/profile/psl_profile?player_id=63",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/348144_headshot.png",
+        player_name: "Babar Azam",
+        value: "2070",
+      },
+      {
+        label: "Most Wickets",
+        player_url: "/profile/psl_profile?player_id=9",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/43590_headshot.png",
+        player_name: "Wahab Riaz",
+        value: "92",
+      },
+    ],
+  },
+  {
     fullLeagueName: "T20 Blast",
     leagueName: "t20_blast",
     brandColor: "#e71269",
@@ -93,6 +116,29 @@ const playerStats = [
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/51439_headshot.png",
         player_name: "DJ Bravo",
         value: "58",
+      },
+    ],
+  },
+  {
+    fullLeagueName: "Bangladesh Premier League",
+    leagueName: "bpl",
+    brandColor: "#00723f",
+    stats: [
+      {
+        label: "Most Runs",
+        player_url: "/profile/bpl_profile?player_id=62",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/56194_headshot.png",
+        player_name: "Tamim Iqbal",
+        value: "2066",
+      },
+      {
+        label: "Most Wickets",
+        player_url: "/profile/bpl_profile?player_id=53",
+        avatar_url:
+          "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/56143_headshot.png",
+        player_name: "Shakib Al Hasan",
+        value: "95",
       },
     ],
   },

@@ -4,17 +4,17 @@ import Grid from "@mui/material/Grid";
 
 const stats = [
   {
-    value: "7",
+    value: "8",
     title: "Cricket Leagues",
     description: "",
   },
   {
-    value: "2300+",
+    value: "3200+",
     title: "Matches",
     description: "",
   },
   {
-    value: "3750+",
+    value: "3500+",
     title: "Players",
     description: "",
   },

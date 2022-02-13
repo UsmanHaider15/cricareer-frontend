@@ -45,43 +45,6 @@ export const league_batting_table_column_name_lookup = {
   hundreds_scored: "100s",
 };
 
-export const icc_batting_table_column_name_lookup = {
-  format_type: "Formats",
-  // opposition_team: "Teams",
-  matches_played: "Matches",
-  innings_played: "Innings",
-  not_outs: "NO",
-  runs_scored: "Runs",
-  highest_inns_score: "HS",
-  batting_average: "Avg",
-  balls_faced: "BF",
-  batting_strike_rate: "SR",
-  boundary_fours: "4s",
-  boundary_sixes: "6s",
-  fifties_scored: "50s",
-  hundreds_scored: "100s",
-  ducks_scored: "Ducks",
-};
-
-export const icc_bowling_table_column_name_lookup = {
-  format_type: "Formats",
-  matches_played: "Matches",
-  innings_played: "Innings",
-  wickets_taken: "Wickets Taken",
-  // balls_bowled: "Balls Bowled",
-  best_innings_bowling: "Best Inns Bowling",
-  best_match_bowling: "Best Match Bowling",
-  bowling_average: "Bowling Average",
-  bowling_strike_rate: "Batting Strike Rate",
-  economy_rate: "Economy Rate",
-  maidens_earned: "Maidens Earned",
-  overs_bowled: "Overs Bowled",
-  runs_conceded: "Runs Conceded",
-  four_wkts_in_an_inns: "4 Wkts in Inns",
-  five_wkts_in_an_inns: "5 Wkts in Inns",
-  ten_wkts_in_an_inns: "10 Wkts in Inns",
-};
-
 export const league_bowling_table_column_to_label_lookup = {
   opposition_team: "Teams",
   innings_played: "Inns",
@@ -96,29 +59,6 @@ export const league_bowling_table_column_to_label_lookup = {
   four_wkts_in_an_inns: "4w",
   five_wkts_in_an_inns: "5w",
   ten_wkts_in_an_inns: "10w",
-};
-
-export const icc_teams_lookup = {
-  all_teams: "All Teams",
-  england: "England",
-  australia: "Australia",
-  southafrica: "South Africa",
-  westindies: "West Indies",
-  newzealand: "New Zealand",
-  india: "India",
-  pakistan: "Pakistan",
-  srilanka: "Sri Lanka",
-  zimbabwe: "Zimbabwe",
-  bangladesh: "Bangladesh",
-  ireland: "Ireland",
-  afghanistan: "Afghanistan",
-};
-
-export const icc_format_lookup = {
-  odi: "ODIs",
-  all_formats: "All Formats",
-  t201: "T20Is",
-  test: "Tests",
 };
 
 export const league_teams = {
@@ -174,7 +114,31 @@ export const league_teams = {
     "Antigua Hawksbills",
     "St Lucia Zouks",
   ],
-
+  bpl: [
+    "All Teams",
+    "Khulna Titans",
+    "Khulna Tigers",
+    "Dhaka Gladiators",
+    "Chittagong Kings",
+    "Sylhet Sixers",
+    "Dhaka Dynamites",
+    "Dhaka Platoon",
+    "Barisal Burners",
+    "Sylhet Royals",
+    "Rangpur Riders",
+    "Rangpur Rangers",
+    "Comilla Victorians",
+    "Sylhet Super Stars",
+    "Barisal Bulls",
+    "Duronto Rajshahi",
+    "Sylhet Thunder",
+    "Khulna Royal Bengals",
+    "Rajshahi Royals",
+    "Chattogram Challengers",
+    "Chittagong Vikings",
+    "Cumilla Warriors",
+    "Rajshahi Kings",
+  ],
   t20_blast: [
     "All Teams",
     "Worcestershire",
@@ -223,7 +187,6 @@ export const league_teams = {
 
 export const league_seasons = {
   ipl: [
-    { season_number: 0, year: null, label: "All Seasons" },
     { season_number: 1, year: 2008, label: "IPL 2008" },
     { season_number: 2, year: 2009, label: "IPL 2009" },
     { season_number: 3, year: 2010, label: "IPL 2010" },
@@ -240,7 +203,6 @@ export const league_seasons = {
     { season_number: 14, year: 2021, label: "IPL 2021" },
   ],
   bbl: [
-    { season_number: 0, year: null, label: "All Seasons" },
     { season_number: 1, year: "2011-12", label: "BBL 2011-12" },
     { season_number: 2, year: "2012-13", label: "BBL 2012-13" },
     { season_number: 3, year: "2013-14", label: "BBL 2013-14" },
@@ -253,8 +215,24 @@ export const league_seasons = {
     { season_number: 10, year: "2020-21", label: "BBL 2020-21" },
     { season_number: 11, year: "2021-22", label: "BBL 2021-22" },
   ],
+  psl: [
+    { season_number: 1, year: 2016, label: "PSL 2016" },
+    { season_number: 2, year: 2017, label: "PSL 2017" },
+    { season_number: 3, year: 2018, label: "PSL 2018" },
+    { season_number: 4, year: 2019, label: "PSL 2019" },
+    { season_number: 5, year: 2020, label: "PSL 2020" },
+    { season_number: 6, year: 2021, label: "PSL 2021" },
+  ],
   cpl: [
-    { season_number: 0, year: null, label: "All Seasons" },
+    { season_number: 1, year: 2012, label: "BPL 2013" },
+    { season_number: 2, year: 2013, label: "BPL 2013" },
+    { season_number: 3, year: 2014, label: "BPL 2014" },
+    { season_number: 4, year: 2015, label: "BPL 2015" },
+    { season_number: 5, year: 2016, label: "BPL 2016" },
+    { season_number: 6, year: 2017, label: "BPL 2017" },
+    { season_number: 7, year: 2018, label: "BPL 2018" },
+  ],
+  bpl: [
     { season_number: 1, year: 2013, label: "CPL 2013" },
     { season_number: 2, year: 2014, label: "CPL 2014" },
     { season_number: 3, year: 2015, label: "CPL 2015" },
@@ -266,12 +244,10 @@ export const league_seasons = {
     { season_number: 9, year: 2021, label: "CPL 2021" },
   ],
   lpl: [
-    { season_number: 0, year: null, label: "All Seasons" },
     { season_number: 1, year: 2020, label: "CPL 2020" },
     { season_number: 2, year: 2021, label: "CPL 2021" },
   ],
   t20_blast: [
-    { season_number: 0, year: null, label: "All Seasons" },
     { season_number: 12, year: 2014, label: "TB 2014" },
     { season_number: 13, year: 2015, label: "TB 2015" },
     { season_number: 14, year: 2016, label: "TB 2016" },
@@ -282,7 +258,6 @@ export const league_seasons = {
     { season_number: 19, year: 2021, label: "TB 2021" },
   ],
   super_smash: [
-    { season_number: 0, year: null, label: "All Seasons" },
     { season_number: 9, year: "2013-14", label: "SM 2013-14" },
     { season_number: 8, year: "2014-15", label: "SM 2014-15" },
     { season_number: 13, year: "2017-18", label: "SM 2017-18" },

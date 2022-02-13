@@ -21,6 +21,13 @@ export const comparisonsLinks = [
   },
   {
     Component: LeaguePlayersComparison,
+    link: "/comparison/psl_comparison",
+    leagueName: "psl",
+    firstPlayerID: "63",
+    secondPlayerID: "18",
+  },
+  {
+    Component: LeaguePlayersComparison,
     link: "/comparison/t20_blast_comparison",
     leagueName: "t20_blast",
     firstPlayerID: "110",
@@ -32,6 +39,13 @@ export const comparisonsLinks = [
     leagueName: "cpl",
     firstPlayerID: "19",
     secondPlayerID: "115",
+  },
+  {
+    Component: LeaguePlayersComparison,
+    link: "/comparison/bpl_comparison",
+    leagueName: "bpl",
+    firstPlayerID: "62",
+    secondPlayerID: "158",
   },
   {
     Component: LeaguePlayersComparison,
@@ -64,6 +78,12 @@ export const profileLinks = [
   },
   {
     Component: LeaguePlayerProfile,
+    link: "/profile/psl_profile",
+    leagueName: "psl",
+    playerID: "63",
+  },
+  {
+    Component: LeaguePlayerProfile,
     link: "/profile/t20_blast_profile",
     leagueName: "t20_blast",
     playerID: "110",
@@ -73,6 +93,12 @@ export const profileLinks = [
     link: "/profile/cpl_profile",
     leagueName: "cpl",
     playerID: "19",
+  },
+  {
+    Component: LeaguePlayerProfile,
+    link: "/profile/bpl_profile",
+    leagueName: "bpl",
+    playerID: "62",
   },
   {
     Component: LeaguePlayerProfile,
@@ -101,6 +127,11 @@ export const LeagueLinks = [
   },
   {
     Component: LeagueStats,
+    link: "/league/psl_league",
+    leagueName: "psl",
+  },
+  {
+    Component: LeagueStats,
     link: "/league/t20_blast_league",
     leagueName: "t20_blast",
   },
@@ -108,6 +139,11 @@ export const LeagueLinks = [
     Component: LeagueStats,
     link: "/league/cpl_league",
     leagueName: "cpl",
+  },
+  {
+    Component: LeagueStats,
+    link: "/league/bpl_league",
+    leagueName: "bpl",
   },
   {
     Component: LeagueStats,
