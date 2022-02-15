@@ -3,7 +3,7 @@ import Breadcrumb from "Components/Common/Breadcrumb";
 import React from "react";
 import LeagueBattingStats from "./LeagueBattingStats";
 import LeagueBowlingStats from "./LeagueBowlingStats";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 const leagueNameLookup = {
   lpl: "Lanka Premier League",
@@ -28,12 +28,13 @@ const LeagueStats = ({ leagueName }) => {
   let query = useQuery();
 
   const [queryParam, setQueryParams] = React.useState({});
+  const history = useHistory();
 
   const handleParamChange = (type, value) => {
     const newParams = { ...queryParam, [type]: value };
     setQueryParams(newParams);
     let searchParams = new URLSearchParams(newParams);
-    console.log("searchParams", searchParams.toString());
+    history.push({ pathname: "", search: searchParams.toString() });
   };
 
   return (
@@ -55,9 +56,9 @@ const LeagueStats = ({ leagueName }) => {
         />
         <LeagueBowlingStats
           leagueName={leagueName}
-          bowlingStat={query.get("bowlingStat") || undefined}
+          stat={query.get("bowlingStat") || undefined}
           bowlingSeason={query.get("bowlingSeason") || undefined}
-          bowlingOpposition={query.get("bowlingOpposition") || undefined}
+          opposition={query.get("bowlingOpposition") || undefined}
           onHandleParamChange={handleParamChange}
         />
       </Grid>

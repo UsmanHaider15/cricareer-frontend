@@ -36,8 +36,8 @@ const column_name_lookup = {
 
 const LeagueBowlingStats = ({
   leagueName,
-  bowlingSeason = 0,
   stat = "Most Wickets",
+  bowlingSeason = 0,
   opposition = "All Teams",
   onHandleParamChange,
 }) => {
@@ -114,7 +114,7 @@ const LeagueBowlingStats = ({
                 id="demo-simple-select"
                 value={bowlingStat}
                 label="Stat"
-                name="battingStat"
+                name="bowlingStat"
                 onChange={(e) => handleOptionChange(e, setBowlingStats)}
                 sx={[
                   {

@@ -37,8 +37,8 @@ const column_name_lookup = {
 
 const LeagueBattingStats = ({
   leagueName,
-  battingSeason = 0,
   stat = "Most Runs",
+  battingSeason = 0,
   opposition = "All Teams",
   onHandleParamChange,
 }) => {

@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -56,7 +56,7 @@ function App() {
               <Home />
             </Route>
             <Grid container spacing={1} sx={{ paddingTop: { xs: 8, md: 10 } }}>
-              <Grid item xs={0} md={3}></Grid>
+              <Grid item xs={0} md={3} />
               <Grid item xs={12} md={6}>
                 <Paper>
                   {profileLinks.map(
