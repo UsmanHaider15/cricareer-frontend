@@ -64,9 +64,10 @@ const LeagueAveragesTable = ({ rows, columnNamesLookup }) => {
             {stableSort(rows, getComparator(order, orderBy)).map(
               (row, index) => {
                 return (
-                  <TableRow hover tabIndex={-1} key={row.opposition_team}>
+                  <TableRow key={index} hover tabIndex={-1}>
                     {Object.values(row).map((col_val, ind) => (
                       <TableCell
+                        key={ind}
                         sx={{
                           ...(!ind
                             ? {

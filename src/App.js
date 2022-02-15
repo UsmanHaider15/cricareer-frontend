@@ -16,7 +16,6 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("process.env", process.env);
     if (process.env.NODE_ENV === "production") {
       const first_script = document.createElement("script");
       first_script.src =
@@ -61,8 +60,8 @@ function App() {
               <Grid item xs={12} md={6}>
                 <Paper>
                   {profileLinks.map(
-                    ({ link, Component, leagueName, playerID }) => (
-                      <Route path={link}>
+                    ({ link, Component, leagueName, playerID }, idx) => (
+                      <Route key={idx} path={link}>
                         <Component
                           leagueName={leagueName}
                           initialPlayerID={playerID}
@@ -72,14 +71,17 @@ function App() {
                   )}
 
                   {comparisonsLinks.map(
-                    ({
-                      Component,
-                      link,
-                      leagueName,
-                      firstPlayerID,
-                      secondPlayerID,
-                    }) => (
-                      <Route path={link}>
+                    (
+                      {
+                        Component,
+                        link,
+                        leagueName,
+                        firstPlayerID,
+                        secondPlayerID,
+                      },
+                      idx
+                    ) => (
+                      <Route key={idx} path={link}>
                         <Component
                           leagueName={leagueName}
                           initialFirstPlayerID={firstPlayerID}
@@ -89,8 +91,8 @@ function App() {
                     )
                   )}
 
-                  {LeagueLinks.map(({ Component, link, leagueName }) => (
-                    <Route path={link}>
+                  {LeagueLinks.map(({ Component, link, leagueName }, idx) => (
+                    <Route key={idx} path={link}>
                       <Component leagueName={leagueName} />
                     </Route>
                   ))}

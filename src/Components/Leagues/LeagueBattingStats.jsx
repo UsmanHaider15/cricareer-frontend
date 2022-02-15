@@ -124,8 +124,10 @@ const LeagueBattingStats = ({
                   },
                 ]}
               >
-                {Object.keys(stats_lookup).map((stat) => (
-                  <MenuItem value={stat}>{stat}</MenuItem>
+                {Object.keys(stats_lookup).map((stat, idx) => (
+                  <MenuItem key={idx} value={stat}>
+                    {stat}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -156,8 +158,10 @@ const LeagueBattingStats = ({
                   { season_number: 0, year: null, label: "All Seasons" },
                 ]
                   .reverse()
-                  .map(({ season_number, label }) => (
-                    <MenuItem value={season_number}>{label}</MenuItem>
+                  .map(({ season_number, label }, idx) => (
+                    <MenuItem key={idx} value={season_number}>
+                      {label}
+                    </MenuItem>
                   ))}
               </Select>
             </FormControl>
@@ -180,8 +184,10 @@ const LeagueBattingStats = ({
                   },
                 ]}
               >
-                {league_teams[leagueName].map((value) => (
-                  <MenuItem value={value}>{value}</MenuItem>
+                {league_teams[leagueName].map((value, idx) => (
+                  <MenuItem key={idx} value={value}>
+                    {value}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>

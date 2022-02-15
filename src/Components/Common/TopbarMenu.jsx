@@ -57,8 +57,12 @@ export default function TopbarMenu({ type, links }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {links.map(({ link, leagueName }) => (
-          <Link to={link} style={{ textDecoration: "none", color: "#170451" }}>
+        {links.map(({ link, leagueName }, idx) => (
+          <Link
+            key={idx}
+            to={link}
+            style={{ textDecoration: "none", color: "#170451" }}
+          >
             <MenuItem
               sx={{ textDecoration: "none" }}
               onClick={() => {
