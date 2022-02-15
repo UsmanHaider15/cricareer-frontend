@@ -49,6 +49,8 @@ const LeagueBowlingStats = ({
   const [bowlingAverages, setBowlingAverages] = React.useState([]);
 
   const handleOptionChange = (e, setter) => {
+    e.preventDefault();
+
     onHandleParamChange(e.target.name, e.target.value);
     setter(e.target.value);
     setLoading(true);

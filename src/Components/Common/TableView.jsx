@@ -7,8 +7,9 @@ const TableView = ({ data, excludedKeys }) => {
     <Typography>
       {Object.keys(data.first_player)
         .filter((key) => !excludedKeys.includes(key))
-        .map((key) => (
+        .map((key, idx) => (
           <Box
+            key={idx}
             style={{
               display: "flex",
               flexDirection: "row",

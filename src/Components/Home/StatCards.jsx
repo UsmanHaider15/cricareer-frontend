@@ -23,8 +23,8 @@ const stats = [
 export default function StatCards() {
   return (
     <Grid container spacing={1}>
-      {stats.map((stat) => (
-        <Grid item xs={12} md={4}>
+      {stats.map((stat, idx) => (
+        <Grid key={idx} item xs={12} md={4}>
           <Box
             sx={{
               display: "flex",

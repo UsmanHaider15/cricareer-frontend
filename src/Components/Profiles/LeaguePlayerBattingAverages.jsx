@@ -96,8 +96,10 @@ const LeaguePlayerBattingAverages = ({
               { season_number: 0, year: null, label: "All Seasons" },
             ]
               .reverse()
-              .map(({ season_number, label }) => (
-                <MenuItem value={season_number}>{label}</MenuItem>
+              .map(({ season_number, label }, idx) => (
+                <MenuItem key={idx} value={season_number}>
+                  {label}
+                </MenuItem>
               ))}
           </Select>
         </FormControl>

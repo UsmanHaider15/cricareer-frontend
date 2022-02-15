@@ -193,9 +193,9 @@ const playerStats = [
 export default function PlayerStatCard() {
   return (
     <div>
-      {playerStats.map((playerStat) => (
+      {playerStats.map((playerStat, idx) => (
         <React.Fragment>
-          <Grid item xs={12}>
+          <Grid key={idx} item xs={12}>
             <Box
               sx={{
                 fontSize: { xs: 30, xl: 42 },
@@ -213,8 +213,8 @@ export default function PlayerStatCard() {
             </Box>
           </Grid>
           <Grid container spacing={2}>
-            {playerStat.stats.map((stat) => (
-              <Grid item xs={12} md={6}>
+            {playerStat.stats.map((stat, idx) => (
+              <Grid key={idx} item xs={12} md={6}>
                 <Link to={stat.player_url} style={{ textDecoration: "none" }}>
                   <Box
                     sx={{
