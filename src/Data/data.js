@@ -70,6 +70,7 @@ export const league_teams = {
     "Royal Challengers Bangalore",
     "Kochi Tuskers Kerala",
     "Rising Pune Supergiant",
+    "Punjab Kings",
     "Mumbai Indians",
     "Chennai Super Kings",
     "Delhi Daredevils",
