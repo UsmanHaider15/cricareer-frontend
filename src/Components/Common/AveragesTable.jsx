@@ -50,7 +50,6 @@ const AveragesTable = ({ rows, columnNamesLookup }) => {
     return <NoData />;
   }
 
-  console.log("rows", rows);
   return (
     <Paper sx={{ width: "100%", overflow: "hidden", marginTop: 2 }}>
       <TableContainer sx={{ maxHeight: 400 }}>

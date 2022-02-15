@@ -3,6 +3,7 @@ import Breadcrumb from "Components/Common/Breadcrumb";
 import React from "react";
 import LeagueBattingStats from "./LeagueBattingStats";
 import LeagueBowlingStats from "./LeagueBowlingStats";
+import { useLocation } from "react-router-dom";
 
 const leagueNameLookup = {
   lpl: "Lanka Premier League",
@@ -15,7 +16,26 @@ const leagueNameLookup = {
   super_smash: "Super Smash League",
 };
 
+// A custom hook that builds on useLocation to parse
+// the query string for you.
+function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
+}
+
 const LeagueStats = ({ leagueName }) => {
+  let query = useQuery();
+
+  const [queryParam, setQueryParams] = React.useState({});
+
+  const handleParamChange = (type, value) => {
+    const newParams = { ...queryParam, [type]: value };
+    setQueryParams(newParams);
+    let searchParams = new URLSearchParams(newParams);
+    console.log("searchParams", searchParams.toString());
+  };
+
   return (
     <Box sx={{ padding: { xs: 2 }, paddingRight: { xs: 0, md: 1 } }}>
       <Box sx={{ paddingRight: { xs: 2 } }}>
@@ -26,8 +46,20 @@ const LeagueStats = ({ leagueName }) => {
         {leagueNameLookup[leagueName]}
       </Box>
       <Grid container spacing={1}>
-        <LeagueBattingStats leagueName={leagueName} />
-        <LeagueBowlingStats leagueName={leagueName} />
+        <LeagueBattingStats
+          leagueName={leagueName}
+          stat={query.get("battingStat") || undefined}
+          battingSeason={query.get("battingSeason") || undefined}
+          opposition={query.get("battingOpposition") || undefined}
+          onHandleParamChange={handleParamChange}
+        />
+        <LeagueBowlingStats
+          leagueName={leagueName}
+          bowlingStat={query.get("bowlingStat") || undefined}
+          bowlingSeason={query.get("bowlingSeason") || undefined}
+          bowlingOpposition={query.get("bowlingOpposition") || undefined}
+          onHandleParamChange={handleParamChange}
+        />
       </Grid>
     </Box>
   );

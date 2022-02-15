@@ -35,13 +35,25 @@ const column_name_lookup = {
   hundreds_scored: "100s",
 };
 
-const LeagueBattingStats = ({ leagueName }) => {
-  const [season, setSeason] = React.useState(0);
+const LeagueBattingStats = ({
+  leagueName,
+  battingSeason = 0,
+  stat = "Most Runs",
+  opposition = "All Teams",
+  onHandleParamChange,
+}) => {
+  const [season, setSeason] = React.useState(battingSeason);
   const [loading, setLoading] = React.useState(true);
 
-  const [battingStat, setBattingStat] = React.useState("Most Runs");
-  const [oppositionOption, setOppositionOption] = React.useState("All Teams");
+  const [battingStat, setBattingStat] = React.useState(stat);
+  const [oppositionOption, setOppositionOption] = React.useState(opposition);
   const [battingAverages, setBattingAverages] = React.useState([]);
+
+  const handleOptionChange = (e, setter) => {
+    onHandleParamChange(e.target.name, e.target.value);
+    setter(e.target.value);
+    setLoading(true);
+  };
 
   React.useEffect(() => {
     httpService
@@ -56,7 +68,6 @@ const LeagueBattingStats = ({ leagueName }) => {
       })
       .then(({ data }) => {
         const { rows } = data;
-        console.table(rows);
 
         // Important: here we are enforcing order
         const modifiedData = rows.map((obj) => {
@@ -102,10 +113,8 @@ const LeagueBattingStats = ({ leagueName }) => {
                 id="demo-simple-select"
                 value={battingStat}
                 label="Stat"
-                onChange={(e) => {
-                  setBattingStat(e.target.value);
-                  setLoading(true);
-                }}
+                name="battingStat"
+                onChange={(e) => handleOptionChange(e, setBattingStat)}
                 sx={[
                   {
                     ".MuiSelect-select": {
@@ -131,10 +140,8 @@ const LeagueBattingStats = ({ leagueName }) => {
                 id="demo-simple-select"
                 value={season}
                 label="Season"
-                onChange={(e) => {
-                  setSeason(e.target.value);
-                  setLoading(true);
-                }}
+                name="battingSeason"
+                onChange={(e) => handleOptionChange(e, setSeason)}
                 sx={[
                   {
                     ".MuiSelect-select": {
@@ -162,10 +169,8 @@ const LeagueBattingStats = ({ leagueName }) => {
                 id="demo-simple-select"
                 value={oppositionOption}
                 label="Against"
-                onChange={(e) => {
-                  setOppositionOption(e.target.value);
-                  setLoading(true);
-                }}
+                name="battingOpposition"
+                onChange={(e) => handleOptionChange(e, setOppositionOption)}
                 sx={[
                   {
                     ".MuiSelect-select": {
