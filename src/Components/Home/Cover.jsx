@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 const Cover = () => {
   return (
     <Grid container>
-      <Grid xs={12}>
+      <Grid item xs={12}>
         <Box
           sx={{
             position: "relative",

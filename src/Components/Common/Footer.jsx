@@ -26,15 +26,15 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="sm" sx={{ paddingTop: 5, paddingBottom: 5 }}>
-        <Grid xs={12} style={{ textAlign: "center", color: "white" }}>
+        <Grid item xs={12} style={{ textAlign: "center", color: "white" }}>
           Follow Us
         </Grid>
-        <Grid xs={12} style={{ textAlign: "center" }}>
+        <Grid item xs={12} style={{ textAlign: "center" }}>
           <TwitterIcon color="primary" style={{ cursor: "pointer" }} />{" "}
           <FacebookIcon color="primary" style={{ cursor: "pointer" }} />
         </Grid>
-        <Grid xs={12} style={{ textAlign: "center" }}></Grid>
-        <Grid xs={12} style={{ textAlign: "center", color: "white" }}>
+        <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
+        <Grid item xs={12} style={{ textAlign: "center", color: "white" }}>
           <Copyright />
         </Grid>
       </Container>

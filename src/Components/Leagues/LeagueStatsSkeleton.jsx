@@ -6,7 +6,7 @@ import Skeleton from "@mui/material/Skeleton";
 const LeagueStatsSkeleton = () => {
   return (
     <Box sx={{ width: "100%", padding: { xs: 1 } }}>
-      <Grid xs={12} sx={{ height: 100, marginBottom: 1 }}>
+      <Grid item xs={12} sx={{ height: 100, marginBottom: 1 }}>
         <Skeleton variant="text" height="100%" />
       </Grid>
 

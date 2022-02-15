@@ -93,7 +93,7 @@ const LeaguePlayersBattingAveragesComparison = ({
 
   return (
     <Grid container>
-      <Grid xs={12}>
+      <Grid item xs={12}>
         <Box
           sx={{
             padding: "5px 0px",
@@ -104,7 +104,7 @@ const LeaguePlayersBattingAveragesComparison = ({
           Batting Averages
         </Box>
       </Grid>
-      <Grid xs={12} style={{ textAlign: "left" }}>
+      <Grid item xs={12} style={{ textAlign: "left" }}>
         <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
           <InputLabel id="demo-controlled-open-select-label">Season</InputLabel>
           <Select
@@ -165,6 +165,7 @@ const LeaguePlayersBattingAveragesComparison = ({
         </FormControl>
       </Grid>
       <Grid
+        item
         xs={12}
         style={{
           boxShadow: "2px 2px 6px 0px #888888",

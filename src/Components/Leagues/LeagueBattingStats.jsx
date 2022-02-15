@@ -95,7 +95,7 @@ const LeagueBattingStats = ({
     <React.Fragment>
       {battingAverages.length ? (
         <Grid container sx={{ padding: 1 }}>
-          <Grid xs={12}>
+          <Grid item xs={12}>
             <Box
               sx={{
                 textAlign: "left",
@@ -105,7 +105,7 @@ const LeagueBattingStats = ({
               Batting Averages
             </Box>
           </Grid>
-          <Grid xs={12} sx={{ textAlign: "left" }}>
+          <Grid item xs={12} sx={{ textAlign: "left" }}>
             <FormControl sx={{ paddingRight: 1, marginTop: 1 }}>
               <InputLabel id="demo-simple-select-label">Stat</InputLabel>
               <Select
