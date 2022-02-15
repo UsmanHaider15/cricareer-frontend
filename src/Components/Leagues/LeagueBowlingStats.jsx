@@ -96,7 +96,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
             </Box>
           </Grid>
           <Grid xs={12} style={{ textAlign: "left" }}>
-            <FormControl sx={{ paddingRight: 1 }}>
+            <FormControl sx={{ paddingRight: 1, marginTop: 1 }}>
               <InputLabel id="demo-simple-select-label">Stat</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -122,7 +122,10 @@ const LeagueBowlingStats = ({ leagueName }) => {
               </Select>
             </FormControl>
 
-            <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
+            <FormControl
+              variant="outlined"
+              sx={{ paddingRight: 1, marginTop: 1 }}
+            >
               <InputLabel id="demo-simple-select-label">Season</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -153,7 +156,7 @@ const LeagueBowlingStats = ({ leagueName }) => {
               </Select>
             </FormControl>
 
-            <FormControl>
+            <FormControl sx={{ marginTop: 1 }}>
               <InputLabel id="demo-simple-select-label">Against</InputLabel>
               <Select
                 labelId="demo-simple-select-label"

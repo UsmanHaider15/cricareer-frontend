@@ -17,8 +17,10 @@ const leagueNameLookup = {
 
 const LeagueStats = ({ leagueName }) => {
   return (
-    <Box sx={{ padding: { xs: 2 } }}>
-      <Breadcrumb leagueName={leagueName} type="league" />
+    <Box sx={{ padding: { xs: 2 }, paddingRight: { xs: 0, md: 1 } }}>
+      <Box sx={{ paddingRight: { xs: 2 } }}>
+        <Breadcrumb leagueName={leagueName} type="league" />
+      </Box>
 
       <Box sx={{ fontSize: { xs: 32, md: 48 }, fontWeight: "bolder" }}>
         {leagueNameLookup[leagueName]}

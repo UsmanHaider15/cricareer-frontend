@@ -95,7 +95,7 @@ const LeagueBattingStats = ({ leagueName }) => {
             </Box>
           </Grid>
           <Grid xs={12} sx={{ textAlign: "left" }}>
-            <FormControl sx={{ paddingRight: 1 }}>
+            <FormControl sx={{ paddingRight: 1, marginTop: 1 }}>
               <InputLabel id="demo-simple-select-label">Stat</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -121,7 +121,10 @@ const LeagueBattingStats = ({ leagueName }) => {
               </Select>
             </FormControl>
 
-            <FormControl variant="outlined" sx={{ paddingRight: 1 }}>
+            <FormControl
+              variant="outlined"
+              sx={{ paddingRight: 1, marginTop: 1 }}
+            >
               <InputLabel id="demo-simple-select-label">Season</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -152,7 +155,7 @@ const LeagueBattingStats = ({ leagueName }) => {
               </Select>
             </FormControl>
 
-            <FormControl>
+            <FormControl sx={{ marginTop: 1 }}>
               <InputLabel id="demo-simple-select-label">Against</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
