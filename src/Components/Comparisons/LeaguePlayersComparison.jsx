@@ -151,7 +151,7 @@ const LeaguePlayersComparison = ({
   return (
     <React.Fragment>
       {firstPlayer["player_id"] && secondPlayer["player_id"] ? (
-        <Box sx={{ padding: { xs: 2 }, paddingRight: { xs: 1, md: 2 } }}>
+        <Box sx={{ padding: { xs: 2 } }}>
           <Header
             title={generateComparisonHeaderTitle({
               firstPlayerName: firstPlayer["player_name"],

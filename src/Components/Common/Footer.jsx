@@ -30,8 +30,8 @@ export default function Footer() {
           Follow Us
         </Grid>
         <Grid item xs={12} style={{ textAlign: "center" }}>
-          <TwitterIcon color="primary" style={{ cursor: "pointer" }} />{" "}
-          <FacebookIcon color="primary" style={{ cursor: "pointer" }} />
+          <TwitterIcon style={{ color: "white", cursor: "pointer" }} />{" "}
+          <FacebookIcon style={{ color: "white", cursor: "pointer" }} />
         </Grid>
         <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
         <Grid item xs={12} style={{ textAlign: "center", color: "white" }}>

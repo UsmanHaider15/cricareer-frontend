@@ -112,7 +112,7 @@ const LeaguePlayerProfile = ({ history, leagueName, initialPlayerID }) => {
   return (
     <React.Fragment>
       {Object.keys(player).length ? (
-        <Box sx={{ padding: { xs: 2 }, paddingRight: { xs: 1, md: 2 } }}>
+        <Box sx={{ padding: { xs: 2 } }}>
           <Header
             title={getHeaderTitle({
               playerName: player["player_name"],

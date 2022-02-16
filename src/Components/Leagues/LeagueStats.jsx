@@ -39,14 +39,12 @@ const LeagueStats = ({ leagueName }) => {
   };
 
   return (
-    <Box sx={{ padding: { xs: 2 }, paddingRight: { xs: 0, md: 1 } }}>
+    <Box sx={{ padding: { xs: 2 } }}>
       <Header
         title={`${leagueName.toUpperCase()} Player's Batting and Bowling Averages`}
         description={`Most Runs, Most Fours, Most Sixes, Most Centuries, Best Batting Strike Rate, Best Batting Average in ${leagueName.toUpperCase()}, Most Wickets, Best Bowling Average, Best Bowling Economy, Best Bowling Strike Rate, Most Runs Conceded in ${leagueName.toUpperCase()}`}
       />
-      <Box sx={{ paddingRight: { xs: 2 } }}>
-        <Breadcrumb leagueName={leagueName} type="league" />
-      </Box>
+      <Breadcrumb leagueName={leagueName} type="league" />
 
       <Box sx={{ fontSize: { xs: 32, md: 48 }, fontWeight: "bolder" }}>
         {leagueNameLookup[leagueName]}
