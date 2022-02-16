@@ -26,13 +26,13 @@ export default function Footer() {
       }}
     >
       <Container maxWidth="sm" sx={{ paddingTop: 5, paddingBottom: 5 }}>
-        <Grid item xs={12} style={{ textAlign: "center", color: "white" }}>
+        {/* <Grid item xs={12} style={{ textAlign: "center", color: "white" }}>
           Follow Us
         </Grid>
         <Grid item xs={12} style={{ textAlign: "center" }}>
           <TwitterIcon style={{ color: "white", cursor: "pointer" }} />{" "}
           <FacebookIcon style={{ color: "white", cursor: "pointer" }} />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
         <Grid item xs={12} style={{ textAlign: "center", color: "white" }}>
           <Copyright />
