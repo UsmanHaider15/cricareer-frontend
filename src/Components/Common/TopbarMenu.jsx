@@ -11,7 +11,7 @@ import _ from "lodash";
 
 export default function TopbarMenu({ type, links }) {
   const location = useLocation();
-  const [btnLabel, setBtnLabel] = React.useState(`${_.capitalize(type)}s`);
+  const [btnLabel, setBtnLabel] = React.useState(_.capitalize(type));
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const [isActive, setIsActive] = React.useState(false);
@@ -28,7 +28,7 @@ export default function TopbarMenu({ type, links }) {
 
   useEffect(() => {
     if (!location.pathname.includes(type)) {
-      setBtnLabel(`${_.capitalize(type)}s`);
+      setBtnLabel(_.capitalize(type));
       setIsActive(false);
     } else {
       setBtnLabel(btnLabel);

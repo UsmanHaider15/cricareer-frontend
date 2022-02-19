@@ -51,9 +51,9 @@ const MenuToolbar = () => {
             }}
           >
             <Toolbar style={{ padding: 0, height: "100%" }}>
-              <TopbarMenu type="profile" links={profileLinks} />
-              <TopbarMenu type="league" links={LeagueLinks} />
-              <TopbarMenu type="comparison" links={comparisonsLinks} />
+              <TopbarMenu type="profiles" links={profileLinks} />
+              <TopbarMenu type="leagues" links={LeagueLinks} />
+              <TopbarMenu type="comparisons" links={comparisonsLinks} />
             </Toolbar>
           </Grid>
           <Grid item md={2} />
