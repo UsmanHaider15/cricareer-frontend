@@ -83,7 +83,7 @@ const LeagueBattingStats = ({
             ...newObj,
             player_name: {
               player_name: obj["player_name"],
-              link: `/profile/${leagueName}_profile?player_id=${obj["player_id"]}`,
+              link: `/profiles/${leagueName}_profile?player_id=${obj["player_id"]}`,
             },
           };
         });

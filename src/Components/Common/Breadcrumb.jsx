@@ -8,7 +8,7 @@ const Breadcrumb = ({ leagueName, type }) => {
     <Breadcrumbs
       aria-label="breadcrumb"
       sx={{
-        marginBottom: { xs: 4 },
+        marginBottom: { xs: 5 },
         backgroundColor: "#f5f5f5",
         display: "flex",
         justifyContent: "left",

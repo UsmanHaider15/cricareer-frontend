@@ -31,7 +31,7 @@ export const comparisonsLinks = [
     link: "/comparisons/t20_blast_comparison",
     leagueName: "t20_blast",
     firstPlayerID: "110",
-    secondPlayerID: "123",
+    secondPlayerID: "497",
   },
   {
     Component: LeaguePlayersComparison,
@@ -59,7 +59,7 @@ export const comparisonsLinks = [
     link: "/comparisons/super_smash_comparison",
     leagueName: "super_smash",
     firstPlayerID: "12",
-    secondPlayerID: "5",
+    secondPlayerID: "45",
   },
 ];
 

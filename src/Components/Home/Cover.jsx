@@ -10,7 +10,7 @@ const Cover = () => {
         <Box
           sx={{
             position: "relative",
-            backgroundColor: "#1c0561",
+            backgroundColor: "#141134",
             color: "white",
             height: 500,
             width: "100%",
