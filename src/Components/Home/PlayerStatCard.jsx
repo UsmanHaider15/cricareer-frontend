@@ -11,7 +11,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/ipl_profile?player_id=59",
+        player_url: "/profiles/ipl_profile?player_id=59",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/253802_headshot.png",
         player_name: "Virat Kohli",
@@ -19,7 +19,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/ipl_profile?player_id=23",
+        player_url: "/profiles/ipl_profile?player_id=23",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/49758_headshot.png",
         player_name: "SL Malinga",
@@ -34,7 +34,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/bbl_profile?player_id=137",
+        player_url: "/profiles/bbl_profile?player_id=137",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/326637_headshot.png",
         player_name: "CA Lynn",
@@ -42,7 +42,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/bbl_profile?player_id=66",
+        player_url: "/profiles/bbl_profile?player_id=66",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/398666_headshot.png",
         player_name: "SA Abbott",
@@ -57,7 +57,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/psl_profile?player_id=63",
+        player_url: "/profiles/psl_profile?player_id=63",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/348144_headshot.png",
         player_name: "Babar Azam",
@@ -65,7 +65,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/psl_profile?player_id=9",
+        player_url: "/profiles/psl_profile?player_id=9",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/43590_headshot.png",
         player_name: "Wahab Riaz",
@@ -80,7 +80,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/t20_blast_profile?player_id=110",
+        player_url: "/profiles/t20_blast_profile?player_id=110",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/23460_headshot.png",
         player_name: "LJ Wright",
@@ -88,7 +88,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/t20_blast_profile?player_id=281",
+        player_url: "/profiles/t20_blast_profile?player_id=281",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/310107_headshot.png",
         player_name: "DR Briggs",
@@ -103,7 +103,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/cpl_profile?player_id=19",
+        player_url: "/profiles/cpl_profile?player_id=19",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/53116_headshot.png",
         player_name: "LMP Simmons",
@@ -111,7 +111,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/cpl_profile?player_id=58",
+        player_url: "/profiles/cpl_profile?player_id=58",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/51439_headshot.png",
         player_name: "DJ Bravo",
@@ -126,7 +126,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/bpl_profile?player_id=62",
+        player_url: "/profiles/bpl_profile?player_id=62",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/56194_headshot.png",
         player_name: "Tamim Iqbal",
@@ -134,7 +134,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/bpl_profile?player_id=53",
+        player_url: "/profiles/bpl_profile?player_id=53",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/56143_headshot.png",
         player_name: "Shakib Al Hasan",
@@ -149,7 +149,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/lpl_profile?player_id=47",
+        player_url: "/profiles/lpl_profile?player_id=47",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/345821_headshot.png",
         player_name: "MD Gunathilaka",
@@ -157,7 +157,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/lpl_profile?player_id=21",
+        player_url: "/profiles/lpl_profile?player_id=21",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/784379_headshot.png",
         player_name: "PWH de Silva",
@@ -172,7 +172,7 @@ const playerStats = [
     stats: [
       {
         label: "Most Runs",
-        player_url: "/profile/super_smash_profile?player_id=12",
+        player_url: "/profiles/super_smash_profile?player_id=12",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/379140_headshot.png",
         player_name: "DP Conway",
@@ -180,7 +180,7 @@ const playerStats = [
       },
       {
         label: "Most Wickets",
-        player_url: "/profile/super_smash_profile?player_id=66",
+        player_url: "/profiles/super_smash_profile?player_id=66",
         avatar_url:
           "https://cricareer.s3.ap-south-1.amazonaws.com/avatars/854909_headshot.png",
         player_name: "BM Tickner",
