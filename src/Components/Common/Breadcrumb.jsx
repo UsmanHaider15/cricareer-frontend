@@ -8,7 +8,7 @@ const Breadcrumb = ({ leagueName, type }) => {
     <Breadcrumbs
       aria-label="breadcrumb"
       sx={{
-        marginBottom: { xs: 2 },
+        marginBottom: { xs: 4 },
         backgroundColor: "#f5f5f5",
         display: "flex",
         justifyContent: "left",
@@ -17,7 +17,7 @@ const Breadcrumb = ({ leagueName, type }) => {
       }}
     >
       <Link to="/">Home</Link>
-      <Link to={`/${type}/${leagueName}_${type}`}>
+      <Link to={`/${type}s/${leagueName}_${type}`}>
         {getFormattedPageName({ leagueName, type })}
       </Link>
     </Breadcrumbs>
