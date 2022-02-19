@@ -198,14 +198,14 @@ export default function PlayerStatCard() {
           <Grid key={idx} item xs={12}>
             <Box
               sx={{
-                fontSize: { xs: 30, xl: 42 },
+                fontSize: { xs: 30, md: 48 },
                 mt: 4,
                 textDecoration: "none",
               }}
             >
               <Link
                 to={`/league/${playerStat.leagueName}_league`}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 {" "}
                 {playerStat.fullLeagueName}

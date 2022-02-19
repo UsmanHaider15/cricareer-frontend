@@ -6,6 +6,7 @@ import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import TopbarMenu from "./TopbarMenu";
 import { comparisonsLinks, profileLinks, LeagueLinks } from "../../config";
+import Grid from "@mui/material/Grid";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -33,17 +34,30 @@ HideOnScroll.propTypes = {
 const MenuToolbar = () => {
   return (
     <HideOnScroll>
-      <AppBar style={{ backgroundColor: "white", color: "gray" }}>
-        <Toolbar
-          sx={{
-            display: { xs: "flex", md: "inherit" },
-            justifyContent: { xs: "space-around", md: "normal" },
-          }}
-        >
-          <TopbarMenu type="profile" links={profileLinks} />
-          <TopbarMenu type="league" links={LeagueLinks} />
-          <TopbarMenu type="comparison" links={comparisonsLinks} />
-        </Toolbar>
+      <AppBar
+        style={{
+          backgroundColor: "#170451",
+        }}
+      >
+        <Grid container>
+          <Grid item md={2} />
+          <Grid
+            item
+            xs={12}
+            md={8}
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "space-around", md: "normal" },
+            }}
+          >
+            <Toolbar style={{ padding: 0, height: "100%" }}>
+              <TopbarMenu type="profile" links={profileLinks} />
+              <TopbarMenu type="league" links={LeagueLinks} />
+              <TopbarMenu type="comparison" links={comparisonsLinks} />
+            </Toolbar>
+          </Grid>
+          <Grid item md={2} />
+        </Grid>
       </AppBar>
     </HideOnScroll>
   );

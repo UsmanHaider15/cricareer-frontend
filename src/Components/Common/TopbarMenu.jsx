@@ -40,8 +40,13 @@ export default function TopbarMenu({ type, links }) {
     <div>
       <MenuButton
         sx={{
-          color: isActive ? "#170451" : "gray",
+          color: isActive ? "#170451" : "white",
+          backgroundColor: isActive ? "#f2bc94" : "#170451",
           fontWeight: "bold",
+
+          ":hover": {
+            backgroundColor: isActive ? "#f2bc94" : "#170451",
+          },
         }}
         aria-controls="simple-menu"
         aria-haspopup="true"

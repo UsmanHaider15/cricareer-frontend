@@ -56,8 +56,8 @@ function App() {
               <Home />
             </Route>
             <Grid container spacing={1} sx={{ paddingTop: { xs: 6, md: 8 } }}>
-              <Grid item xs={0} md={3} />
-              <Grid item xs={12} md={6}>
+              <Grid item xs={0} md={2} />
+              <Grid item xs={12} md={8}>
                 <Paper>
                   {profileLinks.map(
                     ({ link, Component, leagueName, playerID }, idx) => (
@@ -98,7 +98,7 @@ function App() {
                   ))}
                 </Paper>
               </Grid>
-              <Grid item xs={0} md={3}></Grid>
+              <Grid item xs={0} md={2}></Grid>
             </Grid>
             <Route path="/sitemap.txt" onEnter={reload} />
           </Switch>
