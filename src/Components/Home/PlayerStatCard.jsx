@@ -204,7 +204,7 @@ export default function PlayerStatCard() {
               }}
             >
               <Link
-                to={`/league/${playerStat.leagueName}_league`}
+                to={`/leagues/${playerStat.leagueName}_league`}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 {" "}
