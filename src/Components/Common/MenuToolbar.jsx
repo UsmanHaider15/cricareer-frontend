@@ -36,7 +36,7 @@ const MenuToolbar = () => {
     <HideOnScroll>
       <AppBar
         style={{
-          backgroundColor: "#170451",
+          backgroundColor: "#111827",
         }}
       >
         <Grid container>

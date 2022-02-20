@@ -32,7 +32,7 @@ const TableView = ({ data, excludedKeys }) => {
             </Box>
             <Box
               style={{
-                backgroundColor: "#170451",
+                backgroundColor: "#111827",
                 color: "#eee6e0",
                 display: "flex",
                 justifyContent: "center",

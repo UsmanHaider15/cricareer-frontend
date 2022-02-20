@@ -40,12 +40,12 @@ export default function TopbarMenu({ type, links }) {
     <div>
       <MenuButton
         sx={{
-          color: isActive ? "#170451" : "white",
-          backgroundColor: isActive ? "#f2bc94" : "#170451",
+          color: isActive ? "#111827" : "white",
+          backgroundColor: isActive ? "#f2bc94" : "#111827",
           fontWeight: "bold",
 
           ":hover": {
-            backgroundColor: isActive ? "#f2bc94" : "#170451",
+            backgroundColor: isActive ? "#f2bc94" : "#111827",
           },
         }}
         aria-controls="simple-menu"
@@ -66,7 +66,7 @@ export default function TopbarMenu({ type, links }) {
           <Link
             key={idx}
             to={link}
-            style={{ textDecoration: "none", color: "#170451" }}
+            style={{ textDecoration: "none", color: "#111827" }}
           >
             <MenuItem
               sx={{ textDecoration: "none" }}

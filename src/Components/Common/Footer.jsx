@@ -22,7 +22,7 @@ export default function Footer() {
       style={{
         width: "100%",
         boxShadow: "5px 10px ",
-        backgroundColor: "#170451",
+        backgroundColor: "#111827",
       }}
     >
       <Container maxWidth="sm" sx={{ paddingTop: 5, paddingBottom: 5 }}>

@@ -37,7 +37,7 @@ function LeagueEnhancedTableHead(props) {
                     textAlign: "right",
                   }),
 
-              backgroundColor: "#170451",
+              backgroundColor: "#111827",
               color: "white",
               padding: { xs: 1 },
 

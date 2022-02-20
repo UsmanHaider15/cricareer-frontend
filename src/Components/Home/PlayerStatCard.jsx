@@ -199,6 +199,7 @@ export default function PlayerStatCard() {
             <Box
               sx={{
                 fontSize: { xs: 30, md: 48 },
+                fontWeight: "bold",
                 mt: 4,
                 textDecoration: "none",
               }}

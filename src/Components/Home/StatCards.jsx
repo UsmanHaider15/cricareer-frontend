@@ -50,14 +50,14 @@ export default function StatCards() {
             >
               <Box
                 component="span"
-                sx={{ color: "#170451", fontSize: { xs: 38, xl: 48 } }}
+                sx={{ color: "#111827", fontSize: { xs: 38, xl: 48 } }}
               >
                 {stat.value}
               </Box>
               <Box
                 component="span"
                 sx={{
-                  color: "#170451",
+                  color: "#111827",
                   fontSize: { xs: 24, xl: 30 },
                 }}
               >
