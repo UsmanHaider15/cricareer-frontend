@@ -50,14 +50,23 @@ function App() {
         <CssBaseline />
         <MenuToolbar />
 
-        <div className="App" style={{ paddingBottom: 50 }}>
+        <div className="App">
           <Switch>
             <Route path="/" exact>
               <Home />
             </Route>
-            <Grid container spacing={1} sx={{ paddingTop: { xs: 6, md: 8 } }}>
-              <Grid item xs={0} md={2} />
-              <Grid item xs={12} md={8}>
+            <Grid
+              container
+              spacing={1}
+              sx={{
+                paddingTop: { xs: 6, md: 8 },
+                paddingTop: 10,
+                paddingBottom: 5,
+                backgroundColor: "#f0f0f0",
+              }}
+            >
+              <Grid item xs={0} md={2} sx={{ backgroundColor: "#f0f0f0" }} />
+              <Grid item xs={12} md={8} sx={{ paddingLeft: 0 }}>
                 <Paper>
                   {profileLinks.map(
                     ({ link, Component, leagueName, playerID }, idx) => (
@@ -98,7 +107,7 @@ function App() {
                   ))}
                 </Paper>
               </Grid>
-              <Grid item xs={0} md={2}></Grid>
+              <Grid item xs={0} md={2} sx={{ backgroundColor: "#f0f0f0" }} />
             </Grid>
             <Route path="/sitemap.txt" onEnter={reload} />
           </Switch>
