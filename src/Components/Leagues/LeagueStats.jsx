@@ -46,7 +46,7 @@ const LeagueStats = ({ leagueName }) => {
       />
       <Breadcrumb leagueName={leagueName} type="league" />
 
-      <Box sx={{ fontSize: { xs: 32, md: 48 }, fontWeight: "bolder" }}>
+      <Box sx={{ fontSize: { xs: 36, md: 56 }, fontWeight: "bolder" }}>
         {leagueNameLookup[leagueName]}
       </Box>
       <Grid container spacing={1}>
