@@ -12,7 +12,7 @@ const Cover = () => {
             position: "relative",
             backgroundColor: "#111827",
             color: "white",
-            height: 500,
+            height: 400,
             width: "100%",
             display: "flex",
             flexDirection: "column",
@@ -20,10 +20,10 @@ const Cover = () => {
             zIndex: -10,
           }}
         >
-          <Typography variant="h3" component="div" gutterBottom>
+          <Typography variant="h2" component="div">
             CRICAREER
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="h4">
             World's Best Cricket Leagues Statistics Site
           </Typography>
         </Box>
