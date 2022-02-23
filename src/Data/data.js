@@ -186,6 +186,17 @@ export const league_teams = {
   ],
 };
 
+export const leagueNameLookup = {
+  lpl: "Lanka Premier League",
+  psl: "Pakistan Super League",
+  ipl: "Indian Premier League",
+  cpl: "Caribbean Premier League",
+  bbl: "Big Bash League",
+  bpl: "Bangladesh Premier League",
+  t20_blast: "T20 Blast League",
+  super_smash: "Super Smash League",
+};
+
 export const league_seasons = {
   ipl: [
     { season_number: 1, year: 2008, label: "IPL 2008" },

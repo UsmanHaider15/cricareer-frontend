@@ -5,17 +5,7 @@ import LeagueBattingStats from "./LeagueBattingStats";
 import LeagueBowlingStats from "./LeagueBowlingStats";
 import { useLocation, useHistory } from "react-router-dom";
 import Header from "Components/Common/Header";
-
-const leagueNameLookup = {
-  lpl: "Lanka Premier League",
-  psl: "Pakistan Super League",
-  ipl: "Indian Premier League",
-  cpl: "Caribbean Premier League",
-  bbl: "Big Bash League",
-  bpl: "Bangladesh Premier League",
-  t20_blast: "T20 Blast League",
-  super_smash: "Super Smash League",
-};
+import { leagueNameLookup } from "Data/data";
 
 // A custom hook that builds on useLocation to parse
 // the query string for you.

@@ -1,15 +1,19 @@
-import { league_teams } from "Data/data";
+import { league_teams, leagueNameLookup } from "Data/data";
 
-export const getHeaderTitle = ({ playerName, leagueName }) =>
-  `${playerName}'s Batting and Bowling Averages in ${leagueName.toUpperCase()}`;
+export const getHeaderTitle = ({ playerName, leagueName }) => {
+  const formattedLeagueName = `${
+    leagueNameLookup[leagueName]
+  } (${leagueName.toUpperCase()})`;
 
-export const getHeaderDescription = ({
-  playerName,
-  leagueName,
-}) => `Get Details of ${playerName}'s batting and bowling averages in any season of ${leagueName.toUpperCase()} against teams like${humanifyLeagueTeams(
-  leagueName
-)} 
-   as well.`;
+  return `${playerName}'s Batting and Bowling statistics in ${formattedLeagueName}`;
+};
+
+export const getHeaderDescription = ({ playerName, leagueName }) => {
+  const formattedLeagueName = `${
+    leagueNameLookup[leagueName]
+  } (${leagueName.toUpperCase()})`;
+  return `${playerName} total runs scored in ${formattedLeagueName}. ${playerName} batting strike rate in ${formattedLeagueName}. ${playerName} batting average in ${formattedLeagueName}. ${playerName} total wickets taken in ${formattedLeagueName}. ${playerName} bowling economy in ${formattedLeagueName}. ${playerName} bowling average in ${formattedLeagueName}. ${playerName} bowling strike rate in ${formattedLeagueName}.`;
+};
 
 export const generateComparisonHeaderTitle = ({
   firstPlayerName,
